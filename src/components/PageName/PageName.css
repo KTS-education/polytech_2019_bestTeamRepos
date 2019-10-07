@@ -1,0 +1,10 @@
+.nameContainer{
+    display: flex;
+    align-items: center;
+  justify-content: center;
+}
+
+.nameContainer h1{
+    display: block;
+    width: 150px;
+}
