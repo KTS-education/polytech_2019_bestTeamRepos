@@ -1,0 +1,16 @@
+.Container{
+  height: 90px;
+  display: flex;
+  align-items: center;
+}
+
+.Container .text{
+  text-decoration: none;
+  color: #329eff;
+  font-size: 15px;
+  margin-left: 10px;
+}
+
+.Container img{
+  height: 50px;
+}

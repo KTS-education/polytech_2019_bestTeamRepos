@@ -1,6 +1,6 @@
 import React from 'react';
 import './Main.css';
-import MainButton from '../../components/MainButton';
+import Header from '../../components/Header';
 import SearchInput from '../../components/SearchInput';
 import PageName from '../../components/PageName';
 import logo from '../../img/wishlist.png';
@@ -22,9 +22,9 @@ class Main extends React.Component{
         
         return(
             <div className="container">
+                <Header />
                 <PageName name="Wishlist" logoPath={ logoPath } />
-                <MainButton textButton="Перейти" />
-                <SearchInput />
+                <SearchInput  />
             </div>
         )
     };

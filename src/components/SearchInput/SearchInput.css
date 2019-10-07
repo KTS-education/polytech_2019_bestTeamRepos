@@ -1,10 +1,12 @@
 .searchContainer{
-    width: 500px;
-    margin: 5px;
+    width: 100%;
+    margin: 60px auto;
 }
 
 .inpt{
-    width: 500px;
+    display: block;
+    width: 42%;
+    margin: 0 auto;
     height: 50px;
     border-radius: 25px;
     border: solid 1px #dddddd;

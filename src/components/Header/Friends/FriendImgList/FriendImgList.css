@@ -1,0 +1,12 @@
+.Container{
+    margin-left: -20px;
+}
+.Container ul li{
+    display: inline-block;
+    margin-right:-20px; 
+    position: relative;
+}
+
+.Container ul li:nth-child(1){z-index: 3;}
+.Container ul li:nth-child(2){z-index: 2;}
+.Container ul li:nth-child(3){z-index: 1;}
