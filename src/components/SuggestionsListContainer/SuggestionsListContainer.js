@@ -113,7 +113,7 @@ class SuggestionsListContainer extends React.Component{
             )
         } else {
             return (
-                <NoResults text = {'Нет предложений'} />
+                <NoResults text = {'Кажется, товаров не найдено'} />
             )
         }
 

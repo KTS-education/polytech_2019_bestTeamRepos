@@ -1,12 +1,16 @@
 import React from 'react';
 import './NoResults.css';
+// import from '../../src/img/noResults.png';
 
 class NoResults extends React.Component {
     render() {
         const { text } = this.props;
 
         return (
-            <p>{ text }</p>
+            <div>
+                <img  />
+                <p>{ text }</p>
+            </div>
         )
     }
 }
