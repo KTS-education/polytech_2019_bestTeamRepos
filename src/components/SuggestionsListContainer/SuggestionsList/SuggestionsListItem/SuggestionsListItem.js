@@ -25,5 +25,3 @@ class SuggestionsListItem extends React.Component {
 }
 
 export default SuggestionsListItem;
-
-/* <Button text="Добавить в избранное"/> */

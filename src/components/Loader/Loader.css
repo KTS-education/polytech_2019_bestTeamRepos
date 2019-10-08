@@ -1,0 +1,30 @@
+.oval {
+    /* width: 30px;
+    height: 30px;
+    border-style: solid;
+    border-width: 4px;
+    border-image-source: linear-gradient(to bottom, #7dc4ff, #6700ff);
+    -webkit-border-image-source: linear-gradient(to bottom, #7dc4ff, #6700ff);
+    -webkit-border-image-slice: 1;
+    -webkit-border-width: 4px;
+    border-image-slice: 1;
+    border-radius: 50%; */
+    display: inline-block;
+  }
+
+  .oval::after {
+    content: " ";
+    display: block;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    border: 7px solid;
+    border-color: transparent #15a78a transparent;
+  }
+
+  .loaderContainer {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+  }

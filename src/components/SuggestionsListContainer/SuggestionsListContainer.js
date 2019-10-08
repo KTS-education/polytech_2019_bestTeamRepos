@@ -1,17 +1,17 @@
 import React from 'react';
 import SuggestionsList from './SuggestionsList';
+import SectionName from './SectionName';
 import NoResults from '../NoResults';
 import './SuggestionsListContainer.css';
 
 import p1 from '../../img/products/1.jpg';
 import p2 from '../../img/products/2.jpg';
 import p3 from '../../img/products/3.jpg';
-import popularEmoji from '../../img/popular.png';
 
 // import PropTypes from 'prop-types';
 
 // Компонент-контейнер - работа с Redux, реализуют loading, error и другую логику
-class SuggestionsListContainer extends React.Component{
+class SuggestionsListContainer extends React.Component {
 
     constructor() {
         super();
@@ -111,8 +111,8 @@ class SuggestionsListContainer extends React.Component{
         if (suggestions.length) {
             return (
                 <div>
-                    <h2 className = "listTitle">Популярное <img className="emoji" src = { popularEmoji } alt = 'emoji fo popular products' /></h2>
-                    <SuggestionsList suggestions={suggestions}/>
+                    <SectionName />
+                    <SuggestionsList suggestions={suggestions}/>      
                 </div>
             )
         } else {
@@ -122,7 +122,7 @@ class SuggestionsListContainer extends React.Component{
         }
 
         
-    };
+    }
 
 }
 
