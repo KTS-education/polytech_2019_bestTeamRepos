@@ -1,6 +1,6 @@
 import React from 'react';
 import './NoResults.css';
-// import from '../../src/img/noResults.png';
+import noResults from '../../../src/img/noResults.png';
 
 class NoResults extends React.Component {
     render() {
@@ -8,7 +8,7 @@ class NoResults extends React.Component {
 
         return (
             <div>
-                <img  />
+                <img className="emoji" src = { noResults } />
                 <p>{ text }</p>
             </div>
         )

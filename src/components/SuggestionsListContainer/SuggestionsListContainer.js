@@ -1,7 +1,7 @@
 import React from 'react';
 import SuggestionsList from './SuggestionsList';
 import SectionName from './SectionName';
-import NoResults from '../NoResults';
+import Loader from '../Loader';
 import './SuggestionsListContainer.css';
 
 import p1 from '../../img/products/1.jpg';
@@ -117,7 +117,7 @@ class SuggestionsListContainer extends React.Component {
             )
         } else {
             return (
-                <NoResults text = {'Кажется, товаров не найдено'} />
+                <Loader />
             )
         }
 
