@@ -1,5 +1,4 @@
 import React from "react";
-// import PropTypes from 'prop-types';
 
 import FriendImgList from "./FriendImgList";
 
@@ -10,10 +9,6 @@ import f3 from "../../../img/accounts/friends/friend3.png";
 import "./Friends.css";
 
 class Friends extends React.Component {
-  static propTypes = {};
-
-  static defaultProps = {};
-
   render() {
     return (
       <div className="Header-Friends-Container">
