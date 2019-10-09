@@ -2,10 +2,10 @@ import React from 'react';
 import SuggestionsList from './SuggestionsList';
 import SectionName from './SectionName';
 import Loader from '../Loader';
-import './SuggestionsListContainer.css';
 import p1 from '../../img/products/1.jpg';
 import p2 from '../../img/products/2.jpg';
 import p3 from '../../img/products/3.jpg';
+import './SuggestionsListContainer.css';
 
 // Компонент-контейнер - работа с Redux, реализуют loading, error и другую логику
 class SuggestionsListContainer extends React.Component {

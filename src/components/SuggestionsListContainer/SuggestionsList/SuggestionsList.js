@@ -1,7 +1,7 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import SuggestionsListItem from './SuggestionsListItem';
 import './SuggestionsList.css';
-import PropTypes from 'prop-types';
 
 // Презентационный компонент, который умеет только отображать данные
 class SuggestionsList extends React.Component {
