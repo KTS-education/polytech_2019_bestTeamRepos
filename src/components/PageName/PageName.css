@@ -7,7 +7,7 @@
 
 .PageName__Name {
   display: block;
-  width: 150px;
+  width: auto;
   margin: 5px;
   font-size: 40px;
   font-weight: 600;
