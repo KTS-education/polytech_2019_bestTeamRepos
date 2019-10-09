@@ -1,5 +1,3 @@
-@import url("../../../../styles/constants.css");
-
 .HeaderFriends {
   margin-left: calc(var(--standard-margin) * (-1));
   display: flex;

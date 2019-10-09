@@ -1,5 +1,6 @@
 import React from "react";
 
+import "@constantcss/constants.css";
 import "./SearchInput.css";
 
 class SearchInput extends React.Component {

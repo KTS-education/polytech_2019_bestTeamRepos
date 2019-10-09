@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import "@constantcss/constants.css";
 import "./FriendImgList.css";
 
 class FriendImgList extends React.Component {

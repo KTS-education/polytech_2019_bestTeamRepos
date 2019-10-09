@@ -1,8 +1,8 @@
 import React from "react";
 import "./Main.css";
-import Header from "../../components/Header";
-import SearchInput from "../../components/SearchInput";
-import PageName from "../../components/PageName";
+import Header from "@components/Header";
+import SearchInput from "@components/SearchInput";
+import PageName from "@components/PageName";
 import logo from "../../img/wishlist.png";
 import PropTypes from "prop-types";
 
