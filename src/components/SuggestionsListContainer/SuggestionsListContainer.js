@@ -3,12 +3,9 @@ import SuggestionsList from './SuggestionsList';
 import SectionName from './SectionName';
 import Loader from '../Loader';
 import './SuggestionsListContainer.css';
-
 import p1 from '../../img/products/1.jpg';
 import p2 from '../../img/products/2.jpg';
 import p3 from '../../img/products/3.jpg';
-
-// import PropTypes from 'prop-types';
 
 // Компонент-контейнер - работа с Redux, реализуют loading, error и другую логику
 class SuggestionsListContainer extends React.Component {
@@ -100,7 +97,6 @@ class SuggestionsListContainer extends React.Component {
         product_description: 'Мобильный телефон Apple iPhone XR 256GB (желтый)',
       }],
       // suggestions: []
-
     };
   }
 
@@ -109,7 +105,7 @@ class SuggestionsListContainer extends React.Component {
     if (suggestions.length) {
       return (
         <div>
-          <SectionName />
+          <SectionName title="Популярное" />
           <SuggestionsList suggestions={suggestions} />
         </div>
       );
