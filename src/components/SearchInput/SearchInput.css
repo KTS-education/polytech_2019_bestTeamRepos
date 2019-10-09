@@ -1,3 +1,5 @@
+@import url("../../styles/constants.css");
+
 .Search {
   width: 100%;
   margin: 60px auto;
@@ -9,9 +11,9 @@
   margin: 0 auto;
   height: 50px;
   border-radius: 25px;
-  border: solid 1px #dddddd;
+  border: solid 1px var(--border-color);
   padding-left: 25px;
   outline: none;
-  font-size: 16px;
+  font-size: var(--standard-font);
   font-weight: normal;
 }

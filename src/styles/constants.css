@@ -1,0 +1,11 @@
+:root {
+  --standard-margin: 20px;
+
+  --max-z-index: 5;
+
+  --standard-font: 16px;
+
+  --link-color: #329eff;
+
+  --border-color: #dddddd;
+}

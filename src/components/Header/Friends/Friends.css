@@ -1,3 +1,5 @@
+@import url("../../../styles/constants.css");
+
 .Header-Friends-Container {
   height: 90px;
   display: flex;
@@ -6,6 +8,6 @@
 
 .Header-Friends-Container__Text {
   text-decoration: none;
-  color: #329eff;
-  font-size: 15px;
+  color: var(--link-color);
+  font-size: var(--standard-font);
 }

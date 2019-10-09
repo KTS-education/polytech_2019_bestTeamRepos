@@ -1,3 +1,5 @@
+@import url("../../../styles/constants.css");
+
 .Your-Account {
   height: 90px;
   display: flex;
@@ -10,7 +12,7 @@
 
 .Your-Account__text {
   text-decoration: none;
-  color: #329eff;
-  font-size: 15px;
+  color: var(--link-color);
+  font-size: var(--standard-font);
   margin-left: 10px;
 }
