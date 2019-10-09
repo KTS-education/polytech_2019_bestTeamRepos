@@ -9,7 +9,7 @@ class Header extends React.Component {
   render() {
     return (
       <div className="HeaderContainer">
-        <YourAccount name="Антон" surname="Чащин" />
+        <YourAccount Name="Антон" Surname="Чащин" />
         <Friends />
       </div>
     );

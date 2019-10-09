@@ -9,7 +9,7 @@
   margin: 0 auto;
   height: 50px;
   border-radius: 25px;
-  border: solid 1px var(--border-color);
+  border: solid 1px var(--global-color-border-gray);
   padding-left: 25px;
   outline: none;
   font-size: var(--standard-font);

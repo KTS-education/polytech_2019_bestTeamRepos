@@ -2,11 +2,10 @@ import React from "react";
 
 import FriendImgList from "./FriendImgList";
 
-import f1 from "../../../img/accounts/friends/friend2.png";
-import f2 from "../../../img/accounts/friends/friend1.png";
-import f3 from "../../../img/accounts/friends/friend3.png";
+import f1 from "@img/accounts/friends/friend2.png";
+import f2 from "@img/accounts/friends/friend1.png";
+import f3 from "@img/accounts/friends/friend3.png";
 
-import "@constantcss/constants.css";
 import "./Friends.css";
 
 class Friends extends React.Component {

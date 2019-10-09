@@ -1,10 +1,13 @@
 import React from "react";
-import "./Main.css";
+import PropTypes from "prop-types";
+
 import Header from "@components/Header";
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
-import logo from "../../img/wishlist.png";
-import PropTypes from "prop-types";
+
+import Logo from "@img/wishlist.png";
+
+import "./Main.css";
 
 class Main extends React.Component {
   static propTypes = {
@@ -12,16 +15,16 @@ class Main extends React.Component {
   };
 
   static defaultProps = {
-    logoPath: logo
+    LogoPath: Logo
   };
 
   render() {
-    const { logoPath } = this.props;
+    const { LogoPath } = this.props;
 
     return (
       <div className="Main-container">
         <Header />
-        <PageName name="Wishlist" logoPath={logoPath} />
+        <PageName Name="Wishlist" LogoPath={LogoPath} />
         <SearchInput />
       </div>
     );

@@ -13,7 +13,7 @@
   font-weight: 600;
 }
 
-.PageName__logo {
+.PageName__Logo {
   height: 100%;
-  margin-left: 10px;
+  margin-left: calc(var(--standard-margin) / 2);
 }

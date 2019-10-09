@@ -1,11 +1,26 @@
 :root {
   --standard-margin: 20px;
 
-  --max-z-index: 5;
+  --max-z-index: 2147483638;
 
   --standard-font: 16px;
 
-  --link-color: #329eff;
+  --global-color-link-blue: #329eff;
 
-  --border-color: #dddddd;
+  --global-color-border-gray: #dddddd;
+
+  --global-color-bg-white: #ffffff;
+
+  --global-button-width-md: 200px;
+  --global-button-height-md: 40px;
+
+  --global-main-btn-bg: linear-gradient(11.31deg, #7dc4ff 0%, #6700ff 99.51%);
+
+  --global-main-btn-bg-hover: linear-gradient(
+    191.31deg,
+    #7dc4ff 0%,
+    #7dc4ff 100%
+  );
+
+  --global-main-btn-bg-active: #6700ff;
 }

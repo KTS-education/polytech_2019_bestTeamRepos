@@ -1,30 +1,29 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import logo from "@img/accounts/your/account-photo.png";
+import Logo from "@img/accounts/your/account-photo.png";
 
-import "@constantcss/constants.css";
 import "./YourAccount.css";
 
 class YourAccount extends React.Component {
   static propTypes = {
-    name: PropTypes.string.isRequired,
-    surname: PropTypes.string.isRequired,
-    logoPath: PropTypes.string
+    Name: PropTypes.string.isRequired,
+    Surname: PropTypes.string.isRequired,
+    LogoPath: PropTypes.string
   };
 
   static defaultProps = {
-    logoPath: logo
+    LogoPath: Logo
   };
 
   render() {
-    const { name, surname, logoPath } = this.props;
+    const { Name, Surname, LogoPath } = this.props;
 
     return (
       <div className="Your-Account">
-        <img src={logoPath} className="Your-Account__photo" alt="logo" />
+        <img src={LogoPath} className="Your-Account__photo" alt="logo" />
         <a href="/" className="Your-Account__text">
-          {name} {surname}
+          {Name} {Surname}
         </a>
       </div>
     );

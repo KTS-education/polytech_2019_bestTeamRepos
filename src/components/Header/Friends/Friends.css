@@ -6,6 +6,6 @@
 
 .Header-Friends-Container__Text {
   text-decoration: none;
-  color: var(--link-color);
+  color: var(--global-color-link-blue);
   font-size: var(--standard-font);
 }

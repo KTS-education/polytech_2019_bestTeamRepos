@@ -3,25 +3,25 @@
   margin: 5px;
 }
 .ButtonContainer__Button {
-  width: 200px;
-  height: 40px;
-  background: linear-gradient(11.31deg, #7dc4ff 0%, #6700ff 99.51%);
+  width: var(--global-button-width-md);
+  height: var(--global-button-height-md);
+  background: var(--global-main-btn-bg);
   border-radius: 21px;
   border: none;
-  outline: none !important;
-  font-size: 14px;
+  outline: none;
+  font-size: var(--standard-font);
   line-height: 16px;
   align-items: center;
   text-align: center;
-  color: #ffffff;
+  color: var(--global-color-bg-white);
 
   cursor: pointer;
 }
 
 .ButtonContainer__Button:hover {
-  background: linear-gradient(191.31deg, #7dc4ff 0%, #7dc4ff 100%);
+  background: var(--global-main-btn-bg-hover);
 }
 
 .ButtonContainer__Button:active {
-  background: #6700ff;
+  background: var(--global-main-btn-bg-active);
 }

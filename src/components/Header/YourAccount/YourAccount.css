@@ -10,7 +10,7 @@
 
 .Your-Account__text {
   text-decoration: none;
-  color: var(--link-color);
+  color: var(--global-color-link-blue);
   font-size: var(--standard-font);
-  margin-left: 10px;
+  margin-left: calc(var(--standard-margin) / 2);
 }
