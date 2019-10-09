@@ -1,7 +1,7 @@
 import React from 'react';
-import './SectionName.css';
 import PropTypes from 'prop-types';
-import popularEmoji from '../../../img/popular.png';
+import popularEmoji from '@img/popular.png';
+import './SectionName.css';
 
 class SectionName extends React.Component {
 

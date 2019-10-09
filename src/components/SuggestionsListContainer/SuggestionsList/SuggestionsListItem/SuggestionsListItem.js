@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainButton from '../../../MainButton';
+import MainButton from '@components/MainButton';
 import './SuggestionsListItem.css';
 
 class SuggestionsListItem extends React.Component {
