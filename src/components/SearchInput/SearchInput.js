@@ -1,30 +1,20 @@
-import React from 'react';
-import './SearchInput.css';
+import React from "react";
 // import PropTypes from 'prop-types';
 
-class SearchInput extends React.Component{
+import "./SearchInput.css";
 
-    static propTypes = {
+class SearchInput extends React.Component {
+  static propTypes = {};
 
-      };
+  static defaultProps = {};
 
-
-    static defaultProps = {
-
-      };
-
-    render(){
-      
-
-
-
-        return(
-          <div className="searchContainer">
-              <input type="text" className="inpt"></input>
-          </div>
-        )
-    };
-
+  render() {
+    return (
+      <div className="searchContainer">
+        <input type="text" className="inpt"></input>
+      </div>
+    );
+  }
 }
 
 export default SearchInput;

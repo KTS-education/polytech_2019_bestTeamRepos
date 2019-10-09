@@ -1,33 +1,24 @@
-import React from 'react';
-import './Header.css';
-import YourAccount from './YourAccount';
-import Friends from './Friends';
+import React from "react";
 // import PropTypes from 'prop-types';
-// import logo from '../../img/logo.svg';
 
-class Header extends React.Component{
+import YourAccount from "./YourAccount";
+import Friends from "./Friends";
 
-    static propTypes = {
+import "./Header.css";
 
-      };
+class Header extends React.Component {
+  static propTypes = {};
 
+  static defaultProps = {};
 
-    static defaultProps = {
-
-      };
-
-    render(){
-
-
-
-        return(
-          <div className="headerContainer">
-            <YourAccount name="Антон" surname="Чащин"/>
-            <Friends />
-          </div>
-        )
-    };
-
+  render() {
+    return (
+      <div className="headerContainer">
+        <YourAccount name="Антон" surname="Чащин" />
+        <Friends />
+      </div>
+    );
+  }
 }
 
 export default Header;
