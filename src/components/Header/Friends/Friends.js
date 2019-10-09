@@ -20,7 +20,7 @@ class Friends extends React.Component {
         <a href="/" className="Header-Friends-Container__Text">
           Мои друзья
         </a>
-        <FriendImgList friend1={f1} friend2={f2} friend3={f3} />
+        <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );
   }

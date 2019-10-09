@@ -5,20 +5,18 @@ import "./FriendImgList.css";
 
 class FriendImgList extends React.Component {
   static propTypes = {
-    friend1: PropTypes.string,
-    friend2: PropTypes.string,
-    friend3: PropTypes.string
+    friendsImages: PropTypes.array.isRequired
   };
 
   render() {
-    const { friend1, friend2, friend3 } = this.props;
+    const friends = this.props.friendsImages;
 
     return (
       <div className="HeaderFriends">
         <ul className="HeaderFriends__ImgList">
           <li className="HeaderFriends__ImgItem">
             <img
-              src={friend1}
+              src={friends[0]}
               className="HeaderFriends__FriendImg"
               alt="FriendImg1"
             />
@@ -26,7 +24,7 @@ class FriendImgList extends React.Component {
 
           <li className="HeaderFriends__ImgItem">
             <img
-              src={friend2}
+              src={friends[1]}
               className="HeaderFriends__FriendImg"
               alt="FriendImg2"
             />
@@ -34,7 +32,7 @@ class FriendImgList extends React.Component {
 
           <li className="HeaderFriends__ImgItem">
             <img
-              src={friend3}
+              src={friends[2]}
               className="HeaderFriends__FriendImg"
               alt="FriendImg3"
             />
