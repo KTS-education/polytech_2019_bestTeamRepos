@@ -1,3 +1,3 @@
-import FriendImgList from './FriendImgList';
+import FriendImgList from "./FriendImgList";
 
 export default FriendImgList;

@@ -10,8 +10,8 @@ class SearchInput extends React.Component {
 
   render() {
     return (
-      <div className="searchContainer">
-        <input type="text" className="inpt"></input>
+      <div className="Search">
+        <input type="text" className="Search__Input-line"></input>
       </div>
     );
   }

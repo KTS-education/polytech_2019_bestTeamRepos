@@ -20,9 +20,9 @@ class YourAccount extends React.Component {
     const { name, surname, logoPath } = this.props;
 
     return (
-      <div className="Container">
-        <img src={logoPath} className="Page-logo" alt="logo" />
-        <a href="/" className="text">
+      <div className="Your-Account">
+        <img src={logoPath} className="Your-Account__photo" alt="logo" />
+        <a href="/" className="Your-Account__text">
           {name} {surname}
         </a>
       </div>

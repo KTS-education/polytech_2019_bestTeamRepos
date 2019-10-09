@@ -16,8 +16,8 @@ class Friends extends React.Component {
 
   render() {
     return (
-      <div className="Container">
-        <a href="/" className="text">
+      <div className="Header-Friends-Container">
+        <a href="/" className="Header-Friends-Container__Text">
           Мои друзья
         </a>
         <FriendImgList friend1={f1} friend2={f2} friend3={f3} />

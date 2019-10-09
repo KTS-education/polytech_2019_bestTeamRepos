@@ -16,8 +16,8 @@ class MainButton extends React.Component {
     const { textButton } = this.props;
 
     return (
-      <div className="buttonContainer">
-        <button className="btn">{textButton}</button>
+      <div className="ButtonContainer">
+        <button className="ButtonContainer__Button">{textButton}</button>
       </div>
     );
   }

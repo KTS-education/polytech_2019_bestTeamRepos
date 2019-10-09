@@ -1,8 +1,8 @@
-.buttonContainer {
+.ButtonContainer {
   width: 200px;
   margin: 5px;
 }
-.btn {
+.ButtonContainer__Button {
   width: 200px;
   height: 40px;
   background: linear-gradient(11.31deg, #7dc4ff 0%, #6700ff 99.51%);
@@ -18,10 +18,10 @@
   cursor: pointer;
 }
 
-.btn:hover {
+.ButtonContainer__Button:hover {
   background: linear-gradient(191.31deg, #7dc4ff 0%, #7dc4ff 100%);
 }
 
-.btn:active {
+.ButtonContainer__Button:active {
   background: #6700ff;
 }

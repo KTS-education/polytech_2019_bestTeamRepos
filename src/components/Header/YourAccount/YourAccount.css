@@ -1,16 +1,16 @@
-.Container {
+.Your-Account {
   height: 90px;
   display: flex;
   align-items: center;
 }
 
-.Container .text {
+.Your-Account__photo {
+  height: 50px;
+}
+
+.Your-Account__text {
   text-decoration: none;
   color: #329eff;
   font-size: 15px;
   margin-left: 10px;
-}
-
-.Container img {
-  height: 50px;
 }

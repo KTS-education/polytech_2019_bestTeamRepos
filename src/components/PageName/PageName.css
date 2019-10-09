@@ -1,19 +1,19 @@
-.nameContainer{
+.PageName {
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.nameContainer h1{
-    display: block;
-    width: 150px;
-    margin: 5px;
-    font-size: 40px;
-    font-weight: 600;
+.PageName__Name {
+  display: block;
+  width: 150px;
+  margin: 5px;
+  font-size: 40px;
+  font-weight: 600;
 }
 
-.nameContainer img{
+.PageName__logo {
   height: 100%;
   margin-left: 10px;
 }

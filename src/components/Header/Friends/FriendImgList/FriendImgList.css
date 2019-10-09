@@ -1,12 +1,24 @@
-.Container{
-    margin-left: -20px;
+.HeaderFriends {
+  margin-left: -20px;
+  display: flex;
+  align-items: center;
 }
-.Container ul li{
-    display: inline-block;
-    margin-right:-20px; 
-    position: relative;
+.HeaderFriends__ImgItem {
+  display: inline-block;
+  margin-right: -20px;
+  position: relative;
 }
 
-.Container ul li:nth-child(1){z-index: 3;}
-.Container ul li:nth-child(2){z-index: 2;}
-.Container ul li:nth-child(3){z-index: 1;}
+.HeaderFriends__ImgItem:nth-child(1) {
+  z-index: 3;
+}
+.HeaderFriends__ImgItem:nth-child(2) {
+  z-index: 2;
+}
+.HeaderFriends__ImgItem:nth-child(3) {
+  z-index: 1;
+}
+
+.HeaderFriends__FriendImg {
+  height: 50px;
+}

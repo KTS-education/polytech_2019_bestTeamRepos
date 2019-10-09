@@ -20,9 +20,9 @@ class PageName extends React.Component {
     const { name, logoPath } = this.props;
 
     return (
-      <div className="nameContainer">
-        <h1>{name}</h1>
-        <img src={logoPath} className="Page-logo" alt="logo" />
+      <div className="PageName">
+        <h1 className="PageName__Name">{name}</h1>
+        <img src={logoPath} className="PageName__logo" alt="logo" />
       </div>
     );
   }
