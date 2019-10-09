@@ -10,10 +10,10 @@ class SectionName extends React.Component {
   };
 
   render() {
-    const { title } = this.props.title;
+    const { title } = this.props;
 
     return (
-      <h2 className="listTitle">
+      <h2 className="list-title">
         { title }
         <img className="emoji" src={ popularEmoji } alt="emoji fo popular products" />
       </h2>

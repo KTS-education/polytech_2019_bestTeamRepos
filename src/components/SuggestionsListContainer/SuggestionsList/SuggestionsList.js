@@ -14,7 +14,7 @@ class SuggestionsList extends React.Component {
         const suggestions = this.props.suggestions;
 
         return (
-            <ul className="suggestionsList">
+            <ul className="suggestions-list">
                 {  
                    suggestions.map(suggestion => {
                         return <SuggestionsListItem key={suggestion.product_id} suggestion={suggestion}/>

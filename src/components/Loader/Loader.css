@@ -12,7 +12,7 @@
     display: inline-block;
   }
 
-  .oval::after {
+  .container__loader::after {
     content: " ";
     display: block;
     width: 35px;
@@ -22,7 +22,7 @@
     border-color: transparent #15a78a transparent;
   }
 
-  .loaderContainer {
+  .container {
       display: flex;
       justify-content: center;
       align-items: center;

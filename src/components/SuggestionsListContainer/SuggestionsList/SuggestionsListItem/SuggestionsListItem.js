@@ -13,8 +13,8 @@ class SuggestionsListItem extends React.Component {
         const { product_description, product_id, product_img_href, product_price, product_title } = this.props.suggestion;
 
         return (
-            <li className="suggestionsListItem">
-                 <img className="suggestionImage" src={product_img_href} alt={product_title}/>
+            <li className="suggestions-list__item">
+                 <img className="item__image" src={product_img_href} alt={product_title}/>
                  <h3>{product_title}</h3> 
                  <p>{product_price}</p> 
                  <p>{product_description}</p>

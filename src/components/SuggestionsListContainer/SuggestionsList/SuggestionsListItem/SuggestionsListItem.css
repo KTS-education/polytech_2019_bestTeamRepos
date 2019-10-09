@@ -1,9 +1,9 @@
-.suggestionsListItem {
+.suggestions-list__item {
     box-sizing: border-box;
     width: 30%;
     margin-bottom: 20px;
 }
 
-.suggestionImage {
+.item__image {
     width: 90%;
 }
