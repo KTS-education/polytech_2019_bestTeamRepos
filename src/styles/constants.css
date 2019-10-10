@@ -11,16 +11,10 @@
 
   --global-color-bg-white: #ffffff;
 
-  --global-button-width-md: 200px;
-  --global-button-height-md: 40px;
+  --global-main-btn-padding: 15px 23px;
+  --global-main-btn-bg: 11.31deg, #7dc4ff 0%, #6700ff 99.51%;
 
-  --global-main-btn-bg: linear-gradient(11.31deg, #7dc4ff 0%, #6700ff 99.51%);
-
-  --global-main-btn-bg-hover: linear-gradient(
-    191.31deg,
-    #7dc4ff 0%,
-    #7dc4ff 100%
-  );
+  --global-main-btn-bg-hover: 191.31deg, #7dc4ff 0%, #7dc4ff 100%;
 
   --global-main-btn-bg-active: #6700ff;
 }

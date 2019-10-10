@@ -1,11 +1,8 @@
-.ButtonContainer {
-  width: 200px;
-  margin: 5px;
-}
-.ButtonContainer__Button {
-  width: var(--global-button-width-md);
-  height: var(--global-button-height-md);
-  background: var(--global-main-btn-bg);
+.Button {
+  width: auto;
+  height: auto;
+  padding: var(--global-main-btn-padding);
+  background: linear-gradient(var(--global-main-btn-bg));
   border-radius: 21px;
   border: none;
   outline: none;
@@ -14,14 +11,14 @@
   align-items: center;
   text-align: center;
   color: var(--global-color-bg-white);
-
+  margin: 5px;
   cursor: pointer;
 }
 
-.ButtonContainer__Button:hover {
-  background: var(--global-main-btn-bg-hover);
+.Button:hover {
+  background: linear-gradient(var(--global-main-btn-bg-hover));
 }
 
-.ButtonContainer__Button:active {
+.Button:active {
   background: var(--global-main-btn-bg-active);
 }

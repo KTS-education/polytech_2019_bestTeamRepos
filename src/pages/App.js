@@ -5,12 +5,12 @@ import Main from "./Main";
 import "@constantcss/constants.css";
 import "./App.css";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Main />
     </div>
   );
-}
+};
 
 export default App;

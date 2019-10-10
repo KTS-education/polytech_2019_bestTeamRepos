@@ -1,24 +1,24 @@
 import React from "react";
 import PropTypes from "prop-types";
-
+import classNames from "classnames";
 import "./MainButton.css";
 
 class MainButton extends React.Component {
   static propTypes = {
-    textButton: PropTypes.string
+    children: PropTypes.element,
+    className: PropTypes.string
   };
 
   static defaultProps = {
-    textButton: "Главная кнопка"
+    children: "Кнопка",
+    className: null
   };
 
   render() {
-    const { textButton } = this.props;
+    const { children, className } = this.props;
 
     return (
-      <div className="ButtonContainer">
-        <button className="ButtonContainer__Button">{textButton}</button>
-      </div>
+      <button className={classNames("Button", className)}>{children}</button>
     );
   }
 }
