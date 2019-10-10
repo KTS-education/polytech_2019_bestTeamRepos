@@ -7,22 +7,22 @@ import "./PageName.css";
 
 class PageName extends React.Component {
   static propTypes = {
-    Name: PropTypes.string,
-    LogoPath: PropTypes.string
+    name: PropTypes.string,
+    logoPath: PropTypes.string
   };
 
   static defaultProps = {
-    Name: "default name",
-    LogoPath: Logo
+    name: "default name",
+    logoPath: Logo
   };
 
   render() {
-    const { Name, LogoPath } = this.props;
+    const { name, logoPath } = this.props;
 
     return (
       <div className="PageName">
-        <h1 className="PageName__Name">{Name}</h1>
-        <img src={LogoPath} className="PageName__Logo" alt="logo" />
+        <h1 className="PageName__Name">{name}</h1>
+        <img src={logoPath} className="PageName__Logo" alt="logo" />
       </div>
     );
   }

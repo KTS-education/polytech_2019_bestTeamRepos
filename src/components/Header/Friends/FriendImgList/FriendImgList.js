@@ -7,7 +7,7 @@ import "./FriendImgList.css";
 
 class FriendImgList extends React.Component {
   static propTypes = {
-    friendsImages: PropTypes.array
+    friendsImages: PropTypes.array.isRequired
   };
 
   render() {
@@ -17,8 +17,8 @@ class FriendImgList extends React.Component {
       return (
         <div className="HeaderFriends">
           <ul className="HeaderFriends__ImgList">
-            {friends.map(friend => {
-              return <FriendImage ImageSrc={friend} />;
+            {friends.map(item => {
+              return <FriendImage imageSrc={item} key={item} />;
             })}
           </ul>
         </div>

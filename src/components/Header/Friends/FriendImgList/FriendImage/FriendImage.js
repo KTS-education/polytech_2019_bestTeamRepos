@@ -3,20 +3,23 @@ import PropTypes from "prop-types";
 
 import "./FriendImage.css";
 
-class FriendImgList extends React.Component {
+class FriendImage extends React.Component {
   static propTypes = {
-    ImageSrc: PropTypes.string
+    imageSrc: PropTypes.string
   };
 
   render() {
-    const img = this.props.ImageSrc;
-
+    const { imageSrc } = this.props;
     return (
       <li className="HeaderFriends__ImgItem">
-        <img src={img} className="HeaderFriends__FriendImg" alt="FriendImg" />
+        <img
+          src={imageSrc}
+          className="HeaderFriends__FriendImg"
+          alt="FriendImg"
+        />
       </li>
     );
   }
 }
 
-export default FriendImgList;
+export default FriendImage;

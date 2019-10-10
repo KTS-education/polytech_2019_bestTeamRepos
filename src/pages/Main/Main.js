@@ -15,16 +15,16 @@ class Main extends React.Component {
   };
 
   static defaultProps = {
-    LogoPath: Logo
+    logoPath: Logo
   };
 
   render() {
-    const { LogoPath } = this.props;
+    const { logoPath } = this.props;
 
     return (
       <div className="Main-container">
         <Header />
-        <PageName Name="Wishlist" LogoPath={LogoPath} />
+        <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput />
       </div>
     );
