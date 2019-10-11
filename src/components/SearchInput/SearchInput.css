@@ -1,17 +1,17 @@
-.searchContainer{
-    width: 100%;
-    margin: 60px auto;
+.Search {
+  width: 100%;
+  margin: 60px auto;
 }
 
-.inpt{
-    display: block;
-    width: 42%;
-    margin: 0 auto;
-    height: 50px;
-    border-radius: 25px;
-    border: solid 1px #dddddd;
-    padding-left: 25px;
-    outline: none;
-    font-size: 16px;
-    font-weight: normal;
+.Search__Input-line {
+  display: block;
+  width: 42%;
+  margin: 0 auto;
+  height: 50px;
+  border-radius: 25px;
+  border: solid 1px var(--global-color-border-gray);
+  padding-left: 25px;
+  outline: none;
+  font-size: var(--standard-font);
+  font-weight: normal;
 }

@@ -1,9 +1,11 @@
-.Container{
+.Header-Friends-Container {
   height: 90px;
+  display: flex;
+  align-items: center;
 }
 
-.Container .text{
+.Header-Friends-Container__Text {
   text-decoration: none;
-  color: #329eff;
-  font-size: 15px;
+  color: var(--global-color-link-blue);
+  font-size: var(--standard-font);
 }

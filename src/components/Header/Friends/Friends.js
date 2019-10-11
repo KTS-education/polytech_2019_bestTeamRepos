@@ -1,40 +1,24 @@
-import React from 'react';
-import './Friends.css';
-import FriendImgList from './FriendImgList';
-// import PropTypes from 'prop-types';
-import f1 from '../../../img/accounts/friends/friend2.png';
-import f2 from '../../../img/accounts/friends/friend1.png';
-import f3 from '../../../img/accounts/friends/friend3.png';
+import React from "react";
 
-class Friends extends React.Component{
+import FriendImgList from "./FriendImgList";
 
-    static propTypes = {
+import f1 from "@img/accounts/friends/friend2.png";
+import f2 from "@img/accounts/friends/friend1.png";
+import f3 from "@img/accounts/friends/friend3.png";
 
-      };
+import "./Friends.css";
 
-
-    static defaultProps = {
-
-      };
-
-    render(){
-
-
-
-        return(
-          <div className="Container">
-          <a href="" className="text">
-            Мои друзья
-          </a>
-          <FriendImgList 
-          friend1={ f1 }
-          friend2={ f2 }
-          friend3={ f3 }
-          />
-          </div>
-        )
-    };
-
+class Friends extends React.Component {
+  render() {
+    return (
+      <div className="Header-Friends-Container">
+        <a href="/" className="Header-Friends-Container__Text">
+          Мои друзья
+        </a>
+        <FriendImgList friendsImages={[f1, f2, f3]} />
+      </div>
+    );
+  }
 }
 
 export default Friends;
