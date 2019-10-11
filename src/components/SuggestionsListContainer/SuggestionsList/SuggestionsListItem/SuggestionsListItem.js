@@ -11,7 +11,7 @@ class SuggestionsListItem extends React.Component {
     };
 
     render() {
-        const { product_description, product_id, product_img_href, product_price, product_title } = this.props.suggestion;
+        const { product_description, product_img_href, product_price, product_title } = this.props.suggestion;
 
         return (
             <li className="suggestions-list__item">
