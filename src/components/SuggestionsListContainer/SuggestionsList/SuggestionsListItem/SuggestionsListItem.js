@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import classNames from "classnames";
 import MainButton from '@components/MainButton';
 import './SuggestionsListItem.css';
 
@@ -18,7 +19,7 @@ class SuggestionsListItem extends React.Component {
                  <h3>{product_title}</h3> 
                  <p>{product_price}</p> 
                  <p>{product_description}</p>
-                 <MainButton textButton={'Добавить в избранное'}/>
+                 <MainButton className="center" children={'Добавить в избранное'}/>
             </li>
         )
     }

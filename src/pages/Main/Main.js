@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import Header from "@components/Header";
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
+import SuggestionsListContainer from "@components/SuggestionsListContainer"
 
 import Logo from "@img/wishlist.png";
 
@@ -26,6 +27,7 @@ class Main extends React.Component {
         <Header />
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput />
+        <SuggestionsListContainer />
       </div>
     );
   }
