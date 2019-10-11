@@ -1,17 +1,21 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import classNames from "classnames";
 import MainButton from '@components/MainButton';
 import './SuggestionsListItem.css';
 
 class SuggestionsListItem extends React.Component {
 
     static propTypes = {
-        suggestion: PropTypes.object.isRequired
+        suggestion: PropTypes.shape({
+            product_description: PropTypes.string.isRequired,
+            product_img_href: PropTypes.string.isRequired,
+            product_price: PropTypes.number.isRequired,
+            product_title: PropTypes.string.isRequired
+        })
     };
 
     render() {
-        const { product_description, product_img_href, product_price, product_title } = this.props.suggestion;
+        const {product_description, product_img_href, product_price, product_title} = this.props.suggestion;
 
         return (
             <li className="suggestions-list__item">
