@@ -18,7 +18,7 @@ export default [{
 },
 {
   product_id: 3,
-  product_img_href: p3,
+  product_img_href: p2,
   product_title: 'iPhone XR 256GB',
   product_price: 70000,
   product_description: 'Мобильный телефон Apple iPhone XR 256GB (желтый)',
