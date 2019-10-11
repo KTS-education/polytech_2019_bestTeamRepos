@@ -17,9 +17,9 @@ class SuggestionsListItem extends React.Component {
             <li className="suggestions-list__item">
                  <img className="item__image" src={product_img_href} alt={product_title}/>
                  <h3>{product_title}</h3> 
-                 <p>{product_price}</p> 
+                 <p>{product_price}<span> &#8381;</span></p> 
                  <p>{product_description}</p>
-                 <MainButton className="center" children={'Добавить в избранное'}/>
+                 <MainButton className="item__button" children={'Добавить в избранное'}/>
             </li>
         )
     }

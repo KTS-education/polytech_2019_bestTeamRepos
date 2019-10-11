@@ -8,7 +8,7 @@
     width: 90%;
 }
 
-.center {
-    margin: 0 auto;
+.item__button {
     display: block;
+    width: 100%;
 }
