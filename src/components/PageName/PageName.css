@@ -1,0 +1,19 @@
+.PageName {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.PageName__Name {
+  display: block;
+  width: auto;
+  margin: 5px;
+  font-size: 40px;
+  font-weight: 600;
+}
+
+.PageName__Logo {
+  height: 100%;
+  margin-left: calc(var(--standard-margin) / 2);
+}
