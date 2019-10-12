@@ -29,3 +29,4 @@ yarn-error.log*
 .eslintrc.js
 config-overrides.js
 yarn.lock
+package-lock.json
