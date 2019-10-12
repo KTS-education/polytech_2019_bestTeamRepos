@@ -14,7 +14,7 @@ class SectionName extends React.Component {
 
     return (
       <h2 className="list-title">
-        <span className="title">{title}</span>
+        <span>{title}</span>
         <img className="emoji" src={popularEmoji} alt="emoji fo popular products" />
       </h2>
     );
