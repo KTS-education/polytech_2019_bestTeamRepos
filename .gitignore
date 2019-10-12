@@ -5,15 +5,11 @@
 /.pnp
 .pnp.js
 
-
 # testing
 /coverage
 
 # production
 /build
-
-# IDE
-.idea/
 
 # misc
 .DS_Store
@@ -21,12 +17,9 @@
 .env.development.local
 .env.test.local
 .env.production.local
+.idea/
 
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-.eslintrc.js
-config-overrides.js
-yarn.lock
-package-lock.json
