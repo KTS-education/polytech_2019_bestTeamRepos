@@ -1,3 +1,3 @@
-import PageName from './PageName';
+import PageName from "./PageName";
 
 export default PageName;

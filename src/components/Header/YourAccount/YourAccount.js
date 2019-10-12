@@ -1,38 +1,29 @@
-import React from 'react';
-import './YourAccount.css';
-import PropTypes from 'prop-types';
-import logo from '../../../img/accounts/your/account-photo.png';
+import React from "react";
+import PropTypes from "prop-types";
 
-class YourAccount extends React.Component{
+import "./YourAccount.css";
 
-    static propTypes = {
-      name: (PropTypes.string).isRequired,
-      surname: (PropTypes.string).isRequired,
+class YourAccount extends React.Component {
+  static propTypes = {
+    AccountInfoObject: PropTypes.shape({
+      name: PropTypes.string,
+      surname: PropTypes.string,
       logoPath: PropTypes.string
-      };
-      
-      static defaultProps = {
-        logoPath: logo
-      };
+    })
+  };
 
-    render(){
-      const { name, surname, logoPath } = this.props;
+  render() {
+    const { name, surname, logoPath } = this.props.AccountInfoObject;
 
-
-        return(
-          <div className="Container">
-            <img
-                src={ logoPath }
-                className="Page-logo"
-                alt="logo"
-              />
-            <a href="" className="text">
-            {name} {surname}
-          </a>
-          </div>
-        )
-    };
-
+    return (
+      <div className="Your-Account">
+        <img src={logoPath} className="Your-Account__photo" alt="logo" />
+        <a href="/" className="Your-Account__text">
+          {name} {surname}
+        </a>
+      </div>
+    );
+  }
 }
 
 export default YourAccount;

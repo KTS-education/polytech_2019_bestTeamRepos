@@ -1,54 +1,30 @@
-import React from 'react';
-import './FriendImgList.css';
-import PropTypes from 'prop-types';
+import React from "react";
+import PropTypes from "prop-types";
 
-class FriendImgList extends React.Component{
+import FriendImage from "./FriendImage";
 
-    static propTypes = {
-        friend1:PropTypes.string,
-        friend2:PropTypes.string,
-        friend3:PropTypes.string
-      };
+import "./FriendImgList.css";
 
+class FriendImgList extends React.Component {
+  static propTypes = {
+    friendsImages: PropTypes.array.isRequired
+  };
 
+  render() {
+    const friends = this.props.friendsImages;
 
-    render(){
-        const { friend1, friend2, friend3 } = this.props;
-
-
-        return(
-          <div className="Container">
-          <ul>
-            <li>
-                <img
-                    src={ friend1 }
-                    className="FriendImg"
-                    alt="FriendImg1"
-                  />
-            </li>
-
-
-            <li>
-                <img
-                    src={ friend2 }
-                    className="FriendImg"
-                    alt="FriendImg2"
-                  />
-            </li>
-
-
-            <li>
-                <img
-                    src={ friend3 }
-                    className="FriendImg"
-                    alt="FriendImg3"
-                  />
-            </li>
+    if (friends.length) {
+      return (
+        <div className="HeaderFriends">
+          <ul className="HeaderFriends__ImgList">
+            {friends.map(item => {
+              return <FriendImage imageSrc={item} key={item} />;
+            })}
           </ul>
-          </div>
-        )
-    };
-
+        </div>
+      );
+    }
+  }
 }
 
 export default FriendImgList;

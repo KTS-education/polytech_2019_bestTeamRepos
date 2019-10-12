@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import SuggestionsListItem from './SuggestionsListItem';
 import './SuggestionsList.css';
 
-// Презентационный компонент, который умеет только отображать данные
 class SuggestionsList extends React.Component {
     
     static propTypes = {
