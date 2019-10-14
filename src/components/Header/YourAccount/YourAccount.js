@@ -16,9 +16,9 @@ class YourAccount extends React.Component {
     const { name, surname, logoPath } = this.props.AccountInfoObject;
 
     return (
-      <div className="Your-Account">
-        <img src={logoPath} className="Your-Account__photo" alt="logo" />
-        <a href="/" className="Your-Account__text">
+      <div className="your-Account">
+        <img src={logoPath} className="your-Account__photo" alt="logo" />
+        <a href="/" className="your-Account__text">
           {name} {surname}
         </a>
       </div>

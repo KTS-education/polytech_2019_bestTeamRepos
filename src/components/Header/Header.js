@@ -10,7 +10,7 @@ import "./Header.css";
 class Header extends React.Component {
   render() {
     return (
-      <div className="HeaderContainer">
+      <div className="headerContainer">
         <YourAccount AccountInfoObject={AccountInfo} />
         <Friends />
       </div>

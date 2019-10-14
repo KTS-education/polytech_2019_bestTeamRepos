@@ -18,7 +18,7 @@ class MainButton extends React.Component {
     const { children, className } = this.props;
 
     return (
-      <button className={classNames("Button", className)}>{children}</button>
+      <button className={classNames("button", className)}>{children}</button>
     );
   }
 }

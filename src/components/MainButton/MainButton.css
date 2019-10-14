@@ -1,4 +1,4 @@
-.Button {
+.button {
   width: auto;
   height: auto;
   padding: var(--global-main-btn-padding);
@@ -15,10 +15,10 @@
   cursor: pointer;
 }
 
-.Button:hover {
+.button:hover {
   background: linear-gradient(var(--global-main-btn-bg-hover));
 }
 
-.Button:active {
+.button:active {
   background: var(--global-main-btn-bg-active);
 }

@@ -1,9 +1,9 @@
-.Search {
+.search {
   width: 100%;
   margin: 60px auto;
 }
 
-.Search__Input-line {
+.search__Input-line {
   display: block;
   width: 42%;
   margin: 0 auto;

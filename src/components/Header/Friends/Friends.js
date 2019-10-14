@@ -11,8 +11,8 @@ import "./Friends.css";
 class Friends extends React.Component {
   render() {
     return (
-      <div className="Header-Friends-Container">
-        <a href="/" className="Header-Friends-Container__Text">
+      <div className="header-Friends-Container">
+        <a href="/" className="header-Friends-Container__Text">
           Мои друзья
         </a>
         <FriendImgList friendsImages={[f1, f2, f3]} />

@@ -11,10 +11,10 @@ class FriendImage extends React.Component {
   render() {
     const { imageSrc } = this.props;
     return (
-      <li className="HeaderFriends__ImgItem">
+      <li className="headerFriends__ImgItem">
         <img
           src={imageSrc}
-          className="HeaderFriends__FriendImg"
+          className="headerFriends__FriendImg"
           alt="FriendImg"
         />
       </li>

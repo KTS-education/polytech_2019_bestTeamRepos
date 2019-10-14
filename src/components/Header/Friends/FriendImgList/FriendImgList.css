@@ -1,4 +1,4 @@
-.HeaderFriends {
+.headerFriends {
   margin-left: calc(var(--standard-margin) * (-1));
   display: flex;
   align-items: center;
