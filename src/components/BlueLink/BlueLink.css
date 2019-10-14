@@ -1,0 +1,20 @@
+.blueLink {
+  display: block;
+  text-decoration: none;
+  color: var(--global-color-link-blue);
+  font-size: var(--standard-font);
+
+  cursor: pointer;
+}
+
+.blueLink:hover {
+  color: #2a85d7;
+}
+
+.blueLink:active {
+  color: #2168a8;
+}
+
+.current {
+  color: #000;
+}

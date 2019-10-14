@@ -4,6 +4,7 @@
   margin-bottom: calc(var(--standard-margin) * 2);
   margin-left: calc(var(--standard-margin) * (-1));
   justify-content: center;
+  list-style-type: none;
 }
 
 .friendItem__Photo {

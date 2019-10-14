@@ -9,8 +9,5 @@
 }
 
 .your-Account__text {
-  text-decoration: none;
-  color: var(--global-color-link-blue);
-  font-size: var(--standard-font);
   margin-left: calc(var(--standard-margin) / 2);
 }

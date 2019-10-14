@@ -30,5 +30,17 @@ export default [
     name: "Сергей",
     surname: "Чернобровкин",
     logoPath: photo
+  },
+  {
+    id: 6,
+    name: "Сергей",
+    surname: "Чернобровкин",
+    logoPath: photo
+  },
+  {
+    id: 7,
+    name: "Сергей",
+    surname: "Чернобровкин",
+    logoPath: photo
   }
 ];

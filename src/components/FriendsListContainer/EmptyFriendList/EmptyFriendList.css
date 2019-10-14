@@ -1,0 +1,11 @@
+.noFriends {
+  width: 350px;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 25px;
+}
+
+.noFriends__Img {
+  margin: 0 auto;
+  height: 73px;
+}

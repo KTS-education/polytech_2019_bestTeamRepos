@@ -2,3 +2,18 @@
   width: 500px;
   margin: 0 auto;
 }
+
+.friendsListContainer__Ul {
+  padding: 0;
+}
+.friendsListContainer__Li {
+  list-style-type: none;
+}
+
+.noFriends {
+  margin-top: 130px;
+}
+
+.moreBtn {
+  margin: 20px auto;
+}

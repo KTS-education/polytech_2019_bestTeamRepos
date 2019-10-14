@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import BlueLink from "@components/BlueLink";
+
 import "./YourAccount.css";
 
 class YourAccount extends React.Component {
@@ -18,9 +20,11 @@ class YourAccount extends React.Component {
     return (
       <div className="your-Account">
         <img src={logoPath} className="your-Account__photo" alt="logo" />
-        <a href="/" className="your-Account__text">
-          {name} {surname}
-        </a>
+
+        <BlueLink
+          children={name + " " + surname}
+          className="your-Account__text"
+        />
       </div>
     );
   }

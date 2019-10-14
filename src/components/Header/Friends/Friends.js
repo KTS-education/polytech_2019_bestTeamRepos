@@ -2,6 +2,8 @@ import React from "react";
 
 import FriendImgList from "./FriendImgList";
 
+import BlueLink from "@components/BlueLink";
+
 import f1 from "@img/accounts/friends/friend2.png";
 import f2 from "@img/accounts/friends/friend1.png";
 import f3 from "@img/accounts/friends/friend3.png";
@@ -12,9 +14,10 @@ class Friends extends React.Component {
   render() {
     return (
       <div className="header-Friends-Container">
-        <a href="/" className="header-Friends-Container__Text">
+        <BlueLink children="Мои друзья" />
+        {/* <a href="/" className="header-Friends-Container__Text">
           Мои друзья
-        </a>
+        </a> */}
         <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );
