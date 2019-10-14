@@ -2,8 +2,9 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Header from "@components/Header";
-import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
+import SearchInput from "@components/SearchInput";
+import FriendsListContainer from "@components/FriendsListContainer";
 
 import Logo from "@img/friends.png";
 
@@ -26,6 +27,7 @@ class FriendList extends React.Component {
         <Header />
         <PageName name="Мои друзья" logoPath={LogoPath} />
         <SearchInput />
+        <FriendsListContainer />
       </div>
     );
   }

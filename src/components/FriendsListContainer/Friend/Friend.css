@@ -1,0 +1,33 @@
+.friendItem {
+  width: 100%;
+  display: flex;
+  margin-bottom: calc(var(--standard-margin) * 2);
+  margin-left: calc(var(--standard-margin) * (-1));
+  justify-content: center;
+}
+
+.friendItem__Photo {
+  height: 120px;
+}
+
+.friendItem__textPart {
+  margin-left: var(--standard-margin);
+}
+
+.friendItem__textPart__Ns {
+  font-size: 27px;
+}
+
+.friendItem__textPart__Ns__txt {
+  margin: 0;
+}
+
+.buttonSize {
+  margin-top: var(--standard-margin);
+  font-size: 12px;
+  padding: var(--global-main-btn-padding-sm);
+}
+
+.buttonSize_txt {
+  margin: 0;
+}
