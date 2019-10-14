@@ -23,7 +23,7 @@ class Main extends React.Component {
     const { logoPath } = this.props;
 
     return (
-      <div className="Main-container">
+      <div className="main-Container">
         <Header />
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput />

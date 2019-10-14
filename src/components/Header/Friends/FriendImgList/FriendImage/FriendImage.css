@@ -1,19 +1,19 @@
-.HeaderFriends__ImgItem {
+.headerFriends__ImgItem {
   display: inline-block;
   margin-right: calc(var(--standard-margin) * (-1));
   position: relative;
 }
 
-.HeaderFriends__ImgItem:nth-child(1) {
+.headerFriends__ImgItem:nth-child(1) {
   z-index: calc(var(--max-z-index) - 1);
 }
-.HeaderFriends__ImgItem:nth-child(2) {
+.headerFriends__ImgItem:nth-child(2) {
   z-index: calc(var(--max-z-index) - 2);
 }
-.HeaderFriends__ImgItem:nth-child(3) {
+.headerFriends__ImgItem:nth-child(3) {
   z-index: calc(var(--max-z-index) - 3);
 }
 
-.HeaderFriends__FriendImg {
+.headerFriends__FriendImg {
   height: 50px;
 }
