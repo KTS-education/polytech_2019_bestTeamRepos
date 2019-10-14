@@ -2,12 +2,12 @@ import React from "react";
 
 import "@constantcss/constants.css";
 import "./App.css";
-import FriendList from "./FriendList";
+import Main from "./Main";
 
 const App = () => {
   return (
     <div className="App">
-      <FriendList />
+      <Main />
     </div>
   );
 };
