@@ -1,3 +1,3 @@
-import UserAccountHeader from "@components/UserAccountHeader";
+import UserAccountHeader from "./UserAccountHeader";
 
 export default UserAccountHeader;

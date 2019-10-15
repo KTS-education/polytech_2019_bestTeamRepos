@@ -7,11 +7,9 @@
   border: none;
   outline: none;
   font-size: var(--standard-font);
-  line-height: 16px;
   align-items: center;
   text-align: center;
   color: var(--global-color-bg-white);
-  margin: 5px;
   cursor: pointer;
 }
 
