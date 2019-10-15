@@ -1,13 +1,17 @@
 import React from "react";
+import { Route } from "react-router-dom";
+
+import FriendList from "./FriendList";
+import Main from "./Main";
 
 import "@constantcss/constants.css";
 import "./App.css";
-import FriendList from "./FriendList";
 
 const App = () => {
   return (
     <div className="app">
-      <FriendList />
+      <Route exact path="/" component={Main} />
+      <Route path="/friends" component={FriendList} />
     </div>
   );
 };

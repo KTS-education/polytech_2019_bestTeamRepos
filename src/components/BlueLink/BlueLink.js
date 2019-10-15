@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 
 import "./BlueLink.css";
 
@@ -36,13 +37,14 @@ class BlueLink extends React.Component {
     const { href, children, className } = this.props;
 
     return (
-      <a
-        href={href}
-        className={classNames("blueLink", className, this.state.clicked)}
+      <NavLink
+        to={href}
+        className={classNames("blueLink", className)}
+        activeClassName="current"
         onClick={this.handleClick}
       >
         {children}
-      </a>
+      </NavLink>
     );
   }
 }
