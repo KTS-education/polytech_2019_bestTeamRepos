@@ -2,12 +2,12 @@ import React from "react";
 
 import "@constantcss/constants.css";
 import "./App.css";
-import Main from "./Main";
+import MyPage from "./MyPage";
 
 const App = () => {
   return (
     <div className="App">
-      <Main />
+      <MyPage />
     </div>
   );
 };
