@@ -18,9 +18,8 @@ class YourAccount extends React.Component {
     const { name, surname, logoPath } = this.props.AccountInfoObject;
 
     return (
-      <div className="your-Account">
-        <img src={logoPath} className="your-Account__photo" alt="logo" />
-
+      <div className="your-account">
+        <img src={logoPath} className="your-account__photo" alt="logo" />
         <BlueLink
           children={name + " " + surname}
           className="your-Account__text"

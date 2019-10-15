@@ -1,0 +1,16 @@
+.container__loader::after {
+  content: " ";
+  display: block;
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  border: 7px solid;
+  border-color: transparent #15a78a transparent;
+}
+
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+}

@@ -15,8 +15,8 @@ class FriendImgList extends React.Component {
 
     if (friends.length) {
       return (
-        <div className="headerFriends">
-          <ul className="headerFriends__ImgList">
+        <div className="header-friends">
+          <ul className="header-friends__img-list">
             {friends.map(item => {
               return <FriendImage imageSrc={item} key={item} />;
             })}

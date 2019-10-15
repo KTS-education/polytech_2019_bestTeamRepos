@@ -1,19 +1,19 @@
-.headerFriends__ImgItem {
+.header-friends__img-item {
   display: inline-block;
   margin-right: calc(var(--standard-margin) * (-1));
   position: relative;
 }
 
-.headerFriends__ImgItem:nth-child(1) {
+.header-friends__img-item:nth-child(1) {
   z-index: calc(var(--max-z-index) - 1);
 }
-.headerFriends__ImgItem:nth-child(2) {
+.header-friends__img-item:nth-child(2) {
   z-index: calc(var(--max-z-index) - 2);
 }
-.headerFriends__ImgItem:nth-child(3) {
+.header-friends__img-item:nth-child(3) {
   z-index: calc(var(--max-z-index) - 3);
 }
 
-.headerFriends__FriendImg {
+.img-item__friend-img {
   height: 50px;
 }

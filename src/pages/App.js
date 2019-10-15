@@ -6,7 +6,7 @@ import FriendList from "./FriendList";
 
 const App = () => {
   return (
-    <div className="App">
+    <div className="app">
       <FriendList />
     </div>
   );

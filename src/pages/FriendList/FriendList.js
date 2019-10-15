@@ -23,7 +23,7 @@ class FriendList extends React.Component {
     const { LogoPath } = this.props;
 
     return (
-      <div className="friendList-Container">
+      <div className="friend-list-container">
         <Header />
         <PageName name="Мои друзья" logoPath={LogoPath} />
         <SearchInput />

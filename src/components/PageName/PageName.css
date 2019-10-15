@@ -1,11 +1,11 @@
-.pageName {
+.page-name {
   height: 55px;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.pageName__Name {
+.page-name__name {
   display: block;
   width: auto;
   margin: 5px;
@@ -13,7 +13,7 @@
   font-weight: 600;
 }
 
-.pageName__Logo {
+.page-name__logo {
   height: 100%;
   margin-left: calc(var(--standard-margin) / 2);
 }

@@ -13,11 +13,11 @@ import "./Friends.css";
 class Friends extends React.Component {
   render() {
     return (
-      <div className="header-Friends-Container">
-        <BlueLink children="Мои друзья" />
-        {/* <a href="/" className="header-Friends-Container__Text">
+      <div className="header-friends-container">
+        <a href="/" className="header-friends-container__text">
           Мои друзья
-        </a> */}
+        </a>{" "}
+        */}
         <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );
