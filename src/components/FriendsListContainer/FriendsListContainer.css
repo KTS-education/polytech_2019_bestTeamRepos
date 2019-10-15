@@ -1,19 +1,19 @@
-.friendsListContainer {
+.friends-list-container {
   width: 500px;
   margin: 0 auto;
 }
 
-.friendsListContainer__Ul {
+.friends-list-container__ul {
   padding: 0;
 }
-.friendsListContainer__Li {
+.friends-list-container__Li {
   list-style-type: none;
 }
 
-.noFriends {
+.no-friends {
   margin-top: 130px;
 }
 
-.moreBtn {
+.more-btn {
   margin: 20px auto;
 }

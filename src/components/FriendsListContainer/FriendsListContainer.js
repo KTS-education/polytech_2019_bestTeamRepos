@@ -24,8 +24,8 @@ class FriendsListContainer extends React.Component {
   render() {
     if (FriendsInfo.length) {
       return (
-        <div className="friendsListContainer">
-          <ul className="friendsListContainer__Ul">
+        <div className="friends-list-container">
+          <ul className="friends-list-container__ul">
             {FriendsInfo.slice(0, this.state.visible).map(item => {
               return <Friend AccountInfoObject={item} key={item.id} />;
             })}
@@ -33,14 +33,14 @@ class FriendsListContainer extends React.Component {
           {this.state.visible < FriendsInfo.length && (
             <SecondaryButton
               children={<span>Показать ещё</span>}
-              className="moreBtn friendsListContainer__Li"
+              className="more-btn"
               actionHandler={this.loadmore}
             />
           )}
         </div>
       );
     } else {
-      return <EmptyFriendList className="noFriends" />;
+      return <EmptyFriendList className="no-friends" />;
     }
   }
 }
