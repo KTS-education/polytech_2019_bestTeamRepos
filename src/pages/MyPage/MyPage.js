@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import Header from "@components/Header";
+import UserAccountHeader from "@components/UserAccountHeader";
 
 import "./MyPage.css";
 
@@ -11,6 +12,7 @@ class MyPage extends React.Component {
         return (
             <div className="my-page-container">
                 <Header />
+                <UserAccountHeader />
             </div>
         )
     }
