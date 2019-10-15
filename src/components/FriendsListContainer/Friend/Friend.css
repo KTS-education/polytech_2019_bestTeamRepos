@@ -1,4 +1,4 @@
-.friendItem {
+.friend-item {
   width: 100%;
   display: flex;
   margin-bottom: calc(var(--standard-margin) * 2);
@@ -7,28 +7,28 @@
   list-style-type: none;
 }
 
-.friendItem__Photo {
+.friend-item__photo {
   height: 120px;
 }
 
-.friendItem__textPart {
+.friend-item__text-part {
   margin-left: var(--standard-margin);
 }
 
-.friendItem__textPart__Ns {
+.text-part__ns {
   font-size: 27px;
 }
 
-.friendItem__textPart__Ns__txt {
+.ns__txt {
   margin: 0;
 }
 
-.buttonSize {
+.button-size {
   margin-top: var(--standard-margin);
   font-size: 12px;
   padding: var(--global-main-btn-padding-sm);
 }
 
-.buttonSize_txt {
+.button-size__txt {
   margin: 0;
 }

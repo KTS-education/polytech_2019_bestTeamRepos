@@ -1,11 +1,11 @@
-.noFriends {
+.no-friends {
   width: 350px;
   margin: 0 auto;
   text-align: center;
   font-size: 25px;
 }
 
-.noFriends__Img {
+.no-friends__img {
   margin: 0 auto;
   height: 73px;
 }

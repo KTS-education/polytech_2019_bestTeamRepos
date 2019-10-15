@@ -19,8 +19,8 @@ class EmptyFriendList extends React.Component {
     const { className } = this.props;
 
     return (
-      <div className={classNames("noFriends", className)}>
-        <img src={Image} alt="sad" className="noFriends__Img"></img>
+      <div className={classNames("no-friends", className)}>
+        <img src={Image} alt="sad" className="no-friends__img"></img>
         <p>Кажется, у тебя нет друзей</p>
       </div>
     );

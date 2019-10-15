@@ -28,21 +28,21 @@ class Friend extends React.Component {
     const { name, surname, logoPath } = this.props.AccountInfoObject;
 
     return (
-      <li className="friendItem">
+      <li className="friend-item">
         <img
           src={logoPath}
-          className="friendItem__Photo"
+          className="friend-item__photo"
           alt="Friend pict"
         ></img>
-        <div className="friendItem__textPart">
-          <div className="friendItem__textPart__Ns">
-            <p className="friendItem__textPart__Ns__txt">
+        <div className="friend-item__text-part">
+          <div className="text-part__ns">
+            <p className="ns__txt">
               {name} {surname}
             </p>
           </div>
           <MainButton
-            children={<p className="buttonSize_txt">Узнать что подарить</p>}
-            className={"buttonSize"}
+            children={<p className="button-size__txt">Узнать что подарить</p>}
+            className={"button-size"}
             actionHandler={this.routeChange}
           />
         </div>
