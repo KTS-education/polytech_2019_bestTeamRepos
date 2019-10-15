@@ -3,7 +3,7 @@ import React from "react";
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
 
-import AccountInfo from "@components/YourAccountInfo/mock.js";
+import AccountInfo from "./YourAccountInfo/mock.js";
 
 import "./Header.css";
 
