@@ -22,7 +22,7 @@ class YourAccount extends React.Component {
         <img src={logoPath} className="your-account__photo" alt="logo" />
         <BlueLink
           children={name + " " + surname}
-          className="your-Account__text"
+          className="your-account__text"
         />
       </div>
     );

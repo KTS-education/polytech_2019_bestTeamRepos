@@ -14,10 +14,7 @@ class Friends extends React.Component {
   render() {
     return (
       <div className="header-friends-container">
-        <a href="/" className="header-friends-container__text">
-          Мои друзья
-        </a>{" "}
-        */}
+        <BlueLink href="/" children="Мои друзья" />
         <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );
