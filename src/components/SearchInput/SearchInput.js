@@ -6,7 +6,7 @@ class SearchInput extends React.Component {
   render() {
     return (
       <div className="search">
-        <input type="text" className="search__Input-line"></input>
+        <input type="text" className="search__input-line"></input>
       </div>
     );
   }

@@ -1,14 +1,14 @@
-.your-Account {
+.your-account {
   height: 90px;
   display: flex;
   align-items: center;
 }
 
-.your-Account__photo {
+.your-account__photo {
   height: 50px;
 }
 
-.your-Account__text {
+.your-account__text {
   text-decoration: none;
   color: var(--global-color-link-blue);
   font-size: var(--standard-font);

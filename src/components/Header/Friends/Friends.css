@@ -1,10 +1,10 @@
-.header-Friends-Container {
+.header-friends-container {
   height: 90px;
   display: flex;
   align-items: center;
 }
 
-.header-Friends-Container__Text {
+.header-friends-container__text {
   text-decoration: none;
   color: var(--global-color-link-blue);
   font-size: var(--standard-font);
