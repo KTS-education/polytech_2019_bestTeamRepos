@@ -4,7 +4,7 @@ import Friend from "./Friend";
 import EmptyFriendList from "./EmptyFriendList";
 
 import SecondaryButton from "@components/SecondaryButton";
-import FriendsInfo from "@components/YourFriendsInfo/mock.js";
+import FriendsInfo from "./YourFriendsInfo/mock.js";
 
 import "./FriendsListContainer.css";
 
