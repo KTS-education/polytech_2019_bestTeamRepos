@@ -6,21 +6,6 @@ import { NavLink } from "react-router-dom";
 import "./BlueLink.css";
 
 class BlueLink extends React.Component {
-  constructor(props) {
-    super();
-    this.handleClick = this.handleClick.bind(this);
-  }
-
-  state = {
-    clicked: ""
-  };
-
-  handleClick() {
-    this.setState({
-      clicked: "current"
-    });
-  }
-
   static propTypes = {
     href: PropTypes.string,
     children: PropTypes.node,
@@ -37,12 +22,7 @@ class BlueLink extends React.Component {
     const { href, children, className } = this.props;
 
     return (
-      <NavLink
-        to={href}
-        className={classNames("blueLink", className)}
-        activeClassName="current"
-        onClick={this.handleClick}
-      >
+      <NavLink to={href} className={classNames("blueLink", className)}>
         {children}
       </NavLink>
     );

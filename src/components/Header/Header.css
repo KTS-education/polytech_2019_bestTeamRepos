@@ -1,5 +1,7 @@
 .header-container {
-  width: 100%;
+  width: 80%;
+  margin: auto;
+  margin-top: var(--standard-margin);
   height: 90px;
 
   display: flex;

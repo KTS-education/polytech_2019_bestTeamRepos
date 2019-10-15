@@ -1,9 +1,21 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainButton from "@components/MainButton";
+import { withRouter } from "react-router-dom";
 import "./Friend.css";
 
 class Friend extends React.Component {
+  constructor(props) {
+    super(props);
+    this.routeChange = this.routeChange.bind(this);
+  }
+
+  routeChange(e) {
+    e.preventDefault();
+    let path = "/myfriendspage";
+    this.props.history.push(path);
+  }
+
   static propTypes = {
     AccountInfoObject: PropTypes.shape({
       name: PropTypes.string,
@@ -31,6 +43,7 @@ class Friend extends React.Component {
           <MainButton
             children={<p className="buttonSize_txt">Узнать что подарить</p>}
             className={"buttonSize"}
+            actionHandler={this.routeChange}
           />
         </div>
       </li>
@@ -38,4 +51,4 @@ class Friend extends React.Component {
   }
 }
 
-export default Friend;
+export default withRouter(Friend);

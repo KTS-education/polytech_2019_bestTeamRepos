@@ -6,7 +6,8 @@ import "./MainButton.css";
 class MainButton extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    className: PropTypes.string
+    className: PropTypes.string,
+    actionHandler: PropTypes.func
   };
 
   static defaultProps = {
@@ -15,10 +16,15 @@ class MainButton extends React.Component {
   };
 
   render() {
-    const { children, className } = this.props;
+    const { children, className, actionHandler } = this.props;
 
     return (
-      <button className={classNames("button", className)}>{children}</button>
+      <button
+        className={classNames("button", className)}
+        onClick={actionHandler}
+      >
+        {children}
+      </button>
     );
   }
 }
