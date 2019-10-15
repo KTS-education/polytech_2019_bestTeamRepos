@@ -9,7 +9,7 @@ class MyPage extends React.Component {
 
     render() {
         return (
-            <div className="my-page">
+            <div className="my-page-container">
                 <Header />
             </div>
         )
