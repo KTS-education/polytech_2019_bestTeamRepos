@@ -11,7 +11,8 @@ export default [
     product_description:
       'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256 ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
     booked: true,
-    forWho: "PERSON"
+    forWho: "Сергей Чернобровкин",
+    forWho_photo_href: ""
   },
   {
     product_id: 2,
@@ -21,7 +22,8 @@ export default [
     product_description:
       "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray",
     booked: false,
-    forWho: "PERSON"
+    forWho: "Дарья Попова",
+    forWho_photo_href: ""
   },
   {
     product_id: 3,
@@ -30,7 +32,8 @@ export default [
     product_price: 70000,
     product_description: "Мобильный телефон Apple iPhone XR 256GB (желтый)",
     booked: true,
-    forWho: "PERSON"
+    forWho: "Антон Павлов",
+    forWho_photo_href: ""
   }
 ];
 
