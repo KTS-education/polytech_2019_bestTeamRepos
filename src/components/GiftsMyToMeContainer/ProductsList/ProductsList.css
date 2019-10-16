@@ -4,7 +4,3 @@
     flex-wrap: wrap;
     justify-content: space-between;
 }
-
-.products-list > :last-child {
-    align-self: flex-start;
-}
