@@ -39,7 +39,7 @@ export default [
     booked: true
   },
   {
-    product_id: 3,
+    product_id: 5,
     product_img_href: p3,
     product_title: "iPhone XR 256GB",
     product_price: 70000,

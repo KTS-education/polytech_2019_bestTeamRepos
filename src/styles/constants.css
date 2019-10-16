@@ -7,14 +7,18 @@
 
   --global-color-link-blue: #329eff;
 
+  --global-color-link-blue-hover: #2a85d7;
+
+  --global-color-link-blue-active: #2168a8;
+
   --global-color-border-gray: #dddddd;
 
   --global-color-bg-white: #ffffff;
 
   --global-color-black: #000000;
 
-  --global-main-btn-padding: 15px 23px;
-  --global-main-btn-padding-sm: 10px 23px;
+  --global-main-btn-padding: 15px 20px;
+  --global-main-btn-padding-sm: 10px 20px;
 
   --global-main-btn-bg: 11.31deg, #7dc4ff 0%, #6700ff 99.51%;
 
@@ -27,6 +31,4 @@
   --global-second-btn-bg-hover: #e0fffd;
 
   --global-second-btn-bg-active: #e7e1ff;
-
-  --global-main-btn-padding: 10px 18px;
 }

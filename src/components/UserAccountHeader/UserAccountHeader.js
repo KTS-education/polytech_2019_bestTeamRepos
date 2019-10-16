@@ -16,7 +16,7 @@ class UserAccountHeader extends React.Component {
         <img
           src={logoPath}
           className="user-account-header__photo"
-          alt="user's photo"
+          alt="user's Avatar"
         />
         <div className="user-account-header__text-part">
           <div className="text-part__credentials">
@@ -53,17 +53,13 @@ class UserAccountHeader extends React.Component {
             />
           </div>
           <MainButton
-            children={<p className="button-size_txt">Поделиться</p>}
-            className={"button-size"}
+            children={<span>Поделиться</span>}
+            className={"button-share"}
           />
         </div>
       </div>
     );
   }
-}
-
-{
-  /* <img className="emoji" src={popularEmoji} alt="emoji fo popular products" /> */
 }
 
 export default UserAccountHeader;

@@ -41,8 +41,8 @@ class Friend extends React.Component {
             </p>
           </div>
           <MainButton
-            children={<p className="button-size__txt">Узнать что подарить</p>}
-            className={"button-size"}
+            children={<span>Узнать, что подарить</span>}
+            className={"button-learn"}
             actionHandler={this.routeChange}
           />
         </div>

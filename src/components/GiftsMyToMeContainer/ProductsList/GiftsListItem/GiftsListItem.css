@@ -1,19 +1,22 @@
 .gifts-list__item {
-    box-sizing: border-box;
-    width: 30%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    margin-top: 40px;
+  box-sizing: border-box;
+  width: 30%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin-top: 40px;
 }
 
-.button--delete {
-    display: block;
-    width: 100%;
+.button-delete {
+  padding: var(--global-main-btn-padding);
+  display: block;
+  width: 95%;
+  margin: 0 auto;
 }
 
 .item__group {
-    display: flex;
+  display: flex;
+  justify-content: center;
 }
 
 .booked {
@@ -21,6 +24,7 @@
     justify-content: center;
     align-items: center;
     width: 50px;
+    height: 50px;
     box-sizing: border-box;
     border-radius: 50%;
     margin: 0 0 0 10px;
@@ -33,14 +37,14 @@
 }
 
 .booked:hover::before {
-    display: block;
-    content: 'Кто-то хочет это тебе подарить';
-    position: absolute;
-    background-color: #fff;
-    box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.15);
-    width: 100px;
-    bottom: 50px;
-    border-radius: 5px;
-    padding: 10px 0 15px 10px;
-    font-size: 12px;
+  display: block;
+  content: "Кто-то хочет это тебе подарить";
+  position: absolute;
+  background-color: #fff;
+  box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.15);
+  width: 100px;
+  bottom: 50px;
+  border-radius: 5px;
+  padding: 10px 0 15px 10px;
+  font-size: 12px;
 }
