@@ -1,0 +1,57 @@
+.user-account-header {
+    width: 90%;
+    display: flex;
+    margin-bottom: calc(var(--standard-margin) * 2);
+    margin-left: calc(var(--standard-margin) * (-1));
+    justify-content: flex-start;
+    margin: 0 auto;
+    align-items: center;
+  }
+  
+  .user-account-header__photo {
+    height: 170px;
+  }
+  
+  .user-account-header__text-part {
+    margin-left: var(--standard-margin);
+  }
+
+  .user-account-header__text-part > :nth-child(n) {
+      margin-bottom: 15px;
+  }
+  
+  .text-part__credentials {
+    font-size: 42px;
+  }
+  
+  .credentials {
+    margin: 0;
+  }
+
+  .text-part__buttons-group {
+    display: flex;
+    justify-content: space-between;
+    width: 110%;
+  }
+
+  .buttons-group__button {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      width: 105%;
+  }
+  
+  .button-size {
+    font-size: 16px;
+    padding: var(--global-main-btn-padding-sm);
+  }
+  
+  .button-size_txt {
+    margin: 0;
+  }
+
+  .button__emoji {
+    width: 20px;
+    height: 20px;
+  }
+  

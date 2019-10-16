@@ -2,7 +2,7 @@ import React from 'react';
 import Loader from '@components/Loader';
 import suggestions from './mock.js';
 import SectionName from './SectionName';
-import SuggestionsList from './SuggestionsList';
+import ProductsList from './ProductsList';
 import './SuggestionsListContainer.css';
 
 class SuggestionsListContainer extends React.Component {
@@ -11,7 +11,7 @@ class SuggestionsListContainer extends React.Component {
       return (
         <div>
           <SectionName title="Популярное" />
-          <SuggestionsList suggestions={suggestions} />
+          <ProductsList suggestions={suggestions} />
         </div>
       );
     }
