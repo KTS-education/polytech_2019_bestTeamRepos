@@ -1,19 +1,37 @@
 import React from "react";
-import Header from "@components/Header";
+import { Route } from "react-router-dom";
 import UserAccountHeader from "@components/UserAccountHeader";
 import GiftsMyToMeContainer from "@components/GiftsMyToMeContainer";
 import "./MyPage.css";
 
 class MyPage extends React.Component {
-    render() {
-        return (
-            <div className="my-page-container">
-                <Header />
-                <UserAccountHeader />
-                <GiftsMyToMeContainer />
-            </div>
-        )
-    }
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <div className="my-page-container">
+        <Route path="/mypage" component={UserAccountHeader} />
+        <Route exact path="/mypage" component={GiftsMyToMeContainer} />
+      </div>
+    );
+    // if (this.props.location.pathname.includes("/mypage")) {
+    //   return (
+    //     <div className="my-page-container">
+    //       <UserAccountHeader />
+    //       <GiftsMyToMeContainer />
+    //     </div>
+    //   );
+    // }
+    // if (this.props.location.pathname === "/mypage/what-i-want") {
+    //   return (
+    //     <div className="my-page-container">
+    //       <UserAccountHeader />
+    //       <p>jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
+    //     </div>
+    //   );
+    // }
+  }
 }
 
 export default MyPage;

@@ -14,3 +14,7 @@
 .blueLink:active {
   color: #2168a8;
 }
+
+.selected {
+  color: black;
+}

@@ -1,6 +1,11 @@
 .products-list {
-    list-style: none;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  box-sizing: border-box;
+}
+
+.products-list > :nth-child(n) {
+  margin-right: 3%;
 }

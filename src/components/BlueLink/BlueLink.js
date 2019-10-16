@@ -22,7 +22,12 @@ class BlueLink extends React.Component {
     const { href, children, className } = this.props;
 
     return (
-      <NavLink to={href} className={classNames("blueLink", className)}>
+      <NavLink
+        to={href}
+        className={classNames("blueLink", className)}
+        exact
+        activeClassName="selected"
+      >
         {children}
       </NavLink>
     );
