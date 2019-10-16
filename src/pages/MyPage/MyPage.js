@@ -2,6 +2,7 @@ import React from "react";
 import { Route } from "react-router-dom";
 import UserAccountHeader from "@components/UserAccountHeader";
 import GiftsMyToMeContainer from "@components/GiftsMyToMeContainer";
+import GiftsFromMeContainer from "@components/GiftsFromMeContainer";
 import "./MyPage.css";
 
 class MyPage extends React.Component {
@@ -13,6 +14,7 @@ class MyPage extends React.Component {
       <div className="my-page-container">
         <Route path="/mypage" component={UserAccountHeader} />
         <Route exact path="/mypage" component={GiftsMyToMeContainer} />
+        <Route exact path="/mypage/what-i-want" component={GiftsFromMeContainer} />
       </div>
     );
     // if (this.props.location.pathname.includes("/mypage")) {
@@ -27,7 +29,6 @@ class MyPage extends React.Component {
     //   return (
     //     <div className="my-page-container">
     //       <UserAccountHeader />
-    //       <p>jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
     //     </div>
     //   );
     // }
