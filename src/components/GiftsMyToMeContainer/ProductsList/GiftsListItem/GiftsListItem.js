@@ -22,7 +22,6 @@ class GiftsListItem extends React.Component {
                         <MainButton className="button--delete" children={'Удалить'}/>
                         <span className="booked"><img className="booked__gift-icon" src={giftIcon} /></span>
                      </div>
-                     
                 </li>
             )
         } else {
