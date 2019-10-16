@@ -6,16 +6,16 @@ import './NoResults.css';
 class NoResults extends React.Component {
 
   static propTypes = {
-        noResults: PropTypes.String.isRequired
+        text: PropTypes.string.isRequired
   }
 
   render() {
-    const { text } = this.props;
+    const {text} = this.props;
 
     return (
-      <div>
-        <img className="emoji" src={noResults} alt="Sad emoji" />
-        <p>{ text }</p>
+      <div className="no-results-container">
+        <img className="no-results-container__emoji" src={noResults} alt="Sad emoji" />
+        <p>{text}</p>
       </div>
     );
   }

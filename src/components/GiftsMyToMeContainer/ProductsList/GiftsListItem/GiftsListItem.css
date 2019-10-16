@@ -1,0 +1,43 @@
+.gifts-list__item {
+    box-sizing: border-box;
+    width: 30%;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+.button--delete {
+    display: block;
+    width: 100%;
+}
+
+.item__group {
+    display: flex;
+}
+
+.booked {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 60px;
+    height: auto;
+    border-radius: 50px;
+    margin: 0 0 0 10px;
+    background-image: linear-gradient(225deg, #ff0045, #ff9890);
+    position: relative;
+}
+
+.booked__gift-icon {
+    width: 25px;
+}
+
+.booked:hover::before {
+    display: block;
+    content: 'Кто-то хочет это тебе подарить';
+    position: absolute;
+    box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.15);
+    width: 100px;
+    bottom: 50px;
+    border-radius: 5px;
+    padding: 15px 10px;
+    font-size: 12px;
+}

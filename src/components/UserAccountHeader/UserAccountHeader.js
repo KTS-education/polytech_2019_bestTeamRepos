@@ -18,8 +18,8 @@ class UserAccountHeader extends React.Component {
             <p className="credentials">{name} {surname}</p>
           </div>
           <div className="text-part__buttons-group">
-            <BlueLink children={<span className="buttons-group__button">Хочу получить <img className="emoji" src={relievedEmoji} alt="relieved emoji" /></span>}/>
-            <BlueLink children={<span className="buttons-group__button">Хочу подарить <img className="emoji" src={sunglassesEmoji} alt="cool emoji with sunglasses" /></span>}/>
+            <BlueLink children={<span className="buttons-group__button">Хочу получить <img className="button__emoji" src={relievedEmoji} alt="relieved emoji" /></span>}/>
+            <BlueLink children={<span className="buttons-group__button">Хочу подарить <img className="button__emoji" src={sunglassesEmoji} alt="cool emoji with sunglasses" /></span>}/>
           </div>
           <MainButton children={<p className="button-size_txt">Поделиться</p>} className={"button-size"} />
         </div>
