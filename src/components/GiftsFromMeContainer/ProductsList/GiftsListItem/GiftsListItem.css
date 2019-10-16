@@ -12,6 +12,16 @@
     width: 100%;
 }
 
+.text {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.sad-emoji {
+    margin-left: 10px;
+}
+
 .item__group {
     display: flex;
 }
@@ -21,15 +31,11 @@
     justify-content: center;
     align-items: center;
     width: 50px;
+    height: 50px;
     box-sizing: border-box;
     border-radius: 50%;
     margin: 0 0 0 10px;
-    background-image: linear-gradient(225deg, #ff0045, #ff9890);
     position: relative;
-}
-
-.booked__gift-icon {
-    width: 20px;
 }
 
 .booked:hover::before {
@@ -43,4 +49,9 @@
     border-radius: 5px;
     padding: 10px 0 15px 10px;
     font-size: 12px;
+}
+
+.sad-emoji {
+    width: 20px;
+    height: 20px;
 }

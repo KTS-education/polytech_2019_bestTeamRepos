@@ -1,8 +1,8 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainButton from '@components/MainButton';
+import SecondaryButton from '@components/SecondaryButton';
 import ProductItem from '@components/ProductItem';
-import giftIcon from '@img/giftIcon.png';
+import pensiveFace from '@img/pensiveFace.png';
 import './GiftsListItem.css';
 
 class GiftsListItem extends React.Component {
@@ -13,25 +13,15 @@ class GiftsListItem extends React.Component {
 
     render() {
         const product = this.props.product;
-        
-        if (product.booked) {
             return (
                 <li className="gifts-list__item">
                      <ProductItem product={product} />
                      <div className="item__group">
-                        <MainButton className="button--delete" children={'Удалить'}/>
-                        <span className="booked"><img className="booked__gift-icon" src={giftIcon} /></span>
+                        <SecondaryButton className="button--delete" children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>}/>
+                        <img className="booked" src={product.selectedPerson_photo_href} alt="selected friend"/>
                      </div>
                 </li>
-            )
-        } else {
-            return (
-                <li className="gifts-list__item">
-                     <ProductItem product={product} />
-                     <MainButton className="button--delete" children={'Удалить'}/>
-                </li>
-            )
-        }
+        )
     }
 }
 
