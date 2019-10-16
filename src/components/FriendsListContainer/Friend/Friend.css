@@ -8,7 +8,7 @@
 }
 
 .friend-item__photo {
-  height: 120px;
+  height: 125px;
 }
 
 .friend-item__text-part {
@@ -23,12 +23,8 @@
   margin: 0;
 }
 
-.button-size {
+.button-learn {
   margin-top: var(--standard-margin);
-  font-size: 12px;
+  font-size: 14px;
   padding: var(--global-main-btn-padding-sm);
-}
-
-.button-size__txt {
-  margin: 0;
 }

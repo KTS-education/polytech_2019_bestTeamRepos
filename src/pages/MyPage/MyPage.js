@@ -5,9 +5,6 @@ import GiftsMyToMeContainer from "@components/GiftsMyToMeContainer";
 import "./MyPage.css";
 
 class MyPage extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     return (
       <div className="my-page-container">
@@ -15,22 +12,6 @@ class MyPage extends React.Component {
         <Route exact path="/mypage" component={GiftsMyToMeContainer} />
       </div>
     );
-    // if (this.props.location.pathname.includes("/mypage")) {
-    //   return (
-    //     <div className="my-page-container">
-    //       <UserAccountHeader />
-    //       <GiftsMyToMeContainer />
-    //     </div>
-    //   );
-    // }
-    // if (this.props.location.pathname === "/mypage/what-i-want") {
-    //   return (
-    //     <div className="my-page-container">
-    //       <UserAccountHeader />
-    //       <p>jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj</p>
-    //     </div>
-    //   );
-    // }
   }
 }
 

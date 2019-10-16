@@ -8,13 +8,18 @@
 }
 
 .blueLink:hover {
-  color: #2a85d7;
+  color: var(--global-color-link-blue-hover);
 }
 
 .blueLink:active {
-  color: #2168a8;
+  color: var(--global-color-link-blue-active);
 }
 
 .selected {
-  color: black;
+  color: var(--global-color-black);
+  pointer-events: none;
+}
+
+.selected:hover {
+  color: var(--global-color-black);
 }
