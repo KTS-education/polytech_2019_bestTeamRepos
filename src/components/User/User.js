@@ -5,20 +5,20 @@ import BlueLink from "@components/BlueLink";
 import userAccount from "./mock.js";
 import relievedEmoji from "@img/relievedFace.png";
 import sunglassesEmoji from "@img/wantGive.png";
-import "./UserAccountHeader.css";
+import "./User.css";
 
-class UserAccountHeader extends React.Component {
+class User extends React.Component {
   render() {
     const { name, surname, logoPath } = userAccount;
 
     return (
-      <div className="user-account-header">
+      <div className="user">
         <img
           src={logoPath}
-          className="user-account-header__photo"
+          className="user__photo"
           alt="user's Avatar"
         />
-        <div className="user-account-header__text-part">
+        <div className="user__text-part">
           <div className="text-part__credentials">
             <p className="credentials">
               {name} {surname}
@@ -62,4 +62,4 @@ class UserAccountHeader extends React.Component {
   }
 }
 
-export default UserAccountHeader;
+export default User;
