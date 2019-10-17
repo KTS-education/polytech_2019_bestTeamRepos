@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import "./ProductItem.css";
+import "./WishItem.css";
 
-class ProductItem extends React.Component {
+class WishItem extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
       product_description: PropTypes.string.isRequired,
@@ -43,4 +43,4 @@ class ProductItem extends React.Component {
   }
 }
 
-export default ProductItem;
+export default WishItem;

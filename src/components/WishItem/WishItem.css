@@ -1,9 +1,9 @@
-.product-item-container {
+.wish-item-container {
     display: flex;
     flex-direction: column;
 }
 
-.product-item-container > :nth-child(n) {
+.wish-item-container > :nth-child(n) {
     margin: 5px;
 }
 

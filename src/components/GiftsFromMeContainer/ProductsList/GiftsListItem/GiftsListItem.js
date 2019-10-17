@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import SecondaryButton from '@components/SecondaryButton';
-import ProductItem from '@components/ProductItem';
+import WishItem from '@components/WishItem';
 import pensiveFace from '@img/pensiveFace.png';
 import './GiftsListItem.css';
 
@@ -15,7 +15,7 @@ class GiftsListItem extends React.Component {
         const product = this.props.product;
             return (
                 <li className="gifts-list__item">
-                     <ProductItem product={product} />
+                     <WishItem product={product} />
                      <div className="item__group">
                         <SecondaryButton className="button--delete" children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>}/>
                         <img className="booked" src={product.selectedPerson_photo_href} alt="selected friend"/>
