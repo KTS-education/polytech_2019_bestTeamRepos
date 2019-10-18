@@ -1,4 +1,6 @@
 import photo from "./img/friend3.png";
+import photo2 from "./img/friend1.png";
+import photo3 from "./img/friend2.png";
 
 export default [
   {
@@ -9,15 +11,15 @@ export default [
   },
   {
     id: 2,
-    name: "Сергей",
-    surname: "Чернобровкин",
-    logoPath: photo
+    name: "Аня",
+    surname: "Чернобровкина",
+    logoPath: photo2
   },
   {
     id: 3,
-    name: "Сергей",
-    surname: "Чернобровкин",
-    logoPath: photo
+    name: "Владимир",
+    surname: "Петров",
+    logoPath: photo3
   },
   {
     id: 4,
@@ -29,13 +31,13 @@ export default [
     id: 5,
     name: "Сергей",
     surname: "Чернобровкин",
-    logoPath: photo
+    logoPath: photo3
   },
   {
     id: 6,
     name: "Сергей",
     surname: "Чернобровкин",
-    logoPath: photo
+    logoPath: photo2
   },
   {
     id: 7,
