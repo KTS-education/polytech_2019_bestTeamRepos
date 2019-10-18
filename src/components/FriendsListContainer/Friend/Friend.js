@@ -12,12 +12,13 @@ class Friend extends React.Component {
 
   routeChange(e) {
     e.preventDefault();
-    let path = "/myfriendspage";
+    let path = `/myfriendspage/${this.props.AccountInfoObject.id}`;
     this.props.history.push(path);
   }
 
   static propTypes = {
     AccountInfoObject: PropTypes.shape({
+      id: PropTypes.number,
       name: PropTypes.string,
       surname: PropTypes.string,
       logoPath: PropTypes.string

@@ -1,5 +1,6 @@
 import React from "react";
 import { Route } from "react-router-dom";
+import Container from "@components/Container";
 import User from "@components/User";
 import "./FriendPage.css";
 
@@ -8,8 +9,8 @@ class FriendPage extends React.Component {
         return (
             <div className="my-page-container">
                 <Route path="/myfriendspage" component={User} />
-                {/* <Route exact path="/mypage" component={GiftsToMeContainer} /> */}
-                {/* <Route exact path="/mypage/what-i-want" component={GiftsFromMeContainer} /> */}
+                <Route exact path="/mypage" component={Container} />
+                <Route exact path="/mypage/from-me" component={Container} />
             </div>
         );
     }

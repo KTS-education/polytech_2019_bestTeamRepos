@@ -73,8 +73,6 @@ class StatusButtons extends React.Component {
                             className="button--delete"
                             children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>}
                         />
-                        <img className="booked" src={product.selectedPerson_photo_href} alt="selected friend"
-                        />
                         <MainButton className="booked" children={popular} />
                     </div>
                 )
