@@ -114,7 +114,9 @@ class StatusButtons extends React.Component {
         );
       }
     } else if (this.props.location.pathname === "/myfriendspage") {
-      // here /myfriendspage/what-friend-want
+
+    } else if (this.props.location.pathname.includes("/myfriendspage/from-me/")) {
+
     }
   }
 }
