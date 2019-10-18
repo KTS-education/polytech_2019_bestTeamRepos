@@ -4,8 +4,8 @@ import { withRouter } from "react-router-dom";
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
 
-import userAccount from "./YourAccountInfo/mock.js";
-import friendsAccounts from "./YourFriendsInfo/mock.js";
+import userAccount from "@data/YourAccountInfo/mock.js";
+import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 
 import "./User.css";
 
