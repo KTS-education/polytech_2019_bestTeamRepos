@@ -2,7 +2,7 @@ import React from "react";
 
 import FriendImgList from "./FriendImgList";
 
-import BlueLink from "@components/BlueLink";
+import LinkItem from "@components/LinkItem";
 
 import f1 from "@img/accounts/friends/friend2.png";
 import f2 from "@img/accounts/friends/friend1.png";
@@ -14,7 +14,7 @@ class Friends extends React.Component {
   render() {
     return (
       <div className="header-friends-container">
-        <BlueLink href="/friends" children="Мои друзья" />
+        <LinkItem href="/friends" children="Мои друзья" />
         <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );

@@ -3,9 +3,9 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
-import "./BlueLink.css";
+import "./LinkItem.css";
 
-class BlueLink extends React.Component {
+class LinkItem extends React.Component {
   static propTypes = {
     href: PropTypes.string,
     children: PropTypes.node,
@@ -34,4 +34,4 @@ class BlueLink extends React.Component {
   }
 }
 
-export default BlueLink;
+export default LinkItem;

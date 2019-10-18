@@ -3,7 +3,7 @@ import React from "react";
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
 
-import BlueLink from "@components/BlueLink";
+import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "./YourAccountInfo/mock.js";
 
@@ -22,13 +22,13 @@ class Header extends React.Component {
       return (
         <div className="header-container">
           <YourAccount AccountInfoObject={AccountInfo} />
-          <BlueLink href="/" children={<span>Вернуться к поиску</span>} />
+          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
         </div>
       );
     else if (this.props.location.pathname.includes("/mypage"))
       return (
         <div className="header-container">
-          <BlueLink href="/" children={<span>Вернуться к поиску</span>} />
+          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
           <Friends />
         </div>
       );
@@ -36,7 +36,7 @@ class Header extends React.Component {
       return (
         <div className="header-container">
           <YourAccount AccountInfoObject={AccountInfo} />
-          <BlueLink href="/" children={<span>Вернуться к поиску</span>} />
+          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
           <Friends />
         </div>
       );
