@@ -2,7 +2,7 @@ import React from "react";
 import Loader from "@components/Loader";
 import products from "@data/PopularProductsInfo/mock.js";
 import SectionName from "./SectionName";
-import List from "./List";
+import List from "@components/List";
 import "./PopularGiftsContainer.css";
 
 class PopularGiftsContainer extends React.Component {

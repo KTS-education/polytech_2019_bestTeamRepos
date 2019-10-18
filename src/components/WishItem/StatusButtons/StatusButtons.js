@@ -29,6 +29,12 @@ class StatusButtons extends React.Component {
     selectedPerson_photo_href: null
   };
 
+  getUserId() {
+    if (this.props.location.pathname.includes("/myfriendspage")) {
+      return parseInt(this.props.location.pathname.slice(-1));
+    }
+  }
+
   render() {
     const product = this.props.product;
     if (this.props.location.pathname === "/") {
@@ -114,7 +120,10 @@ class StatusButtons extends React.Component {
         );
       }
     } else if (this.props.location.pathname === "/myfriendspage") {
-
+      // if (
+      //   product.hasOwnProperty("product_isBooked") &&
+      //   product.product_isBooked
+      // )
     } else if (this.props.location.pathname.includes("/myfriendspage/from-me/")) {
 
     }

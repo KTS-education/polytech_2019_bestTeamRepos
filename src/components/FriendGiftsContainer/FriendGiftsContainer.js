@@ -2,7 +2,7 @@ import React, { Component } from "react";
 // import Loader from '@components/Loader';
 import NoResults from "@components/NoResults";
 import products from "@data/ProductsInfo/mock.js";
-import List from "./List";
+import List from "@components/List";
 import "./FriendGiftsContainer.css";
 
 export class FriendGiftsContainer extends Component {
@@ -14,7 +14,7 @@ export class FriendGiftsContainer extends Component {
         </div>
       );
     }
-    return <NoResults text="Кажется, ты не любишь подарки" />;
+    return <NoResults text="Кажется, друг не любит подарки" />;
   }
 }
 
