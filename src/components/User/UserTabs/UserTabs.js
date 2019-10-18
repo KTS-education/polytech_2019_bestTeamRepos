@@ -61,8 +61,9 @@ class UserTabs extends React.Component {
             }
           />
         </div>
-      );
-    } else if (this.props.location.pathname.includes("/myfriendspage")) {
+      )
+    }
+    else if (this.props.location.pathname.includes("/myfriendspage")) {
       return (
         <div className="text-part__buttons-group">
           <LinkItem
