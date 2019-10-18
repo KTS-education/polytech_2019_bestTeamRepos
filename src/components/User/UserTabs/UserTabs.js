@@ -82,7 +82,7 @@ class UserTabs extends React.Component {
             href={`/myfriendspage/from-me/${this.getUserId()}`}
             children={
               <span className="buttons-group__button">
-                Хочет подарить{" "}
+                Хочу подарить{" "}
                 <img
                   className="button__emoji"
                   src={sunglassesEmoji}
