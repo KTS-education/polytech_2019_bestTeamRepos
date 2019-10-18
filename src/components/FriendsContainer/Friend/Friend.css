@@ -2,8 +2,8 @@
   width: 100%;
   display: flex;
   margin-bottom: calc(var(--standard-margin) * 2);
-  margin-left: calc(var(--standard-margin) * (-1));
-  justify-content: center;
+  margin-left: var(--standard-margin);
+  justify-content: flex-start;
   list-style-type: none;
 }
 
