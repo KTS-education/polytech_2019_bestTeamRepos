@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom"
+import { withRouter } from "react-router-dom";
 
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
@@ -10,7 +10,6 @@ import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 import "./User.css";
 
 class User extends React.Component {
-
   getUserId() {
     if (this.props.location.pathname.includes("/myfriendspage")) {
       return parseInt(this.props.location.pathname.slice(-1));
@@ -20,8 +19,7 @@ class User extends React.Component {
   getUserData() {
     if (this.props.location.pathname.includes("/mypage")) {
       return userAccount;
-    }
-    else if (this.props.location.pathname.includes("/myfriendspage")) {
+    } else if (this.props.location.pathname.includes("/myfriendspage")) {
       const id = this.getUserId();
       for (const key in friendsAccounts) {
         if (friendsAccounts[key].id === id) {

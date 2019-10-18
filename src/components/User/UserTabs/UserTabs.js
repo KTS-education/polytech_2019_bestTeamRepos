@@ -27,7 +27,7 @@ class UserTabs extends React.Component {
   getUserId() {
     if (this.props.location.pathname.includes("/myfriendspage")) {
       return parseInt(this.props.location.pathname.slice(-1));
-    };
+    }
   }
 
   render() {
@@ -93,7 +93,7 @@ class UserTabs extends React.Component {
             }
           />
         </div>
-      )
+      );
     }
   }
 }
