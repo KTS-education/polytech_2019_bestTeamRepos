@@ -3,11 +3,12 @@ import React from "react";
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs"
 
-import userAccount from "./mock.js";
+import userAccount from "./YourAccountInfo/mock.js";
 
 import "./User.css";
 
 class User extends React.Component {
+
   render() {
     const { name, surname, logoPath } = userAccount;
     return (

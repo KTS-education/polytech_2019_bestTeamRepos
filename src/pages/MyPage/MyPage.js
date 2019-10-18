@@ -1,8 +1,7 @@
 import React from "react";
 import { Route } from "react-router-dom";
 import User from "@components/User";
-import GiftsToMeContainer from "@components/GiftsToMeContainer";
-import GiftsFromMeContainer from "@components/GiftsFromMeContainer";
+import GiftsMyContainer from "@components/GiftsMyContainer";
 import "./MyPage.css";
 
 class MyPage extends React.Component {
@@ -10,8 +9,7 @@ class MyPage extends React.Component {
     return (
       <div className="my-page-container">
         <Route path="/mypage" component={User} />
-        <Route exact path="/mypage" component={GiftsToMeContainer} />
-        <Route exact path="/mypage/what-i-want" component={GiftsFromMeContainer} />
+        <Route path="/mypage" component={GiftsMyContainer} />
       </div>
     );
   }

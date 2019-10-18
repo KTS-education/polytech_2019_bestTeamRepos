@@ -3,9 +3,9 @@ import React, { Component } from 'react';
 import NoResults from '@components/NoResults';
 import products from './mock.js';
 import List from './List';
-import './Container.css';
+import './GiftsMyContainer.css';
 
-export class Container extends Component {
+export class GiftsMyContainer extends Component {
   render() {
     if (products.length) {
       return (
@@ -20,4 +20,4 @@ export class Container extends Component {
   }
 }
 
-export default Container;
+export default GiftsMyContainer;

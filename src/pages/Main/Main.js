@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
-import SuggestionsListContainer from "@components/SuggestionsListContainer";
+import PopularListContainer from "@components/PopularListContainer";
 
 import Logo from "@img/wishlist.png";
 
@@ -25,7 +25,7 @@ class Main extends React.Component {
       <div className="main-container">
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput />
-        <SuggestionsListContainer />
+        <PopularListContainer />
       </div>
     );
   }
