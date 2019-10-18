@@ -26,9 +26,8 @@ class UserTabs extends React.Component {
 
     getUserId() {
         if (this.props.location.pathname.includes("/myfriendspage")) {
-            const id = this.props.location.pathname.slice(-1);
-            return id;
-        }
+            return parseInt(this.props.location.pathname.slice(-1));
+        };
     }
 
     render() {
