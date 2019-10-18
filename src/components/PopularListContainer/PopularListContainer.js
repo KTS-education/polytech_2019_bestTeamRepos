@@ -1,9 +1,9 @@
-import React from 'react';
-import Loader from '@components/Loader';
-import products from './mock.js';
-import SectionName from './SectionName';
-import List from './List';
-import './PopularListContainer.css';
+import React from "react";
+import Loader from "@components/Loader";
+import products from "@data/ProductsInfo2/mock.js";
+import SectionName from "./SectionName";
+import List from "./List";
+import "./PopularListContainer.css";
 
 class PopularListContainer extends React.Component {
   render() {
@@ -15,9 +15,7 @@ class PopularListContainer extends React.Component {
         </div>
       );
     }
-    return (
-      <Loader />
-    );
+    return <Loader />;
   }
 }
 

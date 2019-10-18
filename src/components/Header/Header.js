@@ -5,7 +5,7 @@ import Friends from "./Friends";
 
 import LinkItem from "@components/LinkItem";
 
-import AccountInfo from "./YourAccountInfo/mock.js";
+import AccountInfo from "@data/YourAccountInfo/mock.js";
 
 import "./Header.css";
 

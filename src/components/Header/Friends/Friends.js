@@ -4,9 +4,9 @@ import FriendImgList from "./FriendImgList";
 
 import LinkItem from "@components/LinkItem";
 
-import f1 from "@img/accounts/friends/friend2.png";
-import f2 from "@img/accounts/friends/friend1.png";
-import f3 from "@img/accounts/friends/friend3.png";
+import f1 from "@data/YourFriendsInfo/img/friend2.png";
+import f2 from "@data/YourFriendsInfo/img/friend1.png";
+import f3 from "@data/YourFriendsInfo/img/friend3.png";
 
 import "./Friends.css";
 
