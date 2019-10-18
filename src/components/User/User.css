@@ -28,19 +28,6 @@
   margin: 0;
 }
 
-.text-part__buttons-group {
-  display: flex;
-  justify-content: space-between;
-  width: 110%;
-}
-
-.buttons-group__button {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  width: 105%;
-}
-
 .button-share {
   font-size: var(--standard-font);
   padding: var(--global-main-btn-padding-sm);
