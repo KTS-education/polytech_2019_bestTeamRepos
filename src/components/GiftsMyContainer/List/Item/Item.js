@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import WishItem from '@components/WishItem';
-import './GiftsListItem.css';
+import './Item.css';
 
-class GiftsListItem extends React.Component {
+class Item extends React.Component {
 
     static propTypes = {
         product: PropTypes.object.isRequired
@@ -19,4 +19,4 @@ class GiftsListItem extends React.Component {
     }
 }
 
-export default GiftsListItem;
+export default Item;

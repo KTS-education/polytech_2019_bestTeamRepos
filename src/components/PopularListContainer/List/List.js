@@ -1,10 +1,10 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import GiftsListItem from './GiftsListItem';
-import './ProductsList.css';
+import Item from './Item';
+import './List.css';
 
-class ProductsList extends React.Component {
-    
+class List extends React.Component {
+
     static propTypes = {
         products: PropTypes.array.isRequired
     };
@@ -14,9 +14,9 @@ class ProductsList extends React.Component {
 
         return (
             <ul className="products-list">
-                {  
-                   products.map(product => {
-                        return <GiftsListItem key={product.product_id} product={product}/>
+                {
+                    products.map(product => {
+                        return <Item key={product.product_id} product={product} />
                     })
                 }
             </ul>
@@ -24,4 +24,4 @@ class ProductsList extends React.Component {
     }
 }
 
-export default ProductsList;
+export default List;
