@@ -1,6 +1,5 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import MainButton from '@components/MainButton';
 import WishItem from '@components/WishItem';
 import './SuggestionsListItem.css';
 
@@ -14,8 +13,8 @@ class SuggestionsListItem extends React.Component {
 
         return (
             <li className="suggestions-list__item">
-                 <WishItem product={product} />
-                 {/* <MainButton className="item__button" children={'Добавить в избранное'}/> */}
+                <WishItem product={product} />
+                {/* <MainButton className="item__button" children={'Добавить в избранное'}/> */}
             </li>
         )
     }

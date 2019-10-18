@@ -6,9 +6,6 @@ import ProductsList from './ProductsList';
 import './SuggestionsListContainer.css';
 
 class SuggestionsListContainer extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   render() {
     if (suggestions.length) {
       return (

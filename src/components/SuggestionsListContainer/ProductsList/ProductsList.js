@@ -4,10 +4,6 @@ import SuggestionsListItem from './SuggestionsListItem';
 import './ProductsList.css';
 
 class ProductsList extends React.Component {
-    constructor(props) {
-        super(props);
-      }
-    
     static propTypes = {
         suggestions: PropTypes.array.isRequired
     };
@@ -17,9 +13,9 @@ class ProductsList extends React.Component {
 
         return (
             <ul className="products-list">
-                {  
-                   products.map(product => {
-                        return <SuggestionsListItem key={product.product_id} product={product}/>
+                {
+                    products.map(product => {
+                        return <SuggestionsListItem key={product.product_id} product={product} />
                     })
                 }
             </ul>
