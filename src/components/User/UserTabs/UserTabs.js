@@ -34,7 +34,7 @@ class UserTabs extends React.Component {
     if (this.props.location.pathname.includes("/mypage")) {
       return (
         <div className="text-part__buttons-group">
-          <BlueLink
+          <LinkItem
             href="/mypage"
             children={
               <span className="buttons-group__button">
@@ -47,7 +47,7 @@ class UserTabs extends React.Component {
               </span>
             }
           />
-          <BlueLink
+          <LinkItem
             href="/mypage/what-i-want"
             children={
               <span className="buttons-group__button">
@@ -66,7 +66,7 @@ class UserTabs extends React.Component {
     else if (this.props.location.pathname.includes("/myfriendspage")) {
       return (
         <div className="text-part__buttons-group">
-          <BlueLink
+          <LinkItem
             href={`/myfriendspage/${this.getUserId()}`}
             children={
               <span className="buttons-group__button">
@@ -79,7 +79,7 @@ class UserTabs extends React.Component {
               </span>
             }
           />
-          <BlueLink
+          <LinkItem
             href={`/myfriendspage/from-me/${this.getUserId()}`}
             children={
               <span className="buttons-group__button">
@@ -96,7 +96,6 @@ class UserTabs extends React.Component {
       )
     }
   }
-}
 }
 
 export default withRouter(UserTabs);
