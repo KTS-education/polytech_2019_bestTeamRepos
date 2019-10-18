@@ -13,7 +13,7 @@ class GiftsListItem extends React.Component {
   render() {
     const product = this.props.product;
 
-    if (product.booked) {
+    if (product.product_isBooked) {
       return (
         <li className="gifts-list__item">
           <WishItem product={product} />

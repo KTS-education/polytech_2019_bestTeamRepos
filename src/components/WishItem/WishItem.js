@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import StatusButtons from './StatusButtons';
 import "./WishItem.css";
 
 class WishItem extends React.Component {
@@ -8,13 +9,15 @@ class WishItem extends React.Component {
       product_description: PropTypes.string.isRequired,
       product_img_href: PropTypes.string.isRequired,
       product_price: PropTypes.number.isRequired,
-      product_title: PropTypes.string.isRequired
+      product_title: PropTypes.string.isRequired,
+      product_isBooked: PropTypes.bool
     }),
-    className: PropTypes.string
+    className: PropTypes.string,
   };
 
   static defaultProps = {
-    className: null
+    className: null,
+    product_isBooked: null
   };
 
   render() {
@@ -26,7 +29,7 @@ class WishItem extends React.Component {
     } = this.props.product;
 
     return (
-      <div className="product-item-container">
+      <div className="wish-item-container">
         <img
           className="item__image"
           src={product_img_href}
@@ -38,6 +41,7 @@ class WishItem extends React.Component {
           <span> &#8381;</span>
         </p>
         <p className="item__description">{product_description}</p>
+        <StatusButtons product={this.props.product} />
       </div>
     );
   }

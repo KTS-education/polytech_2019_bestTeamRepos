@@ -10,7 +10,7 @@ export default [
     product_price: 120000,
     product_description:
       'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256 ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
-    booked: true
+    product_isBooked: true
   },
   {
     product_id: 2,
@@ -19,7 +19,7 @@ export default [
     product_price: 80000,
     product_description:
       "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray",
-    booked: false
+    product_isBooked: false
   },
   {
     product_id: 3,
@@ -27,7 +27,7 @@ export default [
     product_title: "iPhone XR 256GB",
     product_price: 70000,
     product_description: "Мобильный телефон Apple iPhone XR 256GB (желтый)",
-    booked: true
+    product_isBooked: true
   },
   {
     product_id: 4,
@@ -36,7 +36,7 @@ export default [
     product_price: 120000,
     product_description:
       'Ноутбук Apple MacBook Pro 13.3" Core i5 2,4 ГГц, 8 ГБ, 256 ГБ SSD, Iris Plus 655, Touch Bar (серый космос)',
-    booked: true
+    product_isBooked: true
   },
   {
     product_id: 5,
@@ -44,7 +44,7 @@ export default [
     product_title: "iPhone XR 256GB",
     product_price: 70000,
     product_description: "Мобильный телефон Apple iPhone XR 256GB (желтый)",
-    booked: true
+    product_isBooked: true
   }
 ];
 
