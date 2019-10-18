@@ -1,11 +1,11 @@
 .list-title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .emoji {
-    width: 45px;
-    height: 45px;
-    margin-left: 10px;
+  width: 45px;
+  height: 45px;
+  margin-left: 10px;
 }
