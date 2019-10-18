@@ -1,4 +1,5 @@
 import React from "react";
+import { withRouter } from "react-router-dom"
 
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs"
@@ -9,8 +10,17 @@ import "./User.css";
 
 class User extends React.Component {
 
+  getUserId() {
+    if (this.props.location.pathname.includes("/myfriendspage")) {
+      const id = this.props.location.pathname.slice(-1);
+      return id;
+    }
+  }
+
   render() {
     const { name, surname, logoPath } = userAccount;
+    console.log(this.getUserId());
+
     return (
       <div className="user">
         <img
@@ -35,4 +45,4 @@ class User extends React.Component {
   }
 }
 
-export default User;
+export default withRouter(User);

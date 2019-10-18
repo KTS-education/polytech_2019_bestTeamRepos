@@ -11,6 +11,11 @@ import droolingFace from "@img/droolingFace.png";
 import './UserTabs.css';
 
 class UserTabs extends React.Component {
+    constructor() {
+        super();
+        this.getUserId = this.getUserId.bind(this);
+    }
+
     static propTypes = {
         className: PropTypes.string
     };
@@ -18,6 +23,13 @@ class UserTabs extends React.Component {
     static defaultProps = {
         className: null
     };
+
+    getUserId() {
+        if (this.props.location.pathname.includes("/myfriendspage")) {
+            const id = this.props.location.pathname.slice(-1);
+            return id;
+        }
+    }
 
     render() {
         if (this.props.location.pathname.includes("/mypage")) {
@@ -56,7 +68,7 @@ class UserTabs extends React.Component {
             return (
                 <div className="text-part__buttons-group">
                     <BlueLink
-                        href="/myfriendspage"
+                        href={`/myfriendspage/${this.getUserId()}`}
                         children={
                             <span className="buttons-group__button">
                                 Хочет получить{" "}
@@ -69,7 +81,7 @@ class UserTabs extends React.Component {
                         }
                     />
                     <BlueLink
-                        href="/myfriendspage/from-me"
+                        href={`/myfriendspage/from-me/${this.getUserId()}`}
                         children={
                             <span className="buttons-group__button">
                                 Хочу подарить{" "}

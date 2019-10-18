@@ -9,8 +9,8 @@ class FriendPage extends React.Component {
         return (
             <div className="my-page-container">
                 <Route path="/myfriendspage" component={User} />
-                {/* <Route exact path="/mypage" component={Container} /> */}
-                {/* <Route exact path="/mypage/from-me" component={Container} /> */}
+                {/* <Route exact path="/myfriendspage" component={Container} /> */}
+                {/* <Route exact path="/myfriendspage/from-me" component={Container} /> */}
             </div>
         );
     }
