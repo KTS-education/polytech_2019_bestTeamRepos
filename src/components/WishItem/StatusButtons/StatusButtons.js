@@ -5,12 +5,10 @@ import SecondaryButton from '@components/SecondaryButton';
 import MainButton from '@components/MainButton';
 import giftIcon from "@img/giftIcon.png";
 import pensiveFace from '@img/pensiveFace.png';
+import popular from "@img/popular.png";
 import './StatusButtons.css';
 
 class StatusButtons extends React.Component {
-    constructor(props) {
-        super(props);
-    }
     static propTypes = {
         product: PropTypes.shape({
             product_description: PropTypes.string.isRequired,
@@ -61,23 +59,40 @@ class StatusButtons extends React.Component {
             return (
                 <div className="item__group">
                     <SecondaryButton
-
                         className="button--delete"
                         children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>} />
                     <img className="booked" src={product.selectedPerson_photo_href} alt="selected friend" />
                 </div>
             )
         }
-        // else if (this.props.location.pathname === "/myfriendspage") {
-        //     return (
-        //         <div>
-
-        //         </div>
-        //     )
-        // }
-        // else {
-        //     // here /myfriendspage/what-friend-want
-        // }
+        else if (this.props.location.pathname === "/myfriendspage/from-me") {
+            if (product.product_isBooked) {
+                return (
+                    <div className="item__group">
+                        <SecondaryButton
+                            className="button--delete"
+                            children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>}
+                        />
+                        <img className="booked" src={product.selectedPerson_photo_href} alt="selected friend"
+                        />
+                        <MainButton className="booked" children={popular} />
+                    </div>
+                )
+            }
+            else {
+                return (
+                    <div className="item__group">
+                        <SecondaryButton
+                            className="button--delete"
+                            children={<div className="text"><span>Не подарю</span><img src={pensiveFace} className="sad-emoji" /></div>}
+                        />
+                    </div>
+                )
+            }
+        }
+        else if (this.props.location.pathname === "/myfriendspage") {
+            // here /myfriendspage/what-friend-want
+        }
     }
 }
 

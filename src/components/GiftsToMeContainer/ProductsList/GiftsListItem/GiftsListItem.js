@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import SecondaryButton from "@components/SecondaryButton";
 import WishItem from "@components/WishItem";
 import "./GiftsListItem.css";
 

@@ -10,7 +10,6 @@ import "./User.css";
 class User extends React.Component {
   render() {
     const { name, surname, logoPath } = userAccount;
-
     return (
       <div className="user">
         <img
