@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 // import Loader from '@components/Loader';
-import NoResults from '@components/NoResults';
-import products from './mock.js';
-import List from './List';
-import './GiftsMyContainer.css';
+import NoResults from "@components/NoResults";
+import products from "@data/ProductsInfo2/mock.js";
+import List from "./List";
+import "./GiftsMyContainer.css";
 
 export class GiftsMyContainer extends Component {
   render() {
@@ -14,9 +14,7 @@ export class GiftsMyContainer extends Component {
         </div>
       );
     }
-    return (
-      <NoResults text='Кажется, ты не любишь подарки' />
-    );
+    return <NoResults text="Кажется, ты не любишь подарки" />;
   }
 }
 
