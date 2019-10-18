@@ -1,9 +1,10 @@
 import React from "react";
 
 import Friend from "./Friend";
-import EmptyFriendList from "./EmptyFriendList";
 
+import NoResults from "@components/NoResults";
 import SecondaryButton from "@components/SecondaryButton";
+
 import FriendsInfo from "./YourFriendsInfo/mock.js";
 
 import "./FriendsListContainer.css";
@@ -40,7 +41,7 @@ class FriendsListContainer extends React.Component {
         </div>
       );
     } else {
-      return <EmptyFriendList className="no-friends" />;
+      return <NoResults text="Кажется, у тебя нет друзей" />;
     }
   }
 }
