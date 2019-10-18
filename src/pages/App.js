@@ -4,6 +4,7 @@ import { Route } from "react-router-dom";
 import FriendList from "./FriendList";
 import Main from "./Main";
 import MyPage from "./MyPage";
+import FriendPage from "./FriendPage";
 
 import Header from "@components/Header";
 
@@ -17,6 +18,7 @@ const App = () => {
       <Route exact path="/" component={Main} />
       <Route path="/friends" component={FriendList} />
       <Route path="/mypage" component={MyPage} />
+      <Route path="/myfriendspage" component={FriendPage} />
     </div>
   );
 };

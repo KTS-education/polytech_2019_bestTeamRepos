@@ -2,9 +2,12 @@ import React from "react";
 
 import MainButton from "@components/MainButton";
 import BlueLink from "@components/BlueLink";
+
 import userAccount from "./mock.js";
+
 import relievedEmoji from "@img/relievedFace.png";
 import sunglassesEmoji from "@img/wantGive.png";
+
 import "./User.css";
 
 class User extends React.Component {

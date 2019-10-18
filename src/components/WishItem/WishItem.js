@@ -10,14 +10,18 @@ class WishItem extends React.Component {
       product_img_href: PropTypes.string.isRequired,
       product_price: PropTypes.number.isRequired,
       product_title: PropTypes.string.isRequired,
-      product_isBooked: PropTypes.bool
+      product_isBooked: PropTypes.bool,
+      selectedPerson: PropTypes.string,
+      selectedPerson_photo_href: PropTypes.string
     }),
     className: PropTypes.string,
   };
 
   static defaultProps = {
     className: null,
-    product_isBooked: null
+    product_isBooked: null,
+    selectedPerson: null,
+    selectedPerson_photo_href: null
   };
 
   render() {
