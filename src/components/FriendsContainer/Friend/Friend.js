@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainButton from "@components/MainButton";
-import { withRouter } from "react-router-dom";
 import "./Friend.css";
 
 class Friend extends React.Component {
@@ -14,10 +13,8 @@ class Friend extends React.Component {
     })
   };
 
-  routeChange = e => {
-    e.preventDefault();
-    const path = `/myfriendspage/${this.props.accountInfoObject.id}`;
-    this.props.history.push(path);
+  state = {
+    path: `/myfriendspage/${this.props.accountInfoObject.id}`
   };
 
   render() {
@@ -33,14 +30,18 @@ class Friend extends React.Component {
             </p>
           </div>
           <MainButton
-            children={<span>Узнать, что подарить</span>}
+            children={"Узнать, что подарить"}
             className={"button-learn"}
-            actionHandler={this.routeChange}
+            to={this.state.path}
           />
+          {/* <MainButton
+            children={"Узнать, что подарить"}
+            className={"button-learn"}
+          /> */}
         </div>
       </div>
     );
   }
 }
 
-export default withRouter(Friend);
+export default Friend;

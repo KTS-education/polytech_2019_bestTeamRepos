@@ -1,30 +1,34 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+import { NavLink } from "react-router-dom";
 import "./MainButton.css";
 
 class MainButton extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
-    actionHandler: PropTypes.func
+    to: PropTypes.string,
+    onClick: PropTypes.func
   };
 
   static defaultProps = {
     children: "Кнопка",
-    className: null
+    className: null,
+    to: null,
+    onClick: function() {}
   };
 
   render() {
-    const { children, className, actionHandler } = this.props;
-
+    const { children, className, to, onClick } = this.props;
+    const Component = to ? NavLink : "button";
+    const btnProps = to ? { to, onClick } : { onClick };
     return (
-      <button
+      <Component
         className={classNames("button", className)}
-        onClick={actionHandler}
-      >
-        {children}
-      </button>
+        children={children}
+        {...btnProps}
+      />
     );
   }
 }

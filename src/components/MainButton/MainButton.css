@@ -1,4 +1,6 @@
 .button {
+  display: inline-block;
+  text-decoration: none;
   width: auto;
   height: auto;
   padding: var(--global-main-btn-padding);
