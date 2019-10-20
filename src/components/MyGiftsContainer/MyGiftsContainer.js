@@ -14,7 +14,7 @@ export class MyGiftsContainer extends Component {
         </div>
       );
     }
-    return <NoResults text="Кажется, ты не любишь подарки" />;
+    return <NoResults children="Кажется, ты не любишь подарки" />;
   }
 }
 

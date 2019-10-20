@@ -41,7 +41,7 @@ class FriendsContainer extends React.Component {
         </div>
       );
     } else {
-      return <NoResults text="Кажется, у тебя нет друзей" />;
+      return <NoResults children="Кажется, у тебя нет друзей" />;
     }
   }
 }

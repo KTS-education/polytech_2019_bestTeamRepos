@@ -14,7 +14,7 @@ export class FriendGiftsContainer extends Component {
         </div>
       );
     }
-    return <NoResults text="Кажется, друг не любит подарки" />;
+    return <NoResults children="Кажется, друг не любит подарки" />;
   }
 }
 
