@@ -34,10 +34,6 @@ class Friend extends React.Component {
             className={"button-learn"}
             to={this.state.path}
           />
-          {/* <MainButton
-            children={"Узнать, что подарить"}
-            className={"button-learn"}
-          /> */}
         </div>
       </div>
     );

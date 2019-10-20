@@ -28,11 +28,9 @@ class FriendsContainer extends React.Component {
             return <Friend accountInfoObject={item} key={item.id} />;
           })}
           {this.state.visible < FriendsInfo.length && (
-            <SecondaryButton
-              children={<span>Показать ещё</span>}
-              className="more-btn"
-              actionHandler={this.loadmore}
-            />
+            <SecondaryButton className="more-btn" actionHandler={this.loadmore}>
+              Показать ещё
+            </SecondaryButton>
           )}
         </div>
       );
