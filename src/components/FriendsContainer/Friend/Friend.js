@@ -5,36 +5,27 @@ import { withRouter } from "react-router-dom";
 import "./Friend.css";
 
 class Friend extends React.Component {
-  constructor(props) {
-    super(props);
-    this.routeChange = this.routeChange.bind(this);
-  }
-
-  routeChange(e) {
-    e.preventDefault();
-    let path = `/myfriendspage/${this.props.AccountInfoObject.id}`;
-    this.props.history.push(path);
-  }
-
   static propTypes = {
-    AccountInfoObject: PropTypes.shape({
-      id: PropTypes.number,
-      name: PropTypes.string,
-      surname: PropTypes.string,
-      logoPath: PropTypes.string
+    accountInfoObject: PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired,
+      surname: PropTypes.string.isRequired,
+      logoPath: PropTypes.string.isRequired
     })
   };
 
+  routeChange = e => {
+    e.preventDefault();
+    const path = `/myfriendspage/${this.props.accountInfoObject.id}`;
+    this.props.history.push(path);
+  };
+
   render() {
-    const { name, surname, logoPath } = this.props.AccountInfoObject;
+    const { name, surname, logoPath } = this.props.accountInfoObject;
 
     return (
-      <li className="friend-item">
-        <img
-          src={logoPath}
-          className="friend-item__photo"
-          alt="Friend pict"
-        ></img>
+      <div className="friend-item">
+        <img src={logoPath} className="friend-item__photo" alt="Friend pict" />
         <div className="friend-item__text-part">
           <div className="text-part__ns">
             <p className="ns__txt">
@@ -47,7 +38,7 @@ class Friend extends React.Component {
             actionHandler={this.routeChange}
           />
         </div>
-      </li>
+      </div>
     );
   }
 }

@@ -10,27 +10,23 @@ import FriendsInfo from "@data/YourFriendsInfo/mock.js";
 import "./FriendsContainer.css";
 
 class FriendsContainer extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      visible: 5
-    };
-    this.loadmore = this.loadmore.bind(this);
-  }
-  loadmore() {
+  state = {
+    visible: 5
+  };
+
+  loadmore = () => {
     this.setState(old => {
       return { visible: old.visible + 5 };
     });
-  }
+  };
+
   render() {
     if (FriendsInfo.length) {
       return (
         <div className="friends-list-container">
-          <ul className="friends-list-container__ul">
-            {FriendsInfo.slice(0, this.state.visible).map(item => {
-              return <Friend AccountInfoObject={item} key={item.id} />;
-            })}
-          </ul>
+          {FriendsInfo.slice(0, this.state.visible).map(item => {
+            return <Friend accountInfoObject={item} key={item.id} />;
+          })}
           {this.state.visible < FriendsInfo.length && (
             <SecondaryButton
               children={<span>Показать ещё</span>}

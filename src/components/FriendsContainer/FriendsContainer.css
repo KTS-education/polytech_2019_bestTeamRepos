@@ -3,13 +3,6 @@
   margin: 0 auto;
 }
 
-.friends-list-container__ul {
-  padding: 0;
-}
-.friends-list-container__Li {
-  list-style-type: none;
-}
-
 .no-friends {
   margin-top: 130px;
 }
