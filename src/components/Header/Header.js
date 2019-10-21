@@ -2,7 +2,7 @@ import React from "react";
 
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
-
+import { Route, Switch } from "react-router-dom";
 import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "@data/YourAccountInfo/mock.js";
@@ -11,35 +11,51 @@ import "./Header.css";
 
 class Header extends React.Component {
   render() {
-    if (this.props.location.pathname === "/")
-      return (
-        <div className="header-container">
-          <YourAccount AccountInfoObject={AccountInfo} />
-          <Friends />
-        </div>
-      );
-    else if (this.props.location.pathname.includes("/friends"))
-      return (
-        <div className="header-container">
-          <YourAccount AccountInfoObject={AccountInfo} />
-          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
-        </div>
-      );
-    else if (this.props.location.pathname.includes("/mypage"))
-      return (
-        <div className="header-container">
-          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
-          <Friends />
-        </div>
-      );
-    else if (this.props.location.pathname.includes("/myfriendspage"))
-      return (
-        <div className="header-container">
-          <YourAccount AccountInfoObject={AccountInfo} />
-          <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
-          <Friends />
-        </div>
-      );
+    return (
+      <Switch>
+        <Route
+          exact
+          path="/"
+          render={props => (
+            <div className="header-container">
+              <YourAccount AccountInfoObject={AccountInfo} />
+              <Friends />
+            </div>
+          )}
+        />
+
+        <Route
+          path="/friends"
+          render={props => (
+            <div className="header-container">
+              <YourAccount AccountInfoObject={AccountInfo} />
+              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+            </div>
+          )}
+        />
+
+        <Route
+          path="/mypage"
+          render={props => (
+            <div className="header-container">
+              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+              <Friends />
+            </div>
+          )}
+        />
+
+        <Route
+          path="/myfriendspage"
+          render={props => (
+            <div className="header-container">
+              <YourAccount AccountInfoObject={AccountInfo} />
+              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+              <Friends />
+            </div>
+          )}
+        />
+      </Switch>
+    );
   }
 }
 
