@@ -3,6 +3,7 @@ import React from "react";
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
 import { Route, Switch } from "react-router-dom";
+import Routes from "@routes/routes.js";
 import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "@data/YourAccountInfo/mock.js";
@@ -15,7 +16,7 @@ class Header extends React.Component {
       <Switch>
         <Route
           exact
-          path="/"
+          path={Routes.MainPage}
           render={props => (
             <div className="header-container">
               <YourAccount AccountInfoObject={AccountInfo} />
@@ -25,7 +26,7 @@ class Header extends React.Component {
         />
 
         <Route
-          path="/friends"
+          path={Routes.FriendListPage}
           render={props => (
             <div className="header-container">
               <YourAccount AccountInfoObject={AccountInfo} />
@@ -35,7 +36,7 @@ class Header extends React.Component {
         />
 
         <Route
-          path="/mypage"
+          path={Routes.MyPage}
           render={props => (
             <div className="header-container">
               <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
@@ -45,7 +46,7 @@ class Header extends React.Component {
         />
 
         <Route
-          path="/myfriendspage"
+          path={Routes.FriendPage}
           render={props => (
             <div className="header-container">
               <YourAccount AccountInfoObject={AccountInfo} />
