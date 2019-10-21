@@ -1,0 +1,18 @@
+.wish-item-container {
+  display: flex;
+  flex-direction: column;
+}
+
+.wish-item-container > :nth-child(n) {
+  margin: 5px;
+}
+
+.item__image {
+  height: 250px;
+  align-self: center;
+}
+
+.item__description {
+  font-size: 14px;
+  color: #b2b2b2;
+}

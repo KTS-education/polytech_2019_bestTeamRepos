@@ -21,14 +21,18 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
+    const hasMore = this.state.visible < FriendsInfo.length;
     if (FriendsInfo.length) {
       return (
         <div className="friends-list-container">
           {FriendsInfo.slice(0, this.state.visible).map(item => {
             return <Friend accountInfoObject={item} key={item.id} />;
           })}
-          {this.state.visible < FriendsInfo.length && (
-            <SecondaryButton className="more-btn" actionHandler={this.loadmore}>
+          {hasMore && (
+            <SecondaryButton
+              className="friends-list-container__more-btn"
+              actionHandler={this.loadmore}
+            >
               Показать ещё
             </SecondaryButton>
           )}
