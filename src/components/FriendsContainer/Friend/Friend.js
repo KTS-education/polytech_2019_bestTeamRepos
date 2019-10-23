@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainButton from "@components/MainButton";
-import "./Friend.css";
+import styles from "./Friend.module.scss";
 
 class Friend extends React.Component {
   static propTypes = {
@@ -21,17 +21,21 @@ class Friend extends React.Component {
     const { name, surname, logoPath } = this.props.accountInfoObject;
 
     return (
-      <div className="friend-item">
-        <img src={logoPath} className="friend-item__photo" alt="Friend pict" />
-        <div className="friend-item__text-part">
-          <div className="text-part__ns">
-            <p className="ns__txt">
+      <div className={styles["friend-item"]}>
+        <img
+          src={logoPath}
+          className={styles["friend-item__photo"]}
+          alt="Friend pict"
+        />
+        <div className={styles["friend-item__text-part"]}>
+          <div className={styles["text-part__ns"]}>
+            <p className={styles["ns__txt"]}>
               {name} {surname}
             </p>
           </div>
           <MainButton
             children={"Узнать, что подарить"}
-            className={"button-learn"}
+            className={styles["button-learn"]}
             to={this.state.path}
           />
         </div>

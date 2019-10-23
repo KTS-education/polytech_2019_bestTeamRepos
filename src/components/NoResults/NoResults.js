@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import noResults from "@img/noResults.png";
-import "./NoResults.css";
+import styles from "./NoResults.module.scss";
 
 class NoResults extends React.Component {
   static propTypes = {
@@ -12,9 +12,9 @@ class NoResults extends React.Component {
     const { children } = this.props;
 
     return (
-      <div className="no-results-container">
+      <div className={styles["no-results-container"]}>
         <img
-          className="no-results-container__emoji"
+          className={styles["no-results-container__emoji"]}
           src={noResults}
           alt="Sad emoji"
         />

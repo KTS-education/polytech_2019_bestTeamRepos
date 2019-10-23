@@ -3,7 +3,8 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 import buttonTypes from "@config/buttonTypes.js";
-import "./MainButton.css";
+
+import styles from "./MainButton.module.scss";
 
 class MainButton extends React.Component {
   static propTypes = {
@@ -29,9 +30,9 @@ class MainButton extends React.Component {
     return (
       <Component
         className={classNames(
-          "button",
-          { "main-button": type === "primary" },
-          { "sec-button": type === "secondary" },
+          styles["button"],
+          { [styles["main-button"]]: type === "primary" },
+          { [styles["sec-button"]]: type === "secondary" },
           className
         )}
         children={children}

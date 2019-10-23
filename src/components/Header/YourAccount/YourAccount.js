@@ -2,8 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import LinkItem from "@components/LinkItem";
-
-import "./YourAccount.scss";
+import styles from "./YourAccount.module.scss";
 
 class YourAccount extends React.Component {
   static propTypes = {
@@ -18,9 +17,13 @@ class YourAccount extends React.Component {
     const { name, surname, logoPath } = this.props.AccountInfoObject;
 
     return (
-      <div className="your-account">
-        <img src={logoPath} className="your-account__photo" alt="logo" />
-        <LinkItem href="/mypage" className="your-account__text">
+      <div className={styles["your-account"]}>
+        <img
+          src={logoPath}
+          className={styles["your-account__photo"]}
+          alt="logo"
+        />
+        <LinkItem href="/mypage" className={styles["your-account__text"]}>
           {name} {surname}
         </LinkItem>
       </div>

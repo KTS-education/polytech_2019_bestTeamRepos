@@ -8,7 +8,7 @@ import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "@data/YourAccountInfo/mock.js";
 
-import "./Header.scss";
+import styles from "./Header.module.scss";
 
 class Header extends React.Component {
   render() {
@@ -18,7 +18,7 @@ class Header extends React.Component {
           exact
           path={Routes.MainPage}
           render={props => (
-            <div className="header-container">
+            <div className={styles["header-container"]}>
               <YourAccount AccountInfoObject={AccountInfo} />
               <Friends />
             </div>
@@ -28,7 +28,7 @@ class Header extends React.Component {
         <Route
           path={Routes.FriendListPage}
           render={props => (
-            <div className="header-container">
+            <div className={styles["header-container"]}>
               <YourAccount AccountInfoObject={AccountInfo} />
               <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
             </div>
@@ -38,7 +38,7 @@ class Header extends React.Component {
         <Route
           path={Routes.MyPage}
           render={props => (
-            <div className="header-container">
+            <div className={styles["header-container"]}>
               <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
               <Friends />
             </div>
@@ -48,7 +48,7 @@ class Header extends React.Component {
         <Route
           path={Routes.FriendPage}
           render={props => (
-            <div className="header-container">
+            <div className={styles["header-container"]}>
               <YourAccount AccountInfoObject={AccountInfo} />
               <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
               <Friends />

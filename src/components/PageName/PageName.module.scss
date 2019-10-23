@@ -1,0 +1,19 @@
+.page-name {
+  height: 55px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__name {
+    display: block;
+    width: auto;
+    margin: 5px;
+    font-size: 40px;
+    font-weight: 600;
+  }
+
+  &__logo {
+    height: 100%;
+    margin-left: calc(var(--standard-margin) / 2);
+  }
+}

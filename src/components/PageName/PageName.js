@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import Logo from "@img/logo.svg";
 
-import "./PageName.css";
+import styles from "./PageName.module.scss";
 
 class PageName extends React.Component {
   static propTypes = {
@@ -20,9 +20,9 @@ class PageName extends React.Component {
     const { name, logoPath } = this.props;
 
     return (
-      <div className="page-name">
-        <h1 className="page-name__name">{name}</h1>
-        <img src={logoPath} className="page-name__logo" alt="logo" />
+      <div className={styles["page-name"]}>
+        <h1 className={styles["page-name__name"]}>{name}</h1>
+        <img src={logoPath} className={styles["page-name__logo"]} alt="logo" />
       </div>
     );
   }

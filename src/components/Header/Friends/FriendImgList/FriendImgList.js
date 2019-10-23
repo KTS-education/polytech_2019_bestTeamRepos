@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import FriendImage from "./FriendImage";
 
-import "./FriendImgList.css";
+import styles from "./FriendImgList.module.scss";
 
 class FriendImgList extends React.Component {
   static propTypes = {
@@ -15,8 +15,8 @@ class FriendImgList extends React.Component {
 
     if (friends.length) {
       return (
-        <div className="header-friends">
-          <ul className="header-friends__img-list">
+        <div className={styles["header-friends"]}>
+          <ul className={styles["header-friends__img-list"]}>
             {friends.map(item => (
               <FriendImage imageSrc={item} key={item} />
             ))}

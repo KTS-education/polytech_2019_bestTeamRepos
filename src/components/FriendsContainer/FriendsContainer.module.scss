@@ -1,12 +1,13 @@
 .friends-list-container {
   width: 500px;
   margin: 0 auto;
+
+  &__more-btn {
+    display: block;
+    margin: 20px auto;
+  }
 }
 
 .no-friends {
   margin-top: 130px;
-}
-
-.friends-list-container__more-btn {
-  margin: 20px auto;
 }

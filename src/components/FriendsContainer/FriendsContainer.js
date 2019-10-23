@@ -7,7 +7,7 @@ import MainButton from "@components/MainButton";
 
 import FriendsInfo from "@data/YourFriendsInfo/mock.js";
 
-import "./FriendsContainer.css";
+import styles from "./FriendsContainer.module.scss";
 
 class FriendsContainer extends React.Component {
   state = {
@@ -24,13 +24,13 @@ class FriendsContainer extends React.Component {
     const hasMore = this.state.visible < FriendsInfo.length;
     if (FriendsInfo.length) {
       return (
-        <div className="friends-list-container">
+        <div className={styles["friends-list-container"]}>
           {FriendsInfo.slice(0, this.state.visible).map(item => {
             return <Friend accountInfoObject={item} key={item.id} />;
           })}
           {hasMore && (
             <MainButton
-              className="friends-list-container__more-btn"
+              className={styles["friends-list-container__more-btn"]}
               onClick={this.loadmore}
               type="secondary"
             >

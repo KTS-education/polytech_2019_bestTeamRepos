@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
-import "./LinkItem.scss";
+import styles from "./LinkItem.module.scss";
 
 class LinkItem extends React.Component {
   static propTypes = {
@@ -24,9 +24,9 @@ class LinkItem extends React.Component {
     return (
       <NavLink
         to={href}
-        className={classNames("blueLink", className)}
+        className={classNames(styles["blueLink"], className)}
         exact
-        activeClassName="selected"
+        activeClassName={styles["selected"]}
       >
         {children}
       </NavLink>

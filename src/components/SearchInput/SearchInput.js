@@ -1,12 +1,12 @@
 import React from "react";
 
-import "./SearchInput.css";
+import styles from "./SearchInput.module.scss";
 
 class SearchInput extends React.Component {
   render() {
     return (
-      <div className="search">
-        <input type="text" className="search__input-line"></input>
+      <div className={styles["search"]}>
+        <input type="text" className={styles["search__input-line"]}></input>
       </div>
     );
   }
