@@ -8,7 +8,7 @@ import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "@data/YourAccountInfo/mock.js";
 
-import "./Header.css";
+import "./Header.scss";
 
 class Header extends React.Component {
   render() {

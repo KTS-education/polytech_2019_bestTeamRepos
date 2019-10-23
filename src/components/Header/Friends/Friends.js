@@ -8,7 +8,7 @@ import f1 from "@data/YourFriendsInfo/img/friend2.png";
 import f2 from "@data/YourFriendsInfo/img/friend1.png";
 import f3 from "@data/YourFriendsInfo/img/friend3.png";
 
-import "./Friends.css";
+import "./Friends.scss";
 
 class Friends extends React.Component {
   render() {

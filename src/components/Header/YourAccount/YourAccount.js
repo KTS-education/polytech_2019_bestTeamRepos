@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 import LinkItem from "@components/LinkItem";
 
-import "./YourAccount.css";
+import "./YourAccount.scss";
 
 class YourAccount extends React.Component {
   static propTypes = {

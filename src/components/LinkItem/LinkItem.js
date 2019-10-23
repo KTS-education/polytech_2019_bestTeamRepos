@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
 
-import "./LinkItem.css";
+import "./LinkItem.scss";
 
 class LinkItem extends React.Component {
   static propTypes = {
