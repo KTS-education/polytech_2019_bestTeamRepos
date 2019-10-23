@@ -1,4 +1,4 @@
-.secButton {
+.sec-button {
   display: block;
   width: auto;
   height: auto;
@@ -15,10 +15,10 @@
   cursor: pointer;
 }
 
-.secButton:hover {
+.sec-button:hover {
   background: var(--global-second-btn-bg-hover);
 }
 
-.secButton:active {
+.sec-button:active {
   background: var(--global-second-btn-bg-active);
 }

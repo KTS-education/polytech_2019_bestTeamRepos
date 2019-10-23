@@ -20,7 +20,7 @@ class SecondaryButton extends React.Component {
 
     return (
       <button
-        className={classNames("secButton", className)}
+        className={classNames("sec-button", className)}
         onClick={actionHandler}
       >
         {children}

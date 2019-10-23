@@ -3,7 +3,7 @@ import React from "react";
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
 import { Route, Switch } from "react-router-dom";
-import Routes from "@routes/routes.js";
+import Routes from "@config/routes.js";
 import LinkItem from "@components/LinkItem";
 
 import AccountInfo from "@data/YourAccountInfo/mock.js";

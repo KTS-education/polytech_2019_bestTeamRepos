@@ -9,6 +9,7 @@ class List extends React.Component {
     products: PropTypes.array.isRequired,
     className: PropTypes.string
   };
+  defaultProps = { className: null };
 
   render() {
     const { products, className } = this.props;

@@ -20,11 +20,9 @@ class YourAccount extends React.Component {
     return (
       <div className="your-account">
         <img src={logoPath} className="your-account__photo" alt="logo" />
-        <LinkItem
-          href="/mypage"
-          children={name + " " + surname}
-          className="your-account__text"
-        />
+        <LinkItem href="/mypage" className="your-account__text">
+          {name} {surname}
+        </LinkItem>
       </div>
     );
   }

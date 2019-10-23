@@ -1,5 +1,4 @@
 import React, { Component } from "react";
-// import Loader from '@components/Loader';
 import NoResults from "@components/NoResults";
 import products from "@data/ProductsInfo/mock.js";
 import List from "@components/List";

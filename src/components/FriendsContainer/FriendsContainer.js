@@ -3,7 +3,7 @@ import React from "react";
 import Friend from "./Friend";
 
 import NoResults from "@components/NoResults";
-import SecondaryButton from "@components/SecondaryButton";
+import MainButton from "@components/MainButton";
 
 import FriendsInfo from "@data/YourFriendsInfo/mock.js";
 
@@ -29,12 +29,13 @@ class FriendsContainer extends React.Component {
             return <Friend accountInfoObject={item} key={item.id} />;
           })}
           {hasMore && (
-            <SecondaryButton
+            <MainButton
               className="friends-list-container__more-btn"
-              actionHandler={this.loadmore}
+              onClick={this.loadmore}
+              type="secondary"
             >
               Показать ещё
-            </SecondaryButton>
+            </MainButton>
           )}
         </div>
       );
