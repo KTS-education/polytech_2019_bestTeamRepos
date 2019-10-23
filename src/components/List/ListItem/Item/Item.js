@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from './StatusButtons';
-import styles from "./WishItem.module.scss";
+import styles from "./Item.module.scss";
 
-class WishItem extends React.Component {
+class Item extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
       product_description: PropTypes.string.isRequired,
@@ -33,7 +33,7 @@ class WishItem extends React.Component {
     } = this.props.product;
 
     return (
-      <div className={styles["wish-item-container"]}>
+      <div className={styles["item"]}>
         <img
           className={styles["item__image"]}
           src={product_img_href}
@@ -51,4 +51,4 @@ class WishItem extends React.Component {
   }
 }
 
-export default WishItem;
+export default Item;

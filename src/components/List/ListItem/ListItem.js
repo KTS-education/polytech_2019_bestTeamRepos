@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
-import WishItem from "./WishItem";
-import styles from "./Item.module.scss";
+import Item from "./Item";
+import styles from "./ListItem.module.scss";
 
-class Item extends React.Component {
+class ListItem extends React.Component {
   static propTypes = {
     product: PropTypes.object.isRequired
   };
@@ -12,10 +12,10 @@ class Item extends React.Component {
     const product = this.props.product;
     return (
       <li className={styles["list__item"]}>
-        <WishItem product={product} />
+        <Item product={product} />
       </li>
     );
   }
 }
 
-export default Item;
+export default ListItem;

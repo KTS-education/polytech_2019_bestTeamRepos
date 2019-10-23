@@ -1,4 +1,4 @@
-.wish-item-container {
+.item {
   display: flex;
   flex-direction: column;
 
@@ -6,12 +6,12 @@
     margin: 5px;
   }
 
-  .item__image {
+  &__image {
     height: 250px;
     align-self: center;
   }
   
-  .item__description {
+  &__description {
     font-size: 14px;
     color: #b2b2b2;
   }
