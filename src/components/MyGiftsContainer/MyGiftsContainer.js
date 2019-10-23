@@ -8,9 +8,7 @@ export class MyGiftsContainer extends Component {
   render() {
     if (products.length) {
       return (
-        <div>
-          <List products={products} />
-        </div>
+        <List products={products} />
       );
     }
     return <NoResults children="Кажется, ты не любишь подарки" />;

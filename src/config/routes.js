@@ -2,5 +2,7 @@ export default {
   MainPage: "/",
   FriendListPage: "/friends",
   MyPage: "/mypage",
-  FriendPage: "/myfriendspage"
+  FriendPage: "/myfriendspage",
+  MyPageIwant: "/mypage/what-i-want",
+  FriendPageFromMe: "/myfriendspage/from-me"
 };

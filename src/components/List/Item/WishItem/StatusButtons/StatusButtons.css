@@ -43,7 +43,7 @@
   
   .booked:hover::before {
     display: block;
-    content: "Кто-то хочет это тебе подарить";
+    content: attr(children);
     position: absolute;
     background-color: #fff;
     box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.15);
