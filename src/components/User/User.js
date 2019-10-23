@@ -34,9 +34,7 @@ class User extends React.Component {
     const { name, surname, logoPath } = this.getUserData();
     return (
       <div className={styles["user"]}>
-
         <Avatar className={styles["user__photo"]} src={logoPath} />
-
         <div className={styles["user__text-part"]}>
           <div className={styles["text-part__credentials"]}>
             <p className={styles["credentials"]}>
