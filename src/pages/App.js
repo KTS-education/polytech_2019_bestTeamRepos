@@ -9,11 +9,11 @@ import FriendPage from "./FriendPage";
 import Header from "@components/Header";
 
 import "@constantcss/constants.css";
-import "./App.css";
+import styles from "./App.module.scss";
 
 const App = () => {
   return (
-    <div className="app">
+    <div className={styles["app"]}>
       <Route path="/" component={Header} />
       <Route exact path="/" component={Main} />
       <Route path="/friends" component={FriendList} />
