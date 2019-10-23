@@ -1,15 +1,16 @@
 import React from "react";
-import "./Loader.css";
 import LoaderImg from "@img/loader.png";
+
+import styles from "./Loader.module.scss";
 
 class Loader extends React.Component {
   render() {
     return (
-      <div className="load-сontainer">
+      <div className={styles["load-сontainer"]}>
         <img
           src={LoaderImg}
           alt="Loading"
-          className="load-container__img"
+          className={styles["load-container__img"]}
         ></img>
       </div>
     );

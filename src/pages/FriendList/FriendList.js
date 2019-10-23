@@ -7,7 +7,7 @@ import FriendsContainer from "@components/FriendsContainer";
 
 import Logo from "@img/friends.png";
 
-import "./FriendList.css";
+import styles from "./FriendList.module.scss";
 
 class FriendList extends React.Component {
   static propTypes = {
@@ -22,7 +22,7 @@ class FriendList extends React.Component {
     const { LogoPath } = this.props;
 
     return (
-      <div className="friend-list-container">
+      <div className={styles["friend-list-container"]}>
         <PageName name="Мои друзья" logoPath={LogoPath} />
         <SearchInput />
         <FriendsContainer />

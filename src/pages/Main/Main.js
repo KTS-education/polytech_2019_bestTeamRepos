@@ -7,7 +7,7 @@ import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import Logo from "@img/wishlist.png";
 
-import "./Main.css";
+import styles from "./Main.module.scss";
 
 class Main extends React.Component {
   static propTypes = {
@@ -22,7 +22,7 @@ class Main extends React.Component {
     const { logoPath } = this.props;
 
     return (
-      <div className="main-container">
+      <div className={styles["main-container"]}>
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput />
         <PopularGiftsContainer />

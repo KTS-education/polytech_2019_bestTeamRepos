@@ -4,21 +4,21 @@
   color: var(--global-color-link-blue);
   font-size: var(--standard-font);
   cursor: pointer;
-}
 
-.blueLink:hover {
-  color: var(--global-color-link-blue-hover);
-}
+  &:hover {
+    color: var(--global-color-link-blue-hover);
+  }
 
-.blueLink:active {
-  color: var(--global-color-link-blue-active);
+  &:active {
+    color: var(--global-color-link-blue-active);
+  }
 }
 
 .selected {
   color: var(--global-color-black);
   pointer-events: none;
-}
 
-.selected:hover {
-  color: var(--global-color-black);
+  &:hover {
+    color: var(--global-color-black);
+  }
 }
