@@ -3,6 +3,7 @@ import { withRouter } from "react-router-dom";
 
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
+import Avatar from "@components/Avatar";
 
 import userAccount from "@data/YourAccountInfo/mock.js";
 import friendsAccounts from "@data/YourFriendsInfo/mock.js";
@@ -33,7 +34,9 @@ class User extends React.Component {
     const { name, surname, logoPath } = this.getUserData();
     return (
       <div className={styles["user"]}>
-        <img src={logoPath} className={styles["user__photo"]} alt="user's Avatar" />
+
+        <Avatar className={styles["user__photo"]} src={logoPath} />
+
         <div className={styles["user__text-part"]}>
           <div className={styles["text-part__credentials"]}>
             <p className={styles["credentials"]}>
