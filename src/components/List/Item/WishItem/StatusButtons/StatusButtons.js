@@ -1,7 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
-import SecondaryButton from "@components/SecondaryButton";
 import MainButton from "@components/MainButton";
 import giftIcon from "@img/giftIcon.png";
 import pensiveFace from "@img/pensiveFace.png";
@@ -53,7 +52,11 @@ class StatusButtons extends React.Component {
       ) {
         return (
           <div className="item__group">
-            <SecondaryButton className="button-delete" children={"Удалить"} />{" "}
+            <MainButton
+              type="secondary"
+              className="button-delete"
+              children={"Удалить"}
+            />{" "}
             <span className="booked">
               <img className="booked__gift-icon" src={giftIcon} alt="Icon" />
             </span>
@@ -62,7 +65,8 @@ class StatusButtons extends React.Component {
       } else {
         return (
           <div>
-            <SecondaryButton
+            <MainButton
+              type="secondary"
               className="button-delete"
               children={<span>Удалить</span>}
             />
@@ -72,7 +76,8 @@ class StatusButtons extends React.Component {
     } else if (this.props.location.pathname === "/mypage/what-i-want") {
       return (
         <div className="item__group">
-          <SecondaryButton
+          <MainButton
+            type="secondary"
             className="button--delete"
             children={
               <div className="text">
@@ -92,7 +97,8 @@ class StatusButtons extends React.Component {
       if (product.product_isBooked) {
         return (
           <div className="item__group">
-            <SecondaryButton
+            <MainButton
+              type="secondary"
               className="button--delete"
               children={
                 <div className="text">
@@ -107,7 +113,8 @@ class StatusButtons extends React.Component {
       } else {
         return (
           <div className="item__group">
-            <SecondaryButton
+            <MainButton
+              type="secondary"
               className="button--delete"
               children={
                 <div className="text">
@@ -124,8 +131,9 @@ class StatusButtons extends React.Component {
       //   product.hasOwnProperty("product_isBooked") &&
       //   product.product_isBooked
       // )
-    } else if (this.props.location.pathname.includes("/myfriendspage/from-me/")) {
-
+    } else if (
+      this.props.location.pathname.includes("/myfriendspage/from-me/")
+    ) {
     }
   }
 }
