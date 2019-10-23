@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import popularEmoji from '@img/popular.png';
-import './SectionName.css';
+import styles from './SectionName.module.scss';
 
 class SectionName extends React.Component {
 
@@ -13,9 +13,9 @@ class SectionName extends React.Component {
     const { title } = this.props;
 
     return (
-      <h2 className="list-title">
-        <span>{title}</span>
-        <img className="emoji" src={popularEmoji} alt="emoji fo popular products" />
+      <h2 className={styles["list-title"]}>
+        {title}
+        <img className={styles["emoji"]} src={popularEmoji} alt="emoji popular" />
       </h2>
     );
   }

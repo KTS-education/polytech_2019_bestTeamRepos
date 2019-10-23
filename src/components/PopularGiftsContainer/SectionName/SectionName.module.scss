@@ -1,0 +1,12 @@
+.list-title {
+  margin: 5% 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .emoji {
+    width: 45px;
+    height: 45px;
+    margin-left: 10px;
+  }
+}

@@ -7,7 +7,7 @@ import UserTabs from "./UserTabs";
 import userAccount from "@data/YourAccountInfo/mock.js";
 import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 
-import "./User.css";
+import styles from "./User.module.scss";
 
 class User extends React.Component {
   getUserId() {
@@ -32,18 +32,18 @@ class User extends React.Component {
   render() {
     const { name, surname, logoPath } = this.getUserData();
     return (
-      <div className="user">
-        <img src={logoPath} className="user__photo" alt="user's Avatar" />
-        <div className="user__text-part">
-          <div className="text-part__credentials">
-            <p className="credentials">
+      <div className={styles["user"]}>
+        <img src={logoPath} className={styles["user__photo"]} alt="user's Avatar" />
+        <div className={styles["user__text-part"]}>
+          <div className={styles["text-part__credentials"]}>
+            <p className={styles["credentials"]}>
               {name} {surname}
             </p>
           </div>
           <UserTabs />
           <MainButton
-            children={<span>Поделиться</span>}
-            className={"button-share"}
+            children="Поделиться"
+            className={styles["button-share"]}
           />
         </div>
       </div>

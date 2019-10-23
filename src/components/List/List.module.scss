@@ -4,8 +4,8 @@
   flex-wrap: wrap;
   justify-content: flex-start;
   box-sizing: border-box;
-}
 
-.products-list > :nth-child(n) {
-  margin-right: 3%;
+  & > :nth-child(n) {
+    margin-right: 3%;
+  }
 }

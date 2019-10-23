@@ -8,13 +8,9 @@ import relievedEmoji from "@img/relievedFace.png";
 import sunglassesEmoji from "@img/wantGive.png";
 import droolingFace from "@img/droolingFace.png";
 
-import "./UserTabs.css";
+import styles from "./UserTabs.module.scss";
 
 class UserTabs extends React.Component {
-  constructor() {
-    super();
-    this.getUserId = this.getUserId.bind(this);
-  }
 
   static propTypes = {
     className: PropTypes.string
@@ -24,7 +20,7 @@ class UserTabs extends React.Component {
     className: null
   };
 
-  getUserId() {
+  getUserId = () => {
     if (this.props.location.pathname.includes("/myfriendspage")) {
       return parseInt(this.props.location.pathname.slice(-1));
     }
@@ -33,16 +29,16 @@ class UserTabs extends React.Component {
   render() {
     if (this.props.location.pathname.includes("/mypage")) {
       return (
-        <div className="text-part__buttons-group">
+        <div className={styles["text-part__buttons-group"]}>
           <LinkItem
             href="/mypage"
             children={
-              <span className="buttons-group__button">
+              <span className={styles["buttons-group__button"]}>
                 Хочу получить{" "}
                 <img
-                  className="button__emoji"
+                  className={styles["button__emoji"]}
                   src={relievedEmoji}
-                  alt="relieved emoji"
+                  alt={styles["relieved emoji"]}
                 />
               </span>
             }
@@ -50,10 +46,10 @@ class UserTabs extends React.Component {
           <LinkItem
             href="/mypage/what-i-want"
             children={
-              <span className="buttons-group__button">
+              <span className={styles["buttons-group__button"]}>
                 Хочу подарить{" "}
                 <img
-                  className="button__emoji"
+                  className={styles["button__emoji"]}
                   src={sunglassesEmoji}
                   alt="cool emoji with sunglasses"
                 />
@@ -65,14 +61,14 @@ class UserTabs extends React.Component {
     }
     else if (this.props.location.pathname.includes("/myfriendspage")) {
       return (
-        <div className="text-part__buttons-group">
+        <div className={styles["text-part__buttons-group"]}>
           <LinkItem
             href={`/myfriendspage/${this.getUserId()}`}
             children={
-              <span className="buttons-group__button">
+              <span className={styles["buttons-group__button"]}>
                 Хочет получить{" "}
                 <img
-                  className="button__emoji"
+                  className={styles["button__emoji"]}
                   src={droolingFace}
                   alt="drooling emoji"
                 />
@@ -82,10 +78,10 @@ class UserTabs extends React.Component {
           <LinkItem
             href={`/myfriendspage/from-me/${this.getUserId()}`}
             children={
-              <span className="buttons-group__button">
+              <span className={styles["buttons-group__button"]}>
                 Хочу подарить{" "}
                 <img
-                  className="button__emoji"
+                  className={styles["button__emoji"]}
                   src={sunglassesEmoji}
                   alt="cool emoji with sunglasses"
                 />
