@@ -38,12 +38,10 @@ class StatusButtons extends React.Component {
     const product = this.props.product;
     if (this.props.location.pathname === "/") {
       return (
-        <div>
-          <MainButton
-            className="item__button"
-            children={<span>Добавить в избранное</span>}
-          />
-        </div>
+        <MainButton
+          className="item__button"
+          children="Добавить в избранное"
+        />
       );
     } else if (this.props.location.pathname === "/mypage") {
       if (
@@ -54,23 +52,21 @@ class StatusButtons extends React.Component {
           <div className="item__group">
             <MainButton
               type="secondary"
-              className="button-delete"
-              children={"Удалить"}
+              className="button--delete"
+              children="Удалить"
             />{" "}
-            <span className="booked">
-              <img className="booked__gift-icon" src={giftIcon} alt="Icon" />
+            <span className="booked badge" title="Кто-то хочет тебе это подарить">
+              <img className="booked__icon" src={giftIcon} alt="Icon" />
             </span>
           </div>
         );
       } else {
         return (
-          <div>
-            <MainButton
-              type="secondary"
-              className="button-delete"
-              children={<span>Удалить</span>}
-            />
-          </div>
+          <MainButton
+            type="secondary"
+            className="button--delete"
+            children="Удалить"
+          />
         );
       }
     } else if (this.props.location.pathname === "/mypage/what-i-want") {
@@ -80,14 +76,14 @@ class StatusButtons extends React.Component {
             type="secondary"
             className="button--delete"
             children={
-              <div className="text">
-                <span>Не подарю</span>
-                <img src={pensiveFace} className="sad-emoji" alt="emoji" />
+              <div className="button--delete__content">
+                <span className="content__text">Не подарю</span>
+                <img src={pensiveFace} className="emoji--sad" alt="emoji" />
               </div>
             }
           />
           <img
-            className="booked"
+            className="badge"
             src={product.selectedPerson_photo_href}
             alt="selected friend"
           />
@@ -101,39 +97,31 @@ class StatusButtons extends React.Component {
               type="secondary"
               className="button--delete"
               children={
-                <div className="text">
-                  <span>Не подарю</span>
-                  <img src={pensiveFace} className="sad-emoji" alt="emoji" />
+                <div className="button--delete__content">
+                  <span className="content__text">Не подарю</span>
+                  <img src={pensiveFace} className="emoji--sad" alt="emoji" />
                 </div>
               }
             />
-            <MainButton className="booked" children={popular} />
+            <span className="booked badge">
+              <img src={popular} className="emoji--sad" alt="emoji" />
+            </span>
           </div>
         );
       } else {
         return (
-          <div className="item__group">
-            <MainButton
-              type="secondary"
-              className="button--delete"
-              children={
-                <div className="text">
-                  <span>Не подарю</span>
-                  <img src={pensiveFace} className="sad-emoji" alt="emoji" />
-                </div>
-              }
-            />
-          </div>
+          <MainButton
+            type="secondary"
+            className="button--delete"
+            children={
+              <div className="button--delete__content">
+                <span className="content__text">Не подарю</span>
+                <img src={pensiveFace} className="emoji--sad" alt="emoji" />
+              </div>
+            }
+          />
         );
       }
-    } else if (this.props.location.pathname === "/myfriendspage") {
-      // if (
-      //   product.hasOwnProperty("product_isBooked") &&
-      //   product.product_isBooked
-      // )
-    } else if (
-      this.props.location.pathname.includes("/myfriendspage/from-me/")
-    ) {
     }
   }
 }

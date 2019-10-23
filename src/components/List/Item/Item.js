@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import WishItem from "./WishItem";
-import "./Item.css";
+import styles from "./Item.module.scss";
 
 class Item extends React.Component {
   static propTypes = {
@@ -11,7 +11,7 @@ class Item extends React.Component {
   render() {
     const product = this.props.product;
     return (
-      <li className="gifts-list__item">
+      <li className={styles["list__item"]}>
         <WishItem product={product} />
       </li>
     );

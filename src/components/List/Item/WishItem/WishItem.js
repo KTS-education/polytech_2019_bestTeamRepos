@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from './StatusButtons';
-import "./WishItem.css";
+import styles from "./WishItem.module.scss";
 
 class WishItem extends React.Component {
   static propTypes = {
@@ -33,9 +33,9 @@ class WishItem extends React.Component {
     } = this.props.product;
 
     return (
-      <div className="wish-item-container">
+      <div className={styles["wish-item-container"]}>
         <img
-          className="item__image"
+          className={styles["item__image"]}
           src={product_img_href}
           alt={product_title}
         />
@@ -44,9 +44,9 @@ class WishItem extends React.Component {
           {product_price}
           <span> &#8381;</span>
         </p>
-        <p className="item__description">{product_description}</p>
+        <p className={styles["item__description"]}>{product_description}</p>
         <StatusButtons product={this.props.product} />
-      </div>
+      </div >
     );
   }
 }

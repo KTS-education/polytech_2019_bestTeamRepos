@@ -9,9 +9,7 @@ export class FriendGiftsContainer extends Component {
   render() {
     if (products.length) {
       return (
-        <div>
-          <List products={products} />
-        </div>
+        <List products={products} />
       );
     }
     return <NoResults children="Кажется, друг не любит подарки" />;
