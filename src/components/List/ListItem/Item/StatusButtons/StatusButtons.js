@@ -59,7 +59,8 @@ class StatusButtons extends React.Component {
             <Badge
               className="booked"
               src={giftIcon}
-              children="Кто-то хочет тебе это подарить" />
+              children="Кто-то хочет тебе это подарить"
+            />
           </div>
         );
       } else {
@@ -86,7 +87,8 @@ class StatusButtons extends React.Component {
           />
           <Badge
             src={product.selectedPerson_photo_href}
-            children="Это подарок для друга" />
+            children="Это подарок для друга"
+          />
         </div>
       );
     } else if (this.props.location.pathname === "/myfriendspage/from-me") {
@@ -106,7 +108,8 @@ class StatusButtons extends React.Component {
             <Badge
               className="booked"
               src={popular}
-              children="Я тоже хочу!" />
+              children="Я тоже хочу!"
+            />
           </div>
         );
       } else {
