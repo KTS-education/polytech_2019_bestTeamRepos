@@ -2,9 +2,10 @@ import React from "react";
 import PropTypes from "prop-types";
 import { withRouter } from "react-router-dom";
 import MainButton from "@components/MainButton";
-import giftIcon from "@img/giftIcon.png";
+import Badge from "./Badge";
+import giftIcon from "@img/iconGift.png";
 import pensiveFace from "@img/pensiveFace.png";
-import popular from "@img/popular.png";
+import popular from "@img/badge-popular.png";
 import "./StatusButtons.css";
 
 class StatusButtons extends React.Component {
@@ -55,9 +56,10 @@ class StatusButtons extends React.Component {
               className="button--delete"
               children="Удалить"
             />{" "}
-            <span className="booked badge" title="Кто-то хочет тебе это подарить">
-              <img className="booked__icon" src={giftIcon} alt="Icon" />
-            </span>
+            <Badge
+              className="booked"
+              src={giftIcon}
+              children="Кто-то хочет тебе это подарить" />
           </div>
         );
       } else {
@@ -82,11 +84,9 @@ class StatusButtons extends React.Component {
               </div>
             }
           />
-          <img
-            className="badge"
+          <Badge
             src={product.selectedPerson_photo_href}
-            alt="selected friend"
-          />
+            children="Это подарок для друга" />
         </div>
       );
     } else if (this.props.location.pathname === "/myfriendspage/from-me") {
@@ -103,9 +103,10 @@ class StatusButtons extends React.Component {
                 </div>
               }
             />
-            <span className="booked badge">
-              <img src={popular} className="emoji--sad" alt="emoji" />
-            </span>
+            <Badge
+              className="booked"
+              src={popular}
+              children="Я тоже хочу!" />
           </div>
         );
       } else {
