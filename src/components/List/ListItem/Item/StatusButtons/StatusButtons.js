@@ -29,7 +29,7 @@ class StatusButtons extends React.Component {
     selectedPerson_photo_href: null
   };
 
-  getUserId() {
+  getUserId = () => {
     if (this.props.location.pathname.includes("/myfriendspage")) {
       return parseInt(this.props.location.pathname.slice(-1));
     }
@@ -78,10 +78,10 @@ class StatusButtons extends React.Component {
             type="secondary"
             className="button--delete"
             children={
-              <div className="button--delete__content">
-                <span className="content__text">Не подарю</span>
-                <img src={pensiveFace} className="emoji--sad" alt="emoji" />
-              </div>
+              <span className="button--delete__content">
+                Не подарю
+                <img src={pensiveFace} className="emoji" alt="emoji" />
+              </span>
             }
           />
           <Badge
@@ -97,10 +97,10 @@ class StatusButtons extends React.Component {
               type="secondary"
               className="button--delete"
               children={
-                <div className="button--delete__content">
-                  <span className="content__text">Не подарю</span>
-                  <img src={pensiveFace} className="emoji--sad" alt="emoji" />
-                </div>
+                <span className="button--delete__content">
+                  Не подарю
+                  <img src={pensiveFace} className="emoji" alt="emoji" />
+                </span>
               }
             />
             <Badge
@@ -115,10 +115,10 @@ class StatusButtons extends React.Component {
             type="secondary"
             className="button--delete"
             children={
-              <div className="button--delete__content">
-                <span className="content__text">Не подарю</span>
-                <img src={pensiveFace} className="emoji--sad" alt="emoji" />
-              </div>
+              <span className="button--delete__content">
+                Не подарю
+                <img src={pensiveFace} className="emoji" alt="emoji" />
+              </span>
             }
           />
         );
