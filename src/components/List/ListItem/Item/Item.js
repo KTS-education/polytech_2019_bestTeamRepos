@@ -2,50 +2,46 @@ import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from './StatusButtons';
 import styles from "./Item.module.scss";
+import { throwStatement } from "@babel/types";
 
 class Item extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
-      product_description: PropTypes.string.isRequired,
-      product_img_href: PropTypes.string.isRequired,
-      product_price: PropTypes.number.isRequired,
-      product_title: PropTypes.string.isRequired,
-      product_isBooked: PropTypes.bool,
-      selectedPerson: PropTypes.string,
-      selectedPerson_photo_href: PropTypes.string
+      description: PropTypes.string.isRequired,
+      productImgHref: PropTypes.string.isRequired,
+      price: PropTypes.number.isRequired,
+      title: PropTypes.string.isRequired
     }),
     className: PropTypes.string,
   };
 
   static defaultProps = {
-    className: null,
-    product_isBooked: null,
-    selectedPerson: null,
-    selectedPerson_photo_href: null
+    className: null
   };
 
   render() {
     const {
-      product_description,
-      product_img_href,
-      product_price,
-      product_title
+      description,
+      productImgHref,
+      price,
+      title
     } = this.props.product;
+    const { product } = this.props;
 
     return (
       <div className={styles["item"]}>
         <img
           className={styles["item__image"]}
-          src={product_img_href}
-          alt={product_title}
+          src={productImgHref}
+          alt={title}
         />
-        <h3>{product_title}</h3>
+        <h3>{title}</h3>
         <p>
-          {product_price}
+          {price}
           <span> &#8381;</span>
         </p>
-        <p className={styles["item__description"]}>{product_description}</p>
-        <StatusButtons product={this.props.product} />
+        <p className={styles["item__description"]}>{description}</p>
+        <StatusButtons product={product} />
       </div >
     );
   }

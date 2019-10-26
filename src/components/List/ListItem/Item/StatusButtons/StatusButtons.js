@@ -1,32 +1,27 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
-import MainButton from "@components/MainButton";
-import Badge from "./Badge";
-import giftIcon from "@img/iconGift.png";
-import pensiveFace from "@img/pensiveFace.png";
-import popular from "@img/badge-popular.png";
+import { withRouter, Switch, Route } from "react-router-dom";
+import GroupButtons from "./GroupButtons";
+import Routes from "@config/routes.js";
 import "./StatusButtons.css";
 
 class StatusButtons extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
-      product_description: PropTypes.string.isRequired,
-      product_img_href: PropTypes.string.isRequired,
-      product_price: PropTypes.number.isRequired,
-      product_title: PropTypes.string.isRequired,
-      product_isBooked: PropTypes.bool,
+      isBooked: PropTypes.bool,
       selectedPerson: PropTypes.string,
-      selectedPerson_photo_href: PropTypes.string
+      selectedPersonPhotoHref: PropTypes.string,
+      selectedPersonId: PropTypes.number
     }),
     className: PropTypes.string
   };
 
   static defaultProps = {
     className: null,
-    product_isBooked: null,
+    isBooked: null,
     selectedPerson: null,
-    selectedPerson_photo_href: null
+    selectedPersonPhotoHref: null,
+    selectedPersonId: null
   };
 
   getUserId = () => {
@@ -37,96 +32,34 @@ class StatusButtons extends React.Component {
 
   render() {
     const product = this.props.product;
-    if (this.props.location.pathname === "/") {
-      return (
-        <MainButton
-          className="item__button"
-          children="Добавить в избранное"
-        />
-      );
-    } else if (this.props.location.pathname === "/mypage") {
-      if (
-        product.hasOwnProperty("product_isBooked") &&
-        product.product_isBooked
-      ) {
-        return (
-          <div className="item__group">
-            <MainButton
-              type="secondary"
-              className="button--delete"
-              children="Удалить"
-            />{" "}
-            <Badge
-              className="booked"
-              src={giftIcon}
-              children="Кто-то хочет тебе это подарить"
-            />
-          </div>
-        );
-      } else {
-        return (
-          <MainButton
-            type="secondary"
-            className="button--delete"
-            children="Удалить"
-          />
-        );
-      }
-    } else if (this.props.location.pathname === "/mypage/what-i-want") {
-      return (
-        <div className="item__group">
-          <MainButton
-            type="secondary"
-            className="button--delete"
-            children={
-              <span className="button--delete__content">
-                Не подарю
-                <img src={pensiveFace} className="emoji" alt="emoji" />
-              </span>
-            }
-          />
-          <Badge
-            src={product.selectedPerson_photo_href}
-            children="Это подарок для друга"
-          />
-        </div>
-      );
-    } else if (this.props.location.pathname === "/myfriendspage/from-me") {
-      if (product.product_isBooked) {
-        return (
-          <div className="item__group">
-            <MainButton
-              type="secondary"
-              className="button--delete"
-              children={
-                <span className="button--delete__content">
-                  Не подарю
-                  <img src={pensiveFace} className="emoji" alt="emoji" />
-                </span>
-              }
-            />
-            <Badge
-              className="booked"
-              src={popular}
-              children="Я тоже хочу!"
-            />
-          </div>
-        );
-      } else {
-        return (
-          <MainButton
-            type="secondary"
-            className="button--delete"
-            children={
-              <span className="button--delete__content">
-                Не подарю
-                <img src={pensiveFace} className="emoji" alt="emoji" />
-              </span>
-            }
-          />
-        );
-      }
-    }
+    return (
+      <Switch>
+        <Route
+          exact path={Routes.MainPage}>
+          <GroupButtons popularItem={true} />
+        </Route>
+
+        <Route
+          exact path={Routes.MyPage}>
+          <GroupButtons isBooked={product.isBooked} />
+        </Route>
+
+        <Route
+          exact path={Routes.MyPageIwant}>
+          <GroupButtons src={product.selectedPersonPhotoHref} />
+        </Route>
+
+        <Route
+          exact path={`${Routes.FriendPageFromMe}/${this.getUserId()}`}>
+          <GroupButtons isBooked={product.isBooked} selectedPersonId={product.selectedPersonId} />
+        </Route>
+
+        <Route
+          exact path={`${Routes.FriendPage}/${this.getUserId()}`}>
+          <GroupButtons isBooked={product.isBooked} selectedPersonId={product.selectedPersonId} />
+        </Route>
+      </Switch>
+    )
   }
 }
 
