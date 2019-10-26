@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { withRouter, Switch, Route } from "react-router-dom";
 import GroupButtons from "./GroupButtons";
 import Routes from "@config/routes.js";
-import "./StatusButtons.css";
+import styles from "./StatusButtons.module.scss";
 
 class StatusButtons extends React.Component {
   static propTypes = {

@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import MainButton from '@components/MainButton';
-import Badge from '../Badge';
+import React, { Component } from "react";
+import MainButton from "@components/MainButton";
+import Badge from "./Badge";
 import giftIcon from "@img/iconGift.png";
 import pensiveFace from "@img/pensiveFace.png";
 import popular from "@img/badge-popular.png";
-import styles from './GroupButtons.scss';
+import styles from "./GroupButtons.module.scss";
 
 export default class GroupButtons extends Component {
     render() {
@@ -13,14 +13,14 @@ export default class GroupButtons extends Component {
 
         if (isBooked && !selectedPersonId) {
             return (
-                <div className="item__group">
+                <div className={styles["item__group"]}>
                     <MainButton
                         type="secondary"
-                        className="button--delete"
+                        className={styles["button--delete"]}
                         children="Удалить"
                     />{" "}
                     <Badge
-                        className="booked"
+                        className={styles["booked"]}
                         src={giftIcon}
                         children="Кто-то хочет тебе это подарить"
                     />
@@ -32,7 +32,7 @@ export default class GroupButtons extends Component {
             return (
                 <MainButton
                     type="secondary"
-                    className="button--delete"
+                    className={styles["button--delete"]}
                     children="Удалить"
                 />
             )
@@ -40,14 +40,14 @@ export default class GroupButtons extends Component {
 
         else if (src) {
             return (
-                <div className="item__group">
+                <div className={styles["item__group"]}>
                     <MainButton
                         type="secondary"
-                        className="button--delete"
+                        className={styles["button--delete"]}
                         children={
-                            <span className="button--delete__content">
+                            <span className={styles["button--delete__content"]}>
                                 Не подарю
-                                <img src={pensiveFace} className="emoji" alt="emoji" />
+                                <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
                             </span>
                         }
                     />
@@ -61,19 +61,19 @@ export default class GroupButtons extends Component {
 
         else if (isBooked && selectedPersonId) {
             return (
-                <div className="item__group">
+                <div className={styles["item__group"]}>
                     <MainButton
                         type="secondary"
-                        className="button--delete"
+                        className={styles["button--delete"]}
                         children={
-                            <span className="button--delete__content">
+                            <span className={styles["button--delete__content"]}>
                                 Не подарю
-                      <img src={pensiveFace} className="emoji" alt="emoji" />
+                      <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
                             </span>
                         }
                     />
                     <Badge
-                        className="booked"
+                        className={styles["booked"]}
                         src={popular}
                         children="Я тоже хочу!"
                     />
@@ -84,11 +84,11 @@ export default class GroupButtons extends Component {
             return (
                 <MainButton
                     type="secondary"
-                    className="button--delete"
+                    className={styles["button--delete"]}
                     children={
-                        <span className="button--delete__content">
+                        <span className={styles["button--delete__content"]}>
                             Не подарю
-                            <img src={pensiveFace} className="emoji" alt="emoji" />
+                            <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
                         </span>
                     }
                 />
