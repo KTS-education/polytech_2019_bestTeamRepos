@@ -68,7 +68,7 @@ export default class GroupButtons extends Component {
                         children={
                             <span className={styles["button--delete__content"]}>
                                 Не подарю
-                      <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
+                            <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
                             </span>
                         }
                     />
