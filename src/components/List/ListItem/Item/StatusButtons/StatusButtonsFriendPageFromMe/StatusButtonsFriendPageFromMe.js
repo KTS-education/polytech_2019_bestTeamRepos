@@ -9,13 +9,14 @@ import styles from "../StatusButtons.module.scss";
 export default class StatusButtonsFriendPageFromMe extends Component {
 
     static propTypes = {
-        isBooked: PropTypes.bool.isRequired,
+        isBooked: PropTypes.bool,
         isBookedByCurrentUser: PropTypes.bool,
         isFavouriteByCurrentUser: PropTypes.bool,
         className: PropTypes.string
     };
 
     static defaultProps = {
+        isBooked: null,
         isBookedByCurrentUser: null,
         isFavouriteByCurrentUser: null,
         className: null

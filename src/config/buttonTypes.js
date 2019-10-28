@@ -1,4 +1,5 @@
 export default {
   primary: "primary",
-  secondary: "secondary"
+  secondary: "secondary",
+  disabled: "disabled"
 };

@@ -3,7 +3,6 @@ import Loader from "@components/Loader";
 import products from "@data/PopularProductsInfo/mock.js";
 import SectionName from "./SectionName";
 import List from "@components/List";
-import styles from "./PopularGiftsContainer.module.scss";
 
 class PopularGiftsContainer extends React.Component {
   render() {

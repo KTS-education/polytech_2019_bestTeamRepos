@@ -8,11 +8,12 @@ import styles from "../StatusButtons.module.scss";
 export default class StatusButtonsMyPage extends Component {
 
     static propTypes = {
-        isBooked: PropTypes.bool.isRequired,
+        isBooked: PropTypes.bool,
         className: PropTypes.string
     };
 
     static defaultProps = {
+        isBooked: null,
         className: null
     };
 

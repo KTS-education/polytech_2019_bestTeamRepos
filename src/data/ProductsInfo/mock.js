@@ -52,5 +52,3 @@ export default [
     selectedPersonId: 1
   }
 ];
-
-// export default [];

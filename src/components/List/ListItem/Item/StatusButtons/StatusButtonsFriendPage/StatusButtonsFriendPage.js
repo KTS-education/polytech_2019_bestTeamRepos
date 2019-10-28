@@ -7,18 +7,18 @@ import popular from "@img/badge-popular.png";
 import wantGive from "@img/wantGive.png";
 import ok from "@img/ok.png";
 import styles from "../StatusButtons.module.scss";
-import currentStyles from "./StatusButtonsFriendPage.module.scss";
 
 export default class StatusButtonsFriendPage extends Component {
 
     static propTypes = {
-        isBooked: PropTypes.bool.isRequired,
+        isBooked: PropTypes.bool,
         isBookedByCurrentUser: PropTypes.bool,
         isFavouriteByCurrentUser: PropTypes.bool,
         className: PropTypes.string
     };
 
     static defaultProps = {
+        isBooked: null,
         isBookedByCurrentUser: null,
         isFavouriteByCurrentUser: null,
         className: null

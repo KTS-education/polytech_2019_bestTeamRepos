@@ -8,11 +8,12 @@ import styles from "../StatusButtons.module.scss";
 
 export default class StatusButtonsMyPageIwant extends Component {
   static propTypes = {
-    src: PropTypes.string.isRequired,
+    src: PropTypes.string,
     className: PropTypes.string
   };
 
   static defaultProps = {
+    src: null,
     className: null
   };
 

@@ -4,7 +4,6 @@ import NoResults from "@components/NoResults";
 import products from "@data/YourFriendGifts/mock.js";
 import Routes from "@config/routes.js";
 import List from "@components/List";
-import "./FriendGiftsContainer.css";
 
 export class FriendGiftsContainer extends Component {
 

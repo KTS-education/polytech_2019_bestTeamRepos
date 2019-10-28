@@ -7,7 +7,6 @@ import StatusButtonsMyPageIwant from "./StatusButtonsMyPageIwant";
 import StatusButtonsFriendPageFromMe from "./StatusButtonsFriendPageFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 import Routes from "@config/routes.js";
-import styles from "./StatusButtons.module.scss";
 
 class StatusButtons extends React.Component {
   static propTypes = {
