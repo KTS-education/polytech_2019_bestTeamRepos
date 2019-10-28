@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import StatusButtons from './StatusButtons';
+import StatusButtons from "./StatusButtons";
 import styles from "./Item.module.scss";
-import { throwStatement } from "@babel/types";
+// import { throwStatement } from "@babel/types";
 
 class Item extends React.Component {
   static propTypes = {
@@ -12,7 +12,7 @@ class Item extends React.Component {
       price: PropTypes.number.isRequired,
       title: PropTypes.string.isRequired
     }),
-    className: PropTypes.string,
+    className: PropTypes.string
   };
 
   static defaultProps = {
@@ -20,12 +20,7 @@ class Item extends React.Component {
   };
 
   render() {
-    const {
-      description,
-      productImgHref,
-      price,
-      title
-    } = this.props.product;
+    const { description, productImgHref, price, title } = this.props.product;
     const { product } = this.props;
 
     return (
@@ -42,7 +37,7 @@ class Item extends React.Component {
         </p>
         <p className={styles["item__description"]}>{description}</p>
         <StatusButtons product={product} />
-      </div >
+      </div>
     );
   }
 }

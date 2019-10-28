@@ -10,7 +10,6 @@ import Header from "@components/Header";
 
 import "@constantcss/constants.css";
 import styles from "./App.module.scss";
-
 const App = () => {
   return (
     <div className={styles["app"]}>
