@@ -42,10 +42,7 @@ class User extends React.Component {
             </p>
           </div>
           <UserTabs />
-          <MainButton
-            children="Поделиться"
-            className={styles["button-share"]}
-          />
+          <MainButton className={styles["button-share"]}>Поделиться</MainButton>
         </div>
       </div>
     );

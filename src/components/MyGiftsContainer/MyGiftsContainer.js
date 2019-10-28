@@ -9,7 +9,7 @@ export class MyGiftsContainer extends Component {
     if (products.length) {
       return <List products={products} />;
     }
-    return <NoResults children="Кажется, ты не любишь подарки" />;
+    return <NoResults>Кажется, ты не любишь подарки</NoResults>;
   }
 }
 

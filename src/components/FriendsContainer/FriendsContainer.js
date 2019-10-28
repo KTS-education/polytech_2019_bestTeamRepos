@@ -26,7 +26,7 @@ class FriendsContainer extends React.Component {
       return (
         <div className={styles["friends-list-container"]}>
           {FriendsInfo.slice(0, this.state.visible).map(item => {
-            return <Friend accountInfoObject={item} key={item.id} />;
+            return <Friend accountInfo={item} key={item.id} />;
           })}
           {hasMore && (
             <MainButton
@@ -40,7 +40,7 @@ class FriendsContainer extends React.Component {
         </div>
       );
     } else {
-      return <NoResults children="Кажется, у тебя нет друзей" />;
+      return <NoResults>Кажется, у тебя нет друзей</NoResults>;
     }
   }
 }

@@ -6,15 +6,15 @@ import styles from "./YourAccount.module.scss";
 
 class YourAccount extends React.Component {
   static propTypes = {
-    AccountInfoObject: PropTypes.shape({
-      name: PropTypes.string,
-      surname: PropTypes.string,
-      logoPath: PropTypes.string
+    AccountInfo: PropTypes.shape({
+      name: PropTypes.string.isRequired,
+      surname: PropTypes.string.isRequired,
+      logoPath: PropTypes.string.isRequired
     })
   };
 
   render() {
-    const { name, surname, logoPath } = this.props.AccountInfoObject;
+    const { name, surname, logoPath } = this.props.AccountInfo;
 
     return (
       <div className={styles["your-account"]}>

@@ -19,7 +19,7 @@ class Header extends React.Component {
           path={Routes.MainPage}
           render={props => (
             <div className={styles["header-container"]}>
-              <YourAccount AccountInfoObject={AccountInfo} />
+              <YourAccount AccountInfo={AccountInfo} />
               <Friends />
             </div>
           )}
@@ -29,8 +29,8 @@ class Header extends React.Component {
           path={Routes.FriendListPage}
           render={props => (
             <div className={styles["header-container"]}>
-              <YourAccount AccountInfoObject={AccountInfo} />
-              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+              <YourAccount AccountInfo={AccountInfo} />
+              <LinkItem href="/">Вернуться к поиску</LinkItem>
             </div>
           )}
         />
@@ -39,7 +39,7 @@ class Header extends React.Component {
           path={Routes.MyPage}
           render={props => (
             <div className={styles["header-container"]}>
-              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+              <LinkItem href="/">Вернуться к поиску</LinkItem>
               <Friends />
             </div>
           )}
@@ -49,8 +49,8 @@ class Header extends React.Component {
           path={Routes.FriendPage}
           render={props => (
             <div className={styles["header-container"]}>
-              <YourAccount AccountInfoObject={AccountInfo} />
-              <LinkItem href="/" children={<span>Вернуться к поиску</span>} />
+              <YourAccount AccountInfo={AccountInfo} />
+              <LinkItem href="/">Вернуться к поиску</LinkItem>
               <Friends />
             </div>
           )}

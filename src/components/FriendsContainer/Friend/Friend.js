@@ -5,7 +5,7 @@ import styles from "./Friend.module.scss";
 
 class Friend extends React.Component {
   static propTypes = {
-    accountInfoObject: PropTypes.shape({
+    accountInfo: PropTypes.shape({
       id: PropTypes.number.isRequired,
       name: PropTypes.string.isRequired,
       surname: PropTypes.string.isRequired,
@@ -14,11 +14,11 @@ class Friend extends React.Component {
   };
 
   state = {
-    path: `/myfriendspage/${this.props.accountInfoObject.id}`
+    path: `/myfriendspage/${this.props.accountInfo.id}`
   };
 
   render() {
-    const { name, surname, logoPath } = this.props.accountInfoObject;
+    const { name, surname, logoPath } = this.props.accountInfo;
 
     return (
       <div className={styles["friend-item"]}>
@@ -33,11 +33,9 @@ class Friend extends React.Component {
               {name} {surname}
             </p>
           </div>
-          <MainButton
-            children={"Узнать, что подарить"}
-            className={styles["button-learn"]}
-            to={this.state.path}
-          />
+          <MainButton className={styles["button-learn"]} to={this.state.path}>
+            Узнать, что подарить
+          </MainButton>
         </div>
       </div>
     );
