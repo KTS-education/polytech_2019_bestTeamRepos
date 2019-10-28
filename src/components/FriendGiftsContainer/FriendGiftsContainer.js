@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import { withRouter } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 import NoResults from "@components/NoResults";
-import products from "@data/ProductsInfo/mock.js";
+import products from "@data/YourFriendGifts/mock.js";
+import Routes from "@config/routes.js";
 import List from "@components/List";
 import "./FriendGiftsContainer.css";
 
@@ -18,7 +19,19 @@ export class FriendGiftsContainer extends Component {
 
     if (products.length) {
       return (
-        <List products={products.filter(product => userId === product.selectedPersonId)} />
+        <Switch>
+
+          <Route
+            exact path={`${Routes.FriendPage}/${userId}`}>
+            <List products={products} />
+          </Route>
+
+          <Route
+            exact path={`${Routes.FriendPageFromMe}/${userId}`}>
+            <List products={products.filter(product => product.isBookedByCurrentUser)} />
+          </Route>
+
+        </Switch>
       );
     }
     return <NoResults children="Кажется, друг не любит подарки" />;
