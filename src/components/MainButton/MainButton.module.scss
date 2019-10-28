@@ -8,7 +8,6 @@
   outline: none;
   align-items: center;
   text-align: center;
-  cursor: pointer;
 }
 
 .main-button {
@@ -16,6 +15,7 @@
   background: linear-gradient(var(--global-main-btn-bg));
   font-size: var(--standard-font);
   color: var(--global-color-bg-white);
+  cursor: pointer;
 }
 
 .main-button:hover {
@@ -31,6 +31,7 @@
   background: linear-gradient(var(--global-second-btn-bg));
   font-size: calc(var(--standard-font) / 1.1);
   color: var(--global-color-black);
+  cursor: pointer;
 }
 
 .sec-button:hover {
@@ -39,4 +40,9 @@
 
 .sec-button:active {
   background: var(--global-second-btn-bg-active);
+
+.disabled-button {
+  background: var(--global-disabled-btn-bg);
+  user-select: none;
+  }
 }

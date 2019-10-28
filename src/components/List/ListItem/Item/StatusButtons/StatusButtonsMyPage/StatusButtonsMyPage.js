@@ -19,30 +19,21 @@ export default class StatusButtonsMyPage extends Component {
     render() {
         const { isBooked } = this.props;
 
-        if (isBooked) {
-            return (
-                <div className={styles["item__group"]}>
-                    <MainButton
-                        type="secondary"
-                        className={styles["button--delete"]}
-                        children="Удалить"
-                    />{" "}
-                    <Badge
-                        className={styles["booked"]}
-                        src={giftIcon}
-                        children="Кто-то хочет тебе это подарить"
-                    />
-                </div>
-            )
-        }
-        else {
-            return (
+        const isBookedBadge = isBooked ? <Badge
+            className={styles["booked"]}
+            src={giftIcon}
+            children="Кто-то хочет тебе это подарить"
+        /> : null;
+
+        return (
+            <div className={styles["item__group"]}>
                 <MainButton
                     type="secondary"
                     className={styles["button--delete"]}
                     children="Удалить"
-                />
-            )
-        }
+                />{" "}
+                {isBookedBadge}
+            </div>
+        )
     }
 }

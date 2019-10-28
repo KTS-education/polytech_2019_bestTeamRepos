@@ -9,7 +9,6 @@ import styles from "../StatusButtons.module.scss";
 export default class StatusButtonsMyPageIwant extends Component {
 
     static propTypes = {
-        isBooked: PropTypes.bool.isRequired,
         src: PropTypes.string.isRequired,
         className: PropTypes.string
     };
@@ -19,7 +18,7 @@ export default class StatusButtonsMyPageIwant extends Component {
     };
 
     render() {
-        const { isBooked, src } = this.props;
+        const { src } = this.props;
 
         if (src) {
             return (
@@ -40,28 +39,6 @@ export default class StatusButtonsMyPageIwant extends Component {
                     />
                 </div>
             )
-        }
-
-        else if (isBooked) {
-            return (
-                <div className={styles["item__group"]}>
-                    <MainButton
-                        type="secondary"
-                        className={styles["button--delete"]}
-                        children={
-                            <span className={styles["button--delete__content"]}>
-                                Не подарю
-                            <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
-                            </span>
-                        }
-                    />
-                    <Badge
-                        className={styles["booked"]}
-                        src={popular}
-                        children="Я тоже хочу!"
-                    />
-                </div>
-            );
         }
     }
 }

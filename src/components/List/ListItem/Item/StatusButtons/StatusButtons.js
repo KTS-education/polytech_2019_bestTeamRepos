@@ -5,6 +5,7 @@ import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
 import StatusButtonsMyPageIwant from "./StatusButtonsMyPageIwant";
 import StatusButtonsFriendPageFromMe from "./StatusButtonsFriendPageFromMe";
+import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 import Routes from "@config/routes.js";
 import styles from "./StatusButtons.module.scss";
 
@@ -48,8 +49,15 @@ class StatusButtons extends React.Component {
         <Route
           exact path={Routes.MyPageIwant}>
           <StatusButtonsMyPageIwant
-            isBooked={product.isBooked}
             src={product.selectedPersonPhotoHref} />
+        </Route>
+
+        <Route
+          exact path={`${Routes.FriendPage}/${this.getUserId()}`}>
+          <StatusButtonsFriendPage
+            isBooked={product.isBooked}
+            isBookedByCurrentUser={product.isBookedByCurrentUser}
+            isFavouriteByCurrentUser={product.isFavouriteByCurrentUser} />
         </Route>
 
         <Route
@@ -60,13 +68,6 @@ class StatusButtons extends React.Component {
             isFavouriteByCurrentUser={product.isFavouriteByCurrentUser} />
         </Route>
 
-        {/* <Route
-          exact path={`${Routes.FriendPage}/${this.getUserId()}`}>
-          <GroupButtons
-            isBooked={product.isBooked}
-            isBookedByCurrentUser={product.isBookedByCurrentUser}
-            isFavouriteByCurrentUser={product.isFavouriteByCurrentUser} />
-        </Route> */}
       </Switch>
     )
   }

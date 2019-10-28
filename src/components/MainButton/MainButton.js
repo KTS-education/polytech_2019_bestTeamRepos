@@ -19,7 +19,7 @@ class MainButton extends React.Component {
     children: "Кнопка",
     className: null,
     to: null,
-    onClick: function() {},
+    onClick: function () { },
     type: buttonTypes.primary
   };
 
@@ -33,6 +33,7 @@ class MainButton extends React.Component {
           styles["button"],
           { [styles["main-button"]]: type === "primary" },
           { [styles["sec-button"]]: type === "secondary" },
+          { [styles["disabled-button"]]: type === "disabled" },
           className
         )}
         children={children}
