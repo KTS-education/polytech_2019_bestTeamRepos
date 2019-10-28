@@ -6,8 +6,8 @@
         display: block;
         position: absolute;
         content: attr(tooltip);
-        box-shadow: 0 7px 10px 5px rgba(0, 0, 0, 0.15);
-        background-color: #fff;
+        box-shadow: 0 7px 10px 5px var(--global-shadow-color);
+        background-color: var(--global-color-bg-white);
         width: 100px;
         bottom: 50px;
         left: -40px;

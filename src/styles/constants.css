@@ -5,6 +5,8 @@
 
   --standard-font: 16px;
 
+  --font-sm: 14px;
+
   --global-color-link-blue: #329eff;
 
   --global-color-link-blue-hover: #2a85d7;
@@ -33,4 +35,10 @@
   --global-second-btn-bg-active: #e7e1ff;
 
   --global-disabled-btn-bg: #ededed;
+
+  --global-shadow-color: rgba(0, 0, 0, 0.15);
+
+  --emoji-btn-width: 20px;
+
+  --emoji-btn-height: 20px;
 }

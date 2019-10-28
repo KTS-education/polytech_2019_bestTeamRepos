@@ -19,7 +19,7 @@
     
 .emoji {
       margin-left: 10px;
-      width: 20px;
-      height: 20px;
+      width: var(--emoji-btn-width);
+      height: var(--emoji-btn-height)
   }
     
