@@ -1,6 +1,6 @@
 import React from "react";
-import { Route } from "react-router-dom";
-
+import { Route, Switch } from "react-router-dom";
+import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
 import Main from "./Main";
 import MyPage from "./MyPage";
@@ -13,11 +13,13 @@ import styles from "./App.module.scss";
 const App = () => {
   return (
     <div className={styles["app"]}>
-      <Route path="/" component={Header} />
-      <Route exact path="/" component={Main} />
-      <Route path="/friends" component={FriendList} />
-      <Route path="/mypage" component={MyPage} />
-      <Route path="/myfriendspage" component={FriendPage} />
+      <Route path={Routes.MainPage} component={Header} />
+      <Switch>
+        <Route exact path={Routes.MainPage} component={Main} />
+        <Route path={Routes.FriendListPage} component={FriendList} />
+        <Route path={Routes.MyPage} component={MyPage} />
+        <Route path={Routes.FriendPage} component={FriendPage} />
+      </Switch>
     </div>
   );
 };

@@ -30,7 +30,7 @@ class Header extends React.Component {
           render={props => (
             <div className={styles["header-container"]}>
               <YourAccount AccountInfo={AccountInfo} />
-              <LinkItem href="/">Вернуться к поиску</LinkItem>
+              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
             </div>
           )}
         />
@@ -39,7 +39,7 @@ class Header extends React.Component {
           path={Routes.MyPage}
           render={props => (
             <div className={styles["header-container"]}>
-              <LinkItem href="/">Вернуться к поиску</LinkItem>
+              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
               <Friends />
             </div>
           )}
@@ -50,7 +50,7 @@ class Header extends React.Component {
           render={props => (
             <div className={styles["header-container"]}>
               <YourAccount AccountInfo={AccountInfo} />
-              <LinkItem href="/">Вернуться к поиску</LinkItem>
+              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
               <Friends />
             </div>
           )}

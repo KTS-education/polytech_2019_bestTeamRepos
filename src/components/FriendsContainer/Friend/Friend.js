@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainButton from "@components/MainButton";
+import Routes from "@config/routes.js";
 import styles from "./Friend.module.scss";
 
 class Friend extends React.Component {
@@ -13,12 +14,8 @@ class Friend extends React.Component {
     })
   };
 
-  state = {
-    path: `/myfriendspage/${this.props.accountInfo.id}`
-  };
-
   render() {
-    const { name, surname, logoPath } = this.props.accountInfo;
+    const { id, name, surname, logoPath } = this.props.accountInfo;
 
     return (
       <div className={styles["friend-item"]}>
@@ -33,7 +30,10 @@ class Friend extends React.Component {
               {name} {surname}
             </p>
           </div>
-          <MainButton className={styles["button-learn"]} to={this.state.path}>
+          <MainButton
+            className={styles["button-learn"]}
+            to={Routes.FriendPage.create(id)}
+          >
             Узнать, что подарить
           </MainButton>
         </div>
