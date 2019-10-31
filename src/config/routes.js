@@ -7,5 +7,8 @@ export default {
     create: id => `/myfriendspage/${id}`
   },
   MyPageIwant: "/mypage/what-i-want",
-  FriendPageFromMe: "/myfriendspage/from-me"
+  FriendPageFromMe: {
+    path: `/myfriendspage/from-me/:id`,
+    create: id => `/myfriendspage/from-me/${id}`
+  }
 };
