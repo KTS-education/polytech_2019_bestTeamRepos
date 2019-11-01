@@ -5,7 +5,7 @@ import products from "@data/YourFriendGifts/mock.js";
 import Routes from "@config/routes.js";
 import List from "@components/List";
 
-export class FriendGiftsContainer extends Component {
+export default class FriendGiftsContainer extends Component {
   render() {
     if (products.length) {
       return (
@@ -27,5 +27,3 @@ export class FriendGiftsContainer extends Component {
     return <NoResults>Кажется, друг не любит подарки</NoResults>;
   }
 }
-
-export default FriendGiftsContainer;

@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter, Switch, Route } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
@@ -10,7 +10,7 @@ import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 
 import Routes from "@config/routes.js";
 
-class StatusButtons extends React.Component {
+export default class StatusButtons extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
       isBooked: PropTypes.bool,
@@ -79,5 +79,3 @@ class StatusButtons extends React.Component {
     );
   }
 }
-
-export default withRouter(StatusButtons);

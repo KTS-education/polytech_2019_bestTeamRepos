@@ -5,7 +5,7 @@ import LinkItem from "@components/LinkItem";
 import Routes from "@config/routes.js";
 import styles from "./YourAccount.module.scss";
 
-class YourAccount extends React.Component {
+export default class YourAccount extends React.Component {
   static propTypes = {
     AccountInfo: PropTypes.shape({
       name: PropTypes.string.isRequired,
@@ -34,5 +34,3 @@ class YourAccount extends React.Component {
     );
   }
 }
-
-export default YourAccount;

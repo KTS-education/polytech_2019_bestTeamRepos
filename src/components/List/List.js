@@ -4,7 +4,7 @@ import classNames from "classnames";
 import ListItem from "./ListItem";
 import styles from "./List.module.scss";
 
-class List extends React.Component {
+export default class List extends React.Component {
   static propTypes = {
     products: PropTypes.array.isRequired,
     className: PropTypes.string
@@ -23,5 +23,3 @@ class List extends React.Component {
     );
   }
 }
-
-export default List;

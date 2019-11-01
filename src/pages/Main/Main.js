@@ -9,7 +9,7 @@ import Logo from "@img/wishlist.png";
 
 import styles from "./Main.module.scss";
 
-class Main extends React.Component {
+export default class Main extends React.Component {
   static propTypes = {
     logoPath: PropTypes.string
   };
@@ -23,12 +23,10 @@ class Main extends React.Component {
 
     return (
       <div className={styles["main-container"]}>
-        <PageName name="Wishlist" logoPath={logoPath} />
+        <PageName children="Wishlist" logoPath={logoPath} />
         <SearchInput />
         <PopularGiftsContainer />
       </div>
     );
   }
 }
-
-export default Main;

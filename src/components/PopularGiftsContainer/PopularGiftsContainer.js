@@ -4,12 +4,12 @@ import products from "@data/PopularProductsInfo/mock.js";
 import SectionName from "./SectionName";
 import List from "@components/List";
 
-class PopularGiftsContainer extends React.Component {
+export default class PopularGiftsContainer extends React.Component {
   render() {
     if (products.length) {
       return (
         <div>
-          <SectionName title="Популярное" />
+          <SectionName children="Популярное" />
           <List products={products} />
         </div>
       );
@@ -17,5 +17,3 @@ class PopularGiftsContainer extends React.Component {
     return <Loader />;
   }
 }
-
-export default PopularGiftsContainer;

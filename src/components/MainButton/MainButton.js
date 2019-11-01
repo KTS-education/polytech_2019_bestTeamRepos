@@ -6,7 +6,7 @@ import buttonTypes from "@config/buttonTypes.js";
 
 import styles from "./MainButton.module.scss";
 
-class MainButton extends React.Component {
+export default class MainButton extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,
@@ -43,5 +43,3 @@ class MainButton extends React.Component {
     );
   }
 }
-
-export default MainButton;

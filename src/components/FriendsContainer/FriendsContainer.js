@@ -9,7 +9,7 @@ import FriendsInfo from "@data/YourFriendsInfo/mock.js";
 
 import styles from "./FriendsContainer.module.scss";
 
-class FriendsContainer extends React.Component {
+export default class FriendsContainer extends React.Component {
   state = {
     visible: 5
   };
@@ -44,5 +44,3 @@ class FriendsContainer extends React.Component {
     }
   }
 }
-
-export default FriendsContainer;

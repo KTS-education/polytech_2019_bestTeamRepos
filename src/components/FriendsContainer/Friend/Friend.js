@@ -4,7 +4,7 @@ import MainButton from "@components/MainButton";
 import Routes from "@config/routes.js";
 import styles from "./Friend.module.scss";
 
-class Friend extends React.Component {
+export default class Friend extends React.Component {
   static propTypes = {
     accountInfo: PropTypes.shape({
       id: PropTypes.number.isRequired,
@@ -41,5 +41,3 @@ class Friend extends React.Component {
     );
   }
 }
-
-export default Friend;

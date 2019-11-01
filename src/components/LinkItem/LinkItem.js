@@ -5,7 +5,7 @@ import { NavLink } from "react-router-dom";
 
 import styles from "./LinkItem.module.scss";
 
-class LinkItem extends React.Component {
+export default class LinkItem extends React.Component {
   static propTypes = {
     href: PropTypes.string,
     children: PropTypes.node,
@@ -33,5 +33,3 @@ class LinkItem extends React.Component {
     );
   }
 }
-
-export default LinkItem;

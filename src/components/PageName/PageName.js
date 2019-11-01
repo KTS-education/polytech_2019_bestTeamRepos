@@ -5,27 +5,25 @@ import Logo from "@img/logo.svg";
 
 import styles from "./PageName.module.scss";
 
-class PageName extends React.Component {
+export default class PageName extends React.Component {
   static propTypes = {
-    name: PropTypes.string,
+    children: PropTypes.node,
     logoPath: PropTypes.string
   };
 
   static defaultProps = {
-    name: "default name",
+    children: "default name",
     logoPath: Logo
   };
 
   render() {
-    const { name, logoPath } = this.props;
+    const { children, logoPath } = this.props;
 
     return (
       <div className={styles["page-name"]}>
-        <h1 className={styles["page-name__name"]}>{name}</h1>
+        <h1 className={styles["page-name__name"]}>{children}</h1>
         <img src={logoPath} className={styles["page-name__logo"]} alt="logo" />
       </div>
     );
   }
 }
-
-export default PageName;

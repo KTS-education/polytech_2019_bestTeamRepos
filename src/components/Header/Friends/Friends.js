@@ -10,7 +10,7 @@ import f3 from "@data/YourFriendsInfo/img/friend3.png";
 
 import styles from "./Friends.module.scss";
 
-class Friends extends React.Component {
+export default class Friends extends React.Component {
   render() {
     return (
       <div className={styles["header-friends-container"]}>
@@ -20,5 +20,3 @@ class Friends extends React.Component {
     );
   }
 }
-
-export default Friends;

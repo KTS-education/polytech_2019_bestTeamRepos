@@ -10,7 +10,7 @@ import AccountInfo from "@data/YourAccountInfo/mock.js";
 
 import styles from "./Header.module.scss";
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   render() {
     return (
       <Switch>
@@ -48,5 +48,3 @@ class Header extends React.Component {
     );
   }
 }
-
-export default Header;

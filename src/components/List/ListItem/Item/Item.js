@@ -2,9 +2,8 @@ import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from "./StatusButtons";
 import styles from "./Item.module.scss";
-// import { throwStatement } from "@babel/types";
 
-class Item extends React.Component {
+export default class Item extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
       description: PropTypes.string.isRequired,
@@ -41,5 +40,3 @@ class Item extends React.Component {
     );
   }
 }
-
-export default Item;

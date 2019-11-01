@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import Item from "./Item";
 import styles from "./ListItem.module.scss";
 
-class ListItem extends React.Component {
+export default class ListItem extends React.Component {
   static propTypes = {
     product: PropTypes.object.isRequired
   };
@@ -17,5 +17,3 @@ class ListItem extends React.Component {
     );
   }
 }
-
-export default ListItem;

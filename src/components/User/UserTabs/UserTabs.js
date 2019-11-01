@@ -10,7 +10,7 @@ import droolingFace from "@img/droolingFace.png";
 
 import styles from "./UserTabs.module.scss";
 
-class UserTabs extends React.Component {
+export default class UserTabs extends React.Component {
   static propTypes = {
     className: PropTypes.string,
     id: PropTypes.number.isRequired
@@ -76,5 +76,3 @@ class UserTabs extends React.Component {
     }
   }
 }
-
-export default UserTabs;

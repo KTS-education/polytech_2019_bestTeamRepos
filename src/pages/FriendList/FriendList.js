@@ -9,7 +9,7 @@ import Logo from "@img/friends.png";
 
 import styles from "./FriendList.module.scss";
 
-class FriendList extends React.Component {
+export default class FriendList extends React.Component {
   static propTypes = {
     logoPath: PropTypes.string
   };
@@ -30,5 +30,3 @@ class FriendList extends React.Component {
     );
   }
 }
-
-export default FriendList;

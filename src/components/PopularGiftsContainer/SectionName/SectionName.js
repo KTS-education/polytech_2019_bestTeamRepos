@@ -1,24 +1,25 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import popularEmoji from '@img/popular.png';
-import styles from './SectionName.module.scss';
+import React from "react";
+import PropTypes from "prop-types";
+import popularEmoji from "@img/popular.png";
+import styles from "./SectionName.module.scss";
 
-class SectionName extends React.Component {
-
+export default class SectionName extends React.Component {
   static propTypes = {
-    title: PropTypes.string.isRequired
+    children: PropTypes.node.isRequired
   };
 
   render() {
-    const { title } = this.props;
+    const { children } = this.props;
 
     return (
       <h2 className={styles["list-title"]}>
-        {title}
-        <img className={styles["emoji"]} src={popularEmoji} alt="emoji popular" />
+        {children}
+        <img
+          className={styles["emoji"]}
+          src={popularEmoji}
+          alt="emoji popular"
+        />
       </h2>
     );
   }
 }
-
-export default SectionName;
