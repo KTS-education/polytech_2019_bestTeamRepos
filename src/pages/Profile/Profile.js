@@ -8,16 +8,17 @@ import styles from "./Profile.module.scss";
 
 export default function Profile(props) {
   let { id } = useParams();
+  const isMyProfile = false;
 
   return (
-    <div className={styles["my-page-container"]}>
+    <div className={styles["profile-container"]}>
       <Switch>
         <Route
           path={Routes.Profile.path}
           render={props => (
             <div>
               <User />
-              <MyGiftsContainer />
+              {isMyProfile ? <MyGiftsContainer /> : <FriendGiftsContainer />}
             </div>
           )}
         />

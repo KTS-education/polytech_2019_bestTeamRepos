@@ -1,28 +1,20 @@
 import React, { Component } from "react";
-import { Switch, Route, withRouter } from "react-router-dom";
+import { Switch, Route, useParams } from "react-router-dom";
 import NoResults from "@components/NoResults";
 import products from "@data/YourFriendGifts/mock.js";
 import Routes from "@config/routes.js";
 import List from "@components/List";
 
 export class FriendGiftsContainer extends Component {
-  getUserId = () => {
-    if (this.props.location.pathname.includes("/myfriendspage")) {
-      return parseInt(this.props.location.pathname.slice(-1));
-    }
-  };
-
   render() {
-    const userId = this.getUserId();
-
     if (products.length) {
       return (
         <Switch>
-          <Route exact path={`${Routes.FriendPage}/${userId}`}>
+          <Route exact path={Routes.Profile.path}>
             <List products={products} />
           </Route>
 
-          <Route exact path={`${Routes.FriendPageFromMe}/${userId}`}>
+          <Route exact path={Routes.Profile.createFromMePath}>
             <List
               products={products.filter(
                 product => product.isBookedByCurrentUser
@@ -36,4 +28,4 @@ export class FriendGiftsContainer extends Component {
   }
 }
 
-export default withRouter(FriendGiftsContainer);
+export default FriendGiftsContainer;
