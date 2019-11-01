@@ -32,7 +32,7 @@ class Friend extends React.Component {
           </div>
           <MainButton
             className={styles["button-learn"]}
-            to={Routes.FriendPage.create(id)}
+            to={Routes.Profile.create(id)}
           >
             Узнать, что подарить
           </MainButton>

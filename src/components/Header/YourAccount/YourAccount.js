@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import LinkItem from "@components/LinkItem";
+import Routes from "@config/routes.js";
 import styles from "./YourAccount.module.scss";
 
 class YourAccount extends React.Component {
@@ -14,7 +15,7 @@ class YourAccount extends React.Component {
   };
 
   render() {
-    const { name, surname, logoPath } = this.props.AccountInfo;
+    const { id, name, surname, logoPath } = this.props.AccountInfo;
 
     return (
       <div className={styles["your-account"]}>
@@ -23,7 +24,10 @@ class YourAccount extends React.Component {
           className={styles["your-account__photo"]}
           alt="logo"
         />
-        <LinkItem href="/mypage" className={styles["your-account__text"]}>
+        <LinkItem
+          href={Routes.Profile.create(id)}
+          className={styles["your-account__text"]}
+        >
           {name} {surname}
         </LinkItem>
       </div>

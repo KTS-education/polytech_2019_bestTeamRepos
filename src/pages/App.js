@@ -3,8 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
 import Main from "./Main";
-import MyPage from "./MyPage";
-import FriendPage from "./FriendPage";
+import Profile from "./Profile";
 
 import Header from "@components/Header";
 
@@ -17,8 +16,7 @@ const App = () => {
       <Switch>
         <Route exact path={Routes.MainPage} component={Main} />
         <Route path={Routes.FriendListPage} component={FriendList} />
-        <Route path={Routes.MyPage} component={MyPage} />
-        <Route path={Routes.FriendPage} component={FriendPage} />
+        <Route path={Routes.Profile.path} component={Profile} />
       </Switch>
     </div>
   );

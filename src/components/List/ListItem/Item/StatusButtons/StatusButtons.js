@@ -59,7 +59,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.FriendPage}
+          path={Routes.Profile.path}
           render={props => (
             <StatusButtonsFriendPage
               isBooked={product.isBooked}

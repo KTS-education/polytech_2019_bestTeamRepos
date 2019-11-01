@@ -1,5 +1,5 @@
 import React from "react";
-import { withRouter } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
@@ -10,43 +10,25 @@ import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 
 import styles from "./User.module.scss";
 
-class User extends React.Component {
-  getUserId() {
-    if (this.props.location.pathname.includes("/myfriendspage")) {
-      return parseInt(this.props.location.pathname.slice(-1));
-    }
-  }
+export default function User() {
+  let { id } = useParams();
+  id = parseInt(id);
 
-  getUserData() {
-    if (this.props.location.pathname.includes("/mypage")) {
-      return userAccount;
-    } else if (this.props.location.pathname.includes("/myfriendspage")) {
-      const id = this.getUserId();
-      for (const key in friendsAccounts) {
-        if (friendsAccounts[key].id === id) {
-          return friendsAccounts[key];
-        }
-      }
-    }
-  }
+  const { name, surname, logoPath, isMyProfile } =
+    userAccount.id === id
+      ? userAccount
+      : friendsAccounts.find(friend => friend.id === id);
 
-  render() {
-    const { name, surname, logoPath } = this.getUserData();
-    return (
-      <div className={styles["user"]}>
-        <Avatar className={styles["user__photo"]} src={logoPath} />
-        <div className={styles["user__text-part"]}>
-          <div className={styles["text-part__credentials"]}>
-            <p className={styles["credentials"]}>
-              {name} {surname}
-            </p>
-          </div>
-          <UserTabs />
-          <MainButton className={styles["button-share"]}>Поделиться</MainButton>
-        </div>
+  return (
+    <div className={styles["user"]}>
+      <Avatar className={styles["user__photo"]} src={logoPath} />
+      <div className={styles["user__text-part"]}>
+        <p className={styles["credentials"]}>
+          {name} {surname}
+        </p>
+        <UserTabs isMyProfile={isMyProfile} id={id} />
+        <MainButton className={styles["button-share"]}>Поделиться</MainButton>
       </div>
-    );
-  }
+    </div>
+  );
 }
-
-export default withRouter(User);

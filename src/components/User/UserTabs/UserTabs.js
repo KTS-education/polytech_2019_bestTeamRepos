@@ -1,8 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
 
 import LinkItem from "@components/LinkItem";
+import Routes from "@config/routes.js";
 
 import relievedEmoji from "@img/relievedFace.png";
 import sunglassesEmoji from "@img/wantGive.png";
@@ -12,24 +12,21 @@ import styles from "./UserTabs.module.scss";
 
 class UserTabs extends React.Component {
   static propTypes = {
-    className: PropTypes.string
+    className: PropTypes.string,
+    id: PropTypes.number.isRequired
   };
 
   static defaultProps = {
     className: null
   };
 
-  getUserId = () => {
-    if (this.props.location.pathname.includes("/myfriendspage")) {
-      return parseInt(this.props.location.pathname.slice(-1));
-    }
-  };
-
   render() {
-    if (this.props.location.pathname.includes("/mypage")) {
+    const { isMyProfile, id } = this.props;
+
+    if (isMyProfile) {
       return (
         <div className={styles["text-part__buttons-group"]}>
-          <LinkItem href="/mypage">
+          <LinkItem href={Routes.Profile.create(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу получить{" "}
               <img
@@ -39,7 +36,7 @@ class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href="/mypage/what-i-want">
+          <LinkItem href={Routes.Profile.createWhatIwant(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу подарить{" "}
               <img
@@ -51,10 +48,10 @@ class UserTabs extends React.Component {
           </LinkItem>
         </div>
       );
-    } else if (this.props.location.pathname.includes("/myfriendspage")) {
+    } else {
       return (
         <div className={styles["text-part__buttons-group"]}>
-          <LinkItem href={`/myfriendspage/${this.getUserId()}`}>
+          <LinkItem href={Routes.Profile.create(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочет получить{" "}
               <img
@@ -64,7 +61,7 @@ class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href={`/myfriendspage/from-me/${this.getUserId()}`}>
+          <LinkItem href={Routes.Profile.createFromMe(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу подарить{" "}
               <img
@@ -80,4 +77,4 @@ class UserTabs extends React.Component {
   }
 }
 
-export default withRouter(UserTabs);
+export default UserTabs;
