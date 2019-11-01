@@ -12,11 +12,11 @@ import styles from "./App.module.scss";
 const App = () => {
   return (
     <div className={styles["app"]}>
-      <Route path={Routes.MainPage} component={Header} />
+      <Route path={Routes.mainPage} component={Header} />
       <Switch>
-        <Route exact path={Routes.MainPage} component={Main} />
-        <Route path={Routes.FriendListPage} component={FriendList} />
-        <Route path={Routes.Profile.path} component={Profile} />
+        <Route exact path={Routes.mainPage} component={Main} />
+        <Route path={Routes.friendListPage} component={FriendList} />
+        <Route path={Routes.profile.path} component={Profile} />
       </Switch>
     </div>
   );

@@ -14,7 +14,7 @@ export default function Profile(props) {
     <div className={styles["profile-container"]}>
       <Switch>
         <Route
-          path={Routes.Profile.path}
+          path={Routes.profile.path}
           render={props => (
             <div>
               <User />
@@ -23,7 +23,7 @@ export default function Profile(props) {
           )}
         />
         <Route
-          path={Routes.Profile.createWhatIwant(id)}
+          path={Routes.profile.createWhatIwant(id)}
           render={props => (
             <div>
               <User />
@@ -32,7 +32,7 @@ export default function Profile(props) {
           )}
         />
         <Route
-          path={Routes.Profile.createFromMe(id)}
+          path={Routes.profile.createFromMe(id)}
           render={props => (
             <div>
               <User />

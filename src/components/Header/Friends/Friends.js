@@ -14,7 +14,7 @@ class Friends extends React.Component {
   render() {
     return (
       <div className={styles["header-friends-container"]}>
-        <LinkItem href={Routes.FriendListPage}>Мои друзья</LinkItem>
+        <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
         <FriendImgList friendsImages={[f1, f2, f3]} />
       </div>
     );

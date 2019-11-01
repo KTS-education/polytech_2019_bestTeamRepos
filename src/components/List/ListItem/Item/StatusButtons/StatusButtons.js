@@ -36,13 +36,13 @@ class StatusButtons extends React.Component {
       <Switch>
         <Route
           exact
-          path={Routes.MainPage}
+          path={Routes.mainPage}
           render={props => <StatusButtonsPopular />}
         />
 
         <Route
           exact
-          path={Routes.Profile.path}
+          path={Routes.profile.path}
           render={props =>
             isMyProfile ? (
               <StatusButtonsMyPage isBooked={product.isBooked} />
@@ -58,7 +58,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.Profile.createWhatIwantPath}
+          path={Routes.profile.createWhatIwantPath}
           render={props => (
             <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
           )}
@@ -66,7 +66,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.Profile.createFromMePath}
+          path={Routes.profile.createFromMePath}
           render={props => (
             <StatusButtonsFriendPageFromMe
               isBooked={product.isBooked}

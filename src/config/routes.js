@@ -1,7 +1,7 @@
 export default {
-  MainPage: "/",
-  FriendListPage: "/friends",
-  Profile: {
+  mainPage: "/",
+  friendListPage: "/friends",
+  profile: {
     path: "/profile/:id",
     create: id => `/profile/${id}`,
     createWhatIwantPath: `/profile/:id/what-i-want`,

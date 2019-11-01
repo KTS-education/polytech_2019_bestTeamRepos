@@ -16,7 +16,7 @@ class Header extends React.Component {
       <Switch>
         <Route
           exact
-          path={Routes.MainPage}
+          path={Routes.mainPage}
           render={props => (
             <div className={styles["header-container"]}>
               <YourAccount AccountInfo={AccountInfo} />
@@ -26,20 +26,20 @@ class Header extends React.Component {
         />
 
         <Route
-          path={Routes.FriendListPage}
+          path={Routes.friendListPage}
           render={props => (
             <div className={styles["header-container"]}>
               <YourAccount AccountInfo={AccountInfo} />
-              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
+              <LinkItem href={Routes.mainPage}>Вернуться к поиску</LinkItem>
             </div>
           )}
         />
 
         <Route
-          path={Routes.Profile.path}
+          path={Routes.profile.path}
           render={props => (
             <div className={styles["header-container"]}>
-              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
+              <LinkItem href={Routes.mainPage}>Вернуться к поиску</LinkItem>
               <Friends />
             </div>
           )}

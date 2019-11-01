@@ -10,11 +10,11 @@ export class FriendGiftsContainer extends Component {
     if (products.length) {
       return (
         <Switch>
-          <Route exact path={Routes.Profile.path}>
+          <Route exact path={Routes.profile.path}>
             <List products={products} />
           </Route>
 
-          <Route exact path={Routes.Profile.createFromMePath}>
+          <Route exact path={Routes.profile.createFromMePath}>
             <List
               products={products.filter(
                 product => product.isBookedByCurrentUser

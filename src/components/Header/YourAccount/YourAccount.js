@@ -25,7 +25,7 @@ class YourAccount extends React.Component {
           alt="logo"
         />
         <LinkItem
-          href={Routes.Profile.create(id)}
+          href={Routes.profile.create(id)}
           className={styles["your-account__text"]}
         >
           {name} {surname}

@@ -26,7 +26,7 @@ class UserTabs extends React.Component {
     if (isMyProfile) {
       return (
         <div className={styles["text-part__buttons-group"]}>
-          <LinkItem href={Routes.Profile.create(id)}>
+          <LinkItem href={Routes.profile.create(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу получить{" "}
               <img
@@ -36,7 +36,7 @@ class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href={Routes.Profile.createWhatIwant(id)}>
+          <LinkItem href={Routes.profile.createWhatIwant(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу подарить{" "}
               <img
@@ -51,7 +51,7 @@ class UserTabs extends React.Component {
     } else {
       return (
         <div className={styles["text-part__buttons-group"]}>
-          <LinkItem href={Routes.Profile.create(id)}>
+          <LinkItem href={Routes.profile.create(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочет получить{" "}
               <img
@@ -61,7 +61,7 @@ class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href={Routes.Profile.createFromMe(id)}>
+          <LinkItem href={Routes.profile.createFromMe(id)}>
             <span className={styles["buttons-group__button"]}>
               Хочу подарить{" "}
               <img
