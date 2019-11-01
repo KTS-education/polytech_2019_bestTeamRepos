@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Switch, Route, useParams } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import NoResults from "@components/NoResults";
 import products from "@data/YourFriendGifts/mock.js";
 import Routes from "@config/routes.js";
