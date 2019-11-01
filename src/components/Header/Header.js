@@ -36,20 +36,9 @@ class Header extends React.Component {
         />
 
         <Route
-          path={Routes.MyPage}
+          path={Routes.Profile.path}
           render={props => (
             <div className={styles["header-container"]}>
-              <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
-              <Friends />
-            </div>
-          )}
-        />
-
-        <Route
-          path={Routes.FriendPage}
-          render={props => (
-            <div className={styles["header-container"]}>
-              <YourAccount AccountInfo={AccountInfo} />
               <LinkItem href={Routes.MainPage}>Вернуться к поиску</LinkItem>
               <Friends />
             </div>

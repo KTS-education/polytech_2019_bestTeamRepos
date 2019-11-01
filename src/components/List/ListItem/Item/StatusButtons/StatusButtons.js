@@ -27,12 +27,6 @@ class StatusButtons extends React.Component {
     isBookedByCurrentUser: null
   };
 
-  getUserId = () => {
-    if (this.props.location.pathname.includes("/myfriendspage")) {
-      return parseInt(this.props.location.pathname.slice(-1));
-    }
-  };
-
   render() {
     const product = this.props.product;
     return (
@@ -45,21 +39,21 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.MyPage}
+          path={Routes.Profile.path}
           render={props => <StatusButtonsMyPage isBooked={product.isBooked} />}
         />
 
         <Route
           exact
-          path={Routes.MyPageIwant}
+          path={Routes.Profile.createWhatIwantPath}
           render={props => (
             <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
           )}
         />
 
-        <Route
+        <Route // friend want
           exact
-          path={Routes.Profile.path}
+          path={Routes.Profile.createFromMePath}
           render={props => (
             <StatusButtonsFriendPage
               isBooked={product.isBooked}
@@ -71,7 +65,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.FriendPageFromMe}
+          path={Routes.Profile.createFromMePath}
           render={props => (
             <StatusButtonsFriendPageFromMe
               isBooked={product.isBooked}
