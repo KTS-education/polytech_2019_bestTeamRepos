@@ -6,7 +6,10 @@ export default class SearchInput extends React.Component {
   render() {
     return (
       <div className={styles["search"]}>
-        <input type="text" className={styles["search__input-line"]} />
+        <input
+          type="text"
+          className={(styles["search"], styles["search__input-line"])}
+        />
       </div>
     );
   }
