@@ -30,7 +30,8 @@ export default class StatusButtons extends React.Component {
   render() {
     const product = this.props.product;
 
-    const isMyProfile = false;
+    const currentPageId = 10000;
+    const myProfileId = 10000;
 
     return (
       <Switch>
@@ -44,7 +45,7 @@ export default class StatusButtons extends React.Component {
           exact
           path={Routes.profile.path}
           render={props =>
-            isMyProfile ? (
+            myProfileId === currentPageId ? (
               <StatusButtonsMyPage isBooked={product.isBooked} />
             ) : (
               <StatusButtonsFriendPage
@@ -58,22 +59,18 @@ export default class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.profile.createWhatIwantPath}
-          render={props => (
-            <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
-          )}
-        />
-
-        <Route
-          exact
           path={Routes.profile.createFromMePath}
-          render={props => (
-            <StatusButtonsFriendPageFromMe
-              isBooked={product.isBooked}
-              isBookedByCurrentUser={product.isBookedByCurrentUser}
-              isFavouriteByCurrentUser={product.isFavouriteByCurrentUser}
-            />
-          )}
+          render={props =>
+            myProfileId === currentPageId ? (
+              <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
+            ) : (
+              <StatusButtonsFriendPageFromMe
+                isBooked={product.isBooked}
+                isBookedByCurrentUser={product.isBookedByCurrentUser}
+                isFavouriteByCurrentUser={product.isFavouriteByCurrentUser}
+              />
+            )
+          }
         />
       </Switch>
     );

@@ -4,6 +4,5 @@ export default {
   id: 10000,
   name: "Антон",
   surname: "Чащин",
-  logoPath: photo,
-  isMyProfile: true
+  logoPath: photo
 };

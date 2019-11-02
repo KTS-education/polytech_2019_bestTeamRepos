@@ -8,7 +8,7 @@ import styles from "./Profile.module.scss";
 
 export default function Profile(props) {
   let { id } = useParams();
-  const isMyProfile = false;
+  const myProfileId = 10000;
 
   return (
     <div className={styles["profile-container"]}>
@@ -18,7 +18,11 @@ export default function Profile(props) {
           render={props => (
             <div>
               <User />
-              {isMyProfile ? <MyGiftsContainer /> : <FriendGiftsContainer />}
+              {myProfileId === parseInt(id) ? (
+                <MyGiftsContainer />
+              ) : (
+                <FriendGiftsContainer />
+              )}
             </div>
           )}
         />
