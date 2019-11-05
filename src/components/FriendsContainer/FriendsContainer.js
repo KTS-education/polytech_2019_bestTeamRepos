@@ -14,6 +14,12 @@ export default class FriendsContainer extends React.Component {
     visible: 5
   };
 
+  componentDidMount() {
+    // 1. Receive data
+    //  here we create HOC function - service for receiving data
+    // 2. Dispatch action to store
+  }
+
   loadmore = () => {
     this.setState(old => {
       return { visible: old.visible + 5 };

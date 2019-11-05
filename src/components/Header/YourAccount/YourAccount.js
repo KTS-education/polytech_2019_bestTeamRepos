@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 
 import LinkItem from "@components/LinkItem";
+
 import Routes from "@config/routes.js";
 import styles from "./YourAccount.module.scss";
 
@@ -15,7 +16,7 @@ export default class YourAccount extends React.Component {
   };
 
   render() {
-    const { id, name, surname, logoPath } = this.props.AccountInfo;
+    const { id, logoPath, name, surname } = this.props.profile;
 
     return (
       <div className={styles["your-account"]}>

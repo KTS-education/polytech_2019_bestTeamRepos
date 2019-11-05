@@ -5,18 +5,18 @@ import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
 
-import userAccount from "@data/YourAccountInfo/mock.js";
+import { connect } from "react-redux";
 import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 
 import styles from "./User.module.scss";
 
-export default function User() {
+function User(props) {
   let { id } = useParams();
   id = parseInt(id);
 
   const { name, surname, logoPath, isMyProfile } =
-    userAccount.id === id
-      ? userAccount
+    props.profile.id === id
+      ? props.profile
       : friendsAccounts.find(friend => friend.id === id);
 
   return (
@@ -32,3 +32,11 @@ export default function User() {
     </div>
   );
 }
+
+const mapStateToProps = store => {
+  return {
+    profile: store.profile
+  };
+};
+
+export default connect(mapStateToProps)(User);

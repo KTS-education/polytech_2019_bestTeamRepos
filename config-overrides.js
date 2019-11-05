@@ -9,7 +9,9 @@ module.exports = function override(config, env) {
     "@img": path.resolve(__dirname, `${paths.appSrc}/img/`),
     "@constantcss": path.resolve(__dirname, `${paths.appSrc}/styles/`),
     "@data": path.resolve(__dirname, `${paths.appSrc}/data/`),
-    "@config": path.resolve(__dirname, `${paths.appSrc}/config/`)
+    "@config": path.resolve(__dirname, `${paths.appSrc}/config/`),
+    "@store": path.resolve(__dirname, `${paths.appSrc}/store/`),
+    "@reducers": path.resolve(__dirname, `${paths.appSrc}/reducers/`)
   })(config, env);
   return config;
 };
