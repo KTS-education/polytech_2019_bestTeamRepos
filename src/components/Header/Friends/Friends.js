@@ -10,7 +10,7 @@ import styles from "./Friends.module.scss";
 
 export default class Friends extends React.Component {
   static propTypes = {
-    friends: PropTypes.array.isRequired
+    friends: PropTypes.object.isRequired
   };
 
   render() {
