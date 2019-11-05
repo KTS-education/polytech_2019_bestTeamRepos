@@ -12,37 +12,27 @@ export default function Profile(props) {
 
   return (
     <div className={styles["profile-container"]}>
+      <User />
       <Switch>
         <Route
           path={Routes.profile.path}
           render={props => (
-            <div>
-              <User />
+            <>
               {myProfileId === parseInt(id) ? (
                 <MyGiftsContainer />
               ) : (
                 <FriendGiftsContainer />
               )}
-            </div>
+            </>
           )}
         />
         <Route
           path={Routes.profile.createWhatIwant(id)}
-          render={props => (
-            <div>
-              <User />
-              <MyGiftsContainer />
-            </div>
-          )}
+          render={props => <MyGiftsContainer />}
         />
         <Route
           path={Routes.profile.createFromMe(id)}
-          render={props => (
-            <div>
-              <User />
-              <FriendGiftsContainer />
-            </div>
-          )}
+          render={props => <FriendGiftsContainer />}
         />
       </Switch>
     </div>
