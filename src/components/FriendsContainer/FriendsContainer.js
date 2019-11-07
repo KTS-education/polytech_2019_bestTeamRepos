@@ -4,6 +4,7 @@ import Friend from "./Friend";
 
 import NoResults from "@components/NoResults";
 import MainButton from "@components/MainButton";
+import buttonTypes from "@config/buttonTypes";
 
 import { connect } from "react-redux";
 
@@ -40,7 +41,7 @@ class FriendsContainer extends React.Component {
             <MainButton
               className={styles["friends-list-container__more-btn"]}
               onClick={this.loadmore}
-              type="secondary"
+              type={buttonTypes.secondary}
             >
               Показать ещё
             </MainButton>
