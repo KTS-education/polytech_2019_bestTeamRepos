@@ -40,12 +40,11 @@ export default class StatusButtonsFriendPage extends Component {
 
     if (isBooked && isBookedByCurrentUser) {
       return (
-        <div className={styles["item__group"]}>
+        <div className={styles["status__group"]}>
           <MainButton
             type="secondary"
-            className={styles["button--delete"]}
             children={
-              <span className={styles["button--delete__content"]}>
+              <span className={styles["button--status__content"]}>
                 Не подарю
                 <img
                   src={pensiveFace}
@@ -60,11 +59,10 @@ export default class StatusButtonsFriendPage extends Component {
       );
     } else if (!isBooked) {
       return (
-        <div className={styles["item__group"]}>
+        <div className={styles["status__group"]}>
           <MainButton
-            className={styles["button--delete"]}
             children={
-              <span className={styles["button--delete__content"]}>
+              <span className={styles["button--status__content"]}>
                 Подарю
                 <img src={wantGive} className={styles["emoji"]} alt="emoji" />
               </span>
@@ -75,12 +73,11 @@ export default class StatusButtonsFriendPage extends Component {
       );
     } else if (isBooked && !isBookedByCurrentUser) {
       return (
-        <div className={styles["item__group"]}>
+        <div className={styles["status__group"]}>
           <MainButton
             type="disabled"
-            className={styles["button--delete"]}
             children={
-              <span className={styles["button--delete__content"]}>
+              <span className={styles["button--status__content"]}>
                 Уже подарят
                 <img src={ok} className={styles["emoji"]} alt="emoji" />
               </span>

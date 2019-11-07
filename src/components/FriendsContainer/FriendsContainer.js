@@ -5,8 +5,6 @@ import Friend from "./Friend";
 import NoResults from "@components/NoResults";
 import MainButton from "@components/MainButton";
 
-import { setCurrentLocationId } from "@actions/friendsContainerActions";
-
 import { connect } from "react-redux";
 
 import styles from "./FriendsContainer.module.scss";
@@ -35,14 +33,8 @@ class FriendsContainer extends React.Component {
     if (friendsList.length) {
       return (
         <div className={styles["friends-list-container"]}>
-          {friendsList.slice(0, this.state.visible).map(item => {
-            return (
-              <Friend
-                accountInfo={item}
-                key={item.id}
-                setCurrentLocationId={setCurrentLocationId}
-              />
-            );
+          {friendsList.slice(0, this.state.visible).map(friend => {
+            return <Friend accountInfo={friend} key={friend.id} />;
           })}
           {hasMore && (
             <MainButton
@@ -61,19 +53,10 @@ class FriendsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = store => {
+const mapStateToProps = ({ friendsList }) => {
   return {
-    friendsList: store.friendsList
+    friendsList
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    setCurrentLocationIdAction: id => dispatch(setCurrentLocationId(id))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FriendsContainer);
+export default connect(mapStateToProps)(FriendsContainer);

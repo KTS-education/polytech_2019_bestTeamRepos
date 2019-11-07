@@ -11,17 +11,11 @@ export default class Friend extends React.Component {
       name: PropTypes.string.isRequired,
       surname: PropTypes.string.isRequired,
       logoPath: PropTypes.string.isRequired
-    }),
-    setCurrentLocationId: PropTypes.func.isRequired
+    })
   };
-
-  // onClick = id => {
-  //   this.props.
-  // };
 
   render() {
     const { id, name, surname, logoPath } = this.props.accountInfo;
-    const setCurrentLocationId = this.props.setCurrentLocationId;
 
     return (
       <div className={styles["friend-item"]}>
@@ -39,7 +33,6 @@ export default class Friend extends React.Component {
           <MainButton
             className={styles["button-learn"]}
             to={Routes.profile.create(id)}
-            onClick={setCurrentLocationId}
           >
             Узнать, что подарить
           </MainButton>

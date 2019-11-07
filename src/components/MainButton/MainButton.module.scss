@@ -1,7 +1,9 @@
 .button {
-  display: inline-block;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   text-decoration: none;
-  width: auto;
+  flex-grow: 1;
   height: auto;
   border-radius: 21px;
   border: none;
@@ -40,9 +42,10 @@
 
 .sec-button:active {
   background: var(--global-second-btn-bg-active);
+}
 
 .disabled-button {
+  padding: var(--global-main-btn-padding);
   background: var(--global-disabled-btn-bg);
   user-select: none;
-  }
 }

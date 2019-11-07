@@ -5,18 +5,17 @@ import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
 
-import { connect } from "react-redux";
 import friendsAccounts from "@data/YourFriendsInfo/mock.js";
 
 import styles from "./User.module.scss";
 
-function User(props) {
+function User({ profile }) {
   let { id } = useParams();
   id = parseInt(id);
 
   const { name, surname, logoPath, isMyProfile } =
-    props.profile.id === id
-      ? props.profile
+    profile.id === id
+      ? profile
       : friendsAccounts.find(friend => friend.id === id);
 
   return (
@@ -27,16 +26,10 @@ function User(props) {
           {name} {surname}
         </p>
         <UserTabs isMyProfile={isMyProfile} id={id} />
-        <MainButton className={styles["button-share"]}>Поделиться</MainButton>
+        <MainButton className={styles["button--share"]}>Поделиться</MainButton>
       </div>
     </div>
   );
 }
 
-const mapStateToProps = store => {
-  return {
-    profile: store.profile
-  };
-};
-
-export default connect(mapStateToProps)(User);
+export default User;

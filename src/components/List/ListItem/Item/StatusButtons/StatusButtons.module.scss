@@ -1,25 +1,17 @@
-.item__group {
+.status__group {
+  display: flex;
+  align-items: center;
+}
+
+.button--status {
+  &__content {
     display: flex;
     align-items: center;
   }
-    
-.button--delete {
-      padding: var(--global-main-btn-padding);
-      display: block;
-      width: 90%;
-      margin: 0 auto;
+}
 
-      &__content {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-      }
-  }
-    
 .emoji {
-      margin-left: 10px;
-      width: var(--emoji-btn-width);
-      height: var(--emoji-btn-height)
-  }
-    
+  margin-left: 10px;
+  width: var(--emoji-btn-width);
+  height: var(--emoji-btn-height);
+}

@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
 
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
@@ -10,7 +9,7 @@ import LinkItem from "@components/LinkItem";
 
 import styles from "./Header.module.scss";
 
-class Header extends React.Component {
+export default class Header extends React.Component {
   static propTypes = {
     profile: PropTypes.object.isRequired,
     friends: PropTypes.object.isRequired
@@ -55,12 +54,3 @@ class Header extends React.Component {
     );
   }
 }
-
-const mapStateToProps = store => {
-  return {
-    profile: store.profile,
-    friends: store.friends
-  };
-};
-
-export default connect(mapStateToProps)(Header);

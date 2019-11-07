@@ -46,16 +46,7 @@ const initialState = {
       surname: "Чернобровкин",
       logoPath: photo
     }
-  ],
-  currentLocationId: null
+  ]
 };
 
-export const friendsContainerReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "SET_CURRENT_LOCATION_ID":
-      return { ...state, currentLocationId: action.payload };
-
-    default:
-      return state;
-  }
-};
+export const friendsContainerReducer = (state = initialState) => state;

@@ -28,13 +28,8 @@ export default class StatusButtonsMyPage extends Component {
     ) : null;
 
     return (
-      <div className={styles["item__group"]}>
-        <MainButton
-          type="secondary"
-          className={styles["button--delete"]}
-          children="Удалить"
-        />{" "}
-        {isBookedBadge}
+      <div className={styles["status__group"]}>
+        <MainButton type="secondary" children="Удалить" /> {isBookedBadge}
       </div>
     );
   }

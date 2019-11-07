@@ -38,12 +38,11 @@ export default class StatusButtonsFriendPageFromMe extends Component {
 
     if (isBooked && isBookedByCurrentUser) {
       return (
-        <div className={styles["item__group"]}>
+        <div>
           <MainButton
             type="secondary"
-            className={styles["button--delete"]}
             children={
-              <span className={styles["button--delete__content"]}>
+              <span className={styles["button--status__content"]}>
                 Не подарю
                 <img
                   src={pensiveFace}

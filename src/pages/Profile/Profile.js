@@ -6,13 +6,13 @@ import FriendGiftsContainer from "@components/FriendGiftsContainer";
 import Routes from "@config/routes";
 import styles from "./Profile.module.scss";
 
-export default function Profile(props) {
+function Profile({ profile, friends }) {
   let { id } = useParams();
   const myProfileId = 10000;
 
   return (
     <div className={styles["profile-container"]}>
-      <User />
+      <User profile={profile} friends={friends} />
       <Switch>
         <Route
           path={Routes.profile.path}
@@ -38,3 +38,5 @@ export default function Profile(props) {
     </div>
   );
 }
+
+export default Profile;
