@@ -38,7 +38,7 @@ export default class StatusButtonsFriendPageFromMe extends Component {
 
     if (isBooked && isBookedByCurrentUser) {
       return (
-        <div>
+        <div className={styles["status__group"]}>
           <MainButton
             type="secondary"
             children={

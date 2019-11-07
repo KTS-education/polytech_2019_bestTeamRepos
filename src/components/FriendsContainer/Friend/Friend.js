@@ -31,7 +31,7 @@ export default class Friend extends React.Component {
             </p>
           </div>
           <MainButton
-            className={styles["button-learn"]}
+            className={styles["button--learn"]}
             to={Routes.profile.create(id)}
           >
             Узнать, что подарить
