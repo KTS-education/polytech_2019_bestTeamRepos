@@ -19,38 +19,47 @@ export default class Header extends React.Component {
     const { profile, friends } = this.props;
 
     return (
-      <Switch>
-        <Route
-          exact
-          path={Routes.mainPage}
-          render={props => (
-            <div className={styles["header-container"]}>
-              <YourAccount profile={profile} />
-              <Friends friends={friends} />
-            </div>
-          )}
-        />
-
-        <Route
-          path={Routes.friendListPage}
-          render={props => (
-            <div className={styles["header-container"]}>
-              <YourAccount profile={profile} />
+      <div className={styles["header-container"]}>
+        <Switch>
+          <Route
+            exact
+            path={Routes.mainPage}
+            render={props => <YourAccount profile={profile} />}
+          />
+          <Route
+            exact
+            path={Routes.friendListPage}
+            render={props => <YourAccount profile={profile} />}
+          />
+          <Route
+            exact
+            path={Routes.profile.path}
+            render={props => (
               <LinkItem href={Routes.mainPage}>Вернуться к поиску</LinkItem>
-            </div>
-          )}
-        />
+            )}
+          />
+        </Switch>
 
-        <Route
-          path={Routes.profile.path}
-          render={props => (
-            <div className={styles["header-container"]}>
+        <Switch>
+          <Route
+            exact
+            path={Routes.mainPage}
+            render={props => <Friends friends={friends} />}
+          />
+          <Route
+            exact
+            path={Routes.profile.path}
+            render={props => <Friends friends={friends} />}
+          />
+          <Route
+            exact
+            path={Routes.friendListPage}
+            render={props => (
               <LinkItem href={Routes.mainPage}>Вернуться к поиску</LinkItem>
-              <Friends friends={friends} />
-            </div>
-          )}
-        />
-      </Switch>
+            )}
+          />
+        </Switch>
+      </div>
     );
   }
 }
