@@ -1,6 +1,6 @@
-import p1 from "./img/1.jpg";
-import p2 from "./img/2.jpg";
-import p3 from "./img/3.jpg";
+import p1 from "./img/1.png";
+import p2 from "./img/2.png";
+import p3 from "./img/3.png";
 
 export default [
   {
@@ -16,8 +16,7 @@ export default [
     productImgHref: p2,
     title: "iPad Pro 2018 256GB",
     price: 80000,
-    description:
-      "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
+    description: "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
   },
   {
     productId: 3,
@@ -39,8 +38,7 @@ export default [
     productImgHref: p2,
     title: "iPad Pro 2018 256GB",
     price: 80000,
-    description:
-      "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
+    description: "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
   },
   {
     productId: 6,
@@ -62,8 +60,7 @@ export default [
     productImgHref: p2,
     title: "iPad Pro 2018 256GB",
     price: 80000,
-    description:
-      "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
+    description: "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
   },
   {
     productId: 9,
@@ -85,14 +82,6 @@ export default [
     productImgHref: p2,
     title: "iPad Pro 2018 256GB",
     price: 80000,
-    description:
-      "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
-  },
-  {
-    productId: 12,
-    productImgHref: p3,
-    title: "iPhone XR 256GB",
-    price: 70000,
-    description: "Мобильный телефон Apple iPhone XR 256GB (желтый)"
+    description: "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray"
   }
 ];

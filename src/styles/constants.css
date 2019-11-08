@@ -1,10 +1,15 @@
 :root {
-  --standard-margin: 20px;
+  --standard-width: 90%;
+  --max-width: 100%;
+
+  --standard-margin: 25px;
+  --margin-sm: 15px;
 
   --max-z-index: 2147483638;
 
   --standard-font: 16px;
   --font-sm: 14px;
+  --font-m: 38px;
 
   --global-color-link-blue: #329eff;
 

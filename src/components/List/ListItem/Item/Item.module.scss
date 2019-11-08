@@ -3,11 +3,12 @@
   flex-direction: column;
 
   & > :nth-child(n) {
-    margin: 5px;
+    margin: 5px 0;
   }
 
   &__image {
-    height: 250px;
+    box-sizing: border-box;
+    width: 60%;
     align-self: center;
   }
 

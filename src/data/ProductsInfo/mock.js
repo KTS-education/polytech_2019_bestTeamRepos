@@ -1,6 +1,6 @@
-import p1 from "./img/1.jpg";
-import p2 from "./img/2.jpg";
-import p3 from "./img/3.jpg";
+import p1 from "./img/1.png";
+import p2 from "./img/2.png";
+import p3 from "./img/3.png";
 import u1 from "./img/user_1.png";
 import u2 from "./img/user_2.png";
 import u3 from "./img/user_3.png";
@@ -23,8 +23,7 @@ export default [
     productImgHref: p2,
     title: "iPad Pro 2018 256GB",
     price: 80000,
-    description:
-      "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray",
+    description: "Планшет Apple iPad Pro 11 Wi-Fi + Cellular 256GB Space gray",
     isBooked: false,
     selectedPerson: "Дарья Попова",
     selectedPersonPhotoHref: u2

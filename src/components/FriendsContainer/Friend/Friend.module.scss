@@ -1,5 +1,5 @@
 .friend-item {
-  width: 100%;
+  width: var(--max-width);
   display: flex;
   margin-bottom: calc(var(--standard-margin) * 2);
   margin-left: var(--standard-margin);
@@ -24,7 +24,8 @@
 
   .button--learn {
     margin-top: var(--standard-margin);
-    font-size: 14px;
+    font-size: calc(var(--standard-font) - 2px);
     padding: var(--global-main-btn-padding-sm);
+    width: 170px;
   }
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
-import Routes from "@config/routes.js";
 import { connect } from "react-redux";
+import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
 import Main from "./Main";
 import Profile from "./Profile";
@@ -10,6 +10,7 @@ import Header from "@components/Header";
 
 import "@constantcss/constants.css";
 import styles from "./App.module.scss";
+
 const App = props => {
   const { profile, friends } = props;
   return (
