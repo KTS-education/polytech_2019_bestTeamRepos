@@ -32,7 +32,6 @@ export default class Header extends React.Component {
             render={props => <YourAccount profile={profile} />}
           />
           <Route
-            exact
             path={Routes.profile.path}
             render={props => (
               <LinkItem href={Routes.mainPage}>Вернуться к поиску</LinkItem>
@@ -47,7 +46,6 @@ export default class Header extends React.Component {
             render={props => <Friends friends={friends} />}
           />
           <Route
-            exact
             path={Routes.profile.path}
             render={props => <Friends friends={friends} />}
           />
