@@ -1,26 +1,32 @@
 import React from "react";
 import PropTypes from "prop-types";
 import MainButton from "@components/MainButton";
+import Avatar from "@components/Avatar";
 import Routes from "@config/routes.js";
 import styles from "./Friend.module.scss";
 
 export default class Friend extends React.Component {
   static propTypes = {
-    accountInfo: PropTypes.shape({
+    friendInfo: PropTypes.shape({
       id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired,
-      surname: PropTypes.string.isRequired,
-      logoPath: PropTypes.string.isRequired
+      first_name: PropTypes.string.isRequired,
+      last_name: PropTypes.string.isRequired,
+      photo_200: PropTypes.string.isRequired
     })
   };
 
   render() {
-    const { id, name, surname, logoPath } = this.props.accountInfo;
+    const {
+      id,
+      first_name: name,
+      last_name: surname,
+      photo_200: photo
+    } = this.props.friendInfo;
 
     return (
       <div className={styles["friend-item"]}>
-        <img
-          src={logoPath}
+        <Avatar
+          src={photo}
           className={styles["friend-item__photo"]}
           alt="Friend pict"
         />

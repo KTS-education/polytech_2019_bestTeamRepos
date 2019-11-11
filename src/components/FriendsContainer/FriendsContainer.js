@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 import Friend from "./Friend";
 
@@ -13,119 +14,42 @@ import { connect } from "react-redux";
 import styles from "./FriendsContainer.module.scss";
 
 class FriendsContainer extends React.Component {
-  state = {
-    items: [],
-    visible: 5,
-    noResults: false,
-    isLoading: false,
-    token: null,
-    id: null
+  static propTypes = {
+    friendsList: PropTypes.arrayOf(PropTypes.object)
   };
 
-  // async getID() {
-  //   connectVK
-  //     .sendPromise("VKWebAppGetUserInfo")
-  //     .then(response => {
-  //       this.setState({ id: response.id });
-  //     })
-  //     .catch(error => {
-  //       console.log(error);
-  //     });
-  // }
+  state = {
+    visible: 5
+  };
 
-  // async getToken() {
-  //   if (this.state.token === null) {
-  //     connectVK
-  //       .sendPromise("VKWebAppGetAuthToken", {
-  //         app_id: 7186760,
-  //         scope: "friends,status"
-  //       })
-  //       .then(response => {
-  //         this.setState({ token: response.access_token });
-  //       })
-  //       .catch(error => {
-  //         console.log(error);
-  //       });
-  //   }
-  // }
-
-  // async fetchData() {
-  //   await this.getID();
-  //   await this.getToken();
-  //   await connectVK
-  //     .sendPromise("VKWebAppCallAPIMethod", {
-  //       method: "friends.get",
-  //       request_id: "friends_test",
-  //       params: {
-  //         user_id: this.state.id,
-  //         order: "name",
-  //         fields: "city",
-  //         v: "5.103",
-  //         access_token: this.state.token
-  //       }
-  //     })
-  //     .then(response => {
-  //       console.log(response);
-  //       this.setState({ items: response.items });
-  //       console.log(this.state);
-  //     })
-  //     .catch(error => {
-  //       console.log(error.error_data);
-  //     });
-  // }
-
-  // componentDidMount() {
-  //   this.fetchData();
-  // }
-
-  async fetchFriends() {
-    await connectVK
-      .sendPromise("VKWebAppGetUserInfo")
-      .then(response => {
-        this.setState({ id: response.id });
-      })
-      .catch(error => {
-        console.log(error.error_data);
-      });
-
-    await connectVK
+  fetchData() {
+    connectVK
       .sendPromise("VKWebAppGetAuthToken", {
         app_id: 7186760,
         scope: "friends,status"
       })
-      .then(response => {
-        ///////////////////////////////
-        console.log(response);
-        this.setState({ token: response.access_token });
-      })
-      .catch(error => {
-        console.log(error.error_data);
-      });
-
-    connectVK
-      .sendPromise("VKWebAppCallAPIMethod", {
-        method: "friends.get",
-        request_id: "friends_test",
-        params: {
-          user_id: this.state.id,
-          order: "name",
-          fields: "city",
-          v: "5.103",
-          access_token: this.state.token
-        }
-      })
-      .then(response => {
-        ///////////////////////////////
-        console.log(response);
-        this.setState({ items: response.response.items });
-      })
-      .catch(error => {
-        console.log(error.error_data);
+      .then(response => response.access_token)
+      .then(token => {
+        connectVK
+          .sendPromise("VKWebAppCallAPIMethod", {
+            method: "friends.get",
+            request_id: "friends",
+            params: {
+              order: "name",
+              fields: "photo_200",
+              v: "5.103",
+              access_token: token
+            }
+          })
+          .then(response => response.response.items)
+          .then(friendsList => {
+            this.props.friendsLoaded(friendsList);
+          });
       });
   }
 
   componentDidMount() {
-    this.fetchFriends();
+    this.fetchData();
   }
 
   loadmore = () => {
@@ -135,14 +59,14 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
-    const { friendsList } = this.props.friendsList;
+    const { friendsList } = this.props;
 
     const hasMore = this.state.visible < friendsList.length;
     if (friendsList.length) {
       return (
         <div className={styles["friends-list-container"]}>
           {friendsList.slice(0, this.state.visible).map(friend => {
-            return <Friend accountInfo={friend} key={friend.id} />;
+            return <Friend friendInfo={friend} key={friend.id} />;
           })}
           {hasMore && (
             <MainButton
@@ -155,14 +79,29 @@ class FriendsContainer extends React.Component {
           )}
         </div>
       );
+    } else {
+      return <NoResults children="Кажется, у тебя нет друзей" />;
     }
   }
 }
 
 const mapStateToProps = ({ friendsList }) => {
   return {
-    friendsList
+    ...friendsList
   };
 };
 
-export default connect(mapStateToProps)(FriendsContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    friendsLoaded: friendsList =>
+      dispatch({
+        type: "FRIENDS_LOADED",
+        payload: friendsList
+      })
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FriendsContainer);
