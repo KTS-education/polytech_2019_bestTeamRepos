@@ -9,6 +9,7 @@ export default class SearchInput extends React.Component {
         <input
           type="text"
           className={(styles["search"], styles["search__input-line"])}
+          placeholder="Введите название товара"
         />
       </div>
     );
