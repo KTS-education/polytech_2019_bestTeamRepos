@@ -38,7 +38,7 @@ class FriendsContainer extends React.Component {
           count: friendsCount,
           params: {
             order: "name",
-            fields: "photo_200",
+            fields: "photo_100",
             v: "5.103",
             access_token: token
           }

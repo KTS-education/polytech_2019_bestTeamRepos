@@ -11,7 +11,7 @@ export default class Friend extends React.Component {
       id: PropTypes.number.isRequired,
       first_name: PropTypes.string.isRequired,
       last_name: PropTypes.string.isRequired,
-      photo_200: PropTypes.string.isRequired
+      photo_100: PropTypes.string.isRequired
     })
   };
 
@@ -20,7 +20,7 @@ export default class Friend extends React.Component {
       id,
       first_name: name,
       last_name: surname,
-      photo_200: photo
+      photo_100: photo
     } = this.props.friendInfo;
 
     return (
