@@ -6,7 +6,7 @@ import Friend from "./Friend";
 import { default as connectVK } from "@vkontakte/vk-connect";
 
 import NoResults from "@components/NoResults";
-import MainButton from "@components/MainButton";
+import Button from "@components/Button";
 import Loader from "@components/Loader";
 import buttonTypes from "@config/buttonTypes";
 
@@ -77,13 +77,13 @@ class FriendsContainer extends React.Component {
               return <Friend friendInfo={friend} key={friend.id} />;
             })}
             {hasMore && (
-              <MainButton
+              <Button
                 className={styles["friends-list-container__more-btn"]}
                 onClick={this.loadmore}
                 type={buttonTypes.secondary}
               >
                 Показать ещё
-              </MainButton>
+              </Button>
             )}
           </div>
         );

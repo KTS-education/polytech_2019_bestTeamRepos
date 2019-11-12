@@ -2,11 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
 import { NavLink } from "react-router-dom";
-import buttonTypes from "@config/buttonTypes.js";
+import buttonTypes from "./node_modules/@config/buttonTypes.js.js";
 
-import styles from "./MainButton.module.scss";
+import styles from "./Button.module.scss";
 
-export default class MainButton extends React.Component {
+export default class Button extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     className: PropTypes.string,

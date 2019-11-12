@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import MainButton from "@components/MainButton";
+import Button from "@components/Button";
 import Avatar from "@components/Avatar";
 import Routes from "@config/routes.js";
 import styles from "./Friend.module.scss";
@@ -36,12 +36,12 @@ export default class Friend extends React.Component {
               {name} {surname}
             </p>
           </div>
-          <MainButton
+          <Button
             className={styles["button--learn"]}
             to={Routes.profile.create(id)}
           >
             Узнать, что подарить
-          </MainButton>
+          </Button>
         </div>
       </div>
     );

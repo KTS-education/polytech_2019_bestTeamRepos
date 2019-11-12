@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import MainButton from "@components/MainButton";
+import Button from "@components/Button";
 import Badge from "../Badge";
 import pensiveFace from "@img/pensiveFace.png";
 import popular from "@img/badge-popular.png";
@@ -41,7 +41,7 @@ export default class StatusButtonsFriendPage extends Component {
     if (isBooked && isBookedByCurrentUser) {
       return (
         <div className={styles["status__group"]}>
-          <MainButton
+          <Button
             type="secondary"
             children={
               <span className={styles["button--status__content"]}>
@@ -60,7 +60,7 @@ export default class StatusButtonsFriendPage extends Component {
     } else if (!isBooked) {
       return (
         <div className={styles["status__group"]}>
-          <MainButton
+          <Button
             children={
               <span className={styles["button--status__content"]}>
                 Подарю
@@ -74,7 +74,7 @@ export default class StatusButtonsFriendPage extends Component {
     } else if (isBooked && !isBookedByCurrentUser) {
       return (
         <div className={styles["status__group"]}>
-          <MainButton
+          <Button
             type="disabled"
             children={
               <span className={styles["button--status__content"]}>

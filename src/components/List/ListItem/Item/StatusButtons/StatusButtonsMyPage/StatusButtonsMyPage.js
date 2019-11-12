@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import MainButton from "@components/MainButton";
+import Button from "@components/Button";
 import Badge from "../Badge";
 import giftIcon from "@img/iconGift.png";
 import styles from "../StatusButtons.module.scss";
@@ -29,7 +29,7 @@ export default class StatusButtonsMyPage extends Component {
 
     return (
       <div className={styles["status__group"]}>
-        <MainButton type="secondary" children="Удалить" /> {isBookedBadge}
+        <Button type="secondary" children="Удалить" /> {isBookedBadge}
       </div>
     );
   }

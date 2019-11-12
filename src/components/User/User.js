@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
-import MainButton from "@components/MainButton";
+import Button from "@components/Button";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
 
@@ -40,9 +40,7 @@ class User extends Component {
             {name} {surname}
           </p>
           <UserTabs profileId={profileId} accountId={accountId} />
-          <MainButton className={styles["button--share"]}>
-            Поделиться
-          </MainButton>
+          <Button className={styles["button--share"]}>Поделиться</Button>
         </div>
       </div>
     );
