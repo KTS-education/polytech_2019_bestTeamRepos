@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 import MainButton from "@components/MainButton";
 import UserTabs from "./UserTabs";
@@ -11,18 +11,26 @@ import styles from "./User.module.scss";
 class User extends Component {
   static propTypes = {
     profile: PropTypes.shape({
-      name: PropTypes.string.isRequired,
-      surname: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired
+      name: PropTypes.string,
+      surname: PropTypes.string,
+      photo: PropTypes.string,
+      id: PropTypes.number
     }),
-    match: PropTypes.object.isRequired
+    accountInfo: PropTypes.object.isRequired
+  };
+
+  static defaultProps = {
+    profile: PropTypes.shape({
+      name: null,
+      surname: null,
+      photo: null,
+      id: null
+    })
   };
 
   render() {
-    let { id } = this.props.match.params;
-    id = parseInt(id);
-
-    const { name, surname, photo } = this.props.profile;
+    const { name, surname, photo, id: profileId } = this.props.profile;
+    const { id: accountId } = this.props.accountInfo;
 
     return (
       <div className={styles["user"]}>
@@ -31,7 +39,7 @@ class User extends Component {
           <p className={styles["credentials"]}>
             {name} {surname}
           </p>
-          <UserTabs currentId={id} />
+          <UserTabs profileId={profileId} accountId={accountId} />
           <MainButton className={styles["button--share"]}>
             Поделиться
           </MainButton>
@@ -41,4 +49,11 @@ class User extends Component {
   }
 }
 
-export default withRouter(User);
+const mapStateToProps = ({ profile, accountInfoHeader }) => {
+  return {
+    ...profile,
+    ...accountInfoHeader
+  };
+};
+
+export default connect(mapStateToProps)(User);
