@@ -1,8 +1,8 @@
 const FRIENDS_LOADED = "FRIENDS_LOADED";
 
-export const friendsLoaded = friendList => {
+export const friendsLoaded = payload => {
   return {
     type: FRIENDS_LOADED,
-    payload: friendList
+    payload
   };
 };

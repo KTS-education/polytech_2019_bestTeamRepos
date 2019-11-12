@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { default as connectVK } from "@vkontakte/vk-connect";
 import { connect } from "react-redux";
+import { accountInfoLoaded } from "@actions/accountInfoHeader";
 
 import LinkItem from "@components/LinkItem";
 import Avatar from "@components/Avatar";
@@ -67,8 +68,7 @@ const mapStateToProps = ({ accountInfoHeader }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    accountInfoLoaded: payload =>
-      dispatch({ type: "ACCOUNT_INFO_LOADED", payload })
+    accountInfoLoaded: payload => dispatch(accountInfoLoaded(payload))
   };
 };
 
