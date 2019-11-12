@@ -17,8 +17,6 @@ class Friends extends React.Component {
     friendsList: PropTypes.arrayOf(PropTypes.object)
   };
 
-  state = {};
-
   fetchFriends() {
     return connectVK
       .sendPromise("VKWebAppGetAuthToken", {
