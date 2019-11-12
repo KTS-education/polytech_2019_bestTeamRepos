@@ -26,57 +26,46 @@ class UserTabs extends React.Component {
   render() {
     const { profileId, accountId } = this.props;
 
-    if (profileId === accountId) {
-      return (
-        <div className={styles["buttons-group"]}>
-          <LinkItem href={Routes.profile.create(profileId)}>
-            <span className={styles["button__content"]}>
-              Хочу получить{" "}
-              <img
-                className={styles["button__emoji"]}
-                src={relievedEmoji}
-                alt={styles["relieved emoji"]}
-              />
-            </span>
-          </LinkItem>
-          <LinkItem href={Routes.profile.createWhatIwant(profileId)}>
-            <span className={styles["button__content"]}>
-              Хочу подарить{" "}
-              <img
-                className={styles["button__emoji"]}
-                src={sunglassesEmoji}
-                alt="cool emoji with sunglasses"
-              />
-            </span>
-          </LinkItem>
-        </div>
+    const firstBtn =
+      profileId === accountId ? (
+        <LinkItem href={Routes.profile.create(profileId)}>
+          <span className={styles["button__content"]}>
+            Хочу получить{" "}
+            <img
+              className={styles["button__emoji"]}
+              src={relievedEmoji}
+              alt={styles["relieved emoji"]}
+            />
+          </span>
+        </LinkItem>
+      ) : (
+        <LinkItem href={Routes.profile.create(profileId)}>
+          <span className={styles["button__content"]}>
+            Хочет получить{" "}
+            <img
+              className={styles["button__emoji"]}
+              src={droolingFace}
+              alt="drooling emoji"
+            />
+          </span>
+        </LinkItem>
       );
-    } else {
-      return (
-        <div className={styles["buttons-group"]}>
-          <LinkItem href={Routes.profile.create(profileId)}>
-            <span className={styles["button__content"]}>
-              Хочет получить{" "}
-              <img
-                className={styles["button__emoji"]}
-                src={droolingFace}
-                alt="drooling emoji"
-              />
-            </span>
-          </LinkItem>
-          <LinkItem href={Routes.profile.createFromMe(profileId)}>
-            <span className={styles["button__content"]}>
-              Хочу подарить{" "}
-              <img
-                className={styles["button__emoji"]}
-                src={sunglassesEmoji}
-                alt="cool emoji with sunglasses"
-              />
-            </span>
-          </LinkItem>
-        </div>
-      );
-    }
+
+    return (
+      <div className={styles["buttons-group"]}>
+        {firstBtn}
+        <LinkItem href={Routes.profile.createFromMe(profileId)}>
+          <span className={styles["button__content"]}>
+            Хочу подарить{" "}
+            <img
+              className={styles["button__emoji"]}
+              src={sunglassesEmoji}
+              alt="cool emoji with sunglasses"
+            />
+          </span>
+        </LinkItem>
+      </div>
+    );
   }
 }
 
