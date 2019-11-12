@@ -14,7 +14,8 @@ class YourAccount extends React.Component {
     AccountInfo: PropTypes.shape({
       name: PropTypes.string.isRequired,
       surname: PropTypes.string.isRequired,
-      photo: PropTypes.string.isRequired
+      photo: PropTypes.string.isRequired,
+      id: PropTypes.number.isRequired
     })
   };
 
@@ -31,14 +32,14 @@ class YourAccount extends React.Component {
   }
 
   componentDidMount() {
-    const { profileLoaded } = this.props;
-    this.fetchCurrentUserProfile().then(profile => {
-      profileLoaded(profile);
+    const { accountInfoLoaded } = this.props;
+    this.fetchCurrentUserProfile().then(accountInfo => {
+      accountInfoLoaded(accountInfo);
     });
   }
 
   render() {
-    const { id, photo, name, surname } = this.props;
+    const { id, photo, name, surname } = this.props.accountInfo;
 
     return (
       <div className={styles["your-account"]}>
@@ -58,15 +59,16 @@ class YourAccount extends React.Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => {
+const mapStateToProps = ({ accountInfoHeader }) => {
   return {
-    ...profile
+    ...accountInfoHeader
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    profileLoaded: payload => dispatch({ type: "PROFILE_LOADED", payload })
+    accountInfoLoaded: payload =>
+      dispatch({ type: "ACCOUNT_INFO_LOADED", payload })
   };
 };
 

@@ -1,5 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { withRouter } from "react-router-dom";
+import { connect } from "react-redux";
 
 import LinkItem from "@components/LinkItem";
 import Routes from "@config/routes.js";
@@ -10,9 +12,10 @@ import droolingFace from "@img/droolingFace.png";
 
 import styles from "./UserTabs.module.scss";
 
-export default class UserTabs extends React.Component {
+class UserTabs extends React.Component {
   static propTypes = {
     className: PropTypes.string,
+    currentId: PropTypes.number.isRequired,
     id: PropTypes.number.isRequired
   };
 
@@ -21,12 +24,12 @@ export default class UserTabs extends React.Component {
   };
 
   render() {
-    const { isMyProfile, id } = this.props;
+    const { currentId, id } = this.props;
 
-    if (isMyProfile) {
+    if (currentId === id) {
       return (
         <div className={styles["buttons-group"]}>
-          <LinkItem href={Routes.profile.create(id)}>
+          <LinkItem href={Routes.profile.create(currentId)}>
             <span className={styles["button__content"]}>
               Хочу получить{" "}
               <img
@@ -36,7 +39,7 @@ export default class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href={Routes.profile.createWhatIwant(id)}>
+          <LinkItem href={Routes.profile.createWhatIwant(currentId)}>
             <span className={styles["button__content"]}>
               Хочу подарить{" "}
               <img
@@ -51,7 +54,7 @@ export default class UserTabs extends React.Component {
     } else {
       return (
         <div className={styles["buttons-group"]}>
-          <LinkItem href={Routes.profile.create(id)}>
+          <LinkItem href={Routes.profile.create(currentId)}>
             <span className={styles["button__content"]}>
               Хочет получить{" "}
               <img
@@ -61,7 +64,7 @@ export default class UserTabs extends React.Component {
               />
             </span>
           </LinkItem>
-          <LinkItem href={Routes.profile.createFromMe(id)}>
+          <LinkItem href={Routes.profile.createFromMe(currentId)}>
             <span className={styles["button__content"]}>
               Хочу подарить{" "}
               <img
@@ -76,3 +79,11 @@ export default class UserTabs extends React.Component {
     }
   }
 }
+
+const mapStateToProps = ({ profile }) => {
+  return {
+    ...profile
+  };
+};
+
+export default connect(mapStateToProps)(withRouter(UserTabs));

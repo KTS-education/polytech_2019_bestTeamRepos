@@ -1,13 +1,13 @@
 const initialState = {
-  profile: { id: null, name: null, surname: null, photo: null }
+  accountInfo: { id: null, name: null, surname: null, photo: null }
 };
 
-export const profileReducer = (state = initialState, action) => {
+export const accountInfoHeaderReducer = (state = initialState, action) => {
   switch (action.type) {
-    case "PROFILE_LOADED":
+    case "ACCOUNT_INFO_LOADED":
       return {
         ...state,
-        profile: {
+        accountInfo: {
           id: action.payload.id,
           name: action.payload.first_name,
           surname: action.payload.last_name,

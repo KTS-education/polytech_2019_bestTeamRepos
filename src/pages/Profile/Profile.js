@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+import PropTypes from "prop-types";
 import { connect } from "react-redux";
 
 import User from "@components/User";
@@ -12,48 +13,53 @@ import Routes from "@config/routes";
 import styles from "./Profile.module.scss";
 
 class Profile extends Component {
-  // fetchProfile() {
-  //   return connectVK
-  //     .sendPromise("VKWebAppGetAuthToken", {
-  //       app_id: 7186760,
-  //       scope: "users, status"
-  //     })
-  //     .then(response => response.access_token)
-  //     .then(token => {
-  //       return connectVK.sendPromise("VKWebAppCallAPIMethod", {
-  //         method: "users.get",
-  //         request_id: "users",
-  //         user_ids: 240949116,
-  //         params: {
-  //           fields: "photo_100",
-  //           v: "5.103",
-  //           access_token: token
-  //         }
-  //       });
-  //     })
-  //     .then(response => console.log(response))
-  //     .catch(error => console.log(error));
-  // }
+  static propTypes = {
+    profile: PropTypes.object.isRequired,
+    match: PropTypes.object.isRequired,
+    profileLoaded: PropTypes.func.isRequired
+  };
+
+  fetchProfile(id) {
+    return connectVK
+      .sendPromise("VKWebAppGetAuthToken", {
+        app_id: 7186760,
+        scope: "friends, status"
+      })
+      .then(response => response.access_token)
+      .then(token => {
+        return connectVK.sendPromise("VKWebAppCallAPIMethod", {
+          method: "users.get",
+          request_id: "users_test",
+          params: {
+            user_ids: id,
+            fields: "photo_200",
+            v: "5.103",
+            access_token: token
+          }
+        });
+      })
+      .then(response => response.response[0])
+      .catch(error => console.log(error));
+  }
 
   componentDidMount() {
-    // const { id } = this.props.match.params;
-    // console.log(id);
-    // const { profileLoaded } = this.props;
-    // this.fetchProfile();
-    // this.fetchProfile(id).then(profile => {
-    //   profileLoaded(profile);
-    // });
+    const { id } = this.props.match.params;
+    const { profileLoaded } = this.props;
+
+    this.fetchProfile(id).then(profile => {
+      profileLoaded(profile);
+    });
   }
 
   render() {
-    const { profile, friends } = this.props;
+    const { profile } = this.props;
     const { id } = this.props.match.params;
 
     const myProfileId = 10000;
 
     return (
       <div className={styles["profile-container"]}>
-        <User profile={profile} friends={friends} />
+        <User profile={profile} />
         <Switch>
           <Route
             path={Routes.profile.path}
@@ -81,18 +87,21 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ profile, friends }) => {
-  return { ...profile, ...friends };
+const mapStateToProps = ({ profile }) => {
+  return { ...profile };
 };
 
-// const mapDispatchToProps = dispatch => {
-//   return {
-//     profileLoaded: id =>
-//       dispatch({
-//         type: "PROFILE_LOADED",
-//         payload: profile
-//       })
-//   };
-// };
+const mapDispatchToProps = dispatch => {
+  return {
+    profileLoaded: payload =>
+      dispatch({
+        type: "PROFILE_LOADED",
+        payload
+      })
+  };
+};
 
-export default connect(mapStateToProps)(withRouter(Profile));
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Profile));
