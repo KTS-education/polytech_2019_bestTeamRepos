@@ -10,6 +10,7 @@ import MainButton from "@components/MainButton";
 import buttonTypes from "@config/buttonTypes";
 
 import { connect } from "react-redux";
+import { friendsLoaded } from "@actions/friendsContainer";
 
 import styles from "./FriendsContainer.module.scss";
 
@@ -93,11 +94,7 @@ const mapStateToProps = ({ friendsList }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    friendsLoaded: friendsList =>
-      dispatch({
-        type: "FRIENDS_LOADED",
-        payload: friendsList
-      })
+    friendsLoaded: friendsList => dispatch(friendsLoaded(friendsList))
   };
 };
 
