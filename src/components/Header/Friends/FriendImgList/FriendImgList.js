@@ -7,23 +7,27 @@ import styles from "./FriendImgList.module.scss";
 
 class FriendImgList extends React.Component {
   static propTypes = {
-    friendsImages: PropTypes.array.isRequired
+    friendsImages: PropTypes.arrayOf(PropTypes.object)
   };
 
   render() {
-    const friends = this.props.friendsImages;
-
-    if (friends.length) {
+    const { friendsImages } = this.props;
+    if (friendsImages.length) {
       return (
         <div className={styles["header-friends"]}>
           <ul className={styles["header-friends__img-list"]}>
-            {friends.map(item => (
-              <FriendImage imageSrc={item} key={item} />
+            {friendsImages.map(item => (
+              <FriendImage imageSrc={item.photo_100} key={item.id} />
             ))}
           </ul>
         </div>
       );
-    }
+    } else
+      return (
+        <div className={styles["header-friends"]}>
+          <ul className={styles["header-friends__img-list"]}></ul>
+        </div>
+      );
   }
 }
 

@@ -35,8 +35,8 @@ class FriendsContainer extends React.Component {
         return connectVK.sendPromise("VKWebAppCallAPIMethod", {
           method: "friends.get",
           request_id: "friends",
-          count: friendsCount,
           params: {
+            count: friendsCount,
             order: "name",
             fields: "photo_100",
             v: "5.103",
