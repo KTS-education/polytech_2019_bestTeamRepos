@@ -61,11 +61,13 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
-    const { friendsList, isLoading } = this.props;
+    const { friendsList, isLoading, error } = this.props;
 
     const hasMore = this.state.visible < friendsList.length;
 
-    if (isLoading) {
+    if (error) {
+      return <div>{error}</div>;
+    } else if (isLoading) {
       return <Loader />;
     } else {
       if (friendsList.length) {
@@ -92,10 +94,11 @@ class FriendsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ friendsList, isLoading }) => {
+const mapStateToProps = ({ friendsList, isLoading, error }) => {
   return {
     ...friendsList,
-    ...isLoading
+    ...isLoading,
+    ...error
   };
 };
 
