@@ -2,6 +2,7 @@ import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
+
 import Main from "./Main";
 import Profile from "./Profile";
 
