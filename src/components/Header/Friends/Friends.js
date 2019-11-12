@@ -5,7 +5,7 @@ import FriendImgList from "./FriendImgList";
 
 import { default as connectVK } from "@vkontakte/vk-connect";
 import { connect } from "react-redux";
-import { friendsLoaded } from "@actions/friendsContainer";
+import { headerFriendsLoaded } from "@actions/friendsHeader";
 
 import LinkItem from "@components/LinkItem";
 import Routes from "@config/routes.js";
@@ -14,7 +14,7 @@ import styles from "./Friends.module.scss";
 
 class Friends extends React.Component {
   static propTypes = {
-    friendsList: PropTypes.arrayOf(PropTypes.object)
+    headerFriendsList: PropTypes.arrayOf(PropTypes.object)
   };
 
   fetchFriends() {
@@ -41,33 +41,34 @@ class Friends extends React.Component {
   }
 
   componentDidMount() {
-    const { friendsLoaded } = this.props;
-    this.fetchFriends().then(friendsList => {
-      friendsLoaded(friendsList);
+    const { headerFriendsLoaded } = this.props;
+    this.fetchFriends().then(headerFriendsList => {
+      headerFriendsLoaded(headerFriendsList);
     });
   }
 
   render() {
-    const { friendsList } = this.props;
+    const { headerFriendsList } = this.props;
 
     return (
       <div className={styles["header-friends-container"]}>
         <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
-        <FriendImgList friendsImages={friendsList} />
+        <FriendImgList friendsImages={headerFriendsList} />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ friendsList }) => {
+const mapStateToProps = ({ headerFriendsList }) => {
   return {
-    ...friendsList
+    ...headerFriendsList
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
-    friendsLoaded: friendsList => dispatch(friendsLoaded(friendsList))
+    headerFriendsLoaded: headerFriendsList =>
+      dispatch(headerFriendsLoaded(headerFriendsList))
   };
 };
 

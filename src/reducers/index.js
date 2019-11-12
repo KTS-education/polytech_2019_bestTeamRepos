@@ -1,10 +1,10 @@
 import { combineReducers } from "redux";
 import { profileReducer } from "./profile";
-import { friendsReducer } from "./friends";
+import { friendsHeaderReducer } from "./friendsHeader";
 import { friendsContainerReducer } from "./friendsContainer";
 
 export const rootReducer = combineReducers({
   profile: profileReducer,
-  friends: friendsReducer,
+  headerFriendsList: friendsHeaderReducer,
   friendsList: friendsContainerReducer
 });
