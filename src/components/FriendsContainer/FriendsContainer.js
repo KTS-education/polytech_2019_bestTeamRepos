@@ -23,34 +23,33 @@ class FriendsContainer extends React.Component {
     visible: 5
   };
 
-  fetchData() {
-    connectVK
+  fetchFriends() {
+    return connectVK
       .sendPromise("VKWebAppGetAuthToken", {
         app_id: 7186760,
         scope: "friends,status"
       })
       .then(response => response.access_token)
       .then(token => {
-        connectVK
-          .sendPromise("VKWebAppCallAPIMethod", {
-            method: "friends.get",
-            request_id: "friends",
-            params: {
-              order: "name",
-              fields: "photo_200",
-              v: "5.103",
-              access_token: token
-            }
-          })
-          .then(response => response.response.items)
-          .then(friendsList => {
-            this.props.friendsLoaded(friendsList);
-          });
-      });
+        return connectVK.sendPromise("VKWebAppCallAPIMethod", {
+          method: "friends.get",
+          request_id: "friends",
+          params: {
+            order: "name",
+            fields: "photo_200",
+            v: "5.103",
+            access_token: token
+          }
+        });
+      })
+      .then(response => response.response.items);
   }
 
   componentDidMount() {
-    this.fetchData();
+    const { friendsLoaded } = this.props;
+    this.fetchFriends().then(friendsList => {
+      friendsLoaded(friendsList);
+    });
   }
 
   loadmore = () => {

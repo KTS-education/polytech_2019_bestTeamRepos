@@ -1,5 +1,6 @@
 const initialState = {
-  friendsList: []
+  friendsList: [],
+  isLoading: false
 };
 
 export const friendsContainerReducer = (state = initialState, action) => {
@@ -7,7 +8,8 @@ export const friendsContainerReducer = (state = initialState, action) => {
     case "FRIENDS_LOADED":
       return {
         ...state,
-        friendsList: action.payload
+        friendsList: action.payload,
+        isLoading: false
       };
     default:
       return state;
