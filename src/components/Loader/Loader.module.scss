@@ -1,20 +1,13 @@
-.load-сontainer {
-  width: 100%;
-  height: 300px;
+.loader {
+  display: block;
+  width: 48px;
+  height: 48px;
+  margin: 0 auto;
 
-  &__img {
-    display: block;
-    width: 48px;
-    height: 48px;
-    margin: 0 auto;
-    position: relative;
-    top: 50%;
-
-    animation-name: rotation;
-    animation-duration: 3s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-  }
+  animation-name: rotation;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
 }
 
 @keyframes rotation {

@@ -1,6 +1,6 @@
 const initialState = {
   friendsList: [],
-  isLoading: false
+  isLoading: true
 };
 
 export const friendsContainerReducer = (state = initialState, action) => {

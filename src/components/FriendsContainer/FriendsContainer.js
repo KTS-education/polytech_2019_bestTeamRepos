@@ -7,6 +7,7 @@ import { default as connectVK } from "@vkontakte/vk-connect";
 
 import NoResults from "@components/NoResults";
 import MainButton from "@components/MainButton";
+import Loader from "@components/Loader";
 import buttonTypes from "@config/buttonTypes";
 
 import { connect } from "react-redux";
@@ -23,7 +24,7 @@ class FriendsContainer extends React.Component {
     visible: 5
   };
 
-  fetchFriends() {
+  fetchFriends(friendsCount = 5000) {
     return connectVK
       .sendPromise("VKWebAppGetAuthToken", {
         app_id: 7186760,
@@ -34,6 +35,7 @@ class FriendsContainer extends React.Component {
         return connectVK.sendPromise("VKWebAppCallAPIMethod", {
           method: "friends.get",
           request_id: "friends",
+          count: friendsCount,
           params: {
             order: "name",
             fields: "photo_200",
@@ -59,35 +61,41 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
-    const { friendsList } = this.props;
+    const { friendsList, isLoading } = this.props;
 
     const hasMore = this.state.visible < friendsList.length;
-    if (friendsList.length) {
-      return (
-        <div className={styles["friends-list-container"]}>
-          {friendsList.slice(0, this.state.visible).map(friend => {
-            return <Friend friendInfo={friend} key={friend.id} />;
-          })}
-          {hasMore && (
-            <MainButton
-              className={styles["friends-list-container__more-btn"]}
-              onClick={this.loadmore}
-              type={buttonTypes.secondary}
-            >
-              Показать ещё
-            </MainButton>
-          )}
-        </div>
-      );
+
+    if (isLoading) {
+      return <Loader />;
     } else {
-      return <NoResults children="Кажется, у тебя нет друзей" />;
+      if (friendsList.length) {
+        return (
+          <div className={styles["friends-list-container"]}>
+            {friendsList.slice(0, this.state.visible).map(friend => {
+              return <Friend friendInfo={friend} key={friend.id} />;
+            })}
+            {hasMore && (
+              <MainButton
+                className={styles["friends-list-container__more-btn"]}
+                onClick={this.loadmore}
+                type={buttonTypes.secondary}
+              >
+                Показать ещё
+              </MainButton>
+            )}
+          </div>
+        );
+      } else {
+        return <NoResults children="Кажется, у тебя нет друзей" />;
+      }
     }
   }
 }
 
-const mapStateToProps = ({ friendsList }) => {
+const mapStateToProps = ({ friendsList, isLoading }) => {
   return {
-    ...friendsList
+    ...friendsList,
+    ...isLoading
   };
 };
 
