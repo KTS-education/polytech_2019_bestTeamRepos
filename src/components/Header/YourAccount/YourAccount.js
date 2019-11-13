@@ -20,7 +20,7 @@ class YourAccount extends React.Component {
     })
   };
 
-  fetchCurrentUserProfile() {
+  fetchAccountInfo() {
     return connectVK
       .sendPromise("VKWebAppGetUserInfo", {
         params: {
@@ -34,7 +34,7 @@ class YourAccount extends React.Component {
 
   componentDidMount() {
     const { accountInfoLoaded } = this.props;
-    this.fetchCurrentUserProfile().then(accountInfo => {
+    this.fetchAccountInfo().then(accountInfo => {
       accountInfoLoaded(accountInfo);
     });
   }

@@ -1,9 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { default as connectVK } from "@vkontakte/vk-connect";
 
 import Friend from "./Friend";
-
-import { default as connectVK } from "@vkontakte/vk-connect";
 
 import NoResults from "@components/NoResults";
 import Button from "@components/Button";
@@ -11,7 +10,11 @@ import Loader from "@components/Loader";
 import buttonTypes from "@config/buttonTypes";
 
 import { connect } from "react-redux";
-import { friendsLoaded } from "@actions/friendsContainer";
+import {
+  fetchFriendsBegin,
+  fetchFriendsSuccess,
+  fetchFriendsFailure
+} from "@actions/friendsContainer";
 
 import styles from "./FriendsContainer.module.scss";
 
@@ -25,33 +28,39 @@ class FriendsContainer extends React.Component {
   };
 
   fetchFriends(friendsCount = 5000) {
-    return connectVK
-      .sendPromise("VKWebAppGetAuthToken", {
-        app_id: 7186760,
-        scope: "friends,status"
-      })
-      .then(response => response.access_token)
-      .then(token => {
-        return connectVK.sendPromise("VKWebAppCallAPIMethod", {
-          method: "friends.get",
-          request_id: "friends",
-          params: {
-            count: friendsCount,
-            order: "name",
-            fields: "photo_100",
-            v: "5.103",
-            access_token: token
-          }
-        });
-      })
-      .then(response => response.response.items);
+    return dispatch => {
+      dispatch(fetchFriendsBegin());
+      connectVK
+        .sendPromise("VKWebAppGetAuthToken", {
+          app_id: 7186760,
+          scope: "friends,status"
+        })
+        .then(response => response.access_token)
+        .then(token =>
+          connectVK.sendPromise("VKWebAppCallAPIMethod", {
+            method: "friends.get",
+            request_id: "friends",
+            params: {
+              count: friendsCount,
+              order: "name",
+              fields: "photo_100",
+              v: "5.103",
+              access_token: token
+            }
+          })
+        )
+        .then(response =>
+          dispatch(fetchFriendsSuccess(response.response.items))
+        )
+        .catch(error => dispatch(fetchFriendsFailure(error)));
+    };
   }
 
   componentDidMount() {
-    const { friendsLoaded } = this.props;
-    this.fetchFriends().then(friendsList => {
-      friendsLoaded(friendsList);
-    });
+    const { friendsList } = this.props;
+    if (!friendsList.length) {
+      this.props.dispatch(this.fetchFriends());
+    }
   }
 
   loadmore = () => {
@@ -102,13 +111,4 @@ const mapStateToProps = ({ friendsList, isLoading, error }) => {
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    friendsLoaded: friendsList => dispatch(friendsLoaded(friendsList))
-  };
-};
-
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(FriendsContainer);
+export default connect(mapStateToProps)(FriendsContainer);
