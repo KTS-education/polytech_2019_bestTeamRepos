@@ -24,7 +24,7 @@ export default class FriendList extends React.Component {
     return (
       <div className={styles["friend-list-container"]}>
         <PageName name="Мои друзья" logoPath={LogoPath} />
-        <SearchInput />
+        <SearchInput children="Введите имя друга" />
         <FriendsContainer />
       </div>
     );
