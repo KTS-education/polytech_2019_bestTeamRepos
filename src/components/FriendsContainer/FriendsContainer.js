@@ -20,7 +20,13 @@ import styles from "./FriendsContainer.module.scss";
 
 class FriendsContainer extends React.Component {
   static propTypes = {
-    friendsList: PropTypes.arrayOf(PropTypes.object)
+    friendsList: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool.isRequired,
+    error: PropTypes.string
+  };
+
+  static defaultProps = {
+    error: null
   };
 
   state = {
