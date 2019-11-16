@@ -1,8 +1,9 @@
 import React, { Component } from "react";
 import { Route, Switch } from "react-router-dom";
+import { default as connectVK } from "@vkontakte/vk-connect";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
-import api from "@src/api.js";
+import { callApi, api } from "@src/api.js";
 import Main from "./Main";
 import Profile from "./Profile";
 
@@ -13,27 +14,35 @@ import styles from "./App.module.scss";
 
 class App extends Component {
   componentDidMount() {
-    api(`/api/user/auth${window.location.search}`, "POST").then(result => {
-      if (result.response) {
-        console.log(result.response); // success
-      } else {
-        console.error(result.error); // error
-      }
-    });
-
-    api("/api/products/suggest", "GET", {
-      query: "iphone", // строка поиска
-      lat: 55.764491899999996, // локация, пока хардкод
-      lon: 37.6710281
-    }).then(result => {
-      if (result.response) {
-        this.setState({
-          data: result.response.suggestions
+    connectVK
+      .sendPromise("VKWebAppGetUserInfo", {
+        params: {
+          v: "5.103"
+        }
+      })
+      .then(response => {
+        console.log(response);
+        callApi(`/api/user/auth${window.location.search}`, "POST", {
+          body: response
+        }).then(result => {
+          result.response
+            ? console.log("err" + result.response)
+            : console.error(result.error);
         });
-      } else {
-        console.error(result.error);
-      }
-    });
+      })
+      .catch(error => console.log(error));
+  }
+
+  fetchAccountInfo() {
+    return connectVK
+      .sendPromise("VKWebAppGetUserInfo", {
+        params: {
+          fields: "photo_100",
+          v: "5.103"
+        }
+      })
+      .then(response => response)
+      .catch(error => console.log(error));
   }
 
   render() {
