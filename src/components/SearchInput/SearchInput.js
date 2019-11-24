@@ -12,11 +12,20 @@ export default class SearchInput extends React.Component {
     children: null
   };
 
+  focusInput = node => {
+    this._inputEl = node;
+  };
+
+  componentDidMount() {
+    this._inputEl.focus();
+  }
+
   render() {
     const { children } = this.props;
     return (
       <form className={styles["search"]}>
         <input
+          ref={this.focusInput}
           type="text"
           className={(styles["search"], styles["search__input-line"])}
           placeholder={children}

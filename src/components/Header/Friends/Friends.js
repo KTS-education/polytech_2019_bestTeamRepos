@@ -20,7 +20,7 @@ class Friends extends React.Component {
   fetchFriends() {
     return connectVK
       .sendPromise("VKWebAppGetAuthToken", {
-        app_id: 7186760,
+        app_id: 7210429,
         scope: "friends,status"
       })
       .then(response => response.access_token)
