@@ -3,7 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import { default as connectVK } from "@vkontakte/vk-connect";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
-import api from "@src/api.js";
+import { api } from "@src/api.js";
 import Main from "./Main";
 import Profile from "./Profile";
 
