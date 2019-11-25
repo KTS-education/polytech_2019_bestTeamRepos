@@ -1,9 +1,12 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import { Route, Switch } from "react-router-dom";
 import { default as connectVK } from "@vkontakte/vk-connect";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
 import { api } from "@src/api.js";
+import { connect } from "react-redux";
+import { headerFriendsLoaded } from "@actions/friendsHeader";
 import Main from "./Main";
 import Profile from "./Profile";
 
@@ -13,48 +16,70 @@ import "@constantcss/constants.css";
 import styles from "./App.module.scss";
 
 class App extends Component {
-  componentDidMount() {
-    connectVK
-      .sendPromise("VKWebAppGetUserInfo")
-      .then(response => {
-        console.log(response);
-        api(`/api/user/auth${window.location.search}`, "POST", response)
-          .then(result => {
-            result.response
-              ? console.log(result.response)
-              : console.error(result.errorData);
-          })
-          .then(() =>
-            api("/api/products/search", "GET", {
-              query: "платье", // строка поиска
-              lat: 55.764491899999996, // локация, пока хардкод
-              lon: 37.6710281
-            }).then(result => {
-              if (result.response) {
-                // this.setState({
-                //   data: result.response.suggestions
-                // });
-                console.log(result.response);
-              } else {
-                console.error(result.error);
-              }
-            })
-          );
+  static propTypes = {
+    headerFriendsList: PropTypes.arrayOf(PropTypes.object)
+  };
+
+  async fetchFriends() {
+    return connectVK
+      .sendPromise("VKWebAppGetAuthToken", {
+        app_id: 7210429,
+        scope: "friends,status"
       })
-      .catch(error => console.log(error));
+      .then(response => response.access_token)
+      .then(token => {
+        return connectVK.sendPromise("VKWebAppCallAPIMethod", {
+          method: "friends.get",
+          request_id: "friends",
+          params: {
+            count: 3,
+            order: "random",
+            fields: "photo_100",
+            v: "5.103",
+            access_token: token
+          }
+        });
+      })
+      .then(response => response.response.items);
   }
 
-  // fetchAccountInfo() {
-  //   return connectVK
-  //     .sendPromise("VKWebAppGetUserInfo", {
-  //       params: {
-  //         fields: "photo_100",
-  //         v: "5.103"
-  //       }
-  //     })
-  //     .then(response => response)
-  //     .catch(error => console.log(error));
-  // }
+  async apiAuth() {
+    const result = await api(`/api/user/auth${window.location.search}`, "POST");
+    result.response
+      ? console.log(result.response)
+      : console.error(result.errorData);
+  }
+
+  async apiGetItems() {
+    const result = await api("/api/products/search", "GET", {
+      query: "платье", // строка поиска
+      lat: 55.764491899999996, // локация, пока хардкод
+      lon: 37.6710281
+    });
+
+    if (result.response) {
+      // this.setState({
+      //   data: result.response.suggestions
+      // });
+      console.log(result.response);
+    } else {
+      console.error(result.error);
+    }
+  }
+
+  async componentDidMount() {
+    try {
+      const friends = await this.fetchFriends();
+      const { headerFriendsLoaded } = this.props;
+      headerFriendsLoaded(friends);
+
+      await this.apiAuth();
+      await this.apiGetItems();
+      
+    } catch (e) {
+      console.error(e);
+    }
+  }
 
   render() {
     return (
@@ -70,4 +95,20 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapStateToProps = ({ headerFriendsList }) => {
+  return {
+    ...headerFriendsList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    headerFriendsLoaded: headerFriendsList =>
+      dispatch(headerFriendsLoaded(headerFriendsList))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);
