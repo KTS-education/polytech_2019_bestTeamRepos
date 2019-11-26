@@ -28,6 +28,8 @@ class User extends Component {
     })
   };
 
+  componentWillUnmount() {}
+
   render() {
     const { name, surname, photo, id: profileId } = this.props.profile;
     const { id: accountId } = this.props.accountInfo;
