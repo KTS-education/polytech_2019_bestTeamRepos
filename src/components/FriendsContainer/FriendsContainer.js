@@ -38,7 +38,7 @@ class FriendsContainer extends React.Component {
       dispatch(fetchFriendsBegin());
       connectVK
         .sendPromise("VKWebAppGetAuthToken", {
-          app_id: 7186760,
+          app_id: 7210429,
           scope: "friends,status"
         })
         .then(response => response.access_token)

@@ -1,7 +1,7 @@
-import axios from 'axios';
-import _ from 'lodash';
+import axios from "axios";
+import _ from "lodash";
 
-export function callApi(url, methodType = 'GET', config = {}) {
+export function callApi(url, methodType = "GET", config = {}) {
   const method = methodType.toLowerCase();
 
   return axios({
@@ -10,15 +10,15 @@ export function callApi(url, methodType = 'GET', config = {}) {
     ...config
   }).then(
     result => {
-      if (result.status !== 200 && _.get(result, 'data.status') !== 'ok') {
+      if (result.status !== 200 && _.get(result, "data.status") !== "ok") {
         return Promise.reject(result);
       }
-      if (_.get(result, 'data.status') === 'error') {
+      if (_.get(result, "data.status") === "error") {
         return Promise.reject(result);
       }
 
       const response =
-        _.get(result, 'data.data') || _.get(result, 'data') || result;
+        _.get(result, "data.data") || _.get(result, "data") || result;
 
       if (response.token) {
         window.token = response.token;
@@ -30,9 +30,9 @@ export function callApi(url, methodType = 'GET', config = {}) {
   );
 }
 
-export default function api(
+export function api(
   endpoint,
-  methodType = 'GET',
+  methodType = "GET",
   data = {},
   config = {},
   multipartFormData = false,
@@ -42,7 +42,7 @@ export default function api(
 
   if (
     (queryConfig.data === null || queryConfig.data === undefined) &&
-    methodType !== 'GET'
+    methodType !== "GET"
   ) {
     queryConfig.data = data;
   }
@@ -66,7 +66,7 @@ export default function api(
     queryConfig.data = formData;
 
     Object.assign(queryConfig.headers, {
-      'Content-Type': 'multipart/form-data'
+      "Content-Type": "multipart/form-data"
     });
   }
 
@@ -78,7 +78,7 @@ export default function api(
 
   const queryMethodType = methodType.toUpperCase();
 
-  if (queryMethodType === 'GET') {
+  if (queryMethodType === "GET") {
     queryConfig.params = {
       ...data
     };
@@ -88,8 +88,8 @@ export default function api(
     .then(response => ({ response }))
     .catch(error => ({
       error,
-      errorData: _.get(error, 'response.data') || {}
+      errorData: _.get(error, "response.data") || {}
     }));
 }
 
-export const OK = 'ok';
+export const OK = "ok";
