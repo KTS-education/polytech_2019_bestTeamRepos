@@ -5,15 +5,30 @@ import styles from "./SearchInput.module.scss";
 
 export default class SearchInput extends React.Component {
   static propTypes = {
-    children: PropTypes.node
+    children: PropTypes.node,
+    handleInput: PropTypes.func.isRequired
   };
 
   static defaultProps = {
     children: null
   };
 
+  state = {
+    input: ""
+  };
+
   focusInput = node => {
     this._inputEl = node;
+  };
+
+  onChangeInput = e => {
+    this.setState({ input: e.target.value });
+  };
+
+  handleInput = e => {
+    if (e.keyCode === 13) {
+      this.props.handleInput(this.state.input);
+    }
   };
 
   componentDidMount() {
@@ -23,14 +38,15 @@ export default class SearchInput extends React.Component {
   render() {
     const { children } = this.props;
     return (
-      <form className={styles["search"]}>
-        <input
-          ref={this.focusInput}
-          type="text"
-          className={(styles["search"], styles["search__input-line"])}
-          placeholder={children}
-        />
-      </form>
+      <input
+        value={this.state.input}
+        ref={this.focusInput}
+        type="text"
+        className={(styles["search"], styles["search__input-line"])}
+        placeholder={children}
+        onKeyUp={this.handleInput}
+        onChange={this.onChangeInput}
+      />
     );
   }
 }

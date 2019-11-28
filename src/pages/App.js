@@ -20,7 +20,7 @@ class App extends Component {
     headerFriendsList: PropTypes.arrayOf(PropTypes.object)
   };
 
-  async fetchFriends() {
+  fetchFriends = async () => {
     return connectVK
       .sendPromise("VKWebAppGetAuthToken", {
         app_id: 7210429,
@@ -41,31 +41,31 @@ class App extends Component {
         });
       })
       .then(response => response.response.items);
-  }
+  };
 
-  async apiAuth() {
+  apiAuth = async () => {
     const result = await api(`/api/user/auth${window.location.search}`, "POST");
     result.response
       ? console.log(result.response)
       : console.error(result.errorData);
-  }
+  };
 
-  async apiGetItems() {
+  apiGetItems = async query => {
     const result = await api("/api/products/search", "GET", {
-      query: "платье", // строка поиска
+      query: query, // строка поиска
       lat: 55.764491899999996, // локация, пока хардкод
       lon: 37.6710281
     });
 
     if (result.response) {
       // this.setState({
-      //   data: result.response.suggestions
+      //   data: result.response
       // });
-      console.log(result.response);
+      console.log(result.response.response.items);
     } else {
       console.error(result.error);
     }
-  }
+  };
 
   async componentDidMount() {
     try {
@@ -74,7 +74,6 @@ class App extends Component {
       headerFriendsLoaded(friends);
 
       await this.apiAuth();
-      await this.apiGetItems();
     } catch (e) {
       console.error(e);
     }
@@ -85,7 +84,11 @@ class App extends Component {
       <div className={styles["app"]}>
         <Header />
         <Switch>
-          <Route exact path={Routes.mainPage} component={Main} />
+          <Route
+            exact
+            path={Routes.mainPage}
+            render={props => <Main apiGetItems={this.apiGetItems} />}
+          />
           <Route path={Routes.friendListPage} component={FriendList} />
           <Route path={Routes.profile.path} render={props => <Profile />} />
         </Switch>
@@ -107,4 +110,7 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(App);

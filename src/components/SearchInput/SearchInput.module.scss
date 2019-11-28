@@ -1,20 +1,15 @@
-.search {
-  width: 100%;
+.search__input-line {
+  display: block;
+  width: 52%;
   margin: 45px auto;
+  border-radius: 25px;
+  border: solid 1px var(--global-color-border-gray);
+  padding: 16px 0 16px 25px;
+  outline: none;
+  font-size: var(--standard-font);
+  font-weight: normal;
 
-  &__input-line {
-    display: block;
-    width: 52%;
-    margin: 0 auto;
-    border-radius: 25px;
-    border: solid 1px var(--global-color-border-gray);
-    padding: 16px 0 16px 25px;
-    outline: none;
-    font-size: var(--standard-font);
-    font-weight: normal;
-
-    &::placeholder {
-      color: var(--global-color-border-gray);
-    }
+  &::placeholder {
+    color: var(--global-color-border-gray);
   }
 }

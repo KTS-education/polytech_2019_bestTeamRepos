@@ -24,7 +24,10 @@ export default class Main extends React.Component {
     return (
       <div className={styles["main-container"]}>
         <PageName name="Wishlist" logoPath={logoPath} />
-        <SearchInput children="Введите название товара" />
+        <SearchInput
+          children="Введите название товара"
+          handleInput={this.props.apiGetItems}
+        />
         <PopularGiftsContainer />
       </div>
     );
