@@ -55,9 +55,9 @@ class FriendsContainer extends React.Component {
             }
           })
         )
-        .then(response =>
-          dispatch(fetchFriendsSuccess(response.response.items))
-        )
+        .then(response => {
+          dispatch(fetchFriendsSuccess(response.response.items));
+        })
         .catch(error => dispatch(fetchFriendsFailure(error)));
     };
   }

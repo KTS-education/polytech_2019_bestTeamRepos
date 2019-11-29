@@ -11,7 +11,7 @@ export const accountInfoHeaderReducer = (state = initialState, action) => {
           id: action.payload.id,
           name: action.payload.first_name,
           surname: action.payload.last_name,
-          photo: action.payload.photo_200
+          photo: action.payload.photo_100
         }
       };
     default:
