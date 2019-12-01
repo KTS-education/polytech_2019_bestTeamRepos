@@ -10,42 +10,42 @@
   outline: none;
   align-items: center;
   text-align: center;
-}
 
-.main-button {
-  padding: var(--global-main-btn-padding);
-  background: linear-gradient(var(--global-main-btn-bg));
-  font-size: var(--standard-font);
-  color: var(--global-color-bg-white);
-  cursor: pointer;
-}
+  &_main {
+    padding: var(--global-main-btn-padding);
+    background: linear-gradient(var(--global-main-btn-bg));
+    font-size: var(--standard-font);
+    color: var(--global-color-bg-white);
+    cursor: pointer;
 
-.main-button:hover {
-  background: linear-gradient(var(--global-main-btn-bg-hover));
-}
+    &:hover {
+      background: linear-gradient(var(--global-main-btn-bg-hover));
+    }
 
-.main-button:active {
-  background: var(--global-main-btn-bg-active);
-}
+    &:active {
+      background: var(--global-main-btn-bg-active);
+    }
+  }
 
-.sec-button {
-  padding: var(--global-main-btn-padding);
-  background: linear-gradient(var(--global-second-btn-bg));
-  font-size: calc(var(--standard-font) / 1.1);
-  color: var(--global-color-black);
-  cursor: pointer;
-}
+  &_secondary {
+    padding: var(--global-main-btn-padding);
+    background: linear-gradient(var(--global-second-btn-bg));
+    font-size: var(--global-second-btn-font);
+    color: var(--global-color-black);
+    cursor: pointer;
 
-.sec-button:hover {
-  background: var(--global-second-btn-bg-hover);
-}
+    &:hover {
+      background: var(--global-second-btn-bg-hover);
+    }
 
-.sec-button:active {
-  background: var(--global-second-btn-bg-active);
-}
+    &:active {
+      background: var(--global-second-btn-bg-active);
+    }
+  }
 
-.disabled-button {
-  padding: var(--global-main-btn-padding);
-  background: var(--global-disabled-btn-bg);
-  user-select: none;
+  &_disabled {
+    padding: var(--global-main-btn-padding);
+    background: var(--global-disabled-btn-bg);
+    user-select: none;
+  }
 }
