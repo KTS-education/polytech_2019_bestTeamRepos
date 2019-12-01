@@ -31,9 +31,9 @@ export default class Button extends React.Component {
       <Component
         className={classNames(
           styles["button"],
-          { [styles["button_main"]]: type === buttonTypes.primary },
-          { [styles["button_secondary"]]: type === buttonTypes.secondary },
-          { [styles["button_disabled"]]: type === buttonTypes.disabled },
+          { [styles["button--main"]]: type === buttonTypes.primary },
+          { [styles["button--secondary"]]: type === buttonTypes.secondary },
+          { [styles["button--disabled"]]: type === buttonTypes.disabled },
           className
         )}
         {...btnProps}

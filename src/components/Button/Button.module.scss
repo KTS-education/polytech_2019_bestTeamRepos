@@ -11,7 +11,7 @@
   align-items: center;
   text-align: center;
 
-  &_main {
+  &--main {
     padding: var(--global-main-btn-padding);
     background: linear-gradient(var(--global-main-btn-bg));
     font-size: var(--standard-font);
@@ -27,7 +27,7 @@
     }
   }
 
-  &_secondary {
+  &--secondary {
     padding: var(--global-main-btn-padding);
     background: linear-gradient(var(--global-second-btn-bg));
     font-size: var(--global-second-btn-font);
@@ -43,7 +43,7 @@
     }
   }
 
-  &_disabled {
+  &--disabled {
     padding: var(--global-main-btn-padding);
     background: var(--global-disabled-btn-bg);
     user-select: none;

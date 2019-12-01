@@ -12,7 +12,7 @@ import Profile from "./Profile";
 
 import Header from "@components/Header";
 
-import "@constantcss/constants.css";
+import "@constantcss/constants.scss";
 import styles from "./App.module.scss";
 
 class App extends Component {
@@ -110,7 +110,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);

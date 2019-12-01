@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { default as connectVK } from "@vkontakte/vk-connect";
+import connectVK from "@vkontakte/vk-connect";
 
 import Friend from "./Friend";
 

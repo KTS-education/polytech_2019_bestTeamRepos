@@ -1,3 +1,5 @@
+@import "@constantcss/constants.scss";
+
 .friend-item {
   width: var(--max-width);
   display: flex;
@@ -7,25 +9,22 @@
   list-style-type: none;
 
   &__photo {
-    height: 125px;
+    height: 120px;
+    margin-left: var(--standard-margin);
   }
 
   &__text-part {
     margin-left: var(--standard-margin);
 
-    .text-part__ns {
+    &__name-surname {
       font-size: 27px;
-
-      .ns__txt {
-        margin: 0;
-      }
     }
   }
 
   .button--learn {
     margin-top: var(--standard-margin);
-    font-size: calc(var(--standard-font) - 2px);
+    font-size: var(--global-second-btn-font);
     padding: var(--global-main-btn-padding-sm);
-    width: 170px;
+    width: 140px;
   }
 }

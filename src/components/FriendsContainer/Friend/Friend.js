@@ -31,10 +31,8 @@ export default class Friend extends React.Component {
           alt="Friend pict"
         />
         <div className={styles["friend-item__text-part"]}>
-          <div className={styles["text-part__ns"]}>
-            <p className={styles["ns__txt"]}>
-              {name} {surname}
-            </p>
+          <div className={styles["friend-item__text-part__name-surname"]}>
+            {name} {surname}
           </div>
           <Button
             className={styles["button--learn"]}
