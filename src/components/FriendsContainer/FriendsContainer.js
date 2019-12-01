@@ -26,11 +26,13 @@ class FriendsContainer extends React.Component {
   };
 
   static defaultProps = {
-    error: null
+    error: null,
+    friendsList: [],
+    isLoading: true
   };
 
   state = {
-    visible: 5
+    visible: 10
   };
 
   fetchFriends(friendsCount = 5000) {
