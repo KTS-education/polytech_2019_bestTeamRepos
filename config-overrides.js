@@ -1,9 +1,11 @@
 const rewireAliases = require("react-app-rewire-aliases");
 const { paths } = require("react-app-rewired");
 const path = require("path");
-
+const { useBabelRc, override, useEslintRc } = require("customize-cra");
 /* config-overrides.js */
-module.exports = function override(config, env) {
+
+module.exports = function overrider(config, env) {
+  override(useBabelRc(), useEslintRc());
   config = rewireAliases.aliasesOptions({
     "@src": path.resolve(__dirname, `${paths.appSrc}/`),
     "@components": path.resolve(__dirname, `${paths.appSrc}/components/`),
