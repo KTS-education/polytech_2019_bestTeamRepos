@@ -1,13 +1,31 @@
 import React from "react";
 import Loader from "@components/Loader";
-import products from "@data/PopularProductsInfo/mock.js";
 import List from "@components/List";
+import NoResults from "@components/NoResults";
+import { connect } from "react-redux";
+import { isNull, isArray } from "util";
 
-export default class PopularGiftsContainer extends React.Component {
+class PopularGiftsContainer extends React.Component {
   render() {
-    if (products.length) {
-      return <List products={products} />;
+    const { searchList, isLoading, error } = this.props;
+    if (isNull(searchList)) {
+      return null;
+    } else if (isLoading) {
+      return <Loader />;
+    } else if (isArray(searchList) && searchList.length) {
+      return <List products={searchList} />;
+    } else if (isArray(searchList) && !searchList.length) {
+      return <NoResults children="Ничего не найдено" />;
+    } else if (error) {
+      console.log(error);
     }
-    return <Loader />;
   }
 }
+
+const mapStateToProps = ({ searchList }) => {
+  return {
+    ...searchList
+  };
+};
+
+export default connect(mapStateToProps)(PopularGiftsContainer);

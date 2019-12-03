@@ -38,7 +38,7 @@ export default class StatusButtons extends React.Component {
         <Route
           exact
           path={Routes.mainPage}
-          render={props => <StatusButtonsPopular />}
+          render={props => <StatusButtonsPopular product={product} />}
         />
 
         <Route

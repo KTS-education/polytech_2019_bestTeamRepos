@@ -1,9 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 
 import styles from "./SearchInput.module.scss";
 
-export default class SearchInput extends React.Component {
+class SearchInput extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     handleInput: PropTypes.func.isRequired
@@ -27,7 +28,7 @@ export default class SearchInput extends React.Component {
 
   handleInput = e => {
     if (e.keyCode === 13) {
-      this.props.handleInput(this.state.input);
+      this.props.dispatch(this.props.handleInput(this.state.input));
     }
   };
 
@@ -50,3 +51,5 @@ export default class SearchInput extends React.Component {
     );
   }
 }
+
+export default connect()(SearchInput);

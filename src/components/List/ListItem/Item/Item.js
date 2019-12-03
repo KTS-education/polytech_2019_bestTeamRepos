@@ -2,15 +2,11 @@ import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from "./StatusButtons";
 import styles from "./Item.module.scss";
+import noPicture from "@img/noPicture.png";
 
 export default class Item extends React.Component {
   static propTypes = {
-    product: PropTypes.shape({
-      description: PropTypes.string.isRequired,
-      productImgHref: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired
-    }),
+    product: PropTypes.object.isRequired,
     className: PropTypes.string
   };
 
@@ -19,17 +15,22 @@ export default class Item extends React.Component {
   };
 
   render() {
-    const { description, productImgHref, price, title } = this.props.product;
+    const { description, name } = this.props.product;
+    let url;
+    if (this.props.product.photo) {
+      url = this.props.product.photo.url;
+    }
+    const { avg: price } = this.props.product.price;
     const { product } = this.props;
 
     return (
       <div className={styles["item"]}>
         <img
           className={styles["item__image"]}
-          src={productImgHref}
-          alt={title}
+          src={url || noPicture}
+          alt={name}
         />
-        <h3>{title}</h3>
+        <h3 className={styles["item__name"]}>{name}</h3>
         <p>
           {price}
           <span> &#8381;</span>
