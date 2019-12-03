@@ -5,12 +5,7 @@ import styles from "./Item.module.scss";
 
 export default class Item extends React.Component {
   static propTypes = {
-    product: PropTypes.shape({
-      description: PropTypes.string.isRequired,
-      productImgHref: PropTypes.string.isRequired,
-      price: PropTypes.number.isRequired,
-      title: PropTypes.string.isRequired
-    }),
+    product: PropTypes.object.isRequired,
     className: PropTypes.string
   };
 
@@ -19,17 +14,15 @@ export default class Item extends React.Component {
   };
 
   render() {
-    const { description, productImgHref, price, title } = this.props.product;
+    const { description, name } = this.props.product;
+    const { url } = this.props.product.photo;
+    const { avg: price } = this.props.product.price;
     const { product } = this.props;
 
     return (
       <div className={styles["item"]}>
-        <img
-          className={styles["item__image"]}
-          src={productImgHref}
-          alt={title}
-        />
-        <h3>{title}</h3>
+        <img className={styles["item__image"]} src={url} alt={name} />
+        <h3>{name}</h3>
         <p>
           {price}
           <span> &#8381;</span>

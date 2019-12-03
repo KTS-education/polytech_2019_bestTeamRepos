@@ -17,7 +17,7 @@ export default class List extends React.Component {
     return (
       <ul className={classNames(styles["products-list"], className)}>
         {products.map(product => {
-          return <ListItem key={product.productId} product={product} />;
+          return <ListItem key={product.id} product={product} />;
         })}
       </ul>
     );

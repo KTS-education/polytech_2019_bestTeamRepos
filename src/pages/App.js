@@ -7,6 +7,11 @@ import FriendList from "./FriendList";
 import { api } from "@src/api.js";
 import { connect } from "react-redux";
 import { headerFriendsLoaded } from "@actions/friendsHeader";
+import {
+  fetchResultsBegin,
+  fetchResultsSuccess,
+  fetchResultsFailure
+} from "@actions/getSearchResults";
 import Main from "./Main";
 import Profile from "./Profile";
 
@@ -50,21 +55,25 @@ class App extends Component {
       : console.error(result.errorData);
   };
 
-  apiGetItems = async query => {
-    const result = await api("/api/products/search", "GET", {
-      query: query, // строка поиска
-      lat: 55.764491899999996, // локация, пока хардкод
-      lon: 37.6710281
-    });
+  apiGetItems = query => {
+    return async dispatch => {
+      if (!query) {
+        dispatch(fetchResultsSuccess(null));
+      } else {
+        dispatch(fetchResultsBegin());
+        const result = await api("/api/products/search", "GET", {
+          query: query,
+          lat: 55.764491899999996,
+          lon: 37.6710281
+        });
 
-    if (result.response) {
-      // this.setState({
-      //   data: result.response
-      // });
-      console.log(result.response.response.items);
-    } else {
-      console.error(result.error);
-    }
+        if (result.response) {
+          dispatch(fetchResultsSuccess(result.response.response.items));
+        } else {
+          dispatch(fetchResultsFailure(result.error));
+        }
+      }
+    };
   };
 
   async componentDidMount() {
@@ -80,6 +89,7 @@ class App extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <div className={styles["app"]}>
         <Header />
@@ -110,7 +120,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  mapStateToProps,
-  mapDispatchToProps
-)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(App);
