@@ -6,6 +6,10 @@
     margin: 5px 0;
   }
 
+  &__name {
+    overflow-wrap: break-word;
+  }
+
   &__image {
     box-sizing: border-box;
     width: 60%;

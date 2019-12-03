@@ -30,7 +30,7 @@ export default class Item extends React.Component {
           src={url || noPicture}
           alt={name}
         />
-        <h3>{name}</h3>
+        <h3 className={styles["item__name"]}>{name}</h3>
         <p>
           {price}
           <span> &#8381;</span>
