@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import StatusButtons from "./StatusButtons";
 import styles from "./Item.module.scss";
+import noPicture from "@img/noPicture.png";
 
 export default class Item extends React.Component {
   static propTypes = {
@@ -15,13 +16,20 @@ export default class Item extends React.Component {
 
   render() {
     const { description, name } = this.props.product;
-    const { url } = this.props.product.photo;
+    let url;
+    if (this.props.product.photo) {
+      url = this.props.product.photo.url;
+    }
     const { avg: price } = this.props.product.price;
     const { product } = this.props;
 
     return (
       <div className={styles["item"]}>
-        <img className={styles["item__image"]} src={url} alt={name} />
+        <img
+          className={styles["item__image"]}
+          src={url || noPicture}
+          alt={name}
+        />
         <h3>{name}</h3>
         <p>
           {price}
