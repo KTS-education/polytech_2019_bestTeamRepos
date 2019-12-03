@@ -5,19 +5,14 @@ import { api } from "@src/api.js";
 import styles from "./StatusButtonsPopular.module.scss";
 
 export default class StatusButtonsPopular extends Component {
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
   static propTypes = {
     product: PropTypes.object.isRequired
   };
 
-  async handleClick() {
+  handleClick = async () => {
     await this.addToMyList();
     await this.getMyWishlist();
-  }
+  };
 
   addToMyList = async () => {
     const result = await api(`/api/wishlist/add`, "POST", {
