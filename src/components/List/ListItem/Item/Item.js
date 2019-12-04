@@ -15,13 +15,13 @@ export default class Item extends React.Component {
   };
 
   render() {
+    const { product } = this.props;
     const { description, name } = this.props.product;
+    const { price } = this.props.product;
     let url;
     if (this.props.product.photo) {
-      url = this.props.product.photo.url;
+      url = this.props.product.photo;
     }
-    const { avg: price } = this.props.product.price;
-    const { product } = this.props;
 
     return (
       <div className={styles["item"]}>

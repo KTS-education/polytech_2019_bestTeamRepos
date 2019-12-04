@@ -4,11 +4,15 @@ import { friendsHeaderReducer } from "./friendsHeader";
 import { friendsContainerReducer } from "./friendsContainer";
 import { accountInfoHeaderReducer } from "./accountInfoHeader";
 import { searchContainerReducer } from "./getSearchResults";
+import { giftsListReducer } from "./getGiftsList";
+import { userIdReducer } from "./userId";
 
 export const rootReducer = combineReducers({
   profile: profileReducer,
   headerFriendsList: friendsHeaderReducer,
   accountInfoHeader: accountInfoHeaderReducer,
   friendsList: friendsContainerReducer,
-  searchList: searchContainerReducer
+  searchList: searchContainerReducer,
+  giftsList: giftsListReducer,
+  userId: userIdReducer
 });

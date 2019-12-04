@@ -7,6 +7,7 @@ import FriendList from "./FriendList";
 import { api } from "@src/api.js";
 import { connect } from "react-redux";
 import { headerFriendsLoaded } from "@actions/friendsHeader";
+import { userIdLoaded } from "@actions/userId";
 import {
   fetchResultsBegin,
   fetchResultsSuccess,
@@ -22,7 +23,8 @@ import styles from "./App.module.scss";
 
 class App extends Component {
   static propTypes = {
-    headerFriendsList: PropTypes.arrayOf(PropTypes.object)
+    headerFriendsList: PropTypes.arrayOf(PropTypes.object),
+    userId: PropTypes.object
   };
 
   fetchFriends = async () => {
@@ -49,10 +51,20 @@ class App extends Component {
   };
 
   apiAuth = async () => {
+    const result2 = await connectVK.sendPromise("VKWebAppGetUserInfo", {
+      params: {
+        v: "5.103"
+      }
+    });
     const result = await api(`/api/user/auth${window.location.search}`, "POST");
     result.response
       ? console.log(result.response)
       : console.error(result.errorData);
+    return {
+      api_id: result.response.user_id,
+      vk_id: result2.id,
+      api_token: result.response.token
+    };
   };
 
   apiGetItems = query => {
@@ -77,19 +89,19 @@ class App extends Component {
   };
 
   async componentDidMount() {
+    console.log(this.props);
     try {
+      const { headerFriendsLoaded, userIdLoaded } = this.props;
       const friends = await this.fetchFriends();
-      const { headerFriendsLoaded } = this.props;
+      const userInfo = await this.apiAuth();
       headerFriendsLoaded(friends);
-
-      await this.apiAuth();
+      userIdLoaded(userInfo);
     } catch (e) {
       console.error(e);
     }
   }
 
   render() {
-    console.log(this.props);
     return (
       <div className={styles["app"]}>
         <Header />
@@ -116,7 +128,8 @@ const mapStateToProps = ({ headerFriendsList }) => {
 const mapDispatchToProps = dispatch => {
   return {
     headerFriendsLoaded: headerFriendsList =>
-      dispatch(headerFriendsLoaded(headerFriendsList))
+      dispatch(headerFriendsLoaded(headerFriendsList)),
+    userIdLoaded: userId => dispatch(userIdLoaded(userId))
   };
 };
 

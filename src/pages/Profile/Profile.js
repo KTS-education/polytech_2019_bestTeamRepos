@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 import User from "@components/User";
 import MyGiftsContainer from "@components/MyGiftsContainer";
 import FriendGiftsContainer from "@components/FriendGiftsContainer";
-import { default as connectVK } from "@vkontakte/vk-connect";
+import connectVK from "@vkontakte/vk-connect";
 
 import Routes from "@config/routes";
 
@@ -54,8 +54,7 @@ class Profile extends Component {
   render() {
     const { profile } = this.props;
     const { id } = this.props.match.params;
-
-    const myProfileId = 10000;
+    const myProfileId = this.props.userId.vk_id;
 
     return (
       <div className={styles["profile-container"]}>
@@ -87,8 +86,8 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ profile }) => {
-  return { ...profile };
+const mapStateToProps = ({ profile, userId }) => {
+  return { ...profile, ...userId };
 };
 
 const mapDispatchToProps = dispatch => {
