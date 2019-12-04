@@ -3,28 +3,31 @@ import Loader from "@components/Loader";
 import List from "@components/List";
 import NoResults from "@components/NoResults";
 import { connect } from "react-redux";
-import { isNull, isArray } from "util";
+import { isArray } from "util";
 
 class PopularGiftsContainer extends React.Component {
   render() {
     const { searchList, isLoading, error } = this.props;
-    if (isNull(searchList)) {
-      return null;
+
+    if (error) {
+      return <div>{error}</div>;
     } else if (isLoading) {
       return <Loader />;
-    } else if (isArray(searchList) && searchList.length) {
-      return <List products={searchList} />;
-    } else if (isArray(searchList) && !searchList.length) {
-      return <NoResults children="Ничего не найдено" />;
-    } else if (error) {
-      console.log(error);
+    } else {
+      if (isArray(searchList) && searchList.length) {
+        return <List products={searchList} />;
+      } else if (isArray(searchList) && !searchList.length)
+        return <NoResults children="Ничего не найдено" />;
+      else return null;
     }
   }
 }
 
-const mapStateToProps = ({ searchList }) => {
+const mapStateToProps = ({ searchList, isLoading, error }) => {
   return {
-    ...searchList
+    ...searchList,
+    ...isLoading,
+    ...error
   };
 };
 

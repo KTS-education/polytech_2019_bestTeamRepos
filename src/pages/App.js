@@ -51,7 +51,7 @@ class App extends Component {
   };
 
   apiAuth = async () => {
-    const result2 = await connectVK.sendPromise("VKWebAppGetUserInfo", {
+    const resultVK = await connectVK.sendPromise("VKWebAppGetUserInfo", {
       params: {
         v: "5.103"
       }
@@ -62,7 +62,7 @@ class App extends Component {
       : console.error(result.errorData);
     return {
       api_id: result.response.user_id,
-      vk_id: result2.id,
+      vk_id: resultVK.id,
       api_token: result.response.token
     };
   };
@@ -89,7 +89,6 @@ class App extends Component {
   };
 
   async componentDidMount() {
-    console.log(this.props);
     try {
       const { headerFriendsLoaded, userIdLoaded } = this.props;
       const friends = await this.fetchFriends();

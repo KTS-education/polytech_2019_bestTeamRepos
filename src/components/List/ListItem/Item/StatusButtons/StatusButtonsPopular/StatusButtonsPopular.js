@@ -15,7 +15,6 @@ export default class StatusButtonsPopular extends Component {
 
   handleClick = async () => {
     await this.addToMyList();
-    await this.getMyWishlist();
   };
 
   addToMyList = async () => {
@@ -23,16 +22,8 @@ export default class StatusButtonsPopular extends Component {
       id: this.props.product.id,
       name: this.props.product.name,
       photo: this.props.product.photo.url,
-      price: this.props.product.price.avg
-    });
-    result.response
-      ? console.log(result.response)
-      : console.error(result.errorData);
-  };
-
-  getMyWishlist = async () => {
-    const result = await api(`/api/wishlist/get`, "GET", {
-      id: "5dda7278f79bd70001f9050a"
+      price: this.props.product.price.avg,
+      description: this.props.product.description
     });
     result.response
       ? console.log(result.response)

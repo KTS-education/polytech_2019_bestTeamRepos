@@ -45,10 +45,7 @@ class MyGiftsContainer extends Component {
 
   componentDidMount() {
     const { userId } = this.props;
-    const { giftsList } = this.props;
-    if (!giftsList.length) {
-      this.props.dispatch(this.getMyWishlist(userId.api_id));
-    }
+    this.props.dispatch(this.getMyWishlist(userId.api_id));
   }
 
   render() {
