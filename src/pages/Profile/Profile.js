@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
 import PropTypes from "prop-types";
+import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import User from "@components/User";

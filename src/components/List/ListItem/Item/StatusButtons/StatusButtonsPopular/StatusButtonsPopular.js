@@ -34,9 +34,10 @@ export default class StatusButtonsPopular extends Component {
     return (
       <Button
         className={styles["item__button"]}
-        children="Добавить в избранное"
         onClick={() => this.handleClick()}
-      />
+      >
+        Добавить в избранное
+      </Button>
     );
   }
 }

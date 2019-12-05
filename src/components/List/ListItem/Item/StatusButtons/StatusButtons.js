@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
+import { connect } from "react-redux";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
@@ -10,7 +11,7 @@ import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 
 import Routes from "@config/routes.js";
 
-export default class StatusButtons extends React.Component {
+class StatusButtons extends React.Component {
   static propTypes = {
     product: PropTypes.shape({
       isBooked: PropTypes.bool,
@@ -30,8 +31,8 @@ export default class StatusButtons extends React.Component {
   render() {
     const product = this.props.product;
 
-    const currentPageId = 10000;
-    const myProfileId = 10000;
+    const currentPageId = this.props.userId.vk_id;
+    const myProfileId = this.props.userId.vk_id;
 
     return (
       <Switch>
@@ -46,7 +47,10 @@ export default class StatusButtons extends React.Component {
           path={Routes.profile.path}
           render={props =>
             myProfileId === currentPageId ? (
-              <StatusButtonsMyPage isBooked={product.isBooked} />
+              <StatusButtonsMyPage
+                isBooked={product.isBooked}
+                id={product.id}
+              />
             ) : (
               <StatusButtonsFriendPage
                 isBooked={product.isBooked}
@@ -76,3 +80,9 @@ export default class StatusButtons extends React.Component {
     );
   }
 }
+
+const mapStateToProps = ({ userId }) => {
+  return { ...userId };
+};
+
+export default connect(mapStateToProps)(StatusButtons);
