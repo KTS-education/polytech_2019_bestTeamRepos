@@ -45,40 +45,45 @@ class Profile extends Component {
   componentDidMount() {
     const { id } = this.props.match.params;
     const { profileLoaded } = this.props;
-
     this.fetchProfile(id).then(profile => {
       profileLoaded(profile);
     });
   }
 
   render() {
-    const { profile } = this.props;
+    const { profile, userId } = this.props;
     const { id } = this.props.match.params;
     const myProfileId = this.props.userId.vk_id;
+
+    let numbId = parseInt(id);
 
     return (
       <div className={styles["profile-container"]}>
         <User profile={profile} />
         <Switch>
           <Route
-            path={Routes.profile.path}
-            render={props => (
-              <>
-                {myProfileId === parseInt(id) ? (
-                  <MyGiftsContainer />
-                ) : (
-                  <FriendGiftsContainer />
-                )}
-              </>
-            )}
-          />
-          <Route
+            exact
             path={Routes.profile.createWhatIwant(id)}
             render={props => <MyGiftsContainer />}
           />
           <Route
+            exact
             path={Routes.profile.createFromMe(id)}
-            render={props => <FriendGiftsContainer />}
+            render={props => (
+              <FriendGiftsContainer targetId={numbId} userId={userId} />
+            )}
+          />
+          <Route
+            path={Routes.profile.path}
+            render={props => (
+              <>
+                {myProfileId === numbId ? (
+                  <MyGiftsContainer />
+                ) : (
+                  <FriendGiftsContainer targetId={numbId} userId={userId} />
+                )}
+              </>
+            )}
           />
         </Switch>
       </div>
