@@ -10,16 +10,8 @@ class List extends React.Component {
     products: PropTypes.array.isRequired,
     className: PropTypes.string
   };
-  static defaultProps = { className: null };
-  constructor(props) {
-    super(props);
-    this.deleteItemFunc = this.deleteItemFunc.bind(this);
-    this.state = { id: null };
-  }
 
-  deleteItemFunc(productId) {
-    console.log("DONE");
-  }
+  static defaultProps = { className: null };
 
   render() {
     const { products, className } = this.props;
@@ -34,10 +26,4 @@ class List extends React.Component {
   }
 }
 
-const mapStateToProps = ({ deleteItem }) => {
-  return {
-    ...deleteItem
-  };
-};
-
-export default connect(mapStateToProps)(List);
+export default List;
