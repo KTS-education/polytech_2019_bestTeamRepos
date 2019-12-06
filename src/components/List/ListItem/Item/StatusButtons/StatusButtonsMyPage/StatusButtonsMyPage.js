@@ -5,8 +5,7 @@ import Badge from "../Badge";
 import giftIcon from "@img/iconGift.png";
 import styles from "../StatusButtons.module.scss";
 import { connect } from "react-redux";
-import { deleteItem } from "@actions/deleteItem";
-import { api } from "@src/api.js";
+import { deleteFromMyList } from "@actions/updateGiftsList";
 
 class StatusButtonsMyPage extends Component {
   static propTypes = {
@@ -20,14 +19,8 @@ class StatusButtonsMyPage extends Component {
     className: null
   };
 
-  deleteFromMyList = async () => {
-    this.props.deleteItem(this.props.id);
-    const result = await api(`/api/wishlist/delete`, "POST", {
-      id: this.props.id
-    });
-    result.response
-      ? console.log(result.response)
-      : console.error(result.errorData);
+  handleClick = () => {
+    this.props.deleteFromMyList(this.props.id);
   };
 
   render() {
@@ -43,7 +36,7 @@ class StatusButtonsMyPage extends Component {
 
     return (
       <div className={styles["status__group"]}>
-        <Button type="secondary" onClick={this.deleteFromMyList}>
+        <Button type="secondary" onClick={this.handleClick}>
           Удалить
         </Button>{" "}
         {isBookedBadge}
@@ -54,8 +47,11 @@ class StatusButtonsMyPage extends Component {
 
 const mapDispatchToProps = dispatch => {
   return {
-    deleteItem: id => dispatch(deleteItem(id))
+    deleteFromMyList: id => dispatch(deleteFromMyList(id))
   };
 };
 
-export default connect(null, mapDispatchToProps)(StatusButtonsMyPage);
+export default connect(
+  null,
+  mapDispatchToProps
+)(StatusButtonsMyPage);

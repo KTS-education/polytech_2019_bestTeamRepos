@@ -4,6 +4,8 @@ export const FETCH_GIFTS_BEGIN = "FETCH_GIFTS_BEGIN";
 export const FETCH_GIFTS_SUCCESS = "FETCH_GIFTS_SUCCESS";
 export const FETCH_GIFTS_FAILURE = "FETCH_GIFTS_FAILURE";
 
+const DELETE_ITEM = "DELETE_ITEM";
+
 export function updateWishlist(user_id) {
   return async dispatch => {
     dispatch({
@@ -49,5 +51,20 @@ export function getFriendWishlist(user_id) {
         error: new Error(error)
       });
     }
+  };
+}
+
+export function deleteFromMyList(user_id) {
+  return async dispatch => {
+    dispatch({
+      type: DELETE_ITEM,
+      payload: user_id
+    });
+    const result = await api(`/api/wishlist/delete`, "POST", {
+      id: user_id
+    });
+    result.response
+      ? console.log(result.response)
+      : console.error(result.errorData);
   };
 }
