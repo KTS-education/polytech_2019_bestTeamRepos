@@ -8,7 +8,7 @@ import {
   fetchGiftsBegin,
   fetchGiftsSuccess,
   fetchGiftsFailure
-} from "@actions/getGiftsList";
+} from "@actions/updateGiftsList";
 import List from "@components/List";
 
 class MyGiftsContainer extends Component {

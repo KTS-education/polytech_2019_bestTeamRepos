@@ -30,7 +30,7 @@ class StatusButtonsMyPage extends Component {
   };
 
   deleteFromMyList = async () => {
-    await deleteItem(this.props.id);
+    this.props.deleteItem(this.props.id);
     const result = await api(`/api/wishlist/delete`, "POST", {
       id: this.props.id
     });
@@ -52,7 +52,7 @@ class StatusButtonsMyPage extends Component {
 
     return (
       <div className={styles["status__group"]}>
-        <Button type="secondary" onClick={() => this.handleClick()}>
+        <Button type="secondary" onClick={this.handleClick}>
           Удалить
         </Button>{" "}
         {isBookedBadge}
