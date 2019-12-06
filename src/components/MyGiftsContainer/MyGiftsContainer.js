@@ -1,14 +1,51 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 import NoResults from "@components/NoResults";
 import Loader from "@components/Loader";
+import { api } from "@src/api.js";
 import { connect } from "react-redux";
-import { getWishlist } from "@actions/getGiftsList";
+import {
+  fetchGiftsBegin,
+  fetchGiftsSuccess,
+  fetchGiftsFailure
+} from "@actions/getGiftsList";
 import List from "@components/List";
 
 class MyGiftsContainer extends Component {
-  async componentDidMount() {
+  static propTypes = {
+    giftsList: PropTypes.arrayOf(PropTypes.object),
+    isLoading: PropTypes.bool.isRequired,
+    error: PropTypes.string
+  };
+
+  static defaultProps = {
+    error: null,
+    giftsList: [],
+    isLoading: true
+  };
+
+  constructor(props) {
+    super(props);
+    this.state = { products: null };
+  }
+
+  getMyWishlist(user_id) {
+    return async dispatch => {
+      try {
+        dispatch(fetchGiftsBegin());
+        const result = await api(`/api/wishlist/get`, "GET", {
+          id: user_id
+        });
+        dispatch(fetchGiftsSuccess(result.response.wishlist));
+      } catch (error) {
+        dispatch(fetchGiftsFailure(error));
+      }
+    };
+  }
+
+  componentDidMount() {
     const { userId } = this.props;
-    this.props.getWishlist(userId.api_id);
+    this.props.dispatch(this.getMyWishlist(userId.api_id));
   }
 
   render() {
@@ -25,17 +62,13 @@ class MyGiftsContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ userId, giftsList }) => {
+const mapStateToProps = ({ userId, giftsList, isLoading, error }) => {
   return {
     ...userId,
-    ...giftsList
+    ...giftsList,
+    ...isLoading,
+    ...error
   };
 };
 
-const mapDispatchToProps = dispatch => {
-  return {
-    getWishlist: id => dispatch(getWishlist(id))
-  };
-};
-
-export default connect(mapStateToProps, mapDispatchToProps)(MyGiftsContainer);
+export default connect(mapStateToProps)(MyGiftsContainer);

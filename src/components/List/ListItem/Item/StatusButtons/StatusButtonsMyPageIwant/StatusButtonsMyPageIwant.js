@@ -20,19 +20,25 @@ export default class StatusButtonsMyPageIwant extends Component {
   render() {
     const { src } = this.props;
 
-    return (
-      <div className={styles["status__group"]}>
-        <Button
-          type="secondary"
-          children={
-            <span className={styles["button--status__content"]}>
-              Не подарю
-              <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
-            </span>
-          }
-        />
-        <Badge src={src} children="Это подарок для друга" />
-      </div>
-    );
+    if (src) {
+      return (
+        <div className={styles["status__group"]}>
+          <Button
+            type="secondary"
+            children={
+              <span className={styles["button--status__content"]}>
+                Не подарю
+                <img
+                  src={pensiveFace}
+                  className={styles["emoji"]}
+                  alt="emoji"
+                />
+              </span>
+            }
+          />
+          <Badge src={src} children="Это подарок для друга" />
+        </div>
+      );
+    }
   }
 }

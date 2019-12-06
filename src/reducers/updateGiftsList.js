@@ -10,8 +10,7 @@ export const giftsListReducer = (state = initialState, action) => {
     case "FETCH_GIFTS_BEGIN":
       return {
         ...state,
-        isLoading: true,
-        giftsList: []
+        isLoading: true
       };
     case "FETCH_GIFTS_SUCCESS":
       return {
@@ -22,7 +21,6 @@ export const giftsListReducer = (state = initialState, action) => {
     case "FETCH_GIFTS_FAILURE":
       return {
         ...state,
-        isLoading: false,
         error: action.payload
       };
     case "DELETE_ITEM":
