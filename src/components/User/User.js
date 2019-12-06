@@ -32,7 +32,7 @@ class User extends Component {
 
   render() {
     const { name, surname, photo, id: profileId } = this.props.profile;
-    const { id: accountId } = this.props.accountInfo;
+    const { id: accountId } = this.props.accountInfoHeader;
 
     return (
       <div className={styles["user"]}>

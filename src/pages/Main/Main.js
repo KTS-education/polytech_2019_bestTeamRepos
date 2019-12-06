@@ -11,6 +11,7 @@ import styles from "./Main.module.scss";
 
 export default class Main extends React.Component {
   static propTypes = {
+    apiGetItems: PropTypes.func.isRequired,
     logoPath: PropTypes.string
   };
 

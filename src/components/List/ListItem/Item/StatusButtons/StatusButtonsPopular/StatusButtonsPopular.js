@@ -21,7 +21,10 @@ export default class StatusButtonsPopular extends Component {
     const result = await api(`/api/wishlist/add`, "POST", {
       id: this.props.product.id,
       name: this.props.product.name,
-      photo: this.props.product.photo.url,
+      photo:
+        typeof this.props.product.photo === "object"
+          ? this.props.product.photo.url
+          : "",
       price: this.props.product.price.avg,
       description: this.props.product.description
     });
@@ -31,6 +34,7 @@ export default class StatusButtonsPopular extends Component {
   };
 
   render() {
+    console.log(this.props.product);
     return (
       <Button className={styles["item__button"]} onClick={this.handleClick}>
         Добавить в избранное
