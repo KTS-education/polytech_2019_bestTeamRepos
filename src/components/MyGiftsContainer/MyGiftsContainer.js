@@ -2,13 +2,13 @@ import React, { Component } from "react";
 import NoResults from "@components/NoResults";
 import Loader from "@components/Loader";
 import { connect } from "react-redux";
-import { getWishlist } from "@actions/getGiftsList";
+import { updateWishlist } from "@actions/updateGiftsList";
 import List from "@components/List";
 
 class MyGiftsContainer extends Component {
   async componentDidMount() {
     const { userId } = this.props;
-    this.props.getWishlist(userId.api_id);
+    this.props.updateWishlist(userId.api_id);
   }
 
   render() {
@@ -34,8 +34,11 @@ const mapStateToProps = ({ userId, giftsList }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getWishlist: id => dispatch(getWishlist(id))
+    updateWishlist: id => dispatch(updateWishlist(id))
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(MyGiftsContainer);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(MyGiftsContainer);

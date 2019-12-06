@@ -5,7 +5,7 @@ import Loader from "@components/Loader";
 import List from "@components/List";
 
 import { connect } from "react-redux";
-import { getWishlist, getFriendWishlist } from "@actions/getGiftsList";
+import { updateWishlist, getFriendWishlist } from "@actions/updateGiftsList";
 
 class FriendGiftsContainer extends Component {
   static propTypes = {
@@ -16,7 +16,7 @@ class FriendGiftsContainer extends Component {
   componentDidMount() {
     const { userId, targetId } = this.props;
     if (userId.vk_id === targetId) {
-      this.props.getWishlist(targetId);
+      this.props.updateWishlist(targetId);
     } else this.props.getFriendWishlist(targetId);
   }
 
@@ -47,7 +47,7 @@ const mapStateToProps = ({ giftsList }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    getWishlist: id => dispatch(getWishlist(id)),
+    updateWishlist: id => dispatch(updateWishlist(id)),
     getFriendWishlist: id => dispatch(getFriendWishlist(id))
   };
 };

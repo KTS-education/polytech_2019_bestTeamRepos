@@ -4,7 +4,7 @@ export const FETCH_GIFTS_BEGIN = "FETCH_GIFTS_BEGIN";
 export const FETCH_GIFTS_SUCCESS = "FETCH_GIFTS_SUCCESS";
 export const FETCH_GIFTS_FAILURE = "FETCH_GIFTS_FAILURE";
 
-export function getWishlist(user_id) {
+export function updateWishlist(user_id) {
   return async dispatch => {
     dispatch({
       type: FETCH_GIFTS_BEGIN,
