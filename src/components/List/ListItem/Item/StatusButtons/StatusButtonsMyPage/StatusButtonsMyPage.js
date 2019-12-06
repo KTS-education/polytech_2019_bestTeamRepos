@@ -15,22 +15,13 @@ class StatusButtonsMyPage extends Component {
     className: PropTypes.string
   };
 
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
   static defaultProps = {
     isBooked: null,
     className: null
   };
 
-  handleClick = async () => {
-    await this.deleteFromMyList();
-  };
-
   deleteFromMyList = async () => {
-    await deleteItem(this.props.id);
+    this.props.deleteItem(this.props.id);
     const result = await api(`/api/wishlist/delete`, "POST", {
       id: this.props.id
     });
@@ -52,7 +43,7 @@ class StatusButtonsMyPage extends Component {
 
     return (
       <div className={styles["status__group"]}>
-        <Button type="secondary" onClick={() => this.handleClick()}>
+        <Button type="secondary" onClick={this.deleteFromMyList}>
           Удалить
         </Button>{" "}
         {isBookedBadge}
