@@ -1,29 +1,58 @@
 import React, { Component } from "react";
-import { Switch, Route } from "react-router-dom";
+import PropTypes from "prop-types";
 import NoResults from "@components/NoResults";
-import products from "@data/YourFriendGifts/mock.js";
-import Routes from "@config/routes.js";
+import Loader from "@components/Loader";
 import List from "@components/List";
 
-export default class FriendGiftsContainer extends Component {
-  render() {
-    if (products.length) {
-      return (
-        <Switch>
-          <Route exact path={Routes.profile.path}>
-            <List products={products} />
-          </Route>
+import { connect } from "react-redux";
+import { getWishlist, getFriendWishlist } from "@actions/getGiftsList";
 
-          <Route exact path={Routes.profile.createFromMePath}>
-            <List
-              products={products.filter(
-                product => product.isBookedByCurrentUser
-              )}
-            />
-          </Route>
-        </Switch>
-      );
+class FriendGiftsContainer extends Component {
+  static propTypes = {
+    targetId: PropTypes.number.isRequired,
+    userId: PropTypes.object.isRequired
+  };
+
+  componentDidMount() {
+    const { userId, targetId } = this.props;
+    if (userId.vk_id === targetId) {
+      this.props.getWishlist(targetId);
+    } else this.props.getFriendWishlist(targetId);
+  }
+
+  render() {
+    const { giftsList, isLoading, error, userId, targetId } = this.props;
+    if (error) {
+      return <div>{error}</div>;
+    } else if (isLoading) {
+      return <Loader />;
+    } else {
+      if (giftsList.length) {
+        return <List products={giftsList} />;
+      } else {
+        if (userId.vk_id !== targetId) {
+          return <NoResults>Кажется, друг не любит подарки</NoResults>;
+        } else
+          return <NoResults>Кажется, ты не любишь дарить подарки</NoResults>;
+      }
     }
-    return <NoResults>Кажется, друг не любит подарки</NoResults>;
   }
 }
+
+const mapStateToProps = ({ giftsList }) => {
+  return {
+    ...giftsList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    getWishlist: id => dispatch(getWishlist(id)),
+    getFriendWishlist: id => dispatch(getFriendWishlist(id))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FriendGiftsContainer);

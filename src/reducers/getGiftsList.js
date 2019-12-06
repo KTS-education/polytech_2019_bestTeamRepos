@@ -1,8 +1,7 @@
 const initialState = {
   giftsList: [],
   isLoading: false,
-  error: null,
-  id: null
+  error: null
 };
 
 export const giftsListReducer = (state = initialState, action) => {
@@ -10,7 +9,8 @@ export const giftsListReducer = (state = initialState, action) => {
     case "FETCH_GIFTS_BEGIN":
       return {
         ...state,
-        isLoading: true
+        isLoading: true,
+        giftsList: []
       };
     case "FETCH_GIFTS_SUCCESS":
       return {
@@ -21,18 +21,8 @@ export const giftsListReducer = (state = initialState, action) => {
     case "FETCH_GIFTS_FAILURE":
       return {
         ...state,
+        isLoading: false,
         error: action.payload
-      };
-    case "DELETE_ITEM":
-      const itemIndex = state.giftsList.findIndex(
-        ({ id }) => id === action.payload
-      );
-      return {
-        ...state,
-        giftsList: [
-          ...state.giftsList.slice(0, itemIndex),
-          ...state.giftsList.slice(itemIndex + 1)
-        ]
       };
     default:
       return state;

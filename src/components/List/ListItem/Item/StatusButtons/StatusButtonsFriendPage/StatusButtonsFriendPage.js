@@ -87,5 +87,6 @@ export default class StatusButtonsFriendPage extends Component {
         </div>
       );
     }
+    return null;
   }
 }
