@@ -15,8 +15,7 @@ class User extends Component {
       surname: PropTypes.string,
       photo: PropTypes.string,
       id: PropTypes.number
-    }),
-    accountInfo: PropTypes.object.isRequired
+    })
   };
 
   static defaultProps = {
