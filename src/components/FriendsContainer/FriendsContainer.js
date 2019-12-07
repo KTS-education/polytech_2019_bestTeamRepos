@@ -17,13 +17,15 @@ class FriendsContainer extends React.Component {
   static propTypes = {
     friendsList: PropTypes.arrayOf(PropTypes.object),
     isLoading: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    filteredFriendList: PropTypes.array.isRequired
   };
 
   static defaultProps = {
     error: null,
     friendsList: [],
-    isLoading: true
+    isLoading: true,
+    filteredFriendList: []
   };
 
   state = {
@@ -44,7 +46,11 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
-    const { friendsList, isLoading, error } = this.props;
+    const { isLoading, error, filteredFriendList } = this.props;
+    let { friendsList } = this.props;
+    if (filteredFriendList.length) {
+      friendsList = filteredFriendList;
+    }
 
     const hasMore = this.state.visible < friendsList.length;
 

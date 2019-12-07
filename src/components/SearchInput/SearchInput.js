@@ -6,12 +6,14 @@ import styles from "./SearchInput.module.scss";
 class SearchInput extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    handleInput: PropTypes.func
+    handleInput: PropTypes.func,
+    onChange: PropTypes.func
   };
 
   static defaultProps = {
     children: null,
-    handleInput: () => {}
+    handleInput: () => {},
+    onChange: (...params) => {}
   };
 
   state = {
@@ -24,6 +26,7 @@ class SearchInput extends React.Component {
 
   onChangeInput = e => {
     this.setState({ input: e.target.value });
+    this.props.onChange(e.target.value);
   };
 
   handleInput = e => {
