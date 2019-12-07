@@ -35,7 +35,6 @@ class FriendList extends React.Component {
 
   render() {
     const { LogoPath } = this.props;
-    console.log(this.state);
 
     return (
       <div className={styles["friend-list-container"]}>
