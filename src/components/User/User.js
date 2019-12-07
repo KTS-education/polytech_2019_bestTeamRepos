@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import { fetchProfile } from "@actions/fetchProfile";
 import Button from "@components/Button";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
@@ -10,28 +10,20 @@ import styles from "./User.module.scss";
 
 class User extends Component {
   static propTypes = {
-    profile: PropTypes.shape({
-      name: PropTypes.string,
-      surname: PropTypes.string,
-      photo: PropTypes.string,
-      id: PropTypes.number
-    })
+    ids: PropTypes.string.isRequired
   };
 
-  static defaultProps = {
-    profile: PropTypes.shape({
-      name: null,
-      surname: null,
-      photo: null,
-      id: null
-    })
-  };
-
-  componentWillUnmount() {}
+  async componentDidMount() {
+    const { ids } = this.props;
+    await this.props.fetchProfile(ids);
+  }
 
   render() {
+    const { isLoading } = this.props;
     const { name, surname, photo, id: profileId } = this.props.profile;
     const { id: accountId } = this.props.accountInfoHeader;
+
+    if (isLoading) return <div className={styles["user"]}></div>;
 
     return (
       <div className={styles["user"]}>
@@ -51,8 +43,14 @@ class User extends Component {
 const mapStateToProps = ({ profile, accountInfoHeader }) => {
   return {
     ...profile,
-    ...accountInfoHeader
+    accountInfoHeader
   };
 };
 
-export default connect(mapStateToProps)(User);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProfile: id => dispatch(fetchProfile(id))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);

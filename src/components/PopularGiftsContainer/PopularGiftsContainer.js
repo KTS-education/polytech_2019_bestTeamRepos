@@ -11,24 +11,23 @@ class PopularGiftsContainer extends React.Component {
 
     if (error) {
       return <div>{error}</div>;
-    } else if (isLoading) {
-      return <Loader />;
-    } else {
-      if (isArray(searchList) && searchList.length) {
-        return <List products={searchList} />;
-      } else if (isArray(searchList) && !searchList.length)
-        return <NoResults children="Ничего не найдено" />;
-      else return null;
     }
+
+    if (isLoading) {
+      return <Loader />;
+    }
+
+    if (isArray(searchList) && searchList.length) {
+      return <List products={searchList} />;
+    }
+
+    if (isArray(searchList) && !searchList.length)
+      return <NoResults children="Ничего не найдено" />;
+
+    return null;
   }
 }
 
-const mapStateToProps = ({ searchList, isLoading, error }) => {
-  return {
-    ...searchList,
-    ...isLoading,
-    ...error
-  };
-};
+const mapStateToProps = ({ searchList }) => searchList;
 
 export default connect(mapStateToProps)(PopularGiftsContainer);

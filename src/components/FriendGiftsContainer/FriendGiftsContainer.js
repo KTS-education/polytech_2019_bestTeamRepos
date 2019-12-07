@@ -5,7 +5,7 @@ import Loader from "@components/Loader";
 import List from "@components/List";
 
 import { connect } from "react-redux";
-import { updateWishlist, getFriendWishlist } from "@actions/updateGiftsList";
+import { updateWishlist } from "@actions/updateGiftsList";
 
 class FriendGiftsContainer extends Component {
   static propTypes = {
@@ -13,29 +13,29 @@ class FriendGiftsContainer extends Component {
     userId: PropTypes.object.isRequired
   };
 
-  componentDidMount() {
-    const { userId, targetId } = this.props;
-    if (userId.vk_id === targetId) {
-      this.props.updateWishlist(targetId);
-    } else this.props.getFriendWishlist(targetId);
+  async componentDidMount() {
+    const { targetId } = this.props;
+    await this.props.updateWishlist(targetId, true);
   }
 
   render() {
     const { giftsList, isLoading, error, userId, targetId } = this.props;
     if (error) {
       return <div>{error}</div>;
-    } else if (isLoading) {
-      return <Loader />;
-    } else {
-      if (giftsList.length) {
-        return <List products={giftsList} />;
-      } else {
-        if (userId.vk_id !== targetId) {
-          return <NoResults>Кажется, друг не любит подарки</NoResults>;
-        } else
-          return <NoResults>Кажется, ты не любишь дарить подарки</NoResults>;
-      }
     }
+
+    if (isLoading) {
+      return <Loader />;
+    }
+
+    if (giftsList.length) {
+      return <List products={giftsList} />;
+    }
+
+    if (userId.vk_id !== targetId) {
+      return <NoResults>Кажется, друг не любит подарки</NoResults>;
+    }
+    return <NoResults>Кажется, ты не любишь дарить подарки</NoResults>;
   }
 }
 
@@ -47,8 +47,7 @@ const mapStateToProps = ({ giftsList }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateWishlist: id => dispatch(updateWishlist(id)),
-    getFriendWishlist: id => dispatch(getFriendWishlist(id))
+    updateWishlist: (id, isFriend) => dispatch(updateWishlist(id, isFriend))
   };
 };
 
