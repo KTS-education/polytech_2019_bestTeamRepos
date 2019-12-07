@@ -6,11 +6,12 @@ import styles from "./SearchInput.module.scss";
 class SearchInput extends React.Component {
   static propTypes = {
     children: PropTypes.node,
-    handleInput: PropTypes.func.isRequired
+    handleInput: PropTypes.func
   };
 
   static defaultProps = {
-    children: null
+    children: null,
+    handleInput: () => {}
   };
 
   state = {
