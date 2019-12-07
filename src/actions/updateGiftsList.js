@@ -37,7 +37,7 @@ export function getFriendWishlist(user_id) {
       payload: user_id
     });
     try {
-      let result = await api(`/api/user/friends`, "POST", {
+      let result = await api(`/api/user/friends`, "GET", {
         ids: user_id
       });
 
