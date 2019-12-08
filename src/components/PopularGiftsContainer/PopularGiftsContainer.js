@@ -28,6 +28,10 @@ class PopularGiftsContainer extends React.Component {
   }
 }
 
-const mapStateToProps = ({ searchList }) => searchList;
+const mapStateToProps = ({ searchList }) => {
+  return {
+    ...searchList
+  };
+};
 
 export default connect(mapStateToProps)(PopularGiftsContainer);

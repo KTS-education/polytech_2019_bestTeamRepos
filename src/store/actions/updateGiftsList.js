@@ -47,6 +47,20 @@ export function updateWishlist(user_id, isFriend = false) {
   };
 }
 
+export function addToMyList(product) {
+  return async () => {
+    const result = await api(`/api/wishlist/add`, "POST", {
+      id: product.id,
+      name: product.name,
+      photo: typeof product.photo === "object" ? product.photo.url : "",
+      price: product.price.avg
+    });
+    result.response
+      ? console.log(result.response)
+      : console.error(result.errorData);
+  };
+}
+
 export function deleteFromMyList(user_id) {
   return async dispatch => {
     dispatch({

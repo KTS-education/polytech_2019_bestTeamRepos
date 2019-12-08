@@ -4,7 +4,7 @@ const FETCH_RESULTS_BEGIN = "FETCH_RESULTS_BEGIN";
 const FETCH_RESULTS_SUCCESS = "FETCH_RESULTS_SUCCESS";
 const FETCH_RESULTS_FAILURE = "FETCH_RESULTS_FAILURE";
 
-export function apiGetItems(query) {
+export function apiGetItems(query, giftsList) {
   return async dispatch => {
     if (!query) {
       dispatch({
@@ -21,6 +21,14 @@ export function apiGetItems(query) {
           query: query,
           lat: 55.764491899999996,
           lon: 37.6710281
+        });
+        const items = result.response.response.items;
+
+        items.forEach(item => {
+          item.isWanted = false;
+          giftsList.forEach(gift => {
+            if (item.id === gift.id) item.isWanted = true;
+          });
         });
 
         dispatch({

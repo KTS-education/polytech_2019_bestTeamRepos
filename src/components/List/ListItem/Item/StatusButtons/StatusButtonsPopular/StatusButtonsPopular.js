@@ -1,44 +1,55 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Button from "@components/Button";
-import { api } from "@src/api.js";
+import { connect } from "react-redux";
+import { addToMyList } from "@actions/updateGiftsList";
 import styles from "./StatusButtonsPopular.module.scss";
 
-export default class StatusButtonsPopular extends Component {
+class StatusButtonsPopular extends Component {
   constructor(props) {
     super(props);
     this.handleClick = this.handleClick.bind(this);
+    this.state = { type: "primary", used: false, text: "Добавить в избранное" };
   }
   static propTypes = {
     product: PropTypes.object.isRequired
   };
 
   handleClick = async () => {
-    await this.addToMyList();
-  };
-
-  addToMyList = async () => {
-    const result = await api(`/api/wishlist/add`, "POST", {
-      id: this.props.product.id,
-      name: this.props.product.name,
-      photo:
-        typeof this.props.product.photo === "object"
-          ? this.props.product.photo.url
-          : "",
-      price: this.props.product.price.avg,
-      description: this.props.product.description
-    });
-    result.response
-      ? console.log(result.response)
-      : console.error(result.errorData);
+    if (!this.state.used) {
+      this.setState({
+        type: "disabled",
+        used: true,
+        text: "Добавлено в избранное"
+      });
+      await this.props.addToMyList(this.props.product);
+    }
   };
 
   render() {
-    console.log(this.props.product);
+    if (this.props.product.isWanted)
+      return (
+        <Button className={styles["item__button"]} type="disabled">
+          Уже в избранном
+        </Button>
+      );
+
     return (
-      <Button className={styles["item__button"]} onClick={this.handleClick}>
-        Добавить в избранное
+      <Button
+        className={styles["item__button"]}
+        onClick={this.handleClick}
+        type={this.state.type}
+      >
+        {this.state.text}
       </Button>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    addToMyList: product => dispatch(addToMyList(product))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(StatusButtonsPopular);

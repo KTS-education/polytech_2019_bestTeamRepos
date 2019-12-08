@@ -1,19 +1,20 @@
 import React from "react";
 import PropTypes from "prop-types";
-
 import styles from "./SearchInput.module.scss";
 
 class SearchInput extends React.Component {
   static propTypes = {
     children: PropTypes.node,
     handleInput: PropTypes.func,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    giftsList: PropTypes.array
   };
 
   static defaultProps = {
     children: null,
     handleInput: () => {},
-    onChange: (...params) => {}
+    onChange: (...params) => {},
+    giftsList: []
   };
 
   state = {
@@ -30,8 +31,10 @@ class SearchInput extends React.Component {
   };
 
   handleInput = e => {
+    const { giftsList } = this.props;
     if (e.keyCode === 13) {
-      this.props.handleInput(this.state.input);
+      if (giftsList.length) this.props.handleInput(this.state.input, giftsList);
+      else this.props.handleInput(this.state.input);
     }
   };
 

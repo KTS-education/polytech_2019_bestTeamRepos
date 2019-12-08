@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 import { apiAuth } from "@actions/userId";
 import { fetchAccountInfo } from "@actions/accountInfoHeader";
 import { fetchHeaderFriends } from "@actions/friendsHeader";
-import { apiGetItems } from "@actions/getSearchResults";
 import Main from "./Main";
 import Profile from "./Profile";
 
@@ -28,15 +27,14 @@ class App extends Component {
   }
 
   render() {
+    const { isLoading } = this.props;
+    if (isLoading) return <div className={styles["app"]}></div>;
+
     return (
       <div className={styles["app"]}>
         <Header />
         <Switch>
-          <Route
-            exact
-            path={Routes.mainPage}
-            render={props => <Main apiGetItems={this.props.apiGetItems} />}
-          />
+          <Route exact path={Routes.mainPage} render={props => <Main />} />
           <Route path={Routes.friendListPage} component={FriendList} />
           <Route path={Routes.profile.path} render={props => <Profile />} />
         </Switch>
@@ -55,8 +53,7 @@ const mapDispatchToProps = dispatch => {
   return {
     apiAuth: () => dispatch(apiAuth()),
     fetchAccountInfo: () => dispatch(fetchAccountInfo()),
-    fetchHeaderFriends: () => dispatch(fetchHeaderFriends()),
-    apiGetItems: query => dispatch(apiGetItems(query))
+    fetchHeaderFriends: () => dispatch(fetchHeaderFriends())
   };
 };
 
