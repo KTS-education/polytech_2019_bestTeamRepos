@@ -13,6 +13,8 @@ import Logo from "@img/wishlist.png";
 
 import styles from "./Main.module.scss";
 
+import { api } from "@src/api.js";
+
 class Main extends React.Component {
   static propTypes = {
     logoPath: PropTypes.string
@@ -30,6 +32,30 @@ class Main extends React.Component {
     }
   }
 
+  getSearchSuggestions = async input => {
+    const response = await api("/api/products/suggest", "GET", {
+      query: input
+    });
+    if (response) {
+      const { completions, input, pages } = response.response.suggestions;
+      console.log("completions", completions, "input", input, "pages", pages);
+    } else {
+      console.log(response.response.error);
+    }
+  };
+
+  //   response:
+  // suggestions:
+  // completions: Array(4)
+  // 0: {completion: "omi", value: "xiaomi"}
+  // 1: {completion: "omi mi", value: "xiaomi mi"}
+  // 2: {completion: "omi roidmi", value: "xiaomi roidmi"}
+  // 3: {completion: "men titosh", value: "xiamen titosh"}
+  // length: 4
+  // __proto__: Array(0)
+  // input: {value: "xia"}
+  // pages: (10) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+
   render() {
     const { logoPath } = this.props;
     const { giftsList } = this.props.giftsList;
@@ -40,6 +66,7 @@ class Main extends React.Component {
           children="Введите название товара"
           handleInput={this.props.apiGetItems}
           giftsList={giftsList}
+          onChange={this.getSearchSuggestions}
         />
         <PopularGiftsContainer />
       </div>
