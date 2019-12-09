@@ -4,6 +4,7 @@ import PropTypes from "prop-types";
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
 import PopularGiftsContainer from "@components/PopularGiftsContainer";
+import SearchSuggestions from "@components/SearchSuggestions";
 
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/getSearchResults";
@@ -24,6 +25,8 @@ class Main extends React.Component {
     logoPath: Logo
   };
 
+  state = { input: "", searchSuggestions: [] };
+
   async componentDidMount() {
     try {
       await this.props.updateWishlist(this.props.userId.api_id);
@@ -38,6 +41,7 @@ class Main extends React.Component {
     });
     if (response) {
       const { completions, input, pages } = response.response.suggestions;
+      this.setState({ input: input, searchSuggestions: pages });
       console.log("completions", completions, "input", input, "pages", pages);
     } else {
       console.log(response.response.error);
@@ -68,6 +72,9 @@ class Main extends React.Component {
           giftsList={giftsList}
           onChange={this.getSearchSuggestions}
         />
+        {searchSuggestions ? (
+          <SearchSuggestions searchSuggestions={this.state.searchSuggestions} />
+        ) : null}
         <PopularGiftsContainer />
       </div>
     );
