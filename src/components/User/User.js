@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import { default as connectVK } from "@vkontakte/vk-connect";
 import { fetchProfile } from "@actions/fetchProfile";
 import Button from "@components/Button";
 import UserTabs from "./UserTabs";
@@ -13,12 +14,26 @@ class User extends Component {
     ids: PropTypes.string.isRequired
   };
 
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = async () => {
+    let link = "https://vk.com/app7210429/profile#" + this.props.profile.id;
+    let response = await connectVK.sendPromise("VKWebAppShare", {
+      link: link
+    });
+    console.log(response);
+  };
+
   async componentDidMount() {
     const { ids } = this.props;
     await this.props.fetchProfile(ids);
   }
 
   render() {
+    console.log(window.location.search);
     const { isLoading } = this.props;
     const { name, surname, photo, id: profileId } = this.props.profile;
     const { id: accountId } = this.props.accountInfoHeader;
@@ -33,7 +48,12 @@ class User extends Component {
             {name} {surname}
           </p>
           <UserTabs profileId={profileId} accountId={accountId} />
-          <Button className={styles["button--share"]}>Поделиться</Button>
+          <Button
+            className={styles["button--share"]}
+            onClick={this.handleClick}
+          >
+            Поделиться
+          </Button>
         </div>
       </div>
     );
