@@ -12,6 +12,10 @@ import "./index.css";
 
 connect.send("VKWebAppInit", {});
 
+if (connect.supports("VKWebAppResizeWindow")) {
+  connect.send("VKWebAppResizeWindow", { width: 800, height: 550 });
+}
+
 ReactDOM.render(
   <Provider store={store}>
     <BrowserRouter>

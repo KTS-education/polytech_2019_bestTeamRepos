@@ -1,7 +1,8 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
-
+import { default as connectVK } from "@vkontakte/vk-connect";
+import { fetchProfile } from "@actions/fetchProfile";
 import Button from "@components/Button";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
@@ -10,29 +11,34 @@ import styles from "./User.module.scss";
 
 class User extends Component {
   static propTypes = {
-    profile: PropTypes.shape({
-      name: PropTypes.string,
-      surname: PropTypes.string,
-      photo: PropTypes.string,
-      id: PropTypes.number
-    }),
-    accountInfo: PropTypes.object.isRequired
+    ids: PropTypes.string.isRequired
   };
 
-  static defaultProps = {
-    profile: PropTypes.shape({
-      name: null,
-      surname: null,
-      photo: null,
-      id: null
-    })
+  constructor(props) {
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  handleClick = async () => {
+    let link = "https://vk.com/app7210429/profile#" + this.props.profile.id;
+    let response = await connectVK.sendPromise("VKWebAppShare", {
+      link: link
+    });
+    console.log(response);
   };
 
-  componentWillUnmount() {}
+  async componentDidMount() {
+    const { ids } = this.props;
+    await this.props.fetchProfile(ids);
+  }
 
   render() {
+    console.log(window.location.search);
+    const { isLoading } = this.props;
     const { name, surname, photo, id: profileId } = this.props.profile;
-    const { id: accountId } = this.props.accountInfo;
+    const { id: accountId } = this.props.accountInfoHeader;
+
+    if (isLoading) return <div className={styles["user"]}></div>;
 
     return (
       <div className={styles["user"]}>
@@ -42,7 +48,12 @@ class User extends Component {
             {name} {surname}
           </p>
           <UserTabs profileId={profileId} accountId={accountId} />
-          <Button className={styles["button--share"]}>Поделиться</Button>
+          <Button
+            className={styles["button--share"]}
+            onClick={this.handleClick}
+          >
+            Поделиться
+          </Button>
         </div>
       </div>
     );
@@ -52,8 +63,14 @@ class User extends Component {
 const mapStateToProps = ({ profile, accountInfoHeader }) => {
   return {
     ...profile,
-    ...accountInfoHeader
+    accountInfoHeader
   };
 };
 
-export default connect(mapStateToProps)(User);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchProfile: id => dispatch(fetchProfile(id))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(User);

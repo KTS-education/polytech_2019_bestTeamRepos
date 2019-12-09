@@ -1,6 +1,5 @@
 import React from "react";
 import PropTypes from "prop-types";
-import connectVK from "@vkontakte/vk-connect";
 
 import Friend from "./Friend";
 
@@ -10,11 +9,7 @@ import Loader from "@components/Loader";
 import buttonTypes from "@config/buttonTypes";
 
 import { connect } from "react-redux";
-import {
-  fetchFriendsBegin,
-  fetchFriendsSuccess,
-  fetchFriendsFailure
-} from "@actions/friendsContainer";
+import { fetchFriends } from "@actions/friendsContainer";
 
 import styles from "./FriendsContainer.module.scss";
 
@@ -22,52 +17,25 @@ class FriendsContainer extends React.Component {
   static propTypes = {
     friendsList: PropTypes.arrayOf(PropTypes.object),
     isLoading: PropTypes.bool.isRequired,
-    error: PropTypes.string
+    error: PropTypes.string,
+    filteredFriendList: PropTypes.array.isRequired
   };
 
   static defaultProps = {
     error: null,
     friendsList: [],
-    isLoading: true
+    isLoading: true,
+    filteredFriendList: []
   };
 
   state = {
     visible: 10
   };
 
-  fetchFriends(friendsCount = 5000) {
-    return dispatch => {
-      dispatch(fetchFriendsBegin());
-      connectVK
-        .sendPromise("VKWebAppGetAuthToken", {
-          app_id: 7210429,
-          scope: "friends,status"
-        })
-        .then(response => response.access_token)
-        .then(token =>
-          connectVK.sendPromise("VKWebAppCallAPIMethod", {
-            method: "friends.get",
-            request_id: "friends",
-            params: {
-              count: friendsCount,
-              order: "name",
-              fields: "photo_100",
-              v: "5.103",
-              access_token: token
-            }
-          })
-        )
-        .then(response => {
-          dispatch(fetchFriendsSuccess(response.response.items));
-        })
-        .catch(error => dispatch(fetchFriendsFailure(error)));
-    };
-  }
-
   componentDidMount() {
     const { friendsList } = this.props;
     if (!friendsList.length) {
-      this.props.dispatch(this.fetchFriends());
+      this.props.fetchFriends();
     }
   }
 
@@ -78,7 +46,11 @@ class FriendsContainer extends React.Component {
   };
 
   render() {
-    const { friendsList, isLoading, error } = this.props;
+    const { isLoading, error, filteredFriendList } = this.props;
+    let { friendsList } = this.props;
+    if (filteredFriendList.length) {
+      friendsList = filteredFriendList;
+    }
 
     const hasMore = this.state.visible < friendsList.length;
 
@@ -119,4 +91,13 @@ const mapStateToProps = ({ friendsList, isLoading, error }) => {
   };
 };
 
-export default connect(mapStateToProps)(FriendsContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    fetchFriends: () => dispatch(fetchFriends())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(FriendsContainer);

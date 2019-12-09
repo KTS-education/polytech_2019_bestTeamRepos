@@ -4,9 +4,12 @@ import Button from "@components/Button";
 import Badge from "../Badge";
 import giftIcon from "@img/iconGift.png";
 import styles from "../StatusButtons.module.scss";
+import { connect } from "react-redux";
+import { deleteFromMyList } from "@actions/updateGiftsList";
 
-export default class StatusButtonsMyPage extends Component {
+class StatusButtonsMyPage extends Component {
   static propTypes = {
+    id: PropTypes.number.isRequired,
     isBooked: PropTypes.bool,
     className: PropTypes.string
   };
@@ -14,6 +17,10 @@ export default class StatusButtonsMyPage extends Component {
   static defaultProps = {
     isBooked: null,
     className: null
+  };
+
+  handleClick = () => {
+    this.props.deleteFromMyList(this.props.id);
   };
 
   render() {
@@ -29,8 +36,22 @@ export default class StatusButtonsMyPage extends Component {
 
     return (
       <div className={styles["status__group"]}>
-        <Button type="secondary" children="Удалить" /> {isBookedBadge}
+        <Button type="secondary" onClick={this.handleClick}>
+          Удалить
+        </Button>{" "}
+        {isBookedBadge}
       </div>
     );
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteFromMyList: id => dispatch(deleteFromMyList(id))
+  };
+};
+
+export default connect(
+  null,
+  mapDispatchToProps
+)(StatusButtonsMyPage);

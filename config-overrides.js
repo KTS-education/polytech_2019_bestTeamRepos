@@ -14,8 +14,8 @@ module.exports = function overrider(config, env) {
     "@data": path.resolve(__dirname, `${paths.appSrc}/data/`),
     "@config": path.resolve(__dirname, `${paths.appSrc}/config/`),
     "@store": path.resolve(__dirname, `${paths.appSrc}/store/`),
-    "@reducers": path.resolve(__dirname, `${paths.appSrc}/reducers/`),
-    "@actions": path.resolve(__dirname, `${paths.appSrc}/actions/`)
+    "@reducers": path.resolve(__dirname, `${paths.appSrc}/store/reducers/`),
+    "@actions": path.resolve(__dirname, `${paths.appSrc}/store/actions/`)
   })(config, env);
   return config;
 };

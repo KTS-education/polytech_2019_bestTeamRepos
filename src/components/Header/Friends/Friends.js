@@ -1,5 +1,4 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import FriendImgList from "./FriendImgList";
 
@@ -11,25 +10,28 @@ import Routes from "@config/routes.js";
 import styles from "./Friends.module.scss";
 
 class Friends extends React.Component {
-  static propTypes = {
-    headerFriendsList: PropTypes.arrayOf(PropTypes.object)
-  };
-
   render() {
-    const { headerFriendsList } = this.props;
-
-    return (
-      <div className={styles["header-friends-container"]}>
-        <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
-        <FriendImgList friendsImages={headerFriendsList} />
-      </div>
-    );
+    const { headerFriendsList, isLoading } = this.props;
+    if (isLoading)
+      return (
+        <div className={styles["header-friends-container"]}>
+          <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
+        </div>
+      );
+    else
+      return (
+        <div className={styles["header-friends-container"]}>
+          <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
+          <FriendImgList friendsImages={headerFriendsList} />
+        </div>
+      );
   }
 }
 
-const mapStateToProps = ({ headerFriendsList }) => {
+const mapStateToProps = ({ headerFriendsList, isLoading }) => {
   return {
-    ...headerFriendsList
+    ...headerFriendsList,
+    ...isLoading
   };
 };
 
