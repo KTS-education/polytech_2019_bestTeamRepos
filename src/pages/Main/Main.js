@@ -37,8 +37,7 @@ class Main extends React.Component {
 
   getSearchSuggestions = input => {
     console.log(input);
-    if (input) this.props.getSearchSuggestions(input);
-    else this.props.deleteSearchSuggestions();
+    this.props.getSearchSuggestions(input);
   };
 
   render() {
