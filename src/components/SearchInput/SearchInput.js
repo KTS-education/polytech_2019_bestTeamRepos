@@ -26,8 +26,9 @@ class SearchInput extends React.Component {
   };
 
   onChangeInput = e => {
-    this.setState({ input: e.target.value });
-    this.props.onChange(e.target.value);
+    this.setState({ input: e.target.value }, () => {
+      this.props.onChange(this.state.input);
+    });
   };
 
   handleInput = e => {
