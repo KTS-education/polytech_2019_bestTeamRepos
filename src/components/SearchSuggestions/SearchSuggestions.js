@@ -1,11 +1,23 @@
 import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 export default class SearchSuggestions extends Component {
-  propTypes = {};
+  static propTypes = {
+    searchSuggestions: PropTypes.array
+  };
 
-  defaultProps = {};
+  static defaultProps = {
+    searchSuggestions: []
+  };
 
   render() {
-    return <div></div>;
+    const { searchSuggestions } = this.props;
+    return (
+      <ul>
+        {searchSuggestions.map(suggestion => (
+          <li key={suggestion.url}>{suggestion.value}</li>
+        ))}
+      </ul>
+    );
   }
 }
