@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { connect } from "react-redux";
 import styles from "./SearchInput.module.scss";
 
 class SearchInput extends React.Component {
@@ -39,11 +40,13 @@ class SearchInput extends React.Component {
     }
   };
 
-  componentDidMount() {
+  async componentDidMount() {
     this._inputEl.focus();
+    this.setState({ searchSuggestions: this.props.searchSuggestions });
   }
 
   render() {
+    console.log(this.state);
     const { children } = this.props;
     return (
       <input
@@ -59,4 +62,10 @@ class SearchInput extends React.Component {
   }
 }
 
-export default SearchInput;
+const mapStateToProps = ({ searchSuggestions }) => {
+  return {
+    ...searchSuggestions
+  };
+};
+
+export default connect(mapStateToProps)(SearchInput);

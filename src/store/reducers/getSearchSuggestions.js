@@ -19,16 +19,6 @@ export const getSearchSuggestionReducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       };
-    case "DELETE_SUGGESTIONS":
-      return {
-        ...state,
-        searchSuggestions: []
-      };
-    case "FETCH_SUGGESTIONS_CANCEL":
-      return {
-        ...state,
-        searchSuggestions: []
-      };
     default:
       return {
         ...state

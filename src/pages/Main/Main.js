@@ -9,10 +9,7 @@ import SearchSuggestions from "@components/SearchSuggestions";
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/getSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
-import {
-  getSearchSuggestions,
-  deleteSearchSuggestions
-} from "@actions/getSearchSuggestions";
+import { getSearchSuggestions } from "@actions/getSearchSuggestions";
 
 import Logo from "@img/wishlist.png";
 
@@ -35,9 +32,8 @@ class Main extends React.Component {
     }
   }
 
-  getSearchSuggestions = input => {
-    console.log(input);
-    this.props.getSearchSuggestions(input);
+  getSearchSuggestions = async input => {
+    await this.props.getSearchSuggestions(input);
   };
 
   render() {
@@ -73,8 +69,7 @@ const mapDispatchToProps = dispatch => {
   return {
     apiGetItems: (query, giftsList) => dispatch(apiGetItems(query, giftsList)),
     updateWishlist: id => dispatch(updateWishlist(id)),
-    getSearchSuggestions: input => dispatch(getSearchSuggestions(input)),
-    deleteSearchSuggestions: () => dispatch(deleteSearchSuggestions())
+    getSearchSuggestions: input => dispatch(getSearchSuggestions(input))
   };
 };
 
