@@ -14,11 +14,6 @@ class User extends Component {
     ids: PropTypes.string.isRequired
   };
 
-  constructor(props) {
-    super(props);
-    this.handleClick = this.handleClick.bind(this);
-  }
-
   handleClick = async () => {
     let link = "https://vk.com/app7210429/profile#" + this.props.profile.id;
     let response = await connectVK.sendPromise("VKWebAppShare", {
@@ -33,7 +28,6 @@ class User extends Component {
   }
 
   render() {
-    console.log(window.location.search);
     const { isLoading } = this.props;
     const { name, surname, photo, id: profileId } = this.props.profile;
     const { id: accountId } = this.props.accountInfoHeader;

@@ -8,7 +8,6 @@ import styles from "./StatusButtonsPopular.module.scss";
 class StatusButtonsPopular extends Component {
   constructor(props) {
     super(props);
-    this.handleClick = this.handleClick.bind(this);
     this.state = { type: "primary", used: false, text: "Добавить в избранное" };
   }
   static propTypes = {
