@@ -1,4 +1,11 @@
+.search-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 .search__input-line {
+  box-sizing: border-box;
   display: block;
   width: 52%;
   margin: 45px auto;
@@ -8,8 +15,22 @@
   outline: none;
   font-size: var(--standard-font);
   font-weight: normal;
+  z-index: 100;
+  position: relative;
 
   &::placeholder {
     color: var(--global-color-border-gray);
   }
+}
+
+.search-suggestions-wrapper {
+  border-radius: 25px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.1);
+  position: relative;
+  box-sizing: border-box;
+  padding: 30px 25px 0 25px;
+  width: 52%;
+  z-index: 1;
+  margin: 0 auto;
+  margin-top: -85px;
 }

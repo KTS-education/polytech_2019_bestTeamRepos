@@ -3,11 +3,12 @@ import PropTypes from "prop-types";
 
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
-import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/updateSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
+import { getSearchSuggestions } from "@actions/getSearchSuggestions";
+import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import Logo from "@img/wishlist.png";
 
@@ -30,16 +31,22 @@ class Main extends React.Component {
     }
   }
 
+  getSearchSuggestions = async input => {
+    await this.props.getSearchSuggestions(input);
+  };
+
   render() {
-    const { logoPath } = this.props;
+    const { logoPath, apiGetItems } = this.props;
     const { giftsList } = this.props.giftsList;
+
     return (
       <div className={styles["main-container"]}>
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput
           children="Введите название товара"
-          handleInput={this.props.apiGetItems}
+          apiGetItems={apiGetItems}
           giftsList={giftsList}
+          onChange={this.getSearchSuggestions}
         />
         <PopularGiftsContainer />
       </div>
@@ -57,7 +64,8 @@ const mapStateToProps = ({ userId, giftsList }) => {
 const mapDispatchToProps = dispatch => {
   return {
     apiGetItems: (query, giftsList) => dispatch(apiGetItems(query, giftsList)),
-    updateWishlist: id => dispatch(updateWishlist(id))
+    updateWishlist: id => dispatch(updateWishlist(id)),
+    getSearchSuggestions: input => dispatch(getSearchSuggestions(input))
   };
 };
 
