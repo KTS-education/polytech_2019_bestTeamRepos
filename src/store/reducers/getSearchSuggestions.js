@@ -14,10 +14,16 @@ export const getSearchSuggestionReducer = (state = initialState, action) => {
         ...state,
         searchSuggestions: action.payload
       };
-    case "FETCH_SUGGSETIONS_FAILURE":
+    case "FETCH_SUGGESTIONS_FAILURE":
       return {
         ...state,
-        error: action.payload
+        error: action.payload,
+        searchSuggestions: []
+      };
+    case "FETCH_SUGGESTIONS_CANCEL":
+      return {
+        ...state,
+        searchSuggestions: []
       };
     default:
       return {

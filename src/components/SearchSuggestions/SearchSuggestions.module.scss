@@ -1,0 +1,17 @@
+.search-suggestions__list-item {
+  cursor: pointer;
+  margin-bottom: 10px;
+
+  &:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+  }
+}
+
+.suggestedPart {
+  color: #b2b2b2;
+}
+
+.search-suggestions-container {
+  padding: 0;
+  list-style: none;
+}

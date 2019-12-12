@@ -3,6 +3,7 @@ import { api } from "@src/api.js";
 const FETCH_SUGGESTIONS_BEGIN = "FETCH_SUGGESTIONS_BEGIN";
 const FETCH_SUGGESTIONS_SUCCESS = "FETCH_SUGGESTIONS_SUCCESS";
 const FETCH_SUGGESTIONS_FAILURE = "FETCH_SUGGESTIONS_FAILURE";
+const FETCH_SUGGESTIONS_CANCEL = "FETCH_SUGGESTIONS_CANCEL";
 
 export function getSearchSuggestions(input) {
   return async dispatch => {
@@ -22,4 +23,11 @@ export function getSearchSuggestions(input) {
       });
     }
   };
+}
+
+export function cancelSearchSuggestions() {
+  return dispatch =>
+    dispatch({
+      type: FETCH_SUGGESTIONS_CANCEL
+    });
 }

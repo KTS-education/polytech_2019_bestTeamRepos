@@ -3,13 +3,12 @@ import PropTypes from "prop-types";
 
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
-import PopularGiftsContainer from "@components/PopularGiftsContainer";
-import SearchSuggestions from "@components/SearchSuggestions";
 
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/getSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
 import { getSearchSuggestions } from "@actions/getSearchSuggestions";
+import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import Logo from "@img/wishlist.png";
 
@@ -37,31 +36,28 @@ class Main extends React.Component {
   };
 
   render() {
-    const { logoPath, searchSuggestions, apiGetItems } = this.props;
+    const { logoPath, apiGetItems } = this.props;
     const { giftsList } = this.props.giftsList;
-    const { pages } = searchSuggestions;
 
     return (
       <div className={styles["main-container"]}>
         <PageName name="Wishlist" logoPath={logoPath} />
         <SearchInput
           children="Введите название товара"
-          handleInput={apiGetItems}
+          apiGetItems={apiGetItems}
           giftsList={giftsList}
           onChange={this.getSearchSuggestions}
         />
-        {pages ? <SearchSuggestions searchSuggestions={pages} /> : null}
         <PopularGiftsContainer />
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ userId, giftsList, searchSuggestions }) => {
+const mapStateToProps = ({ userId, giftsList }) => {
   return {
     ...userId,
-    giftsList,
-    ...searchSuggestions
+    giftsList
   };
 };
 
