@@ -3,9 +3,14 @@ import Loader from "@components/Loader";
 import List from "@components/List";
 import NoResults from "@components/NoResults";
 import { connect } from "react-redux";
+import { deleteSearchResults } from "@actions/updateSearchResults";
 import { isArray } from "util";
 
 class PopularGiftsContainer extends React.Component {
+  componentWillUnmount() {
+    this.props.deleteSearchResults();
+  }
+
   render() {
     const { searchList, isLoading, error } = this.props;
 
@@ -34,4 +39,13 @@ const mapStateToProps = ({ searchList }) => {
   };
 };
 
-export default connect(mapStateToProps)(PopularGiftsContainer);
+const mapDispatchToProps = dispatch => {
+  return {
+    deleteSearchResults: () => dispatch(deleteSearchResults())
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(PopularGiftsContainer);

@@ -22,6 +22,11 @@ export const searchContainerReducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       };
+    case "DELETE_SEARCH_RESULTS":
+      return {
+        ...state,
+        searchList: null
+      };
     default:
       return state;
   }

@@ -3,7 +3,7 @@ import { profileReducer } from "./profile";
 import { friendsHeaderReducer } from "./friendsHeader";
 import { friendsContainerReducer } from "./friendsContainer";
 import { accountInfoHeaderReducer } from "./accountInfoHeader";
-import { searchContainerReducer } from "./getSearchResults";
+import { searchContainerReducer } from "./updateSearchResults";
 import { giftsListReducer } from "./updateGiftsList";
 import { userIdReducer } from "./userId";
 

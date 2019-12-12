@@ -6,7 +6,7 @@ import PageName from "@components/PageName";
 import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import { connect } from "react-redux";
-import { apiGetItems } from "@actions/getSearchResults";
+import { apiGetItems } from "@actions/updateSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
 
 import Logo from "@img/wishlist.png";

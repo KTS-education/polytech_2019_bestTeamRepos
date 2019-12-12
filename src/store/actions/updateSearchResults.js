@@ -3,6 +3,7 @@ import { api } from "@src/api.js";
 const FETCH_RESULTS_BEGIN = "FETCH_RESULTS_BEGIN";
 const FETCH_RESULTS_SUCCESS = "FETCH_RESULTS_SUCCESS";
 const FETCH_RESULTS_FAILURE = "FETCH_RESULTS_FAILURE";
+const DELETE_SEARCH_RESULTS = "DELETE_SEARCH_RESULTS";
 
 export function apiGetItems(query, giftsList) {
   return async dispatch => {
@@ -43,4 +44,8 @@ export function apiGetItems(query, giftsList) {
       }
     }
   };
+}
+
+export function deleteSearchResults() {
+  return dispatch => dispatch({ type: DELETE_SEARCH_RESULTS });
 }
