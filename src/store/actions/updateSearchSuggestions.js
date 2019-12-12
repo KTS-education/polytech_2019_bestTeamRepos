@@ -5,7 +5,7 @@ const FETCH_SUGGESTIONS_SUCCESS = "FETCH_SUGGESTIONS_SUCCESS";
 const FETCH_SUGGESTIONS_FAILURE = "FETCH_SUGGESTIONS_FAILURE";
 const FETCH_SUGGESTIONS_CANCEL = "FETCH_SUGGESTIONS_CANCEL";
 
-export function getSearchSuggestions(input) {
+export function updateSearchSuggestions(input) {
   return async dispatch => {
     dispatch({ type: FETCH_SUGGESTIONS_BEGIN });
     try {

@@ -7,7 +7,7 @@ import PageName from "@components/PageName";
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/updateSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
-import { getSearchSuggestions } from "@actions/getSearchSuggestions";
+import { updateSearchSuggestions } from "@actions/updateSearchSuggestions";
 import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import Logo from "@img/wishlist.png";
@@ -31,8 +31,8 @@ class Main extends React.Component {
     }
   }
 
-  getSearchSuggestions = async input => {
-    await this.props.getSearchSuggestions(input);
+  updateSearchSuggestions = async input => {
+    await this.props.updateSearchSuggestions(input);
   };
 
   render() {
@@ -46,7 +46,7 @@ class Main extends React.Component {
           children="Введите название товара"
           apiGetItems={apiGetItems}
           giftsList={giftsList}
-          onChange={this.getSearchSuggestions}
+          onChange={this.updateSearchSuggestions}
         />
         <PopularGiftsContainer />
       </div>
@@ -65,7 +65,7 @@ const mapDispatchToProps = dispatch => {
   return {
     apiGetItems: (query, giftsList) => dispatch(apiGetItems(query, giftsList)),
     updateWishlist: id => dispatch(updateWishlist(id)),
-    getSearchSuggestions: input => dispatch(getSearchSuggestions(input))
+    updateSearchSuggestions: input => dispatch(updateSearchSuggestions(input))
   };
 };
 

@@ -2,7 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import SearchSuggestions from "@components/SearchSuggestions";
-import { cancelSearchSuggestions } from "@actions/getSearchSuggestions";
+import { cancelSearchSuggestions } from "@actions/updateSearchSuggestions";
 
 import styles from "./SearchInput.module.scss";
 
