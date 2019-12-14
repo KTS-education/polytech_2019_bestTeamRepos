@@ -5,14 +5,15 @@ import styles from "./ListItem.module.scss";
 
 export default class ListItem extends React.Component {
   static propTypes = {
-    product: PropTypes.object.isRequired
+    product: PropTypes.object.isRequired,
+    userId: PropTypes.number
   };
 
   render() {
-    const product = this.props.product;
+    const { product, userId } = this.props;
     return (
       <li className={styles["list__item"]}>
-        <Item product={product} />
+        <Item product={product} userId={userId} />
       </li>
     );
   }

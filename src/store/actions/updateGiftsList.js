@@ -15,10 +15,14 @@ export function updateWishlist(user_id, isFriend = false) {
     try {
       let result;
       if (isFriend) {
-        let { response, error } = await api(`/api/user/friends`, "POST", {
+        let { response } = await api(`/api/user/friends`, "POST", {
           ids: [user_id]
         });
-        if (!response.friends.length && error == null) {
+
+        console.log("friend");
+        console.log(response);
+
+        if (!response.friends.length) {
           dispatch({
             type: FETCH_GIFTS_SUCCESS,
             payload: []
@@ -33,6 +37,9 @@ export function updateWishlist(user_id, isFriend = false) {
           id: user_id
         });
       }
+
+      console.log("wishlist");
+      console.log(result);
 
       dispatch({
         type: FETCH_GIFTS_SUCCESS,

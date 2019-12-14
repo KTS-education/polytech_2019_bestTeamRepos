@@ -10,17 +10,21 @@ export function apiAuth() {
       type: USER_ID_BEGIN
     });
     try {
-      let resultVK = await connectVK.sendPromise("VKWebAppGetUserInfo", {
+      let data = await connectVK.sendPromise("VKWebAppGetUserInfo", {
         params: {
           v: "5.103"
         }
       });
-      let result = await api(`/api/user/auth${window.location.search}`, "POST");
+      let result = await api(
+        `/api/user/auth${window.location.search}`,
+        "POST",
+        data
+      );
       dispatch({
         type: USER_ID_SUCCESS,
         payload: {
           api_id: result.response.user_id,
-          vk_id: resultVK.id,
+          vk_id: data.id,
           api_token: result.response.token
         }
       });

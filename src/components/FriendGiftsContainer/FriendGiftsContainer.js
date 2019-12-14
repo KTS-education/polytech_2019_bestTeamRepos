@@ -29,7 +29,7 @@ class FriendGiftsContainer extends Component {
     }
 
     if (giftsList.length) {
-      return <List products={giftsList} />;
+      return <List products={giftsList} userId={targetId} />;
     }
 
     if (userId.vk_id !== targetId) {

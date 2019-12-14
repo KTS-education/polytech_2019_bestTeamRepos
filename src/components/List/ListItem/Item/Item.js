@@ -7,6 +7,7 @@ import noPicture from "@img/noPicture.png";
 export default class Item extends React.Component {
   static propTypes = {
     product: PropTypes.object.isRequired,
+    userId: PropTypes.number,
     className: PropTypes.string
   };
 
@@ -15,7 +16,7 @@ export default class Item extends React.Component {
   };
 
   render() {
-    const { product } = this.props;
+    const { product, userId } = this.props;
     const { description, name, photo } = this.props.product;
     let url, price;
     if (photo) {
@@ -39,7 +40,7 @@ export default class Item extends React.Component {
           <span> &#8381;</span>
         </p>
         <p className={styles["item__description"]}>{description}</p>
-        <StatusButtons product={product} />
+        <StatusButtons product={product} targetId={userId} />
       </div>
     );
   }

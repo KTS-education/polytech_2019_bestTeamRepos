@@ -13,25 +13,14 @@ import Routes from "@config/routes.js";
 
 class StatusButtons extends React.Component {
   static propTypes = {
-    product: PropTypes.shape({
-      isBooked: PropTypes.bool,
-      selectedPersonPhotoHref: PropTypes.string,
-      isBookedByCurrentUser: PropTypes.bool
-    }),
+    product: PropTypes.object,
+    targetId: PropTypes.number,
     className: PropTypes.string
   };
 
-  static defaultProps = {
-    className: null,
-    isBooked: null,
-    selectedPersonPhotoHref: null,
-    isBookedByCurrentUser: null
-  };
-
   render() {
-    const product = this.props.product;
-
-    const currentPageId = this.props.userId.vk_id;
+    const { product, targetId } = this.props;
+    const currentPageId = targetId;
     const myProfileId = this.props.userId.vk_id;
 
     return (
@@ -53,7 +42,9 @@ class StatusButtons extends React.Component {
               />
             ) : (
               <StatusButtonsFriendPage
-                isBooked={product.isBooked}
+                isBooked={
+                  product.booked_by !== undefined ? product.booked_by : false
+                }
                 isBookedByCurrentUser={product.isBookedByCurrentUser}
                 isFavouriteByCurrentUser={product.isFavouriteByCurrentUser}
               />
