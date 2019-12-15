@@ -6,30 +6,35 @@ export const FETCH_GIFTS_FAILURE = "FETCH_GIFTS_FAILURE";
 
 const DELETE_ITEM = "DELETE_ITEM";
 
-export function updateWishlist(user_id, isFriend = false) {
+export function updateWishlist(user_id, isFriend = false, my_id) {
   return async dispatch => {
     dispatch({
-      type: FETCH_GIFTS_BEGIN,
-      payload: user_id
+      type: FETCH_GIFTS_BEGIN
     });
     try {
-      let result;
+      let result,
+        result2 = null;
       if (isFriend) {
         let { response } = await api(`/api/user/friends`, "POST", {
           ids: [user_id]
         });
 
-        console.log("friend");
-        console.log(response);
-
         if (!response.friends.length) {
           dispatch({
             type: FETCH_GIFTS_SUCCESS,
-            payload: []
+            payload: [[], []]
           });
         } else {
           result = await api(`/api/wishlist/get`, "GET", {
             id: response.friends[0]._id
+          });
+          result2 = await api(`/api/wishlist/get`, "GET", {
+            id: my_id
+          });
+          result.response.wishlist.forEach(product => {
+            result2.response.wishlist.forEach(myProduct => {
+              if (product.id === myProduct.id) product.myFavourite = true;
+            });
           });
         }
       } else {
@@ -38,12 +43,11 @@ export function updateWishlist(user_id, isFriend = false) {
         });
       }
 
-      console.log("wishlist");
-      console.log(result);
-
       dispatch({
         type: FETCH_GIFTS_SUCCESS,
-        payload: result.response.wishlist
+        payload: isFriend
+          ? [result.response.wishlist, result2.response.wishlist]
+          : [result.response.wishlist, []]
       });
     } catch (error) {
       dispatch({

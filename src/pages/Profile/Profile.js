@@ -40,7 +40,7 @@ class Profile extends Component {
             )}
           />
           <Route
-            path={Routes.profile.path}
+            path={Routes.profile.create(id)}
             render={props => (
               <>
                 {myProfileId === numbId ? (

@@ -14,12 +14,12 @@ class FriendGiftsContainer extends Component {
   };
 
   async componentDidMount() {
-    const { targetId } = this.props;
-    await this.props.updateWishlist(targetId, true);
+    const { targetId, userId } = this.props;
+    await this.props.updateWishlist(targetId, true, userId.api_id);
   }
 
   render() {
-    const { giftsList, isLoading, error, userId, targetId } = this.props;
+    const { giftsList, isLoading, error, targetId } = this.props;
     if (error) {
       return <div>{error}</div>;
     }
@@ -29,13 +29,9 @@ class FriendGiftsContainer extends Component {
     }
 
     if (giftsList.length) {
-      return <List products={giftsList} userId={targetId} />;
+      return <List products={giftsList} currentUserId={targetId} />;
     }
-
-    if (userId.vk_id !== targetId) {
-      return <NoResults>Кажется, друг не любит подарки</NoResults>;
-    }
-    return <NoResults>Кажется, ты не любишь дарить подарки</NoResults>;
+    return <NoResults>Кажется, друг не любит подарки</NoResults>;
   }
 }
 
@@ -47,7 +43,8 @@ const mapStateToProps = ({ giftsList }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    updateWishlist: (id, isFriend) => dispatch(updateWishlist(id, isFriend))
+    updateWishlist: (id, isFriend, userId) =>
+      dispatch(updateWishlist(id, isFriend, userId))
   };
 };
 

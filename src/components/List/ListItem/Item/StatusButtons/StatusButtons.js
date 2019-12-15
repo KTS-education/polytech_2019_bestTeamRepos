@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route } from "react-router-dom";
+
 import { connect } from "react-redux";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
@@ -8,7 +9,6 @@ import StatusButtonsMyPage from "./StatusButtonsMyPage";
 import StatusButtonsMyPageIwant from "./StatusButtonsMyPageIwant";
 import StatusButtonsFriendPageFromMe from "./StatusButtonsFriendPageFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
-
 import Routes from "@config/routes.js";
 
 class StatusButtons extends React.Component {
@@ -37,16 +37,20 @@ class StatusButtons extends React.Component {
           render={props =>
             myProfileId === currentPageId ? (
               <StatusButtonsMyPage
-                isBooked={product.isBooked}
+                isBooked={
+                  product.booked_by !== undefined ? product.booked_by : false
+                }
                 id={product.id}
               />
             ) : (
               <StatusButtonsFriendPage
-                isBooked={
-                  product.booked_by !== undefined ? product.booked_by : false
+                userId={currentPageId}
+                productId={product.id}
+                isBooked={product.booked_by !== undefined ? true : false}
+                isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
+                isFavouriteByCurrentUser={
+                  product.myFavourite !== undefined ? true : false
                 }
-                isBookedByCurrentUser={product.isBookedByCurrentUser}
-                isFavouriteByCurrentUser={product.isFavouriteByCurrentUser}
               />
             )
           }
@@ -60,9 +64,11 @@ class StatusButtons extends React.Component {
               <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
             ) : (
               <StatusButtonsFriendPageFromMe
-                isBooked={product.isBooked}
-                isBookedByCurrentUser={product.isBookedByCurrentUser}
-                isFavouriteByCurrentUser={product.isFavouriteByCurrentUser}
+                isBooked={product.booked_by !== undefined ? true : false}
+                isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
+                isFavouriteByCurrentUser={
+                  product.myFavourite !== undefined ? true : false
+                }
               />
             )
           }
@@ -72,8 +78,8 @@ class StatusButtons extends React.Component {
   }
 }
 
-const mapStateToProps = ({ userId }) => {
-  return { ...userId };
+const mapStateToProps = ({ userId, giftsList }) => {
+  return { ...userId, giftsList };
 };
 
 export default connect(mapStateToProps)(StatusButtons);

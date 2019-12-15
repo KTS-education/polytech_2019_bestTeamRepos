@@ -1,5 +1,6 @@
 const initialState = {
   giftsList: [],
+  myGiftsList: [],
   isLoading: false,
   error: null,
   id: null
@@ -11,14 +12,17 @@ export const giftsListReducer = (state = initialState, action) => {
       return {
         ...state,
         isLoading: true,
-        giftsList: []
+        giftsList: [],
+        myGiftsList: []
       };
     case "FETCH_GIFTS_SUCCESS":
       return {
         ...state,
-        giftsList: action.payload,
+        giftsList: action.payload[0],
+        myGiftsList: action.payload[1],
         isLoading: false
       };
+
     case "FETCH_GIFTS_FAILURE":
       return {
         ...state,

@@ -8,13 +8,27 @@ import wantGive from "@img/wantGive.png";
 import ok from "@img/ok.png";
 import styles from "../StatusButtons.module.scss";
 
-export default class StatusButtonsFriendPage extends Component {
+import { connect } from "react-redux";
+import { bookProduct, unbookProduct } from "@actions/booking";
+
+class StatusButtonsFriendPage extends Component {
   static propTypes = {
+    userId: PropTypes.number,
+    productId: PropTypes.number,
     isBooked: PropTypes.bool,
     isBookedByCurrentUser: PropTypes.bool,
     isFavouriteByCurrentUser: PropTypes.bool,
     className: PropTypes.string
   };
+
+  constructor(props) {
+    super(props);
+    this.state = {
+      isBooked: this.props.isBooked,
+      isBookedByCurrentUser: this.props.isBookedByCurrentUser,
+      isFavouriteByCurrentUser: this.props.isFavouriteByCurrentUser
+    };
+  }
 
   static defaultProps = {
     isBooked: null,
@@ -23,14 +37,23 @@ export default class StatusButtonsFriendPage extends Component {
     className: null
   };
 
-  render() {
-    const {
-      isBooked,
-      isBookedByCurrentUser,
-      isFavouriteByCurrentUser
-    } = this.props;
+  bookClick = async () => {
+    this.setState({
+      isBooked: true,
+      isBookedByCurrentUser: true
+    });
+    await this.props.bookProduct(this.props.productId, this.props.userId);
+  };
+  unBookClick = async () => {
+    this.setState({
+      isBooked: false,
+      isBookedByCurrentUser: false
+    });
+    await this.props.unbookProduct(this.props.productId, this.props.userId);
+  };
 
-    const favouriteBadge = isFavouriteByCurrentUser ? (
+  render() {
+    const favouriteBadge = this.state.isFavouriteByCurrentUser ? (
       <Badge
         className={styles["booked"]}
         src={popular}
@@ -38,55 +61,57 @@ export default class StatusButtonsFriendPage extends Component {
       />
     ) : null;
 
-    if (isBooked && isBookedByCurrentUser) {
+    if (!this.state.isBooked) {
       return (
         <div className={styles["status__group"]}>
-          <Button
-            type="secondary"
-            children={
-              <span className={styles["button--status__content"]}>
-                Не подарю
-                <img
-                  src={pensiveFace}
-                  className={styles["emoji"]}
-                  alt="emoji"
-                />
-              </span>
-            }
-          />
-          {favouriteBadge}
-        </div>
-      );
-    } else if (!isBooked) {
-      return (
-        <div className={styles["status__group"]}>
-          <Button
-            children={
-              <span className={styles["button--status__content"]}>
-                Подарю
-                <img src={wantGive} className={styles["emoji"]} alt="emoji" />
-              </span>
-            }
-          />
-          {favouriteBadge}
-        </div>
-      );
-    } else if (isBooked && !isBookedByCurrentUser) {
-      return (
-        <div className={styles["status__group"]}>
-          <Button
-            type="disabled"
-            children={
-              <span className={styles["button--status__content"]}>
-                Уже подарят
-                <img src={ok} className={styles["emoji"]} alt="emoji" />
-              </span>
-            }
-          />
+          <Button onClick={this.bookClick}>
+            <span className={styles["button--status__content"]}>
+              Подарю
+              <img src={wantGive} className={styles["emoji"]} alt="emoji" />
+            </span>
+          </Button>
           {favouriteBadge}
         </div>
       );
     }
-    return null;
+
+    if (this.state.isBooked && this.state.isBookedByCurrentUser) {
+      return (
+        <div className={styles["status__group"]}>
+          <Button type="secondary" onClick={this.unBookClick}>
+            <span className={styles["button--status__content"]}>
+              Не подарю
+              <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
+            </span>
+          </Button>
+          {favouriteBadge}
+        </div>
+      );
+    }
+
+    if (this.state.isBooked && !this.state.isBookedByCurrentUser) {
+      return (
+        <div className={styles["status__group"]}>
+          <Button type="disabled">
+            <span className={styles["button--status__content"]}>
+              Уже подарят
+              <img src={ok} className={styles["emoji"]} alt="emoji" />
+            </span>
+          </Button>
+          {favouriteBadge}
+        </div>
+      );
+    }
   }
 }
+
+const mapDispatchToProps = dispatch => {
+  return {
+    bookProduct: (productId, userId) =>
+      dispatch(bookProduct(productId, userId)),
+    unbookProduct: (productId, userId) =>
+      dispatch(unbookProduct(productId, userId))
+  };
+};
+
+export default connect(null, mapDispatchToProps)(StatusButtonsFriendPage);

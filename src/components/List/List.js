@@ -7,20 +7,24 @@ import styles from "./List.module.scss";
 class List extends React.Component {
   static propTypes = {
     products: PropTypes.array.isRequired,
-    userId: PropTypes.number,
+    currentUserId: PropTypes.number,
     className: PropTypes.string
   };
 
   static defaultProps = { className: null };
 
   render() {
-    const { products, className, userId } = this.props;
+    const { products, className, currentUserId } = this.props;
 
     return (
       <ul className={classNames(styles["products-list"], className)}>
         {products.map(product => {
           return (
-            <ListItem key={product.id} product={product} userId={userId} />
+            <ListItem
+              key={product.id}
+              product={product}
+              userId={currentUserId}
+            />
           );
         })}
       </ul>

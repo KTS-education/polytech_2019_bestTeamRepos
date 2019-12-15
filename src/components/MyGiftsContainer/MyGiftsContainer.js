@@ -12,14 +12,14 @@ class MyGiftsContainer extends Component {
   }
 
   render() {
-    const { giftsList, isLoading, error } = this.props;
+    const { giftsList, isLoading, error, userId } = this.props;
     if (error) {
       return <div>{error}</div>;
     } else if (isLoading) {
       return <Loader />;
     } else {
       if (giftsList.length) {
-        return <List products={giftsList} />;
+        return <List products={giftsList} currentUserId={userId.vk_id} />;
       } else return <NoResults>Кажется, ты не любишь подарки</NoResults>;
     }
   }

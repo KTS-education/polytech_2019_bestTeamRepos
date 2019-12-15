@@ -6,6 +6,7 @@ import { accountInfoHeaderReducer } from "./accountInfoHeader";
 import { searchContainerReducer } from "./updateSearchResults";
 import { giftsListReducer } from "./updateGiftsList";
 import { userIdReducer } from "./userId";
+import { bookingReducer } from "./booking";
 import { getSearchSuggestionReducer } from "./updateSearchSuggestions";
 
 export const rootReducer = combineReducers({
@@ -16,5 +17,6 @@ export const rootReducer = combineReducers({
   searchList: searchContainerReducer,
   giftsList: giftsListReducer,
   userId: userIdReducer,
-  searchSuggestions: getSearchSuggestionReducer
+  searchSuggestions: getSearchSuggestionReducer,
+  booking: bookingReducer
 });
