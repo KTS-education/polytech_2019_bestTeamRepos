@@ -46,6 +46,7 @@ class StatusButtons extends React.Component {
               <StatusButtonsFriendPage
                 userId={currentPageId}
                 productId={product.id}
+                product={this.props.product}
                 isBooked={product.booked_by !== undefined ? true : false}
                 isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
                 isFavouriteByCurrentUser={
@@ -64,6 +65,7 @@ class StatusButtons extends React.Component {
               <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
             ) : (
               <StatusButtonsFriendPageFromMe
+                product={this.props.product}
                 isBooked={product.booked_by !== undefined ? true : false}
                 isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
                 isFavouriteByCurrentUser={
