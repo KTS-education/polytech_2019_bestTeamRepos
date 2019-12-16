@@ -19,6 +19,7 @@ export default class StatusButtonsMyPageIwant extends Component {
 
   render() {
     const { src } = this.props;
+    console.log(this.props);
 
     return (
       <div className={styles["status__group"]}>

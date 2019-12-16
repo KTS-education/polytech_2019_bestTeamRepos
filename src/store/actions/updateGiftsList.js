@@ -3,11 +3,7 @@ import { api } from "@src/api.js";
 export const FETCH_GIFTS_BEGIN = "FETCH_GIFTS_BEGIN";
 export const FETCH_GIFTS_SUCCESS = "FETCH_GIFTS_SUCCESS";
 export const FETCH_GIFTS_FAILURE = "FETCH_GIFTS_FAILURE";
-
-const DELETE_ITEM = "DELETE_ITEM";
-const ADD_GIFT_FROM_ME = "ADD_GIFT_FROM_ME";
-const REMOVE_GIFT_FROM_ME = "REMOVE_GIFT_FROM_ME";
-const SAVE_LOCALSTORAGE = "SAVE_LOCALSTORAGE";
+export const DELETE_ITEM = "DELETE_ITEM";
 
 export function updateWishlist(user_id, isFriend = false, my_id) {
   return async dispatch => {
@@ -87,19 +83,5 @@ export function deleteFromMyList(user_id) {
     result.response
       ? console.log(result.response)
       : console.error(result.errorData);
-  };
-}
-
-export function addToListFromMe(data) {
-  return dispatch => {
-    dispatch({ type: ADD_GIFT_FROM_ME, payload: data });
-    dispatch({ type: SAVE_LOCALSTORAGE });
-  };
-}
-
-export function removeFromListFromMe(data) {
-  return dispatch => {
-    dispatch({ type: REMOVE_GIFT_FROM_ME, payload: data });
-    dispatch({ type: SAVE_LOCALSTORAGE });
   };
 }

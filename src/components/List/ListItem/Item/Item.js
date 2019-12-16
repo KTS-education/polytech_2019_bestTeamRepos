@@ -19,11 +19,15 @@ export default class Item extends React.Component {
     const { product, userId } = this.props;
     const { description, name, photo } = this.props.product;
     let url, price;
+    console.log(this.props);
     if (photo) {
       if (typeof photo.url === "string") url = photo.url;
       else url = photo;
     }
-    if (typeof this.props.product.price.avg === "string")
+    if (
+      this.props.product.price.avg &&
+      typeof this.props.product.price.avg === "string"
+    )
       price = this.props.product.price.avg;
     else price = this.props.product.price;
 

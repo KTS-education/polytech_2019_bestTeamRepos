@@ -9,11 +9,12 @@ import ok from "@img/ok.png";
 import styles from "../StatusButtons.module.scss";
 
 import { connect } from "react-redux";
-import { bookProduct, unbookProduct } from "@actions/booking";
 import {
+  bookProduct,
+  unbookProduct,
   addToListFromMe,
   removeFromListFromMe
-} from "@actions/updateGiftsList";
+} from "@actions/booking";
 
 class StatusButtonsFriendPage extends Component {
   static propTypes = {
@@ -50,12 +51,14 @@ class StatusButtonsFriendPage extends Component {
     await this.props.bookProduct(this.props.productId, this.props.userId);
     this.props.addToListFromMe({
       productId: this.props.productId,
+      photo: this.props.product.photo,
       name: this.props.product.name,
       price: this.props.product.price,
       userId: this.props.userId,
-      photo: this.props.profile.photo
+      photoUser: this.props.profile.photo
     });
   };
+
   unBookClick = async () => {
     this.setState({
       isBooked: false,

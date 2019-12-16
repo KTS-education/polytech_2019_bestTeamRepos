@@ -62,7 +62,7 @@ class StatusButtons extends React.Component {
           path={Routes.profile.createFromMePath}
           render={props =>
             myProfileId === currentPageId ? (
-              <StatusButtonsMyPageIwant src={product.selectedPersonPhotoHref} />
+              <StatusButtonsMyPageIwant src={product.photo} />
             ) : (
               <StatusButtonsFriendPageFromMe
                 product={this.props.product}

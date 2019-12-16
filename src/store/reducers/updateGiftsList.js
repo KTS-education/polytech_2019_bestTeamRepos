@@ -63,6 +63,16 @@ export const giftsListReducer = (state = initialState, action) => {
           ...state.giftsListFromMe.slice(itemIndex + 1)
         ]
       };
+    case "GET_GIFTS_FROM_ME":
+      if (localStorage.getItem("store")) {
+        return {
+          ...state,
+          giftsListFromMe: JSON.parse(localStorage.getItem("state"))
+        };
+      } else
+        return {
+          ...state
+        };
     default:
       return state;
   }
