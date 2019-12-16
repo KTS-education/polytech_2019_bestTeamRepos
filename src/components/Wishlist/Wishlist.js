@@ -9,6 +9,6 @@ class Wishlist extends Component {
       <List products={products} currentUserId={this.props.currentUserId} />
     );
   }
-}
+} 
 
 export default connect()(Wishlist);

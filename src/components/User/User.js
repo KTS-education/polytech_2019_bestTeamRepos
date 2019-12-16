@@ -9,17 +9,23 @@ import Avatar from "@components/Avatar";
 
 import styles from "./User.module.scss";
 
+import img from "@img/wishlist.png";
+
 class User extends Component {
   static propTypes = {
     ids: PropTypes.string.isRequired
   };
 
   handleClick = async () => {
-    let link = "https://vk.com/app7210429/profile#" + this.props.profile.id;
-    let response = await connectVK.sendPromise("VKWebAppShare", {
-      link: link
+    let link = "https://vk.com/app7210429/profile/" + this.props.profile.id;
+    let response = await connectVK.sendPromise("VKWebAppShowWallPostBox", {
+      owner_id: this.props.profile.id,
+      message: "Хочешь узнать, что я хочу? Посмотри мой вишлист!",
+      close_comments: 1,
+      friends_only: 1,
+      attachments: link
     });
-    console.log(response);
+    console.log(response, img);
   };
 
   async componentDidMount() {
