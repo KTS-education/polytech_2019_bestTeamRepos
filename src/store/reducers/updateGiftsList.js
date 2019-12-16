@@ -1,10 +1,13 @@
 const initialState = {
   giftsList: [],
   myGiftsList: [],
+  giftsListFromMe: [],
   isLoading: false,
   error: null,
   id: null
 };
+
+let itemIndex;
 
 export const giftsListReducer = (state = initialState, action) => {
   switch (action.type) {
@@ -30,9 +33,7 @@ export const giftsListReducer = (state = initialState, action) => {
         error: action.payload
       };
     case "DELETE_ITEM":
-      const itemIndex = state.giftsList.findIndex(
-        ({ id }) => id === action.payload
-      );
+      itemIndex = state.giftsList.findIndex(({ id }) => id === action.payload);
       return {
         ...state,
         giftsList: [
@@ -40,6 +41,38 @@ export const giftsListReducer = (state = initialState, action) => {
           ...state.giftsList.slice(itemIndex + 1)
         ]
       };
+    case "ADD_GIFT_FROM_ME":
+      return {
+        ...state,
+        giftsListFromMe: [...state.giftsListFromMe, action.payload]
+      };
+    case "SAVE_LOCALSTORAGE":
+      localStorage.setItem("state", JSON.stringify(state.giftsListFromMe));
+      console.log(state);
+      return state;
+    case "REMOVE_GIFT_FROM_ME":
+      itemIndex = state.giftsListFromMe.findIndex(
+        ({ productId, userId }) =>
+          productId === action.payload.productId &&
+          userId === action.payload.userId
+      );
+      return {
+        ...state,
+        giftsListFromMe: [
+          ...state.giftsListFromMe.slice(0, itemIndex),
+          ...state.giftsListFromMe.slice(itemIndex + 1)
+        ]
+      };
+    case "GET_GIFTS_FROM_ME":
+      if (localStorage.getItem("store")) {
+        return {
+          ...state,
+          giftsListFromMe: JSON.parse(localStorage.getItem("state"))
+        };
+      } else
+        return {
+          ...state
+        };
     default:
       return state;
   }

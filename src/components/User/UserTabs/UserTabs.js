@@ -66,6 +66,31 @@ class UserTabs extends React.Component {
         </LinkItem>
       </div>
     );
+
+    // const secondBtn =
+    //   profileId === accountId ? (
+    //     <LinkItem href={Routes.profile.createWhatIwant(profileId)}>
+    //       <span className={styles["button__content"]}>
+    //         Хочу подарить{" "}
+    //         <img
+    //           className={styles["button__emoji"]}
+    //           src={sunglassesEmoji}
+    //           alt="cool emoji with sunglasses"
+    //         />
+    //       </span>
+    //     </LinkItem>
+    //   ) : (
+    //     <LinkItem href={Routes.profile.createFromMe(profileId)}>
+    //       <span className={styles["button__content"]}>
+    //         Хочу подарить{" "}
+    //         <img
+    //           className={styles["button__emoji"]}
+    //           src={sunglassesEmoji}
+    //           alt="cool emoji with sunglasses"
+    //         />
+    //       </span>
+    //     </LinkItem>
+    //   );
   }
 }
 

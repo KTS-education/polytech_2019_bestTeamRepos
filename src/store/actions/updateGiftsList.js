@@ -3,8 +3,7 @@ import { api } from "@src/api.js";
 export const FETCH_GIFTS_BEGIN = "FETCH_GIFTS_BEGIN";
 export const FETCH_GIFTS_SUCCESS = "FETCH_GIFTS_SUCCESS";
 export const FETCH_GIFTS_FAILURE = "FETCH_GIFTS_FAILURE";
-
-const DELETE_ITEM = "DELETE_ITEM";
+export const DELETE_ITEM = "DELETE_ITEM";
 
 export function updateWishlist(user_id, isFriend = false, my_id) {
   return async dispatch => {
