@@ -4,8 +4,8 @@ import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 
 import User from "@components/User";
-import MyGiftsContainer from "@components/MyGiftsContainer";
-import FriendGiftsContainer from "@components/FriendGiftsContainer";
+import Wishlist from "@components/Wishlist";
+import { updateWishlist } from "@actions/updateGiftsList";
 
 import Routes from "@config/routes";
 
@@ -16,11 +16,21 @@ class Profile extends Component {
     match: PropTypes.object.isRequired
   };
 
-  render() {
+  async componentDidMount() {
     const { userId } = this.props;
     const { id } = this.props.match.params;
+    let numbId = parseInt(id);
 
-    const myProfileId = this.props.userId.vk_id;
+    if (numbId === userId.vk_id) {
+      this.props.updateWishlist(userId.api_id);
+    } else {
+      await this.props.updateWishlist(numbId, true, userId.api_id);
+    }
+  }
+
+  render() {
+    const { userId, giftsList, giftsListFromMe } = this.props;
+    const { id } = this.props.match.params;
     let numbId = parseInt(id);
 
     return (
@@ -30,23 +40,33 @@ class Profile extends Component {
           <Route
             exact
             path={Routes.profile.createWhatIwant(id)}
-            render={props => <MyGiftsContainer />}
+            render={prop => (
+              <Wishlist
+                targetId={numbId}
+                userId={userId}
+                products={giftsListFromMe}
+              />
+            )}
           />
           <Route
             exact
             path={Routes.profile.createFromMe(id)}
-            render={props => (
-              <FriendGiftsContainer targetId={numbId} userId={userId} />
+            render={prop => (
+              <Wishlist
+                targetId={numbId}
+                userId={userId}
+                products={giftsListFromMe}
+              />
             )}
           />
           <Route
             path={Routes.profile.create(id)}
             render={props => (
               <>
-                {myProfileId === numbId ? (
-                  <MyGiftsContainer />
+                {userId.vk_id === numbId ? (
+                  <Wishlist products={giftsList} currentUserId={userId.vk_id} />
                 ) : (
-                  <FriendGiftsContainer targetId={numbId} userId={userId} />
+                  <Wishlist products={giftsList} currentUserId={numbId} />
                 )}
               </>
             )}
@@ -57,8 +77,18 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ userId }) => {
-  return { ...userId };
+const mapStateToProps = ({ userId, giftsList, giftsListFromMe }) => {
+  return { ...userId, ...giftsList, ...giftsListFromMe };
 };
 
-export default connect(mapStateToProps)(withRouter(Profile));
+const mapDispatchToProps = dispatch => {
+  return {
+    updateWishlist: (id, isFriend, userId) =>
+      dispatch(updateWishlist(id, isFriend, userId))
+  };
+};
+
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(withRouter(Profile));
