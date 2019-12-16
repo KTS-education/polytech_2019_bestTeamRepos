@@ -10,6 +10,10 @@ import styles from "../StatusButtons.module.scss";
 
 import { connect } from "react-redux";
 import { bookProduct, unbookProduct } from "@actions/booking";
+import {
+  addToListFromMe,
+  removeFromListFromMe
+} from "@actions/updateGiftsList";
 
 class StatusButtonsFriendPage extends Component {
   static propTypes = {
@@ -18,7 +22,8 @@ class StatusButtonsFriendPage extends Component {
     isBooked: PropTypes.bool,
     isBookedByCurrentUser: PropTypes.bool,
     isFavouriteByCurrentUser: PropTypes.bool,
-    className: PropTypes.string
+    className: PropTypes.string,
+    product: PropTypes.object
   };
 
   constructor(props) {
@@ -43,6 +48,13 @@ class StatusButtonsFriendPage extends Component {
       isBookedByCurrentUser: true
     });
     await this.props.bookProduct(this.props.productId, this.props.userId);
+    this.props.addToListFromMe({
+      productId: this.props.productId,
+      name: this.props.product.name,
+      price: this.props.product.price,
+      userId: this.props.userId,
+      photo: this.props.profile.photo
+    });
   };
   unBookClick = async () => {
     this.setState({
@@ -50,6 +62,10 @@ class StatusButtonsFriendPage extends Component {
       isBookedByCurrentUser: false
     });
     await this.props.unbookProduct(this.props.productId, this.props.userId);
+    this.props.removeFromListFromMe({
+      productId: this.props.productId,
+      userId: this.props.userId
+    });
   };
 
   render() {
@@ -105,13 +121,24 @@ class StatusButtonsFriendPage extends Component {
   }
 }
 
+const mapStateToProps = ({ profile }) => {
+  return {
+    ...profile
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     bookProduct: (productId, userId) =>
       dispatch(bookProduct(productId, userId)),
     unbookProduct: (productId, userId) =>
-      dispatch(unbookProduct(productId, userId))
+      dispatch(unbookProduct(productId, userId)),
+    addToListFromMe: data => dispatch(addToListFromMe(data)),
+    removeFromListFromMe: data => dispatch(removeFromListFromMe(data))
   };
 };
 
-export default connect(null, mapDispatchToProps)(StatusButtonsFriendPage);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(StatusButtonsFriendPage);

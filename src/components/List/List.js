@@ -15,6 +15,7 @@ class List extends React.Component {
 
   render() {
     const { products, className, currentUserId } = this.props;
+    console.log(products);
 
     return (
       <ul className={classNames(styles["products-list"], className)}>
