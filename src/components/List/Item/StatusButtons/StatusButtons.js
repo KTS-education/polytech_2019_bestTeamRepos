@@ -6,7 +6,7 @@ import { connect } from "react-redux";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
-import StatusButtonsFriendPageFromMe from "./StatusButtonsFriendPageFromMe";
+import StatusButtonsFromMe from "./StatusButtonsFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 import Routes from "@config/routes.js";
 
@@ -21,6 +21,7 @@ class StatusButtons extends React.Component {
     const { product, targetId } = this.props;
     const currentPageId = targetId;
     const myProfileId = this.props.userId.vk_id;
+    console.log(this.props);
 
     return (
       <Switch>
@@ -58,8 +59,12 @@ class StatusButtons extends React.Component {
           exact
           path={Routes.profile.createFromMePath}
           render={props => (
-            <StatusButtonsFriendPageFromMe
-              userId={this.props.profile.id}
+            <StatusButtonsFromMe
+              userId={
+                myProfileId === currentPageId
+                  ? myProfileId
+                  : this.props.profile.id
+              }
               productId={product.productId}
               product={product}
               isBooked={product.booked_by !== undefined}

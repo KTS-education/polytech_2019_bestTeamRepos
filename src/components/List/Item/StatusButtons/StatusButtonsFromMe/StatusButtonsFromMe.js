@@ -13,7 +13,7 @@ import pensiveFace from "@img/pensiveFace.png";
 import popular from "@img/badge-popular.png";
 import styles from "../StatusButtons.module.scss";
 
-class StatusButtonsFriendPageFromMe extends Component {
+class StatusButtonsFromMe extends Component {
   static propTypes = {
     isFavouriteByCurrentUser: PropTypes.bool,
     isBooked: PropTypes.bool,
@@ -59,6 +59,7 @@ class StatusButtonsFriendPageFromMe extends Component {
   };
 
   render() {
+    console.log(this.props);
     const favouriteBadge = this.state.isFavouriteByCurrentUser ? (
       <Badge
         className={styles["booked"]}
@@ -101,4 +102,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(StatusButtonsFriendPageFromMe);
+)(StatusButtonsFromMe);
