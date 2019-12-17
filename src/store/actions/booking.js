@@ -1,5 +1,4 @@
 import { api } from "@src/api.js";
-
 const ADD_GIFT_FROM_ME = "ADD_GIFT_FROM_ME";
 const REMOVE_GIFT_FROM_ME = "REMOVE_GIFT_FROM_ME";
 const SAVE_LOCALSTORAGE = "SAVE_LOCALSTORAGE";
@@ -11,7 +10,6 @@ export function bookProduct(productId, userId) {
       const { response } = await api(`/api/user/friends`, "POST", {
         ids: [userId]
       });
-      console.log(response, userId);
       const result = await api("/api/wishlist/book", "POST", {
         id: productId,
         user_id: response.friends[0]._id
@@ -56,7 +54,6 @@ export function removeFromListFromMe(data) {
 
 export function getListFromMe(data) {
   return dispatch => {
-    console.log(data);
     dispatch({
       type: GET_GIFTS_FROM_ME,
       payload: data

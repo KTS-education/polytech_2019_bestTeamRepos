@@ -9,23 +9,32 @@ import Avatar from "@components/Avatar";
 
 import styles from "./User.module.scss";
 
-import img from "@img/wishlist.png";
-
 class User extends Component {
   static propTypes = {
     ids: PropTypes.string.isRequired
   };
 
   handleClick = async () => {
-    let link = "https://vk.com/app7210429/profile/" + this.props.profile.id;
-    let response = await connectVK.sendPromise("VKWebAppShowWallPostBox", {
-      owner_id: this.props.profile.id,
-      message: "Хочешь узнать, что я хочу? Посмотри мой вишлист!",
-      close_comments: 1,
-      friends_only: 1,
-      attachments: link
-    });
-    console.log(response, img);
+    const { id: accountId } = this.props.accountInfoHeader;
+    let link = "https://vk.com/app7210429#/profile/" + this.props.profile.id;
+    let response = "";
+    console.log(this.props.profile.id);
+    if (accountId === this.props.profile.id) {
+      response = await connectVK.sendPromise("VKWebAppShowWallPostBox", {
+        owner_id: this.props.profile.id,
+        message:
+          "Хочешь узнать, что мне подарить?&#128540; Посмотри мой вишлист!&#128522;&#127873;",
+        close_comments: 1,
+        friends_only: 1,
+        attachments: link
+      });
+    } else {
+      response = await connectVK.sendPromise("VKWebAppShare", {
+        link: link
+      });
+    }
+    connectVK.send("VKWebAppAddToFavorites", {});
+    console.log(response);
   };
 
   async componentDidMount() {
@@ -63,7 +72,7 @@ class User extends Component {
 const mapStateToProps = ({ profile, accountInfoHeader }) => {
   return {
     ...profile,
-    accountInfoHeader
+    ...accountInfoHeader
   };
 };
 
