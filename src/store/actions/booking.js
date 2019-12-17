@@ -11,12 +11,10 @@ export function bookProduct(productId, userId) {
       const { response } = await api(`/api/user/friends`, "POST", {
         ids: [userId]
       });
-      console.log(response, userId);
-      const result = await api("/api/wishlist/book", "POST", {
+      await api("/api/wishlist/book", "POST", {
         id: productId,
         user_id: response.friends[0]._id
       });
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -29,11 +27,10 @@ export function unbookProduct(productId, userId) {
       const { response } = await api(`/api/user/friends`, "POST", {
         ids: [userId]
       });
-      const result = await api("/api/wishlist/unbook", "POST", {
+      await api("/api/wishlist/unbook", "POST", {
         id: productId,
         user_id: response.friends[0]._id
       });
-      console.log(result);
     } catch (error) {
       console.log(error);
     }
@@ -56,7 +53,6 @@ export function removeFromListFromMe(data) {
 
 export function getListFromMe(data) {
   return dispatch => {
-    console.log(data);
     dispatch({
       type: GET_GIFTS_FROM_ME,
       payload: data

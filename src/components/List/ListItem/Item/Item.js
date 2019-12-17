@@ -17,9 +17,9 @@ export default class Item extends React.Component {
 
   render() {
     const { product, userId } = this.props;
+
     const { description, name, photo } = this.props.product;
     let url, price;
-    console.log(this.props);
     if (photo) {
       if (typeof photo.url === "string") url = photo.url;
       else url = photo;

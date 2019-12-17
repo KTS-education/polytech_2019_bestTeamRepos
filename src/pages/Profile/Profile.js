@@ -29,7 +29,6 @@ class Profile extends Component {
     } else {
       await this.props.updateWishlist(numbId, true, userId.api_id);
     }
-    console.log(JSON.parse(localStorage.getItem("state")));
     this.props.getListFromMe(JSON.parse(localStorage.getItem("state")));
   }
 
@@ -58,21 +57,6 @@ class Profile extends Component {
         <div className={styles["profile-container"]}>
           <User ids={id} />
           <Switch>
-            {/* <Route
-              exact
-              path={Routes.profile.createWhatIwant(id)}
-              render={prop =>
-                giftsListFromMe.length ? (
-                  <Wishlist
-                    targetId={numbId}
-                    userId={userId}
-                    products={giftsListFromMe}
-                  />
-                ) : (
-                  <NoResults children="Кажется, ты не любишь дарить подарки ?" />
-                )
-              }
-            /> */}
             <Route
               exact
               path={Routes.profile.createFromMe(id)}
@@ -137,7 +121,7 @@ const mapDispatchToProps = dispatch => {
   return {
     updateWishlist: (id, isFriend, userId) =>
       dispatch(updateWishlist(id, isFriend, userId)),
-    getListFromMe: () => dispatch(getListFromMe())
+    getListFromMe: data => dispatch(getListFromMe(data))
   };
 };
 

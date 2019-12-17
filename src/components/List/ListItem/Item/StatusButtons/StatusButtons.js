@@ -6,7 +6,6 @@ import { connect } from "react-redux";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
-import StatusButtonsMyPageIwant from "./StatusButtonsMyPageIwant";
 import StatusButtonsFriendPageFromMe from "./StatusButtonsFriendPageFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
 import Routes from "@config/routes.js";
@@ -46,12 +45,10 @@ class StatusButtons extends React.Component {
               <StatusButtonsFriendPage
                 userId={currentPageId}
                 productId={product.id}
-                product={this.props.product}
-                isBooked={product.booked_by !== undefined ? true : false}
-                isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
-                isFavouriteByCurrentUser={
-                  product.myFavourite !== undefined ? true : false
-                }
+                product={product}
+                isBooked={product.booked_by !== undefined}
+                isBookedByCurrentUser={isNaN(product.booked_by)}
+                isFavouriteByCurrentUser={product.myFavourite !== undefined}
               />
             )
           }
@@ -60,28 +57,24 @@ class StatusButtons extends React.Component {
         <Route
           exact
           path={Routes.profile.createFromMePath}
-          render={props =>
-            myProfileId === currentPageId ? (
-              <StatusButtonsMyPageIwant src={product.photo} />
-            ) : (
-              <StatusButtonsFriendPageFromMe
-                product={this.props.product}
-                isBooked={product.booked_by !== undefined ? true : false}
-                isBookedByCurrentUser={isNaN(product.booked_by) ? true : false}
-                isFavouriteByCurrentUser={
-                  product.myFavourite !== undefined ? true : false
-                }
-              />
-            )
-          }
+          render={props => (
+            <StatusButtonsFriendPageFromMe
+              userId={this.props.profile.id}
+              productId={product.productId}
+              product={product}
+              isBooked={product.booked_by !== undefined}
+              isBookedByCurrentUser={isNaN(product.booked_by)}
+              isFavouriteByCurrentUser={product.myFavourite !== undefined}
+            />
+          )}
         />
       </Switch>
     );
   }
 }
 
-const mapStateToProps = ({ userId, giftsList }) => {
-  return { ...userId, giftsList };
+const mapStateToProps = ({ userId, giftsList, profile }) => {
+  return { ...userId, giftsList, ...profile };
 };
 
 export default connect(mapStateToProps)(StatusButtons);

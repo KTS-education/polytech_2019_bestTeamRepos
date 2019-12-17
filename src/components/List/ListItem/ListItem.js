@@ -9,6 +9,8 @@ export default class ListItem extends React.Component {
     userId: PropTypes.number
   };
 
+  static defaultProps = { userId: null };
+
   render() {
     const { product, userId } = this.props;
     return (

@@ -27,20 +27,17 @@ class StatusButtonsFriendPage extends Component {
     product: PropTypes.object
   };
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      isBooked: this.props.isBooked,
-      isBookedByCurrentUser: this.props.isBookedByCurrentUser,
-      isFavouriteByCurrentUser: this.props.isFavouriteByCurrentUser
-    };
-  }
-
   static defaultProps = {
     isBooked: null,
     isBookedByCurrentUser: null,
     isFavouriteByCurrentUser: null,
     className: null
+  };
+
+  state = {
+    isBooked: this.props.isBooked,
+    isBookedByCurrentUser: this.props.isBookedByCurrentUser,
+    isFavouriteByCurrentUser: this.props.isFavouriteByCurrentUser
   };
 
   bookClick = async () => {
@@ -55,7 +52,8 @@ class StatusButtonsFriendPage extends Component {
       name: this.props.product.name,
       price: this.props.product.price,
       userId: this.props.userId,
-      photoUser: this.props.profile.photo
+      photoUser: this.props.profile.photo,
+      booked_by: true
     });
   };
 

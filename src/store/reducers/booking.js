@@ -21,34 +21,6 @@ export const bookingReducer = (state = initialState, action) => {
         ...state,
         error: action.payload
       };
-    case "ADD_GIFT_FROM_ME":
-      return {
-        ...state,
-        giftsListFromMe: [...state.giftsListFromMe, action.payload]
-      };
-    case "REMOVE_GIFT_FROM_ME":
-      const itemIndex = state.giftsListFromMe.findIndex(
-        ({ productId, userId }) =>
-          productId === action.payload.productId &&
-          userId === action.payload.userId
-      );
-      return {
-        ...state,
-        giftsListFromMe: [
-          ...state.giftsListFromMe.slice(0, itemIndex),
-          ...state.giftsListFromMe.slice(itemIndex + 1)
-        ]
-      };
-    case "GET_GIFTS_FROM_ME":
-      if (action.payload) {
-        return {
-          ...state,
-          giftsListFromMe: action.payload
-        };
-      } else
-        return {
-          ...state
-        };
     default:
       return state;
   }

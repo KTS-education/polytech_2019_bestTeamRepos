@@ -11,18 +11,17 @@ class List extends React.Component {
     className: PropTypes.string
   };
 
-  static defaultProps = { className: null };
+  static defaultProps = { currentUserId: null, className: null };
 
   render() {
     const { products, className, currentUserId } = this.props;
-    console.log(products);
 
     return (
       <ul className={classNames(styles["products-list"], className)}>
         {products.map(product => {
           return (
             <ListItem
-              key={product.id}
+              key={product.id || product.productId}
               product={product}
               userId={currentUserId}
             />
