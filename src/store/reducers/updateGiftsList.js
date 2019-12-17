@@ -49,7 +49,6 @@ export const giftsListReducer = (state = initialState, action) => {
       localStorage.setItem("state", JSON.stringify(state.giftsListFromMe));
       return state;
     case "REMOVE_GIFT_FROM_ME":
-      console.log(action.payload, state.giftsListFromMe);
       itemIndex = state.giftsListFromMe.findIndex(
         ({ productId, userId }) =>
           productId === action.payload.productId &&

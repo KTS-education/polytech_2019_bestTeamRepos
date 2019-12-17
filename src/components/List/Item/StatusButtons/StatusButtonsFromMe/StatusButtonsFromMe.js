@@ -70,6 +70,22 @@ class StatusButtonsFromMe extends Component {
       />
     ) : null;
 
+    const badge =
+      this.props.userId === this.props.product.userId ? (
+        this.state.isFavouriteByCurrentUser ? (
+          <Badge
+            className={styles["booked"]}
+            src={popular}
+            children="Я тоже хочу!"
+          />
+        ) : null
+      ) : (
+        <Badge
+          src={this.props.product.photoUser}
+          children="Это подарок для друга"
+        />
+      );
+
     return (
       <div className={styles["status__group"]}>
         <Button type="secondary" onClick={this.unBookClick}>
@@ -78,7 +94,7 @@ class StatusButtonsFromMe extends Component {
             <img src={pensiveFace} className={styles["emoji"]} alt="emoji" />
           </span>
         </Button>
-        {favouriteBadge}
+        {badge}
       </div>
     );
   }
