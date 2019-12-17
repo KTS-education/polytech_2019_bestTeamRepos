@@ -18,7 +18,6 @@ class User extends Component {
     const { id: accountId } = this.props.accountInfoHeader;
     let link = "https://vk.com/app7210429#/profile/" + this.props.profile.id;
     let response = "";
-    console.log(this.props.profile.id);
     if (accountId === this.props.profile.id) {
       response = await connectVK.sendPromise("VKWebAppShowWallPostBox", {
         owner_id: this.props.profile.id,
@@ -34,7 +33,6 @@ class User extends Component {
       });
     }
     connectVK.send("VKWebAppAddToFavorites", {});
-    console.log(response);
   };
 
   async componentDidMount() {

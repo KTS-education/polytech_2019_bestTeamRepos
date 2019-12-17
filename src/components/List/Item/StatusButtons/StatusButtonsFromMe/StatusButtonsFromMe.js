@@ -62,7 +62,6 @@ class StatusButtonsFromMe extends Component {
   };
 
   render() {
-    console.log(this.props);
     const favouriteBadge = this.state.isFavouriteByCurrentUser ? (
       <Badge
         className={styles["booked"]}

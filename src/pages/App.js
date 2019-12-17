@@ -23,7 +23,6 @@ class App extends Component {
       this.props.fetchAccountInfo();
       this.props.fetchHeaderFriends();
       await this.props.apiAuth();
-      console.log(this.props.userId);
 
       var hash = this.props.location.hash.substring(1);
       console.log("hash=" + hash);
