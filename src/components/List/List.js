@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
-import ListItem from "./ListItem";
+import Item from "./Item";
 import styles from "./List.module.scss";
 
 class List extends React.Component {
@@ -20,7 +20,7 @@ class List extends React.Component {
       <ul className={classNames(styles["products-list"], className)}>
         {products.map(product => {
           return (
-            <ListItem
+            <Item
               key={product.id || product.productId}
               product={product}
               userId={currentUserId}

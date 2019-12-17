@@ -32,20 +32,22 @@ export default class Item extends React.Component {
     else price = this.props.product.price;
 
     return (
-      <div className={styles["item"]}>
-        <img
-          className={styles["item__image"]}
-          src={url || noPicture}
-          alt={name}
-        />
-        <h3 className={styles["item__name"]}>{name}</h3>
-        <p>
-          {price}
-          <span> &#8381;</span>
-        </p>
-        <p className={styles["item__description"]}>{description}</p>
-        <StatusButtons product={product} targetId={userId} />
-      </div>
+      <li className={styles["list__item"]}>
+        <div className={styles["item"]}>
+          <img
+            className={styles["item__image"]}
+            src={url || noPicture}
+            alt={name}
+          />
+          <h3 className={styles["item__name"]}>{name}</h3>
+          <p>
+            {price}
+            <span> &#8381;</span>
+          </p>
+          <p className={styles["item__description"]}>{description}</p>
+          <StatusButtons product={product} targetId={userId} />
+        </div>
+      </li>
     );
   }
 }
