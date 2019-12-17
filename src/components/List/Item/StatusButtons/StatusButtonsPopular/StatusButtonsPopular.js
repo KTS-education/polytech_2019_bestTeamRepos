@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import Button from "@components/Button";
 import { connect } from "react-redux";
 import { addToMyList } from "@actions/updateGiftsList";
-import styles from "./StatusButtonsPopular.module.scss";
 
 class StatusButtonsPopular extends Component {
   constructor(props) {
@@ -27,18 +26,10 @@ class StatusButtonsPopular extends Component {
 
   render() {
     if (this.props.product.isWanted)
-      return (
-        <Button className={styles["item__button"]} type="disabled">
-          Уже в избранном
-        </Button>
-      );
+      return <Button type="disabled">Уже в избранном</Button>;
 
     return (
-      <Button
-        className={styles["item__button"]}
-        onClick={this.handleClick}
-        type={this.state.type}
-      >
+      <Button onClick={this.handleClick} type={this.state.type}>
         {this.state.text}
       </Button>
     );
