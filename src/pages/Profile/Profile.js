@@ -63,7 +63,13 @@ class Profile extends Component {
     const filteredFromMe = this.filterFromMe();
     const isMyProfile = userId.vk_id === numbId;
 
-    if (isLoading) return <Loader />;
+    if (isLoading)
+      return (
+        <div className={styles["profile-container"]}>
+          <User ids={id} />
+          <Loader />
+        </div>
+      );
 
     if (error) return <div>{error}</div>;
 
