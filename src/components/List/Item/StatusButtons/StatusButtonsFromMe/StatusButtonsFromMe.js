@@ -51,10 +51,13 @@ class StatusButtonsFromMe extends Component {
     this.setState({
       isBooked: false
     });
-    await this.props.unbookProduct(this.props.productId, this.props.userId);
+    await this.props.unbookProduct(
+      this.props.productId,
+      this.props.product.userId
+    );
     this.props.removeFromListFromMe({
       productId: this.props.productId,
-      userId: this.props.userId
+      userId: this.props.product.userId
     });
   };
 
