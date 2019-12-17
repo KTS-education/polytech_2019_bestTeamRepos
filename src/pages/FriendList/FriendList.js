@@ -27,8 +27,8 @@ class FriendList extends React.Component {
   onChangeInput = input => {
     let filteredFriendList = this.props.friendsList.filter(
       friend =>
-        friend.first_name.toLowerCase().startsWith(input) ||
-        friend.last_name.toLowerCase().startsWith(input)
+        friend.first_name.toLowerCase().startsWith(input.toLowerCase()) ||
+        friend.last_name.toLowerCase().startsWith(input.toLowerCase())
     );
     this.setState({ filteredFriendList: filteredFriendList });
   };

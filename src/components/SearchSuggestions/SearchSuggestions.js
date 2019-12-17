@@ -28,12 +28,7 @@ export default class SearchSuggestions extends Component {
   };
 
   render() {
-    const {
-      pages,
-      input,
-      // completions,
-      className
-    } = this.props.searchSuggestions;
+    const { pages, input, className } = this.props.searchSuggestions;
     return (
       <ul
         className={classNames(

@@ -42,18 +42,20 @@ class SearchInput extends React.Component {
 
   onKeyUpEnter = e => {
     const { giftsList } = this.props;
-    if (e.keyCode === 13) {
+    if (
+      e.keyCode === 13 &&
+      this.props.apiGetItems &&
+      this.props.cancelSearchSuggestions
+    ) {
       this.props.apiGetItems(this.state.input, giftsList);
       this.props.cancelSearchSuggestions();
     }
   };
 
-  // onBlurInput = () => this.props.cancelSearchSuggestions();
-
   onClickSuggestion = input => {
     const { giftsList } = this.props;
     this.setState({ input: input }, () =>
-      this.props.apiGetItems(this.state.input, giftsList)
+      this.props.apiGetItems(this.state.input.toLowerCase(), giftsList)
     );
     this.props.cancelSearchSuggestions();
   };
@@ -80,7 +82,6 @@ class SearchInput extends React.Component {
           placeholder={children}
           onKeyUp={this.onKeyUpEnter}
           onChange={this.onChangeInput}
-          // onBlur={this.onBlurInput}
         />
         {pages ? (
           <div className={styles["search-suggestions-wrapper"]}>
