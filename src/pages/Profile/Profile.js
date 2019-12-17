@@ -31,6 +31,20 @@ class Profile extends Component {
     this.props.getListFromMe(JSON.parse(localStorage.getItem("state")));
   }
 
+  async componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      const { userId } = this.props;
+      const { id } = this.props.match.params;
+      let numbId = parseInt(id);
+
+      if (numbId === userId.vk_id) {
+        this.props.updateWishlist(userId.api_id);
+      } else {
+        await this.props.updateWishlist(numbId, true, userId.api_id);
+      }
+    }
+  }
+
   filterFromMe = () => {
     const { id } = this.props.match.params;
     const { giftsListFromMe } = this.props;

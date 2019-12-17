@@ -17,9 +17,9 @@ class User extends Component {
   handleClick = async () => {
     const { id: accountId } = this.props.accountInfoHeader;
     let link = "https://vk.com/app7210429#/profile/" + this.props.profile.id;
-    let response = "";
+
     if (accountId === this.props.profile.id) {
-      response = await connectVK.sendPromise("VKWebAppShowWallPostBox", {
+      await connectVK.sendPromise("VKWebAppShowWallPostBox", {
         owner_id: this.props.profile.id,
         message:
           "Хочешь узнать, что мне подарить?&#128540; Посмотри мой вишлист!&#128522;&#127873;",
@@ -28,7 +28,7 @@ class User extends Component {
         attachments: link
       });
     } else {
-      response = await connectVK.sendPromise("VKWebAppShare", {
+      await connectVK.sendPromise("VKWebAppShare", {
         link: link
       });
     }
