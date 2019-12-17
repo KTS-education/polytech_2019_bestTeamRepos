@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
-
 import User from "@components/User";
 import Wishlist from "@components/Wishlist";
 import NoResults from "@components/NoResults";
@@ -51,65 +50,65 @@ class Profile extends Component {
     const isMyProfile = userId.vk_id === numbId;
 
     if (isLoading) return <Loader />;
-    else if (error) return <div>{error}</div>;
-    else {
-      return (
-        <div className={styles["profile-container"]}>
-          <User ids={id} />
-          <Switch>
-            <Route
-              exact
-              path={Routes.profile.createFromMe(id)}
-              render={prop => (
-                <>
-                  {isMyProfile ? (
-                    giftsListFromMe && giftsListFromMe.length ? (
-                      <Wishlist
-                        targetId={numbId}
-                        userId={userId}
-                        products={giftsListFromMe}
-                      />
-                    ) : (
-                      <NoResults children="Кажется, ты не любишь дарить подарки" />
-                    )
-                  ) : filteredFromMe && filteredFromMe.length ? (
+
+    if (error) return <div>{error}</div>;
+
+    return (
+      <div className={styles["profile-container"]}>
+        <User ids={id} />
+        <Switch>
+          <Route
+            exact
+            path={Routes.profile.createFromMe(id)}
+            render={prop => (
+              <>
+                {isMyProfile ? (
+                  giftsListFromMe && giftsListFromMe.length ? (
                     <Wishlist
                       targetId={numbId}
                       userId={userId}
-                      products={filteredFromMe}
+                      products={giftsListFromMe}
                     />
                   ) : (
                     <NoResults children="Кажется, ты не любишь дарить подарки" />
-                  )}
-                </>
-              )}
-            />
-            <Route
-              exact
-              path={Routes.profile.create(id)}
-              render={props => (
-                <>
-                  {isMyProfile ? (
-                    giftsList.length ? (
-                      <Wishlist
-                        products={giftsList}
-                        currentUserId={userId.vk_id}
-                      />
-                    ) : (
-                      <NoResults children="Кажется, ты не любишь дарить подарки" />
-                    )
-                  ) : giftsList.length ? (
-                    <Wishlist products={giftsList} currentUserId={numbId} />
+                  )
+                ) : filteredFromMe && filteredFromMe.length ? (
+                  <Wishlist
+                    targetId={numbId}
+                    userId={userId}
+                    products={filteredFromMe}
+                  />
+                ) : (
+                  <NoResults children="Кажется, ты не любишь дарить подарки" />
+                )}
+              </>
+            )}
+          />
+          <Route
+            exact
+            path={Routes.profile.create(id)}
+            render={props => (
+              <>
+                {isMyProfile ? (
+                  giftsList.length ? (
+                    <Wishlist
+                      products={giftsList}
+                      currentUserId={userId.vk_id}
+                    />
                   ) : (
-                    <NoResults children="Кажется, друг не любит дарить подарки" />
-                  )}
-                </>
-              )}
-            />
-          </Switch>
-        </div>
-      );
-    }
+                    <NoResults children="Кажется, ты не любишь дарить подарки" />
+                  )
+                ) : giftsList.length ? (
+                  <Wishlist products={giftsList} currentUserId={numbId} />
+                ) : (
+                  <NoResults children="Кажется, друг не любит дарить подарки" />
+                )}
+              </>
+            )}
+          />
+        </Switch>
+      </div>
+    );
   }
 }
 

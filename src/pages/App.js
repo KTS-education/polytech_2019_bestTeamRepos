@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch } from "react-router-dom";
+import { Route, Switch, withRouter } from "react-router-dom";
 import Routes from "@config/routes.js";
 import FriendList from "./FriendList";
 import { connect } from "react-redux";
@@ -15,12 +15,19 @@ import "@constantcss/constants.scss";
 import styles from "./App.module.scss";
 
 class App extends Component {
+  componentDidUpdate() {
+    window.scrollTo(0, 0);
+  }
   async componentDidMount() {
     try {
       this.props.fetchAccountInfo();
       this.props.fetchHeaderFriends();
       await this.props.apiAuth();
       console.log(this.props.userId);
+
+      var hash = this.props.location.hash.substring(1);
+      console.log("hash=" + hash);
+      if (hash.length !== 0) this.props.history.push(hash);
     } catch (e) {
       console.error(e);
     }
@@ -57,4 +64,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(withRouter(App));

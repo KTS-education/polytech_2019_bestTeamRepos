@@ -1,5 +1,4 @@
 import { api } from "@src/api.js";
-
 const ADD_GIFT_FROM_ME = "ADD_GIFT_FROM_ME";
 const REMOVE_GIFT_FROM_ME = "REMOVE_GIFT_FROM_ME";
 const SAVE_LOCALSTORAGE = "SAVE_LOCALSTORAGE";
