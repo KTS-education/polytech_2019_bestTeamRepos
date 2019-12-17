@@ -24,6 +24,7 @@ class App extends Component {
       this.props.fetchHeaderFriends();
       await this.props.apiAuth();
       console.log(this.props.userId);
+
       var hash = this.props.location.hash.substring(1);
       console.log("hash=" + hash);
       if (hash.length !== 0) this.props.history.push(hash);
