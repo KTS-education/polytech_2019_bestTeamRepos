@@ -1,6 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
-import { Switch, Route } from "react-router-dom";
+import { Switch, Route, withRouter } from "react-router-dom";
 
 import { connect } from "react-redux";
 
@@ -21,7 +21,6 @@ class StatusButtons extends React.Component {
     const { product, targetId } = this.props;
     const currentPageId = targetId;
     const myProfileId = this.props.userId.vk_id;
-
     return (
       <Switch>
         <Route
@@ -32,7 +31,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.profile.path}
+          path={Routes.profile.create(targetId)}
           render={props =>
             myProfileId === currentPageId ? (
               <StatusButtonsMyPage
@@ -56,7 +55,7 @@ class StatusButtons extends React.Component {
 
         <Route
           exact
-          path={Routes.profile.createFromMePath}
+          path={Routes.profile.createFromMe(targetId)}
           render={props => (
             <StatusButtonsFriendPageFromMe
               userId={this.props.profile.id}
@@ -77,4 +76,4 @@ const mapStateToProps = ({ userId, giftsList, profile }) => {
   return { ...userId, giftsList, ...profile };
 };
 
-export default connect(mapStateToProps)(StatusButtons);
+export default connect(mapStateToProps)(withRouter(StatusButtons));

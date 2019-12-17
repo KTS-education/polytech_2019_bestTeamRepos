@@ -65,19 +65,14 @@ class Profile extends Component {
                 {isMyProfile ? (
                   giftsListFromMe && giftsListFromMe.length ? (
                     <Wishlist
-                      targetId={numbId}
-                      userId={userId}
+                      currentUserId={numbId}
                       products={giftsListFromMe}
                     />
                   ) : (
                     <NoResults children="Кажется, ты не любишь дарить подарки" />
                   )
                 ) : filteredFromMe && filteredFromMe.length ? (
-                  <Wishlist
-                    targetId={numbId}
-                    userId={userId}
-                    products={filteredFromMe}
-                  />
+                  <Wishlist currentUserId={numbId} products={filteredFromMe} />
                 ) : (
                   <NoResults children="Кажется, ты не любишь дарить подарки" />
                 )}
