@@ -17,8 +17,10 @@ import "@constantcss/constants.scss";
 import styles from "./App.module.scss";
 
 class App extends Component {
-  componentDidUpdate() {
-    window.scrollTo(0, 0);
+  componentDidUpdate(prevProps) {
+    if (this.props.location.pathname !== prevProps.location.pathname) {
+      window.scrollTo(0, 0);
+    }
   }
   async componentDidMount() {
     try {
@@ -27,7 +29,6 @@ class App extends Component {
       await this.props.apiAuth();
 
       var hash = this.props.location.hash.substring(1);
-      console.log("hash=" + hash);
       if (hash.length !== 0) this.props.history.push(hash);
     } catch (e) {
       console.error(e);
