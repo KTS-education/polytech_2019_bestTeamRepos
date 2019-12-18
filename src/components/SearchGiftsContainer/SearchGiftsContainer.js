@@ -8,7 +8,7 @@ import Loader from "@components/Loader";
 import List from "@components/List";
 import NoResults from "@components/NoResults";
 
-class PopularGiftsContainer extends React.Component {
+class SearchGiftsContainer extends React.Component {
   componentWillUnmount() {
     this.props.deleteSearchResults();
   }
@@ -50,4 +50,4 @@ const mapDispatchToProps = dispatch => {
 export default connect(
   mapStateToProps,
   mapDispatchToProps
-)(PopularGiftsContainer);
+)(SearchGiftsContainer);

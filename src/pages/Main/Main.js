@@ -8,7 +8,7 @@ import { updateSearchSuggestions } from "@actions/updateSearchSuggestions";
 
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
-import PopularGiftsContainer from "@components/PopularGiftsContainer";
+import SearchGiftsContainer from "@components/SearchGiftsContainer";
 
 import Logo from "@img/wishlist.png";
 
@@ -48,7 +48,7 @@ class Main extends React.Component {
           giftsList={giftsList}
           onChange={this.updateSearchSuggestions}
         />
-        <PopularGiftsContainer />
+        <SearchGiftsContainer />
       </div>
     );
   }
