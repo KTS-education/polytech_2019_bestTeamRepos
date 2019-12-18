@@ -2,6 +2,7 @@ import { default as connectVK } from "@vkontakte/vk-connect";
 const FETCH_PROFILE_BEGIN = "FETCH_PROFILE_BEGIN";
 const FETCH_PROFILE_SUCCESS = "FETCH_PROFILE_SUCCESS";
 const FETCH_PROFILE_FAILURE = "FETCH_PROFILE_FAILURE";
+const CLEAR_PROFILE = "CLEAR_PROFILE";
 
 export function fetchProfile(id) {
   return async dispatch => {
@@ -35,5 +36,14 @@ export function fetchProfile(id) {
         error: new Error(error)
       });
     }
+  };
+}
+
+export function clearProfile(id) {
+  return async dispatch => {
+    dispatch({
+      type: CLEAR_PROFILE,
+      payload: id
+    });
   };
 }

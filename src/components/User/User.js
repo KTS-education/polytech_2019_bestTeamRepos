@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import { default as connectVK } from "@vkontakte/vk-connect";
-import { fetchProfile } from "@actions/fetchProfile";
+import { fetchProfile, clearProfile } from "@actions/fetchProfile";
 import Button from "@components/Button";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";
@@ -38,6 +38,11 @@ class User extends Component {
   async componentDidMount() {
     const { ids } = this.props;
     await this.props.fetchProfile(ids);
+  }
+
+  componentWillUnmount() {
+    const { ids } = this.props;
+    this.props.clearProfile(ids);
   }
 
   render() {
@@ -76,7 +81,8 @@ const mapStateToProps = ({ profile, accountInfoHeader }) => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    fetchProfile: id => dispatch(fetchProfile(id))
+    fetchProfile: id => dispatch(fetchProfile(id)),
+    clearProfile: id => dispatch(clearProfile(id))
   };
 };
 

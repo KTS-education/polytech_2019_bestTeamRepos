@@ -1,7 +1,6 @@
 import React from "react";
 
 import FriendImgList from "./FriendImgList";
-
 import { connect } from "react-redux";
 
 import LinkItem from "@components/LinkItem";

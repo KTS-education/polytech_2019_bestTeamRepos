@@ -1,5 +1,7 @@
+import circle from "@img/circle.png";
+
 const initialState = {
-  profile: { id: null, name: null, surname: null, photo: null },
+  profile: { id: null, name: null, surname: null, photo: circle },
   isLoading: false,
   error: null
 };
@@ -27,6 +29,12 @@ export const profileReducer = (state = initialState, action) => {
         ...state,
         isLoading: false,
         error: action.payload
+      };
+    case "CLEAR_PROFILE":
+      return {
+        profile: { id: null, name: null, surname: null, photo: circle },
+        isLoading: false,
+        error: null
       };
     default:
       return state;
