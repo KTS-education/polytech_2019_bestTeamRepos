@@ -9,7 +9,7 @@ import { updateWishlist } from "@actions/updateGiftsList";
 import { getListFromMe } from "@actions/booking";
 
 import User from "@components/User";
-import Wishlist from "@components/Wishlist";
+import List from "@components/List";
 import NoResults from "@components/NoResults";
 import Loader from "@components/Loader";
 
@@ -86,15 +86,12 @@ class Profile extends Component {
               <>
                 {isMyProfile ? (
                   giftsListFromMe && giftsListFromMe.length ? (
-                    <Wishlist
-                      currentUserId={numbId}
-                      products={giftsListFromMe}
-                    />
+                    <List currentUserId={numbId} products={giftsListFromMe} />
                   ) : (
                     <NoResults children="Кажется, ты не любишь дарить подарки" />
                   )
                 ) : filteredFromMe && filteredFromMe.length ? (
-                  <Wishlist currentUserId={numbId} products={filteredFromMe} />
+                  <List currentUserId={numbId} products={filteredFromMe} />
                 ) : (
                   <NoResults children="Кажется, ты не любишь дарить подарки" />
                 )}
@@ -106,9 +103,8 @@ class Profile extends Component {
             path={Routes.profile.create(id)}
             render={props => (
               <>
-                {" "}
                 {giftsList.length ? (
-                  <Wishlist products={giftsList} currentUserId={numbId} />
+                  <List products={giftsList} currentUserId={numbId} />
                 ) : (
                   <NoResults
                     children={
