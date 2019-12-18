@@ -1,14 +1,16 @@
 import React, { Component } from "react";
 import { Route, Switch, withRouter } from "react-router-dom";
+
 import Routes from "@config/routes.js";
-import FriendList from "./FriendList";
+
 import { connect } from "react-redux";
 import { apiAuth } from "@actions/userId";
 import { fetchAccountInfo } from "@actions/accountInfoHeader";
 import { fetchHeaderFriends } from "@actions/friendsHeader";
+
+import FriendList from "./FriendList";
 import Main from "./Main";
 import Profile from "./Profile";
-
 import Header from "@components/Header";
 
 import "@constantcss/constants.scss";
@@ -34,6 +36,7 @@ class App extends Component {
 
   render() {
     const { isLoading } = this.props;
+
     if (isLoading) return <div className={styles["app"]}></div>;
 
     return (

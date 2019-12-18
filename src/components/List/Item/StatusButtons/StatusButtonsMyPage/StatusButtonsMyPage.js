@@ -1,11 +1,15 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "@components/Button";
-import Badge from "../Badge";
-import giftIcon from "@img/iconGift.png";
-import styles from "../StatusButtons.module.scss";
+
 import { connect } from "react-redux";
 import { deleteFromMyList } from "@actions/updateGiftsList";
+
+import Badge from "../Badge";
+import Button from "@components/Button";
+
+import giftIcon from "@img/iconGift.png";
+
+import styles from "../StatusButtons.module.scss";
 
 class StatusButtonsMyPage extends Component {
   static propTypes = {
@@ -51,7 +55,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(
-  null,
-  mapDispatchToProps
-)(StatusButtonsMyPage);
+export default connect(null, mapDispatchToProps)(StatusButtonsMyPage);

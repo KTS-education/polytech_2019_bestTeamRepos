@@ -1,12 +1,5 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "@components/Button";
-import Badge from "../Badge";
-import pensiveFace from "@img/pensiveFace.png";
-import popular from "@img/badge-popular.png";
-import wantGive from "@img/wantGive.png";
-import ok from "@img/ok.png";
-import styles from "../StatusButtons.module.scss";
 
 import { connect } from "react-redux";
 import {
@@ -15,6 +8,16 @@ import {
   addToListFromMe,
   removeFromListFromMe
 } from "@actions/booking";
+
+import Button from "@components/Button";
+import Badge from "../Badge";
+
+import pensiveFace from "@img/pensiveFace.png";
+import popular from "@img/badge-popular.png";
+import wantGive from "@img/wantGive.png";
+import ok from "@img/ok.png";
+
+import styles from "../StatusButtons.module.scss";
 
 class StatusButtonsFriendPage extends Component {
   static propTypes = {

@@ -1,13 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import SearchInput from "@components/SearchInput";
-import PageName from "@components/PageName";
-
 import { connect } from "react-redux";
 import { apiGetItems } from "@actions/updateSearchResults";
 import { updateWishlist } from "@actions/updateGiftsList";
 import { updateSearchSuggestions } from "@actions/updateSearchSuggestions";
+
+import SearchInput from "@components/SearchInput";
+import PageName from "@components/PageName";
 import PopularGiftsContainer from "@components/PopularGiftsContainer";
 
 import Logo from "@img/wishlist.png";

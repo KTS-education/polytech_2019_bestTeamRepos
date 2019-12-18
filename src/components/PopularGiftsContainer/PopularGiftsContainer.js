@@ -1,10 +1,12 @@
 import React from "react";
+import { isArray } from "util";
+
+import { connect } from "react-redux";
+import { deleteSearchResults } from "@actions/updateSearchResults";
+
 import Loader from "@components/Loader";
 import List from "@components/List";
 import NoResults from "@components/NoResults";
-import { connect } from "react-redux";
-import { deleteSearchResults } from "@actions/updateSearchResults";
-import { isArray } from "util";
 
 class PopularGiftsContainer extends React.Component {
   componentWillUnmount() {

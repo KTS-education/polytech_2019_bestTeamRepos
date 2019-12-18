@@ -1,9 +1,10 @@
 import React from "react";
+import { Route, Switch } from "react-router-dom";
+
+import Routes from "@config/routes.js";
 
 import YourAccount from "./YourAccount";
 import Friends from "./Friends";
-import { Route, Switch } from "react-router-dom";
-import Routes from "@config/routes.js";
 import LinkItem from "@components/LinkItem";
 
 import styles from "./Header.module.scss";

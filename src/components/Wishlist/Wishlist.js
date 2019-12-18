@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
+
 import List from "@components/List";
 
 class Wishlist extends Component {

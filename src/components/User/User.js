@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import { connect } from "react-redux";
+
 import { default as connectVK } from "@vkontakte/vk-connect";
+import { connect } from "react-redux";
 import { fetchProfile, clearProfile } from "@actions/fetchProfile";
+
 import Button from "@components/Button";
 import UserTabs from "./UserTabs";
 import Avatar from "@components/Avatar";

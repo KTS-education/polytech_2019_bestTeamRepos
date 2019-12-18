@@ -1,8 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import LinkItem from "@components/LinkItem";
 import Routes from "@config/routes.js";
+
+import LinkItem from "@components/LinkItem";
 
 import relievedEmoji from "@img/relievedFace.png";
 import sunglassesEmoji from "@img/wantGive.png";

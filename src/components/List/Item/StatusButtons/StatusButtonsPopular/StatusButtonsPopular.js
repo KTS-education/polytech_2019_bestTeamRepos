@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "@components/Button";
+
 import { connect } from "react-redux";
 import { addToMyList } from "@actions/updateGiftsList";
+
+import Button from "@components/Button";
 
 class StatusButtonsPopular extends Component {
   constructor(props) {

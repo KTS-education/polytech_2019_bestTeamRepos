@@ -1,8 +1,10 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import { connect } from "react-redux";
-import SearchSuggestions from "@components/SearchSuggestions";
 import { cancelSearchSuggestions } from "@actions/updateSearchSuggestions";
+
+import SearchSuggestions from "@components/SearchSuggestions";
 
 import styles from "./SearchInput.module.scss";
 
@@ -72,6 +74,7 @@ class SearchInput extends React.Component {
     const { children } = this.props;
     const { searchSuggestions } = this.props;
     const { pages } = searchSuggestions;
+
     return (
       <div className={styles["search-container"]}>
         <input

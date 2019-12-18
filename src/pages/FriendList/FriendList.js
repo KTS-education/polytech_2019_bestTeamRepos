@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { connect } from "react-redux";
+
 import PageName from "@components/PageName";
 import SearchInput from "@components/SearchInput";
 import FriendsContainer from "@components/FriendsContainer";
-
-import { connect } from "react-redux";
 
 import Logo from "@img/friends.png";
 

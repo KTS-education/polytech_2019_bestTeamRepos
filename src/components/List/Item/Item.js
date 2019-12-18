@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import StatusButtons from "./StatusButtons";
-import styles from "./Item.module.scss";
+
 import noPicture from "@img/noPicture.png";
+
+import styles from "./Item.module.scss";
 
 export default class Item extends React.Component {
   static propTypes = {

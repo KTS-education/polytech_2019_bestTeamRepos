@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
+
 import noResults from "@img/noResults.png";
+
 import styles from "./NoResults.module.scss";
 
 export default class NoResults extends React.Component {

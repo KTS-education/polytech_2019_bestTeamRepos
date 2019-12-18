@@ -1,7 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import classNames from "classnames";
+
 import Item from "./Item";
+
 import styles from "./List.module.scss";
 
 class List extends React.Component {

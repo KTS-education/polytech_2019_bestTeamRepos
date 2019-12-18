@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
-import Button from "@components/Button";
-import Badge from "../Badge";
+
 import { connect } from "react-redux";
 import {
   bookProduct,
@@ -9,8 +8,13 @@ import {
   addToListFromMe,
   removeFromListFromMe
 } from "@actions/booking";
+
+import Button from "@components/Button";
+import Badge from "../Badge";
+
 import pensiveFace from "@img/pensiveFace.png";
 import popular from "@img/badge-popular.png";
+
 import styles from "../StatusButtons.module.scss";
 
 class StatusButtonsFromMe extends Component {

@@ -1,8 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
+
+import Routes from "@config/routes.js";
+
 import Button from "@components/Button";
 import Avatar from "@components/Avatar";
-import Routes from "@config/routes.js";
+
 import styles from "./Friend.module.scss";
 
 export default class Friend extends React.Component {

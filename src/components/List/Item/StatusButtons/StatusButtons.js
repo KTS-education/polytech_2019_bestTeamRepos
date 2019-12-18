@@ -2,13 +2,13 @@ import React from "react";
 import PropTypes from "prop-types";
 import { Switch, Route, withRouter } from "react-router-dom";
 
+import Routes from "@config/routes.js";
 import { connect } from "react-redux";
 
 import StatusButtonsPopular from "./StatusButtonsPopular";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
 import StatusButtonsFromMe from "./StatusButtonsFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
-import Routes from "@config/routes.js";
 
 class StatusButtons extends React.Component {
   static propTypes = {
@@ -21,6 +21,7 @@ class StatusButtons extends React.Component {
     const { product, targetId } = this.props;
     const currentPageId = targetId;
     const myProfileId = this.props.userId.vk_id;
+
     return (
       <Switch>
         <Route

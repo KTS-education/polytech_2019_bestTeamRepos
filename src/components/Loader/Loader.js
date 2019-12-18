@@ -1,4 +1,5 @@
 import React from "react";
+
 import LoaderImg from "@img/loader.png";
 
 import styles from "./Loader.module.scss";

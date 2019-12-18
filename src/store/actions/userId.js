@@ -1,5 +1,6 @@
 import { api } from "@src/api.js";
 import { default as connectVK } from "@vkontakte/vk-connect";
+
 const USER_ID_BEGIN = "USER_ID_BEGIN";
 const USER_ID_SUCCESS = "USER_ID_SUCCESS";
 const USER_ID_FAILURE = "USER_ID_FAILURE";

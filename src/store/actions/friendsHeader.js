@@ -1,4 +1,5 @@
 import { default as connectVK } from "@vkontakte/vk-connect";
+
 const HEADER_FRIENDS_SUCCESS = "HEADER_FRIENDS_SUCCESS";
 const HEADER_FRIENDS_BEGIN = "HEADER_FRIENDS_BEGIN";
 const HEADER_FRIENDS_FAILURE = "HEADER_FRIENDS_FAILURE";

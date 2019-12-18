@@ -1,4 +1,5 @@
 import { default as connectVK } from "@vkontakte/vk-connect";
+
 const ACCOUNT_INFO_BEGIN = "ACCOUNT_INFO_BEGIN";
 const ACCOUNT_INFO_SUCCESS = "ACCOUNT_INFO_SUCCESS";
 const ACCOUNT_INFO_FAILURE = "ACCOUNT_INFO_FAILURE";

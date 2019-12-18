@@ -1,15 +1,17 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Route, Switch, withRouter } from "react-router-dom";
+
+import Routes from "@config/routes";
+
 import { connect } from "react-redux";
+import { updateWishlist } from "@actions/updateGiftsList";
+import { getListFromMe } from "@actions/booking";
+
 import User from "@components/User";
 import Wishlist from "@components/Wishlist";
 import NoResults from "@components/NoResults";
 import Loader from "@components/Loader";
-import { updateWishlist } from "@actions/updateGiftsList";
-import { getListFromMe } from "@actions/booking";
-
-import Routes from "@config/routes";
 
 import styles from "./Profile.module.scss";
 
