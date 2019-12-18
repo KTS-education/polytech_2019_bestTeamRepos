@@ -6,7 +6,7 @@ import { addToMyList } from "@actions/updateGiftsList";
 
 import Button from "@components/Button";
 
-class StatusButtonsPopular extends Component {
+class StatusButtonsSearch extends Component {
   constructor(props) {
     super(props);
     this.state = { type: "primary", used: false, text: "Добавить в избранное" };
@@ -44,4 +44,4 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(StatusButtonsPopular);
+export default connect(null, mapDispatchToProps)(StatusButtonsSearch);

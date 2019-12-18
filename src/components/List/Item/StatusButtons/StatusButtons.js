@@ -5,7 +5,7 @@ import { Switch, Route, withRouter } from "react-router-dom";
 import Routes from "@config/routes.js";
 import { connect } from "react-redux";
 
-import StatusButtonsPopular from "./StatusButtonsPopular";
+import StatusButtonsSearch from "./StatusButtonsSearch";
 import StatusButtonsMyPage from "./StatusButtonsMyPage";
 import StatusButtonsFromMe from "./StatusButtonsFromMe";
 import StatusButtonsFriendPage from "./StatusButtonsFriendPage";
@@ -27,7 +27,7 @@ class StatusButtons extends React.Component {
         <Route
           exact
           path={Routes.mainPage}
-          render={props => <StatusButtonsPopular product={product} />}
+          render={props => <StatusButtonsSearch product={product} />}
         />
 
         <Route
