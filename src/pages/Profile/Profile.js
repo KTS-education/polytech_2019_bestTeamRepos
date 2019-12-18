@@ -106,19 +106,17 @@ class Profile extends Component {
             path={Routes.profile.create(id)}
             render={props => (
               <>
-                {isMyProfile ? (
-                  giftsList.length ? (
-                    <Wishlist
-                      products={giftsList}
-                      currentUserId={userId.vk_id}
-                    />
-                  ) : (
-                    <NoResults children="Кажется, ты не любишь дарить подарки" />
-                  )
-                ) : giftsList.length ? (
+                {" "}
+                {giftsList.length ? (
                   <Wishlist products={giftsList} currentUserId={numbId} />
                 ) : (
-                  <NoResults children="Кажется, друг не любит дарить подарки" />
+                  <NoResults
+                    children={
+                      isMyProfile
+                        ? "Кажется, ты не любишь дарить подарки"
+                        : "Кажется, друг не любит дарить подарки"
+                    }
+                  />
                 )}
               </>
             )}
