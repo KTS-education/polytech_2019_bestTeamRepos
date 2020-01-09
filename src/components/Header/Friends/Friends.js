@@ -1,24 +1,38 @@
 import React from "react";
 
+import { connect } from "react-redux";
+import Routes from "@config/routes.js";
+
 import FriendImgList from "./FriendImgList";
+import LinkItem from "@components/LinkItem";
 
-import f1 from "@img/accounts/friends/friend2.png";
-import f2 from "@img/accounts/friends/friend1.png";
-import f3 from "@img/accounts/friends/friend3.png";
-
-import "./Friends.css";
+import styles from "./Friends.module.scss";
 
 class Friends extends React.Component {
   render() {
+    const { headerFriendsList, isLoading } = this.props;
+
+    if (isLoading)
+      return (
+        <div className={styles["header-friends-container"]}>
+          <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
+        </div>
+      );
+
     return (
-      <div className="Header-Friends-Container">
-        <a href="/" className="Header-Friends-Container__Text">
-          Мои друзья
-        </a>
-        <FriendImgList friendsImages={[f1, f2, f3]} />
+      <div className={styles["header-friends-container"]}>
+        <LinkItem href={Routes.friendListPage}>Мои друзья</LinkItem>
+        <FriendImgList friendsImages={headerFriendsList} />
       </div>
     );
   }
 }
 
-export default Friends;
+const mapStateToProps = ({ headerFriendsList, isLoading }) => {
+  return {
+    ...headerFriendsList,
+    ...isLoading
+  };
+};
+
+export default connect(mapStateToProps)(Friends);

@@ -1,0 +1,57 @@
+:root {
+  /* FONT AND WIDTH */
+  --standard-width: 90%;
+  --max-width: 100%;
+
+  --standard-margin: 25px;
+  --margin-sm: 15px;
+
+  --max-z-index: 2147483638;
+
+  --standard-font: 16px;
+  --font-sm: 14px;
+  --font-m: 38px;
+
+  /* LINK */
+  --global-color-link-blue: #329eff;
+
+  --global-color-link-blue-hover: #2a85d7;
+
+  --global-color-link-blue-active: #2168a8;
+
+  /* MAIN COLORS */
+  --global-color-border-gray: rgba(211, 211, 211, 1);
+
+  --global-color-bg-white: #ffffff;
+
+  --global-color-black: #000000;
+
+  --global-shadow-color: rgba(0, 0, 0, 0.15);
+
+  /* MAIN BUTTON */
+  --global-main-btn-padding: 15px 20px;
+
+  --global-main-btn-padding-sm: 10px 20px;
+
+  --global-main-btn-bg: 11.31deg, #7dc4ff 0%, #6700ff 99.51%;
+
+  --global-main-btn-bg-hover: 191.31deg, #7dc4ff 0%, #7dc4ff 100%;
+
+  --global-main-btn-bg-active: #6700ff;
+
+  /* SECONDARY BUTTON */
+  --global-second-btn-font: 14px;
+
+  --global-second-btn-bg: 75deg, #e0fffd, #e7e1ff;
+
+  --global-second-btn-bg-hover: #e0fffd;
+
+  --global-second-btn-bg-active: #e7e1ff;
+
+  /* DISABLED BUTTON */
+  --global-disabled-btn-bg: #ededed;
+
+  /* EMOJI */
+  --emoji-btn-width: 20px;
+  --emoji-btn-height: 20px;
+}

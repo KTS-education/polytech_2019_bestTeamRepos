@@ -1,0 +1,30 @@
+@import "@constantcss/constants.scss";
+
+.friend-item {
+  width: var(--max-width);
+  display: flex;
+  margin-bottom: calc(var(--standard-margin) * 2);
+  margin-left: var(--standard-margin);
+  justify-content: flex-start;
+  list-style-type: none;
+
+  &__photo {
+    height: 120px;
+    margin-left: var(--standard-margin);
+  }
+
+  &__text-part {
+    margin-left: var(--standard-margin);
+
+    &__name-surname {
+      font-size: 27px;
+    }
+  }
+
+  .button--learn {
+    margin-top: var(--standard-margin);
+    font-size: var(--global-second-btn-font);
+    padding: var(--global-main-btn-padding-sm);
+    width: 140px;
+  }
+}

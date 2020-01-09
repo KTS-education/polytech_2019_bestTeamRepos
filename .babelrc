@@ -1,0 +1,11 @@
+{
+  "plugins": [
+    [
+      "react-css-modules",
+      {
+        "webpackHotModuleReloading": true,
+        "autoResolveMultipleImports": true
+      }
+    ]
+  ]
+}

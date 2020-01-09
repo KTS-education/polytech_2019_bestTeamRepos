@@ -1,13 +1,18 @@
 import React from "react";
 import PropTypes from "prop-types";
 
-import Header from "@components/Header";
+import { connect } from "react-redux";
+import { apiGetItems } from "@actions/updateSearchResults";
+import { updateWishlist } from "@actions/updateGiftsList";
+import { updateSearchSuggestions } from "@actions/updateSearchSuggestions";
+
 import SearchInput from "@components/SearchInput";
 import PageName from "@components/PageName";
+import SearchGiftsContainer from "@components/SearchGiftsContainer";
 
 import Logo from "@img/wishlist.png";
 
-import "./Main.css";
+import styles from "./Main.module.scss";
 
 class Main extends React.Component {
   static propTypes = {
@@ -18,17 +23,50 @@ class Main extends React.Component {
     logoPath: Logo
   };
 
+  async componentDidMount() {
+    try {
+      await this.props.updateWishlist(this.props.userId.api_id);
+    } catch (e) {
+      console.error(e);
+    }
+  }
+
+  updateSearchSuggestions = async input => {
+    await this.props.updateSearchSuggestions(input);
+  };
+
   render() {
-    const { logoPath } = this.props;
+    const { logoPath, apiGetItems } = this.props;
+    const { giftsList } = this.props.giftsList;
 
     return (
-      <div className="Main-container">
-        <Header />
+      <div className={styles["main-container"]}>
         <PageName name="Wishlist" logoPath={logoPath} />
-        <SearchInput />
+        <SearchInput
+          children="Введите название товара"
+          apiGetItems={apiGetItems}
+          giftsList={giftsList}
+          onChange={this.updateSearchSuggestions}
+        />
+        <SearchGiftsContainer />
       </div>
     );
   }
 }
 
-export default Main;
+const mapStateToProps = ({ userId, giftsList }) => {
+  return {
+    ...userId,
+    giftsList
+  };
+};
+
+const mapDispatchToProps = dispatch => {
+  return {
+    apiGetItems: (query, giftsList) => dispatch(apiGetItems(query, giftsList)),
+    updateWishlist: id => dispatch(updateWishlist(id)),
+    updateSearchSuggestions: input => dispatch(updateSearchSuggestions(input))
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Main);

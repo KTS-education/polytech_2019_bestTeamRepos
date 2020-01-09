@@ -1,0 +1,20 @@
+.header-friends__img-item {
+  display: inline-block;
+  margin-right: calc(var(--standard-margin) * (-1));
+  position: relative;
+
+  &:nth-child(1) {
+    z-index: calc(var(--max-z-index) - 1);
+  }
+  &:nth-child(2) {
+    z-index: calc(var(--max-z-index) - 2);
+  }
+  &:nth-child(3) {
+    z-index: calc(var(--max-z-index) - 3);
+  }
+
+  .img-item__friend-img {
+    height: 50px;
+    border-radius: 50px;
+  }
+}

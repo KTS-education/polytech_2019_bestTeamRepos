@@ -1,12 +1,28 @@
 import React from "react";
 import ReactDOM from "react-dom";
-import "./index.css";
+import connect from "@vkontakte/vk-connect";
+import { BrowserRouter } from "react-router-dom";
+import { store } from "@store/configureStore";
+import { Provider } from "react-redux";
+
 import App from "./pages/App";
 import * as serviceWorker from "./serviceWorker";
 
-ReactDOM.render(<App />, document.getElementById("root"));
+import "./index.css";
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
+connect.send("VKWebAppInit", {});
+
+if (connect.supports("VKWebAppResizeWindow")) {
+  connect.send("VKWebAppResizeWindow", { width: 800, height: 550 });
+}
+
+ReactDOM.render(
+  <Provider store={store}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </Provider>,
+  document.getElementById("root")
+);
+
 serviceWorker.unregister();

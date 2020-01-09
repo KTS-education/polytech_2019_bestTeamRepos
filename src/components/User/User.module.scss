@@ -1,0 +1,30 @@
+.user {
+  width: var(--standard-width);
+  display: flex;
+  margin-bottom: calc(var(--standard-margin) * 2);
+  margin-left: calc(var(--standard-margin) * (-1));
+  justify-content: flex-start;
+  margin: 0 auto;
+  align-items: center;
+
+  &__photo {
+    height: calc(var(--margin-sm) * 10);
+  }
+
+  &__text-part {
+    margin-left: var(--standard-margin);
+
+    & > :nth-child(n) {
+      margin-bottom: var(--margin-sm);
+    }
+  }
+
+  .credentials {
+    font-size: var(--font-m);
+    margin: 0;
+  }
+
+  .button--share {
+    padding: var(--global-main-btn-padding-sm);
+  }
+}

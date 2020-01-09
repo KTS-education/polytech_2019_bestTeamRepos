@@ -1,0 +1,14 @@
+.your-account {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  &__photo {
+    height: 50px;
+  }
+  &__text {
+    text-decoration: none;
+    color: var(--global-color-link-blue);
+    font-size: var(--standard-font);
+    margin-left: calc(var(--standard-margin) / 2);
+  }
+}

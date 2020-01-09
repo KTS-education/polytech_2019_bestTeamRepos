@@ -1,0 +1,10 @@
+.header-friends-container {
+  height: 90px;
+  display: flex;
+  align-items: center;
+  &__text {
+    text-decoration: none;
+    color: var(--global-color-link-blue);
+    font-size: var(--standard-font);
+  }
+}

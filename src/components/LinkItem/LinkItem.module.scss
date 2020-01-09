@@ -1,0 +1,24 @@
+.blueLink {
+  display: block;
+  text-decoration: none;
+  color: var(--global-color-link-blue);
+  font-size: var(--standard-font);
+  cursor: pointer;
+
+  &:hover {
+    color: var(--global-color-link-blue-hover);
+  }
+
+  &:active {
+    color: var(--global-color-link-blue-active);
+  }
+}
+
+.selected {
+  color: var(--global-color-black);
+  pointer-events: none;
+
+  &:hover {
+    color: var(--global-color-black);
+  }
+}
